@@ -4,17 +4,20 @@
 
 ## Current Phase
 
-G0 — 基础环境与机器人概念（规划完成，尚未开始实现）
+G0 — 基础环境与机器人概念（M0 盘点/设计完成，环境尚未实施）
 
 ## Current Objective
 
-完成只读开发环境/工作区盘点，并为第一个最小机器人表示与 MuJoCo 闭环练习确定输入、输出和验证，不安装大型依赖。
+建立隔离的 ROS 2 Jazzy 与 MuJoCo/ML 环境，运行最小 smoke tests，然后开始 joint/frame/transform 实操。
 
 ## Completed
 
 - 创建项目规划控制面与 G0–G8 dependency gates。
 - 定义主研究问题、最终架构、failure-driven A/B/C 对照和 Hardware Purchase Gate。
 - 将现有 `基础知识补充/` 资料链接为概念预读。
+- 完成 M0 只读机器盘点：Ubuntu 24.04.4、i7-9750H、16GB RAM、452GB 可用磁盘、GTX 1650 4GB。
+- 在宿主机验证 NVIDIA driver 580.173.02 与 `nvidia-smi` 正常；确认沙箱内 GPU/USB 检测不可靠。
+- 形成系统 ROS 2 Python 与 Conda simulation/ML Python 的环境边界、版本策略和 smoke-test contract。
 
 ## In Progress
 
@@ -26,10 +29,10 @@ G0 — 基础环境与机器人概念（规划完成，尚未开始实现）
 
 ## Next Actions
 
-1. 阅读 `README_PLAN.md`、`03_PRE_HARDWARE_SIMULATION_PLAN.md` 的 M0–M4、`04_ROS2_AND_ROBOTICS_FOUNDATION.md`。
-2. 只读记录 Ubuntu/GPU/driver/Python/Git/磁盘与当前仓库状态。
-3. 提出最小环境版本矩阵和 smoke-test 规范；评审后再安装小型依赖。
-4. 草拟 v0 joint/frame/observation/action contract，暂不创建大规模代码骨架。
+1. 按 `24_CURRENT_MACHINE_AND_NEXT_STEPS.md` 创建 Python 3.11 `embodied-sim` 环境并保存 exact manifest。
+2. 运行 MuJoCo headless/GUI 和 transform smoke tests。
+3. 使用系统 Python 路径安装并验证 ROS 2 Jazzy、RViz、TF 和 talker/listener。
+4. 草拟 v0 joint/frame contract，并完成 transform/FK 数值测试。
 
 ## Important Results
 
@@ -49,7 +52,7 @@ G0 — 基础环境与机器人概念（规划完成，尚未开始实现）
 
 ## Hardware Status
 
-- 已知可用：旧游戏本，Ubuntu 可安装，16GB RAM，GTX1650 4GB。
+- 已验证可用：Ubuntu 24.04.4 旧游戏本，i7-9750H、16GB RAM、GTX1650 4GB、NVIDIA driver 580.173.02。
 - 计划/未确认：SO-101 Pro leader/follower、双 RGB camera、M16 RTX4090 Laptop。
 - 云端：可按需使用 AutoDL；本轮未使用。
 
@@ -67,5 +70,4 @@ G0 — 基础环境与机器人概念（规划完成，尚未开始实现）
 
 ## Next Recommended Action
 
-执行 M0 的只读环境盘点，并产出环境设计与 smoke-test 清单。
-
+执行 `24_CURRENT_MACHINE_AND_NEXT_STEPS.md` 的 Stage A：建立最小环境并跑 smoke tests。

@@ -79,6 +79,7 @@ flowchart TD
 | [21_GITHUB_AND_PORTFOLIO.md](21_GITHUB_AND_PORTFOLIO.md) | 可证明真实机器人工作的发布证据 |
 | [22_RESUME_OUTPUT.md](22_RESUME_OUTPUT.md) | 不编造数据的简历/CV 模板 |
 | [23_OPTIONAL_EXTENSIONS.md](23_OPTIONAL_EXTENSIONS.md) | 主线稳定后的扩展及准入条件 |
+| [24_CURRENT_MACHINE_AND_NEXT_STEPS.md](24_CURRENT_MACHINE_AND_NEXT_STEPS.md) | 当前设备基线、环境边界与下一步执行路线 |
 | [PROGRESS.md](PROGRESS.md) | 当前状态和恢复上下文 |
 | [DECISIONS.md](DECISIONS.md) | 不随意漂移的设计决策记录 |
 | [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md) | 统一实验记录模板 |
@@ -89,5 +90,4 @@ flowchart TD
 
 ## 当前状态与下一步
 
-当前处于 G0，硬件状态未知/未采购，尚未开始实现、训练或实验。下一步阅读 [03_PRE_HARDWARE_SIMULATION_PLAN.md](03_PRE_HARDWARE_SIMULATION_PLAN.md)，执行其中 M0 的只读盘点与最小环境清单；不要安装 Isaac、下载 VLA 权重、训练模型、采购高端笔记本或批量创建代码骨架。
-
+当前处于 G0，SO-101 状态未知/未采购，尚未开始实现、训练或实验。M0 的只读机器盘点与环境设计已经完成，详见 [24_CURRENT_MACHINE_AND_NEXT_STEPS.md](24_CURRENT_MACHINE_AND_NEXT_STEPS.md)；下一步按其中 Stage A 建立最小环境并运行 smoke tests。不要安装 Isaac、下载 VLA 权重、训练模型、采购高端笔记本或批量创建代码骨架。
