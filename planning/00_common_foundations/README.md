@@ -18,6 +18,7 @@
 
 ## 学习方式
 
+- [../next_step.md](../next_step.md)：当前状态、完整基础清单和最近的执行计划。
 - [ROADMAP.md](ROADMAP.md)：按依赖关系安排学习顺序。
 - [MATH_KINEMATICS_AND_CONTROL.md](MATH_KINEMATICS_AND_CONTROL.md)：论文所需数学、运动学和控制知识。
 - [PERCEPTION_AND_REPRESENTATION.md](PERCEPTION_AND_REPRESENTATION.md)：人体、手、物体和图结构表示。

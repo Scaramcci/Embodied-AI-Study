@@ -1,6 +1,6 @@
 # 老师论文路线
 
-这是当前主线。目标是在开学前建立对 human-to-robot motion retargeting 和 learning from human video 的基本认识，并留下一个可展示的小型实验。
+这是公共基础之后的应用路线。两篇论文目前尚未开始第一轮学习；当前先按 [../next_step.md](../next_step.md) 学习公共基础，再开始论文阅读并完成可展示的小型实验。
 
 ## 核心论文
 
