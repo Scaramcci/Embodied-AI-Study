@@ -6,6 +6,7 @@
 当前模块：
 
 - [F2：机器人运动学与人体到机器人重定向](f2_kinematics_retargeting/README.md)
+- [F3：感知与表示](f3_perception_representation/README.md)
+- [论文导读：ObjRetarget 2026](paper_reading/objretarget_2026_guided_reading.md)
 
 后续只有在对应模块真正开始时才创建新目录，不预先生成空工程。
-

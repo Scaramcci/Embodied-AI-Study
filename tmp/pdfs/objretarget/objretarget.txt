@@ -1,0 +1,512 @@
+                                           ObjRetarget: An Object-Aware Motion Retargeting Framework with
+                                           Anthropomorphic Arm Constraints and Polyhedral Hand Modeling
+                                                                    Yuanchuan Lai1 , Qing Gao1,∗ , Ziyan Liang1 , Junjie Hu2 , Zhaojie Ju3
+
+
+                                           Abstract— Learning robot dexterous manipulation from hu-
+                                        man manipulation videos requires reliably retargeting human
+                                        intent to executable robot actions while maintaining stable
+                                        hand–object contact, which remains a key challenge in em-
+                                        bodied intelligence. Existing retargeting methods often ignore
+                                        explicit contact modeling or rely on reinforcement learning, re-
+                                        sulting in limited accuracy and generalization. To address this,
+
+
+
+
+arXiv:2607.03828v1 [cs.RO] 4 Jul 2026
+                                        we propose ObjRetarget, a human-to-robot motion retargeting
+                                        framework for learning robot dexterous manipulation from hu-
+                                        man videos, which integrates anthropomorphic arm trajectory
+                                        constraints with structured hand–object geometric modeling.
+                                        For arm motion, reference trajectories extracted from human
+                                        videos are used for initialization, followed by anthropomorphic
+                                        constraints and redundancy-aware optimization to generate
+                                        natural and accurate movements. For hand manipulation,
+                                        ObjRetarget represents multi-finger contacts using polytope                  Fig. 1. Schematic of the motion retargeting framework. Part (a) shows
+                                        clusters and preserves contact structure through geometric                   arm retargeting via inverse kinematics, part (b) shows hand retargeting via
+                                        invariants to improve stability. Experiments on real robots                  direct mapping, and part (c) presents the proposed pipeline with polyhedral
+                                                                                                                     hand modeling and anthropomorphic arm constraints.
+                                        show that ObjRetarget improves manipulation success rates and
+                                        contact stability across multiple dexterous tasks, and generalizes
+                                        well to different demonstrations, object poses, and task settings.
+                                        Project can be found at: https://github.io/ObjRetarget.                      motions but also coordinate large-scale arm movements,
+                                                                 I. I NTRODUCTION                                    ensuring that grasping, transport, and object operation remain
+                                                                                                                     both physically stable and behaviorally natural. This requires
+                                           Learning robot dexterous manipulation from human ma-                      reasoning about contact geometry, motion continuity, and
+                                        nipulation videos requires reliably retargeting human in-                    task-dependent constraints simultaneously.
+                                        tent into executable robot actions while maintaining stable                     However, most existing methods treat the arm and hand as
+                                        hand–object contact throughout the manipulation process.                     a unified system, overlooking their fundamental differences
+                                        This remains a central challenge in embodied intelligence                    in motion scale, functional roles, and precision requirements
+                                        and dexterous manipulation research, as successful manip-                    [8]. The arm primarily produces large, global movements that
+                                        ulation depends not only on motion imitation but also on                     determine object approach, spatial positioning, and overall
+                                        preserving physically meaningful contact relationships [1]–                  motion trajectory, whereas the hand performs fine, contact-
+                                        [3]. Existing motion retargeting approaches mainly focus on                  sensitive actions that directly govern grasp stability and
+                                        pose or joint mapping in free space, where the robot is                      manipulation success. Ignoring this distinction often leads
+                                        encouraged to reproduce demonstrated kinematics [4], [5], as                 to conflicts between global motion smoothness and local
+                                        illustrated in Fig. 1 (a). However, modeling object exchange,                contact stability, making it difficult to simultaneously achieve
+                                        contact transitions, and sustained hand–object interaction is                robustness and naturalness in tasks such as object transfer,
+                                        still limited, particularly in approaches that rely on direct                contact establishment, and contact maintenance. Meanwhile,
+                                        hand mapping [6], [7] (Fig. 1 (b)). In real-world manipu-                    many interaction-aware approaches rely on reinforcement
+                                        lation, robots must not only reproduce fine-grained finger                   learning for end-to-end optimization [9], [10]. Although such
+                                           This work was supported in part by the Shenzhen Science and Tech-         methods can implicitly learn contact behaviors, their general-
+                                        nology Program under Grant ZDCY20250901100201002, in part by the             ization ability is often limited, and performance can degrade
+                                        Guangdong Basic and Applied Basic Research Foundation under Grant            when object geometry, initial poses, or task conditions vary.
+                                        2025A1515011954 and 2023A1515110074.
+                                           1 Yuanchuan Lai, Qing Gao, Ziyan Liang are with the School                These limitations suggest that stable and generalizable retar-
+                                        of Electronics and Communica-tion Engineering, Sun Yat-sen Univer-           geting requires not only reproducing demonstration motions,
+                                        sity, Shenzhen 518107, China.(email:laiych25@mail2.sysu.edu.cn, gao-         but also explicitly modeling hand–arm motion differences
+                                        qing2@mail.sysu.edu.cn)
+                                           2 Junjie Hu is with the School of Artificial Intelligence, The Chinese    and incorporating object interaction constraints into the re-
+                                        University of Hong Kong, Shenzhen, Shenzhen 518172, China.(email:            targeting process.
+                                        hujunjie@cuhk.edu.cn )                                                          To address these challenges, we propose ObjRetar-
+                                           3 Zhaojie Ju is with the School of Computing, University of Portsmouth,
+                                        Portsmouth PO1 3HE, UK.(email: Zhaojie.Ju@port.ac.uk)                        get, an object-interaction-oriented human-to-robot retarget-
+                                           ∗ Corresponding Author:Qing Gao, gaoqing2@mail.sysu.edu.cn.               ing framework for dexterous manipulation, as illustrated in
+Fig. 1. The pipeline first builds a human reference plan         and guides arm motion with reference trajectories from
+by extracting articulated joint trajectories and object point-   demonstrations. By avoiding large-scale training procedures
+cloud information from demonstration videos, followed by an      and explicit object models, this structured, human-informed
+initial retargeting stage that retargets human motion into a     formulation enables stable interaction and improved gener-
+coarse robot trajectory for subsequent optimization. Building    alization across diverse objects and task scenarios.
+upon this initialization, ObjRetarget explicitly models the
+distinct motion characteristics of the arm and hand. For arm     B. Human-to-Robot Motion Retargeting
+motion, we propose to refine the retargeted reference trajec-
+                                                                    Human-to-robot motion retargeting transfers human
+tories through anthropomorphic motion constraints and task-
+                                                                 demonstrations to robot platforms with different kinematics
+adaptive optimization, enabling the global motion to follow
+                                                                 and degrees of freedom for high-fidelity motion reproduction.
+human movement patterns while adapting to variations in ob-
+                                                                 Traditional methods rely on analytical kinematics, optimiza-
+ject initial poses, thereby improving motion naturalness and
+                                                                 tion, or constraint-based planning, typically using joint-space
+accuracy. For hand manipulation, we propose to construct
+                                                                 mapping to adapt arm and hand poses [17]–[19], while more
+polytope clusters in which each finger–object contact forms
+                                                                 recent works employ deep learning or latent representations
+a local geometric unit, and geometric invariant constraints
+                                                                 to reduce kinematic discrepancies and improve retargeting
+are applied to preserve contact structure and manipulation
+                                                                 accuracy [20]–[22]. These approaches perform well in free-
+semantics, enhancing grasp stability and interaction reliabil-
+                                                                 space imitation and trajectory tracking.
+ity. Extensive real-robot experiments show that ObjRetarget
+                                                                    However, most methods assume object-free or weak-
+significantly improves manipulation success rates and contact
+                                                                 contact settings and focus on geometric consistency or joint
+stability across multiple dexterous manipulation tasks, while
+                                                                 error minimization, without explicitly modeling hand–object
+maintaining natural and interpretable robot motions.
+                                                                 interactions. In addition, many approaches treat the arm and
+   Our contributions are summarized as follows:
+                                                                 hand as a unified system [23], [24], overlooking their distinct
+   • We propose ObjRetarget, a hand–arm decoupled
+                                                                 roles: the arm controls large-scale motion, while the hand
+      human-to-robot retargeting framework that explicitly       requires precise, contact-sensitive manipulation. This simpli-
+      separates global arm motion from contact-sensitive hand    fication can reduce coordination between global motion and
+      manipulation, enabling object-aware motion generation      local interaction, degrading performance in complex tasks.
+      within a unified pipeline.
+                                                                    ObjRetarget addresses these limitations by separating arm-
+   • We develop a reference-trajectory-guided arm optimiza-
+                                                                 level global motion from hand-level fine manipulation. Arm
+      tion strategy with anthropomorphic motion constraints,
+                                                                 motion is guided by reference trajectories and refined with
+      producing stable and human-consistent arm trajectories
+                                                                 task-related constraints, producing physically executable mo-
+      under varying object poses and task conditions.
+                                                                 tions that preserve human characteristics and support stable
+   • We introduce a polytope-cluster hand modeling method
+                                                                 object interaction. At the same time, the retargeting process
+      that represents multi-finger contacts as local geomet-
+                                                                 explicitly accounts for hand–object contact, ensuring stable
+      ric units and preserves hand–object contact structure
+                                                                 and precise multi-finger manipulation during interaction.
+      through geometric constraints.
+                    II. R ELATED W ORK                           C. Learning from Human Demonstrations
+A. Object-Aware Dexterous Manipulation                              Human demonstration videos provide rich priors for robot
+   Object-aware dexterous manipulation is challenging due to     dexterous manipulation, enabling object-aware motion retar-
+multi-contact constraints and complex hand–object geometry.      geting from humans to robots. Traditional imitation-learning
+Reinforcement learning and model predictive control are          methods map human videos or motion capture data to robot
+widely used to learn interaction policies [11], [12], but        control policies through trajectory replay, behavior cloning,
+reinforcement learning typically requires extensive training     or end-to-end visuomotor learning [25]–[28]. While effective
+processes with large-scale interaction rollouts and careful      for skill acquisition, these approaches typically focus on
+reward design, and its performance can be sensitive to           autonomous policy learning and often ignore fine-grained
+variations in object geometry and initial conditions [13],       hand–object interactions, limiting precise motion mapping
+[14]. Other approaches incorporate explicit contact models       and stable grasp execution.
+or tactile sensing to improve stability [15], [16], yet they        Single-video retargeting methods, such as OKAMI [31]
+often depend on accurate contact modeling or specialized         and ORION [32], leverage human demonstrations to gen-
+tactile hardware, limiting scalability and cross-object gen-     erate executable robot motions. OKAMI imitates humanoid
+eralization. As a result, achieving stable and generalizable     motion for skill learning but struggles with multi-stage
+dexterous manipulation without heavy training procedures or      operations and continuous contact control due to the lack
+precise object modeling remains difficult.                       of explicit hand–object modeling. ORION uses open-world
+   To overcome these limitations, ObjRetarget leverages hu-      object graphs to infer object-centric actions, improving gen-
+man manipulation priors from videos rather than relying          eralization across objects and layouts, but does not model
+on autonomous policy learning. It models hand–object in-         fine-grained hand–object contacts. These examples highlight
+teraction using polytope clusters with geometric invariants      the potential of video-driven manipulation while showing the
+need for structured, object-aware retargeting. ObjRetarget ad-       Motion Initialization via Motion Retargeting: Although
+dresses this by modeling hand–object contacts with polytope       the initialization trajectory may not be the final execution
+clusters and guiding arm motion via human reference tra-          result, it provides a structurally valid and near-optimal start-
+jectories, enabling contact-consistent, anthropomorphic, and      ing point, which greatly improves convergence stability in
+generalizable motion suitable for downstream skill learning.      subsequent optimization.
+                     III. O BJ R ETARGET                             Let the human motion sequence, consisting of T frames,
+                                                                  be represented as a set of skeleton graphs D = {Gk }Tk=1 ,
+A. Object-Aware Motion Retargeting Framework
+                                                                  where each graph Gk = (Vk , Ek , Wk ) consists of joint
+   We propose ObjRetarget, an object-interaction-oriented         nodes Vk , skeletal connectivity Ek , and dynamic attention
+motion retargeting framework that learns robot manipulation       weights Wk at frame k. Each skeleton graph is embedded
+from human operation videos. As illustrated in Fig. 2 (a),        into a latent space via an encoder fψ (·), producing a compact
+given an RGB-D manipulation video, human body motion              representation zk = fψ (Gk ), which is then decoded into the
+is first reconstructed using the SLAHMR [29] pose estima-         robot joint configuration θk = fϕ (zk ) ∈ Rn , where n is the
+tor, an iterative optimization-based algorithm for recovering     number of robot joints and θk respects the joint limits.
+human motion sequences. The manipulated objects are then             The corresponding robot end-effector pose Sk is obtained
+identified using a vision–language model, followed by object      via forward kinematics, Sk = F K(θk ), where Sk encodes
+pose tracking to estimate their spatial trajectories over time.   both position and orientation of the end-effector. The retar-
+These components are integrated to obtain synchronized            geting process is optimized by minimizing a reference loss:
+sequences of human joint poses, object point-cloud poses,
+and human–object interaction distances. Contact events are                Lref (Sk , Skh ) = Lpos + λori Lori + λtip Ltip ,    (1)
+detected by thresholding the interaction distance, enabling
+the system to distinguish between free motion and physical        which accounts for end-effector position error Lpos , orien-
+interaction phases.                                               tation error Lori , and fingertip consistency Ltip relative to
+   At the arm level (Fig. 2 (b)), ObjRetarget generates           the human demonstration Skh , with λori and λtip weighting
+global motion through a two-stage strategy. Human joint           the contributions. The optimization over encoder and decoder
+pose sequences are first used to produce an initialization        parameters (ψ, ϕ) is formulated as:
+retargeting trajectory, providing a feasible and structurally                               T
+consistent motion prior. This trajectory is then refined by                           min
+                                                                                            X
+                                                                                                  Lref (Sk , Skh ),            (2)
+incorporating object pose information together with anthro-                           ψ,ϕ
+                                                                                            k=1
+pomorphic motion constraints, yielding an executable arm
+trajectory that remains consistent with the demonstration                           s.t.    θmin ≤ θk ≤ θmax .                 (3)
+while adapting to specific task configurations. At the hand
+level (Fig. 2 (c)), ObjRetarget adopts a contact-aware staged        The resulting robot trajectory S = {Sk }Tk=1 serves as the
+retargeting mechanism. During the non-contact phase, the          macro-level arm reference, providing an effective initializa-
+system follows the initialized hand motion obtained from          tion for subsequent geometric consistency optimization.
+retargeting. Once contact is detected, polytope-cluster-based        Task-Adaptive Arm-Plane Regularization: In human mo-
+geometric consistency optimization is activated to preserve       tion, the plane formed by the shoulder, elbow, and wrist
+local contact structures and manipulation semantics.              evolves smoothly over time, and its normal direction is
+   Finally, Fig. 2 (d) shows the unified temporal scheduler       closely related to motion direction and task semantics. In
+responsible for coordinating arm and hand trajectories. By        contrast, robots with redundant degrees of freedom often
+synchronizing global arm motion with fine-grained hand            produce non-anthropomorphic elbow configurations when
+manipulation, ObjRetarget ensures coherent dual-arm exe-          only end-effector constraints are enforced, including elbow
+cution. Leveraging this hand–arm decoupled formulation,           flipping, jitter, or abnormal lifting.
+the framework achieves natural, stable, and generalizable            Existing approaches typically promote anthropomorphic
+dexterous manipulation in complex object-interaction tasks.       motion by directly matching the arm-plane normal of the hu-
+                                                                  man demonstration. However, this strategy effectively treats
+B. Anthropomorphic Arm Constraints                                the arm plane as a rigid pose target, which restricts motion
+                                                                  flexibility in constrained manipulation scenarios. To maintain
+   To obtain stable, natural, and generalizable robot execution
+                                                                  anthropomorphic structure while allowing adaptive motion,
+trajectories in complex object-interaction tasks, ObjRetarget
+                                                                  the arm plane is instead formulated as a soft geometric
+adopts a two-stage arm motion generation strategy. First,
+                                                                  constraint.
+a reference trajectory is generated based on our previous
+retargeting work [30], providing a feasible and structured           As shown in Fig. 3, let the robot shoulder, elbow, and wrist
+initial motion. Then, the trajectory is refined using an op-      positions at time t be ps (t), pe (t), pw (t). The instantaneous
+timization framework guided by anthropomorphic motion             arm-plane normal is defined as:
+constraints and task objectives, producing motions that sat-
+isfy task requirements while maintaining anthropomorphic                            (pe (t) − ps (t)) × (pw (t) − pe (t))
+                                                                      nrobot
+                                                                       arm (t) =                                           .   (4)
+motion patterns.                                                                   ∥(pe (t) − ps (t)) × (pw (t) − pe (t))∥
+Fig. 2. Overview of the object-aware motion retargeting framework. Part (a) illustrates the extraction of human 3D body and hand poses from an RGB-D
+video, along with the detection and tracking of task-relevant objects to generate a reference plan. Part (b) presents arm trajectories refined based on
+object poses and anthropomorphic constraints. Part (c) shows hand motions optimized at contact points using polyhedral clusters. Part (d) depicts a unified
+temporal scheduler that synchronizes arm and hand motions for coordinated dual-arm execution.
+
+
+
+                                                                                 large, fast arm motions while automatically reducing it dur-
+                                                                                 ing fine contact manipulation, preventing interference with
+                                                                                 task accuracy. The formulation penalizes only large devia-
+                                                                                 tions from human-consistent bending trends while preserving
+                                                                                 redundancy flexibility.
+                                                                                     Task-Oriented End-Effector Tracking Loss: To ensure
+                                                                                 task accuracy during trajectory refinement, ObjRetarget in-
+                                                                                 cludes a standard end-effector pose tracking objective. Let
+                                                                                 the wrist pose at time t be xw (t) = [pw (t), Rw (t)], where
+Fig. 3.      Schematic of the task-adaptive arm-plane regularization. (a)        pw (t) ∈ R3 is the wrist position and Rw (t) ∈ SO(3) is the
+The normalized normal vector nrobot
+                                  arm defined by the shoulder-elbow-wrist        wrist orientation represented as a rotation matrix. Similarly,
+triangle. (b) The reference normal nref
+                                      arm constructed from the wrist motion      the reference wrist pose is xref         ref    ref
+                                                                                                               w (t) = [pw (t), Rw (t)], where
+direction. (c) The arm plane and its normal vector in the robot configuration.     ref         ref
+                                                                                 pw (t) and Rw (t) denote the target position and orientation
+                                                                                 at frame t. The task-oriented tracking loss is defined as:
+   Instead of using the human demonstration directly, the
+reference bending direction is constructed adaptively from                                                   2             ⊤        2
+                                                                                  Ltask (t) = ∥pw (t)−pref            ref
+                                                                                                       w (t)∥ +λR ∥ϕ(Rw (t) Rw (t))∥ , (7)
+the current motion trend:
+                             (pw (t) − ps (t)) × ṗw (t)
+             nref
+              arm (t) =                                   ,               (5)    where ϕ(·) maps the rotation error from SO(3) to its Lie
+                            ∥(pw (t) − ps (t)) × ṗw (t)∥
+                                                                                 algebra representation, and λR weights the orientation term
+where ṗw (t) denotes the wrist velocity direction. The result-                  relative to the position term. This loss focuses purely on task
+ing task-adaptive arm-plane loss is defined as:                                  accuracy and does not impose any additional priors, ensuring
+                                                                                 generality across different scenarios.
+        Lplane (t) = w(t) 1 − nrobot         ref
+                                                    
+                                  arm (t) · narm (t) ,     (6)
+                                                                                    Overall Optimization Objective: Combining task con-
+   This adaptive weighting w(t) emphasizes the prior during                      straints and anthropomorphic regularization, the arm trajec-
+tory optimization is formulated as:                               invariants. The overall geometric consistency loss is defined
+     Xh                                                    i      as:
+          Ltask (t) + λp Lplane (t) + λs ∥q(t) − q(t − 1)∥2 ,
+                                                                                           X
+min                                                                                   L=      wf · L(Tf ),                 (10)
+q(t)
+       t                                                                                        f
+                                                        (8)
+where q(t) denotes the robot joint configuration at time t,       where f indexes the fingers, wf is a weight coefficient,
+and λp and λs control the anthropomorphic regularization          and L(Tf ) is the geometric consistency loss for the f -
+and temporal smoothness terms, respectively.                      th tetrahedron, composed of edge-length and relative-pose
+                                                                  invariants:
+C. Polyhedral Hand Modeling
+                                                                               L(Tf ) = Ledge (Tf ) + λLpose (Tf ),               (11)
+   Hand–object contact representation: To accurately cap-
+ture fine-grained geometric relationships between the hu-           The edge-length loss constrains the local tetrahedral ge-
+man hand and objects during multi-finger manipulation,            ometry:
+ObjRetarget introduces an object-aware hand–object contact
+                                                                                    X                              2
+                                                                      Ledge (Tf ) =        pri − prj − (phi − phj ) ,    (12)
+representation. Given an RGB-D input video, the system                               (i,j)∈Ef
+first extracts hand keypoints and the object surface point
+cloud. The hand keypoints include the five fingertips and         where Ef denotes the edges of the tetrahedron, and pr ,ph
+the palm center (six points in total) to represent the overall    are vertex positions in the robot and human demonstration,
+hand configuration, while the object surface is reconstructed     respectively.
+from the depth point cloud.                                          To distinguish cases where geometric structure is pre-
+   Based on the spatial adjacency between hand keypoints          served but manipulation semantics differ, a relative-pose
+and object points, the system performs finger-wise contact        invariant is introduced. Using a local coordinate frame based
+detection to determine which fingers are in effective contact     on hand keypoints, the relative position of the object contact
+with the object. For a contacting finger f , its local contact    point is constrained:
+region Cf on the object surface is extracted, and the centroid                                                            2
+                                                                      Lpose (Tf ) = Rr⊤ (crf − pr0 ) − Rh⊤ (chf − ph0 )       ,   (13)
+of this region is used as the representative contact point:
+                                                                  where p0 is the palm reference point, and Rr , Rh ∈ SO(3)
+                               1 X                                represent the local hand frames of the robot and human
+                      cf =         o,                       (9)
+                             |Cf |                                demonstration, respectively. This term removes global trans-
+                                 o∈Cf
+                                                                  lation and rotation while preserving the contact direction and
+where |Cf | denotes the number of points in the contact           spatial distribution relative to the hand, effectively maintain-
+region, and o represents points on the object surface. This       ing manipulation semantics.
+design enables robust extraction of multi-finger contact in-         Finally, hand motion retargeting is formulated as the
+formation under complex interaction scenarios, providing          following constrained optimization problem:
+reliable input for structured geometric modeling.                                            X
+   Polytope cluster construction: After obtaining finger-wise                     q ∗ = min      wf (L(Tf (q))),              (14)
+                                                                                          q
+contacts, ObjRetarget constructs polytope clusters to model                                     f
+
+local geometric relationships during multi-finger collabora-
+tion. For a contacting finger f , a local tetrahedral unit Tf                         s.t.qmin ≤ q ≤ qmax ,                       (15)
+is defined by four vertices: the palm center, the fingertip       where qmin , qmax are joint limits, and q ∗ denotes the
+keypoint of f , the fingertip of an adjacent finger, and          optimized joint configuration achieving minimal combined
+the corresponding object contact point cf . When multiple         edge and pose loss.
+fingers contact simultaneously, the resulting tetrahedra form a
+polytope cluster representing the local hand–object geometry      D. Synchronized Arm–Hand Execution
+under coordinated manipulation. This formulation transforms          After obtaining the optimized arm and hand control com-
+complex multi-finger contact relationships into a set of          mands, ObjRetarget employs a unified temporal scheduler
+stable, compact geometric units, providing interpretable and      to coordinate the execution of both arms and hands. The
+optimizable high-dimensional contact constraints.                 arm motions are carried out using the anthropomorphically
+   The core idea is that human manipulation does not require      retargeted commands produced by the arm-level optimiza-
+exact reproduction of absolute poses but rather the preserva-     tion, ensuring physically plausible and smooth trajecto-
+tion of stable local geometry and contact semantics. Conse-       ries. Hand motions are executed according to a contact-
+quently, polytope clusters serve as soft geometric constraints,   aware strategy. When no contact is detected, defined as a
+providing a structured basis for subsequent geometric con-        hand–object interaction distance greater than the threshold
+sistency optimization.                                            δ, the system follows the initialized hand retargeting com-
+   Geometric-invariant optimization: Based on polytope-           mands. The threshold δ is set to 0.05cm, chosen based
+cluster modeling, ObjRetarget formulates hand motion retar-       on the precision of the object tracking system to reliably
+geting as a nonlinear optimization problem under geometric        distinguish actual contact from free motion. Once contact
+Fig. 4. Visualization of ObjRetarget on six real-world dexterous manipulation tasks. For each task, the top row shows the human demonstration and the
+bottom row shows the corresponding robot execution. From left to right: (a) Sequential Place: sequentially placing two cartons onto a tray, (b) Soft Place:
+grasping a plush toy and placing it into a basket, (c) Drawer Close: placing a medicine box into an open drawer and closing it, (d) Fruit Place: transferring
+a mango from the table to a fruit basket, (e) Pour Water: picking up a bottle, pouring water into a container, and returning it, and (f) Bimanual Place:
+bimanual grasping of an apple and a lemon followed by synchronized placement.
+
+
+                                                                                                                  TABLE I
+occurs, the hand control switches to the polyhedral-cluster-
+                                                                                                          TASK S UCCESS R ATE (%)
+optimized commands to preserve local contact structures and
+manipulation semantics. After the contact is released, the                             Task (/20f)           OKAMI [31]        ORION [32]       Ours
+system reverts to the initialized hand commands. This cycle
+                                                                                       Soft Place                  13               12           17
+repeats automatically for multiple contact events during an                            Pour Water                  12               12           16
+operation. By synchronizing arm and hand motions in this                               Fruit Place                 14               13           16
+way, the scheduler ensures stable, natural, and generalizable                          Drawer Close                10               8            13
+                                                                                       Sequential Place            12                9           14
+execution of complex object-interaction tasks.                                         Bimanual Place              13               8            15
+                      IV. E XPERIMENTS                                                 Avg. Success Rate         61.6%            50.8%        75.8%
+A. Experimental Setup
+   To systematically evaluate the stability and generalization
+ability of ObjRetarget in real-world manipulation scenar-
+                                                                                   For evaluation, each task is repeated 20 times. In ev-
+ios, we conduct experiments on a RealMan dual-arm robot
+                                                                                ery trial, object poses are randomly initialized within the
+platform across a range of everyday dexterous manipula-
+                                                                                intersection of the camera field of view and the robot’s
+tion tasks. The tasks cover grasping, placement, sequential
+                                                                                reachable workspace, and experiments are conducted in
+pouring control, and articulated-object interaction, enabling
+                                                                                cluttered tabletop environments containing distractor objects.
+evaluation under varying interaction complexity and motion
+                                                                                This setup allows us to assess robustness under realistic
+constraints. Specifically, the tasks include: a) sequentially
+                                                                                perception uncertainty.
+placing two cartons onto a tray, b) grasping a plush toy and
+placing it into a basket, c) placing a medicine box into an                        We compare ObjRetarget with OKAMI [31] and ORION
+open drawer and closing it, d) transferring a mango from the                    [32]. Since ORION was originally designed for parallel grip-
+table to a fruit basket, e) picking up a bottle, pouring water                  pers, its generated end-effector trajectories cannot be directly
+into a container, and returning it, and f) bimanual grasping of                 applied to dexterous hands. To ensure fair comparison, we
+an apple and a lemon followed by synchronized placement.                        adapt its control interface by converting the gripper trajectory
+   The experiments are performed on the RealMan dual-arm                        into a palm trajectory and incorporating hand pose and joint
+robot, where each arm has 6 DoF and is equipped with a                          constraints in the inverse kinematics solver, enabling stable
+6-DoF Inspire dexterous hand. An Intel RealSense D435i                          multi-finger grasping and placement under identical task
+depth camera is used for visual perception and experiment                       settings.
+recording. The robot executes motions using joint-space                            All experiments were conducted using the PyTorch deep
+position control for continuous trajectory tracking, ensuring                   learning framework on a system equipped with an NVIDIA
+smooth, synchronized, and stable dual-arm execution.                            RTX 4090 GPU and an Intel(R) Core(TM) i7-11700KF CPU.
+                                                                          C. Ablation Study
+                                                                             1) Hand–object geometric consistency module: We assess
+                                                                          the contribution of structured contact modeling to task stabil-
+                                                                          ity and success by comparing three configurations: removing
+                                                                          the human-demonstration-based initialization (W/o Init Re-
+                                                                          target), further removing hand–object geometric consistency
+                                                                          (W/o Hand Geometry), and the full ObjRetarget. Evaluation
+                                                                          metrics include the object slip distance [33], which measures
+                                                                          the cumulative displacement of the object relative to the hand
+                                                                          contact frame and thus reflects contact stability; geometric
+Fig. 5. Performance evaluation of ObjRetarget with videos from multiple
+                                                                          consistency [34], computed from normalized edge-length
+demonstrators.                                                            errors and relative pose errors of local hand–object contacts,
+                                                                          which indicates how well the contact structure is preserved;
+                                                                          and task success, the percentage of trials in which the task
+B. Comparative Experiments on Motion Retargeting                          is completed successfully.
+
+                                                                                                    TABLE II
+   1) Multi-method comparison: We conduct a system-
+                                                                             A BLATION STUDY OF HAND – OBJECT GEOMETRIC CONSISTENCY.
+atic comparative evaluation of ObjRetarget, OKAMI, and
+ORION across the full task set to assess their execution
+                                                                           Method                Object Slip          Geom.             Task
+stability and task completion capability in complex dexterous                                   Distance(m) ↓      Consistency ↓    Success(%) ↑
+manipulation scenarios. The visualization of ObjRetarget                   W/o Init Retarget       0.025                0.183           65.0
+executions is shown in Fig. 4. In all experiments, object poses            W/o Hand Geom.          0.045                0.275           53.3
+are randomly initialized within the workspace, requiring each              Ours                    0.012                0.081           75.8
+method to autonomously perform the tasks under varying
+spatial configurations and visual observations. This setup al-               As shown in Table II, full ObjRetarget achieves the lowest
+lows us to realistically evaluate robustness and generalization           geometric errors, minimal object sliding, and the highest
+performance in cluttered and uncertain environments.                      success rates. Removing initialization slows convergence and
+   As shown in Table I, ObjRetarget achieves the highest                  reduces stability, while also removing geometric consistency
+success rates across all tasks, with particularly clear gains             causes significant slippage, contact failures, and posture
+in contact-sensitive and multi-stage scenarios such as Pour               collapse.
+Water, Drawer Close, Sequential Place, and Bimanual Place.                   2) Ablation of Arm Initialization and Anthropomorphic
+These results indicate that structured hand–object model-                 Constraints: We evaluate the effects of the initialization-
+ing improves contact stability, while unified arm-motion                  based retargeting and task-adaptive arm-plane regularization
+constraints enhance temporal consistency and coordination.                on motion accuracy and naturalness. Three configurations
+OKAMI performs comparably on simpler placement tasks                      are compared: W/o Init Retarget (removing the initializa-
+but degrades in operations requiring sustained contact or                 tion retargeting prior), W/o Arm-Plane Opt (removing arm-
+staged transitions. ORION yields the lowest overall perfor-               plane regularization), and full ObjRetarget. Performance is
+mance, suggesting that without explicit motion and contact                evaluated using four metrics: mean per-joint position error
+modeling, stable grasping and coordinated wrist behavior are              (MPJPE) for spatial accuracy [35], end-effector quaternion
+difficult to maintain.                                                    distance (Quat) for orientation accuracy [36], Fréchet dis-
+   2) Cross-demonstrator generalization: To further evaluate              tance for overall trajectory shape similarity [37], and task
+the system’s robustness to individual differences, we tested              success rate for execution reliability.
+ObjRetarget under cross-demonstrator conditions. Three
+                                                                                                       TABLE III
+demonstrators with distinct hand sizes, motion habits, and
+                                                                              A BLATION OF A RM I NITIALIZATION AND A NTHROPOMORPHIC
+manipulation styles performed the same set of tasks. Without
+                                                                                                     C ONSTRAINTS
+modifying the model structure or parameters, the demonstra-
+tions from all individuals were mapped onto the same robot                  Method                MPJPE      Quat        Fréchet       Task
+platform for execution.                                                                            (m)↓     (rad)↓        (m)↓      Success (%)↑
+   As shown in Fig. 5, ObjRetarget achieves stable perfor-                  W/o Init Retarget      0.125        0.275     0.313         60.8
+mance across demonstrations from different individuals. Al-                 W/o Arm-Plane Opt      0.103        0.337     0.251         57.5
+though variations in manipulation style and hand morphology                 Ours                   0.088        0.192     0.124         75.8
+introduce slight differences in task outcomes, the success
+rates remain consistently high for all demonstrators across                  As shown in Table III, full ObjRetarget achieves the
+the three tasks. In particular, each task maintains comparable            best results across all metrics, producing trajectories closely
+performance ranges, indicating that the system does not rely              aligned with human demonstrations. Removing initialization
+on a specific motion style to function correctly.                         increases MPJPE and Fréchet distance due to a larger search
+space, while removing the arm-plane regularization causes                      [13] W. Yang and W. Jin, “ContactSDF: Signed distance functions as multi-
+unnatural elbow motion and oscillations, reducing trajectory                        contact models for dexterous manipulation,” IEEE Robot. Autom.
+                                                                                    Lett., 2025.
+consistency.                                                                   [14] A. Rajeswaran, K. Lowrey, E. V. Todorov, et al., “Towards generaliza-
+                                                                                    tion and simplicity in continuous control,” in Proc. Adv. Neural Inf.
+                          V. C ONCLUSION                                            Process. Syst. (NeurIPS), vol. 30, 2017.
+                                                                               [15] S. Calinon, “A tutorial on task-parameterized movement learning and
+   This paper presents ObjRetarget, a human-to-robot re-                            retrieval,” Intell. Serv. Robot., vol. 9, no. 1, pp. 1–29, 2016.
+targeting framework that decouples arm-level global mo-                        [16] Z. Si, Z. Zhu, A. Agarwal, S. Anderson and W. Yuan, “Grasp stability
+tion from contact-sensitive hand manipulation by integrating                        prediction with sim-to-real transfer from tactile sensing,” in Proc.
+                                                                                    IEEE/RSJ Int. Conf. Intell. Robot. Syst. (IROS), 2022, pp. 7809–7816.
+polyhedral hand modeling and anthropomorphic arm con-                          [17] Y. Liang, et al., “Dynamic movement primitive based motion retar-
+straints to achieve stable, natural, and generalizable dexterous                    geting for dual-arm sign language motions,” in Proc. IEEE Int. Conf.
+manipulation. The framework is validated on the RMC-                                Robot. Autom. (ICRA), 2021, pp. 8195–8201.
+                                                                               [18] X. Xing, K. Maqsood, C. Zeng, et al., “Dynamic motion primitives-
+DA dual-arm robotic platform across diverse fine manip-                             based trajectory learning for physical human–robot interaction force
+ulation tasks, including grasping, pouring, object transfer,                        control,” IEEE Trans. Ind. Inform., vol. 20, no. 2, pp. 1675–1686,
+drawer closing, sequential placement, and bimanual coordi-                          2023.
+                                                                               [19] T. He, Z. Luo, W. Xiao, et al., “Learning human-to-humanoid real-
+nation. Experimental results demonstrate that the proposed                          time whole-body teleoperation,” in Proc. IEEE/RSJ Int. Conf. Intell.
+hand polyhedral cluster representation effectively preserves                        Robot Syst. (IROS), 2024, pp. 8944–8951.
+hand–object contact structures and manipulation semantics,                     [20] X. B. Peng, et al., “Learning agile robotic locomotion skills by
+                                                                                    imitating animals,” arXiv preprint arXiv:2004.00784, 2020.
+while the reference-trajectory-guided arm optimization en-                     [21] S. Li, et al., “Vision-based teleoperation of Shadow dexterous hand
+sures accurate and anthropomorphically consistent global                            using end-to-end deep neural network,” in Proc. IEEE Int. Conf. Robot.
+motion.                                                                             Autom. (ICRA), 2019, pp. 416–422.
+                                                                               [22] H. Zhang, et al., ”Kinematic motion retargeting via neural latent
+   Despite these advantages, the current framework still has                        optimization for learning sign language,” IEEE Robot. Autom. Lett.,
+limitations: dynamic feedback in complex hand–object inter-                         vol. 7, no. 2, pp. 4582–4589, Apr. 2022.
+actions is not yet fully exploited, and the method is presently                [23] B. Zheng, D. Liang, Q. Huang, et al., “Frame-by-frame motion
+                                                                                    retargeting with self-collision avoidance from diverse human demon-
+limited to upper-limb manipulation. Future work will focus                          strations,” IEEE Robot. Autom. Lett., 2024.
+on integrating adaptive force feedback and extending ObjRe-                    [24] H. Zhang, et al., “Kinematic motion retargeting via neural latent
+target to whole-body robotic manipulation, aiming to enable                         optimization for learning sign language,” IEEE Robot. Autom. Lett.,
+                                                                                    vol. 7, no. 2, pp. 4582–4589, Apr. 2022.
+more general and compliant dexterous manipulation systems.                     [25] S. Ross, G. Gordon, and D. Bagnell, “A reduction of imitation learning
+                                                                                    and structured prediction to no-regret online learning,” in Proc. Int.
+                             R EFERENCES                                            Conf. Artif. Intell. Stat. (AISTATS), 2011, pp. 627–635.
+                                                                               [26] C. Finn, T. Yu, T. Zhang, et al., “One-shot visual imitation learning
+ [1] H. Xiong, Q. Li, Y. C. Chen, et al., “Learning by watching: Phys-              via meta-learning,” in Proc. Conf. Robot Learn. (CoRL), 2017, pp.
+     ical imitation of manipulation skills from human videos,” in Proc.             357–368.
+     IEEE/RSJ Int. Conf. Intell. Robot Syst. (IROS), 2021, pp. 7827–7834.      [27] M. Shridhar, L. Manuelli, and D. Fox, “CLIPort: What and where
+ [2] Y. Qin, Y. H. Wu, S. Liu, et al., “DexMV: Imitation learning for               pathways for robotic manipulation,” in Proc. Conf. Robot Learn.
+     dexterous manipulation from human videos,” in Proc. Eur. Conf.                 (CoRL), 2022, pp. 894–906.
+     Comput. Vis. (ECCV), 2022, pp. 570–587.                                   [28] S. Zhu, R. Kaushik, S. Kaski, et al., “Imitation-guided multimodal
+ [3] Y. Liu, W. C. Shin, Y. Han, et al., “ImMimic: Cross-domain imitation           policy generation from behaviourally diverse demonstrations,” in Proc.
+     from human videos via mapping and interpolation,” arXiv preprint               IEEE/RSJ Int. Conf. Intell. Robot Syst. (IROS), 2023, pp. 1675–1682.
+     arXiv:2509.10952, 2025.                                                   [29] V. Ye, G. Pavlakos, J. Malik, and A. Kanazawa, “Decoupling human
+ [4] L. S. Li, J. Jiang, P. Ruppel, et al., “A mobile robot hand-arm                and camera motion from videos in the wild,” in Proc. IEEE/CVF Conf.
+     teleoperation system by vision and IMU,” in Proc. IEEE/RSJ Int. Conf.          Comput. Vis. Pattern Recognit. (CVPR), 2023.
+     Intell. Robot Syst. (IROS), 2020, pp. 10900–10906.                        [30] Anonymous, “DexTele: A dual-arm dexterous teleoperation system
+ [5] S. Li, N. Hendrich, H. Liang, et al., “A dexterous hand-arm teleoper-          based on motion retargeting and adaptive force control,” in Proc. IEEE
+     ation system based on hand pose estimation and active vision,” IEEE            Int. Conf. Robot. Autom. (ICRA), 2026, to appear.
+     Trans. Cybern., vol. 54, no. 3, pp. 1417–1428, 2022.                      [31] J. Li, Y. Zhu, Y. Xie, et al., “OKAMI: Teaching humanoid robots
+ [6] A. Sivakumar, K. Shaw, and D. Pathak, “Robotic telekinesis: Learning           manipulation skills through single video imitation,” arXiv preprint
+     a robotic hand imitator by watching humans on YouTube,” arXiv                  arXiv:2410.11792, 2024.
+     preprint arXiv:2202.10448, 2022.                                          [32] Y. Zhu, A. Lim, P. Stone, and Y. Zhu, “Vision-based manipulation from
+ [7] D. Antotsiou, G. Garcia-Hernando, and T.-K. Kim, “Task-oriented                single human video with open-world object graphs,” arXiv preprint
+     hand motion retargeting for dexterous manipulation imitation,” in Proc.        arXiv:2405.20321, 2024.
+     Eur. Conf. Comput. Vis. Workshops (ECCVW), 2018.                          [33] G. Garcia-Hernando, S. Yuan, S. Baek, et al., “First-person hand action
+ [8] M. Zhang, Q. Gao, Y. Lai, et al., “HR-GCN: 2D–3D whole-body pose               benchmark with RGB-D videos and 3D hand pose annotations,” in
+     estimation with high-resolution graph convolutional network from a             Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), 2018, pp.
+     monocular camera,” IEEE Sens. J., 2025.                                        409–419.
+ [9] L. Yang, X. Huang, Z. Wu, et al., “OmniRetarget: Interaction-             [34] S. Song, A. Zeng, J. Lee, et al., “Grasping in the wild: Learning 6-DoF
+     preserving data generation for humanoid whole-body loco-                       closed-loop grasping from low-cost demonstrations,” IEEE Robot.
+     manipulation and scene interaction,” arXiv preprint arXiv:2509.26633,          Autom. Lett., vol. 5, no. 3, pp. 4978–4985, 2020.
+     2025.                                                                     [35] R. Villegas, J. Yang, D. Ceylan, et al., “Neural kinematic networks for
+[10] H. Weng, Y. Li, N. Sobanbabu, et al., “HDMI: Learning interactive              unsupervised motion retargetting,” in Proc. IEEE Conf. Comput. Vis.
+     humanoid whole-body control from human videos,” arXiv preprint                 Pattern Recognit. (CVPR), 2018, pp. 8639–8648.
+     arXiv:2509.16757, 2025.                                                   [36] R. Greer, N. Deo, and M. Trivedi, “Trajectory prediction in au-
+[11] O. A. Andrychowicz, B. Baker, M. Chociej, et al., “Learning dexterous          tonomous driving with a lane heading auxiliary loss,” IEEE Robot.
+     in-hand manipulation,” Int. J. Robot. Res., vol. 39, no. 1, pp. 3–20,          Autom. Lett., vol. 6, no. 3, pp. 4907–4914, 2021.
+     2020.                                                                     [37] H. Alt and M. Godau, “Computing the Fréchet distance between two
+[12] A. Gupta, C. Eppner, S. Levine, et al., “Learning dexterous manipu-            polygonal curves,” Int. J. Comput. Geom. Appl., vol. 5, no. 1–2, pp.
+     lation for a soft robotic hand from human demonstrations,” in Proc.            75–91, 1995.
+     IEEE/RSJ Int. Conf. Intell. Robot Syst. (IROS), 2016, pp. 3786–3793.
+
