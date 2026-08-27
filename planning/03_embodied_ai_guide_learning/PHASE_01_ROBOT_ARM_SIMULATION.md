@@ -1,6 +1,6 @@
 # Phase 1：机械臂仿真与可执行轨迹
 
-> 状态：待开始  
+> 状态：进行中（环境已验证，待开始 Unit 1）  
 > 前置条件：已读完《机器人学简介》  
 > 建议用时：6 次学习，每次 60–90 分钟  
 > 实验栈：Python + PyBullet + NumPy + SciPy + Matplotlib + pytest  
@@ -88,6 +88,21 @@ packages:
 ```
 
 本阶段不需要 GPU、CUDA 或 Linux，Windows + CPU 足够。
+
+本机实际环境（2026-08-24）：
+
+```text
+Conda environment: robotics
+Location: C:\Users\fivec\miniconda3\envs\robotics
+Python: 3.11.16
+NumPy: 2.4.6
+SciPy: 1.17.1
+Matplotlib: 3.11.1
+pytest: 9.1.1
+PyBullet distribution: 3.2.5（conda-forge package 3.25）
+```
+
+验证结果：PyBullet `DIRECT` 模式成功加载 `kuka_iiwa/model.urdf`，识别到 7 个 joint，smoke test 通过。PyBullet 使用 conda-forge 的 Windows 预编译包安装；PyPI 源在该组合下会尝试本地编译，因此不作为本环境的安装来源。
 
 第一课开始时，在 `learning/` 下建立实际产物目录：
 
@@ -290,4 +305,3 @@ Next single action:
 4. 运行 PyBullet GUI smoke test；
 5. 加载机械臂并生成 joint table；
 6. 固定 joint order 和 end-effector link，作为后续全部实验的机器人配置。
-
