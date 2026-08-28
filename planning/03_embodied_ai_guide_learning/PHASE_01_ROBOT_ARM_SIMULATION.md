@@ -1,6 +1,6 @@
 # Phase 1：机械臂仿真与可执行轨迹
 
-> 状态：进行中（环境已验证，待开始 Unit 1）  
+> 状态：已完成（2026-08-28，阶段 Gate 通过）  
 > 前置条件：已读完《机器人学简介》  
 > 建议用时：6 次学习，每次 60–90 分钟  
 > 实验栈：Python + PyBullet + NumPy + SciPy + Matplotlib + pytest  
@@ -258,16 +258,16 @@ reference pose sequence
 
 全部满足后才进入 Phase 2：
 
-- [ ] 能从 URDF/仿真接口识别 joint topology、joint order 和 end effector；
-- [ ] 能说明 `q`、wrist pose、reference pose 和 actual pose 的区别；
-- [ ] 能读取 FK，并对 IK 结果进行 FK 回代；
-- [ ] 能计算位置与方向误差；
-- [ ] 能显式发现不可达目标、joint-limit violation 和失败帧；
-- [ ] 能说明逐帧 IK 与整段轨迹质量不是同一个问题；
-- [ ] 能生成并执行带时间戳的平滑关节轨迹；
-- [ ] 能绘制 target/actual/error、velocity 和 acceleration；
-- [ ] 综合实验可以从新终端按记录命令重复运行；
-- [ ] 能指出本阶段结果将如何成为 DexTele/ObjRetarget 的手臂重定向 baseline。
+- [x] 能从 URDF/仿真接口识别 joint topology、joint order 和 end effector；
+- [x] 能说明 `q`、wrist pose、reference pose 和 actual pose 的区别；
+- [x] 能读取 FK，并对 IK 结果进行 FK 回代；
+- [x] 能计算位置与方向误差；
+- [x] 能显式发现不可达目标、joint-limit violation 和失败帧；
+- [x] 能说明逐帧 IK 与整段轨迹质量不是同一个问题；
+- [x] 能生成并执行带时间戳的平滑关节轨迹；
+- [x] 能绘制 target/actual/error、velocity 和 acceleration；
+- [x] 综合实验可以从新终端按记录命令重复运行；
+- [x] 能指出本阶段结果将如何成为 DexTele/ObjRetarget 的手臂重定向 baseline。
 
 ## 7. 每次学习的协作流程
 

@@ -54,3 +54,23 @@ link 以及其后的所有后代 link，不会改变它之前的祖先 link。
 - `src/unit02_pose_and_frames.py`：在 GUI 中观察世界坐标系、末端坐标系和实时位姿。
 - `src/unit02_fk_cases.py`：生成三组 `q -> wrist pose`，并演示角度单位和四元数顺序错误。
 - `src/unit02_pose_error.py`：分别计算位置与姿态误差，并用任务阈值判定是否通过。
+
+## Unit 3 脚本
+
+- `src/unit03_ik_validation.py`：比较位置 IK、完整位姿 IK 与不可达目标，并使用 FK 和关节限位验证候选解。
+- `src/unit03_redundancy_and_limits.py`：对同一目标使用不同 rest pose，比较冗余 IK 解和关节限位余量。
+- `src/unit03_workspace_boundary.py`：把位置目标逐步推向工作空间边界，用 FK 误差识别可达与不可达目标。
+
+## Unit 4 脚本
+
+- `src/unit04_trajectory_ik.py`：对合成腕部轨迹逐帧求 IK，记录 FK 误差、失败帧和相邻帧关节变化。
+- `src/unit04_failed_waypoints.py`：构造越过工作空间边界的轨迹，保留失败帧及其原始时间索引。
+
+## Unit 5 脚本
+
+- `src/unit05_smoothing_metrics.py`：比较原始与平滑关节轨迹的 FK 误差、速度和加速度。
+- `src/unit05_position_control.py`：用位置控制以正常和四倍速度执行同一轨迹，比较 target/actual 跟踪误差。
+
+## Unit 6 脚本
+
+- `src/unit06_build_report.py`：整合 Unit 4–5 的可达、失败、平滑和控制实验，生成论文式 Markdown/JSON 报告。

@@ -59,7 +59,7 @@ RGB / RGB-D human demonstration
 | 阶段 | 主题 | 对应论文问题 | 最低完成证据 | 详细计划 |
 |---|---|---|---|---|
 | 1 | 机械臂仿真与可执行轨迹 | 机器人关节角、末端位姿和参考腕部轨迹怎样对应？怎样判断轨迹可执行？ | PyBullet 腕部参考轨迹跟随程序、FK/IK 误差、限位与平滑性报告 | [PHASE_01_ROBOT_ARM_SIMULATION.md](PHASE_01_ROBOT_ARM_SIMULATION.md) |
-| 2 | 人体、手部与物体感知表示 | FrankMocap/SLAHMR、RGB-D、骨架图和物体跟踪向后续模块提供什么？ | 一份带 frame/unit/timestamp 的上肢与手部序列、深度反投影和物体位姿示例 | 开始本阶段时创建 |
+| 2 | 人体、手部与物体感知表示 | FrankMocap/SLAHMR、RGB-D、骨架图和物体跟踪向后续模块提供什么？ | 一份带 frame/unit/timestamp 的上肢与手部序列、深度反投影和物体位姿示例 | [PHASE_02_PERCEPTION_REPRESENTATION.md](PHASE_02_PERCEPTION_REPRESENTATION.md) |
 | 3 | 动作重定向与轨迹优化 | 人和机器人拓扑不同时怎样映射？DexTele/ObjRetarget 的损失和约束各解决什么？ | 人体腕部参考轨迹到机器人轨迹的 baseline、约束优化与消融 | 开始本阶段时创建 |
 | 4 | 手物接触、灵巧手与力调节 | 多面体接触几何、阶段切换、力反馈和 MPC 类滚动优化怎样工作？ | 简化接触几何实验、接触状态机和目标力跟踪仿真 | 开始本阶段时创建 |
 | 5 | 示范数据、模仿学习与评测 | 重定向轨迹怎样成为训练数据？策略 loss 与真实任务成功率为何不同？ | 小型 demonstration schema、BC/ACT 概念实验和指标实现 | 开始本阶段时创建 |
@@ -124,7 +124,7 @@ Phase 1 在 Windows + CPU 上即可完成，不需要 CUDA。现代姿态估计�
 ## 7. 当前状态与下一步
 
 - 已完成：《机器人学简介》阅读。
-- 当前阶段：Phase 1 — 机械臂仿真与可执行轨迹。
-- 当前入口：[第一阶段详细计划](PHASE_01_ROBOT_ARM_SIMULATION.md)。
-- 下一行动：检查已有 Python/Conda 环境，运行 PyBullet GUI smoke test，并加载第一台带明确 end-effector link 的机械臂。
-
+- 已完成：Phase 1 — 机械臂仿真与可执行轨迹（阶段 Gate 通过）。
+- 当前阶段：Phase 2 — 人体、手部与物体感知表示。
+- 当前入口：[第二阶段详细计划](PHASE_02_PERCEPTION_REPRESENTATION.md)。
+- 下一行动：创建并验证 `eai-retarget` 环境，进入 Unit 1 的 canonical schema 与 validator。
