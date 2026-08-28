@@ -1,6 +1,6 @@
 # Phase 2：人体、手部与物体感知表示
 
-> 状态：进行中（计划已建立，待开始 Unit 1）  
+> 状态：进行中（Unit 1：论文输入接口与数据契约）  
 > 前置条件：完成 Phase 1《机械臂仿真与可执行轨迹》  
 > 建议用时：6 次学习，每次 60–90 分钟  
 > 实验栈：Python + NumPy + SciPy + OpenCV + Matplotlib + Open3D + pytest  
