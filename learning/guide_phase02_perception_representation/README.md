@@ -51,3 +51,47 @@ pytest learning\guide_phase02_perception_representation\tests -q
 
 详细概念见 [Unit 1 笔记](notes/unit01_data_contract.md)。
 
+## Unit 1 第二部分：confidence、valid 与数值检查
+
+```powershell
+python learning\guide_phase02_perception_representation\src\unit01_validity_and_numeric_checks.py
+```
+
+该实验允许 `valid=False` 的缺失观测使用 `NaN`，但拒绝有效观测中的 `NaN`。它还会注入越界
+confidence、非单位四元数和错误 shape，区分连续可靠度、离散可用性和数值合法性。
+
+## Unit 1 第三部分：模型 adapter
+
+```powershell
+python learning\guide_phase02_perception_representation\src\unit01_adapter_pipeline.py
+```
+
+该实验模拟一个上游人体姿态模型使用 `mm`、`ms`、`wxyz` 和自定义 joint order，adapter 对数值和
+轴顺序进行真实转换，再交给 canonical validator。它也会验证缺少必需关节时必须明确失败。
+
+## Unit 2 第一部分：相机投影与深度反投影
+
+```powershell
+python learning\guide_phase02_perception_representation\src\unit02_camera_roundtrip.py
+```
+
+该实验将 camera-frame 三维点投影到像素，使用像素和 Z-depth 反投影，再用
+`world_T_camera` 转到 world frame，最后通过逆变换和重投影检查整个闭环误差。
+
+## Unit 2 第二部分：约定错误为什么会躲过重投影
+
+```powershell
+python learning\guide_phase02_perception_representation\src\unit02_convention_failures.py
+```
+
+该实验分别注入 `mm/m`、欧氏距离/Z-depth 和变换方向错误。它说明像素重投影只能检查点是否
+位于同一条相机射线上，不能单独证明三维尺度、深度定义或 world frame 正确。
+
+## Unit 2 第三部分：深度图到点云
+
+```powershell
+python learning\guide_phase02_perception_representation\src\unit02_depth_image_to_cloud.py
+```
+
+该实验生成一张小型 Z-depth 图，将每个像素反投影为相机系三维点，并保存深度图/点云对照图。
+它直接比较光轴中心与偏轴像素的 Z-depth 和欧氏 range。

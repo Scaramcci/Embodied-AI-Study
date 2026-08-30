@@ -1,0 +1,8 @@
+{
+  "point_count": 19481.0,
+  "center_z_depth_m": 0.800000011920929,
+  "center_range_m": 0.800000011920929,
+  "off_axis_z_depth_m": 0.800000011920929,
+  "off_axis_range_m": 0.8206518188769547,
+  "max_pixel_reprojection_error_px": 1.0048591735576161e-14
+}

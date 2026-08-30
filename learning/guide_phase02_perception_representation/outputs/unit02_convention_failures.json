@@ -1,0 +1,16 @@
+{
+  "millimeter_depth_treated_as_meter": {
+    "camera_3d_error_m": 2011.5405177127304,
+    "pixel_reprojection_error_px": 0.0,
+    "diagnosis": "3D scale is wrong although pixel reprojection still matches"
+  },
+  "euclidean_range_treated_as_z_depth": {
+    "camera_3d_error_m": 0.013645928215485185,
+    "pixel_reprojection_error_px": 0.0,
+    "diagnosis": "point stays on the same camera ray but has the wrong distance"
+  },
+  "camera_T_world_used_as_world_T_camera": {
+    "world_3d_error_m": 2.835472402758267,
+    "diagnosis": "the inverse transform maps in the opposite frame direction"
+  }
+}

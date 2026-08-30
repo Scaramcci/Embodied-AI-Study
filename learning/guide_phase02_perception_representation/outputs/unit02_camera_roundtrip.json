@@ -1,0 +1,5 @@
+{
+  "max_camera_point_error_m": 5.302695275805846e-16,
+  "max_world_roundtrip_error_m": 8.326672684688674e-17,
+  "max_pixel_reprojection_error_px": 1.1368683772161603e-13
+}

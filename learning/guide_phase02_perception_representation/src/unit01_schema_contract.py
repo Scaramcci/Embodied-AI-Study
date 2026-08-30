@@ -45,8 +45,26 @@ def _require_finite(name: str, value: np.ndarray) -> None:
     _require(np.isfinite(value).all(), f"{name}: contains NaN or infinity")
 
 
-def _require_unit_quaternions(name: str, value: np.ndarray) -> None:
+def _require_finite_where(
+    name: str, value: np.ndarray, valid: np.ndarray
+) -> None:
+    """Require finite values only at observations declared valid."""
+    expanded_valid = valid
+    while expanded_valid.ndim < value.ndim:
+        expanded_valid = expanded_valid[..., None]
+    expanded_valid = np.broadcast_to(expanded_valid, value.shape)
+    _require(
+        bool(np.isfinite(value[expanded_valid]).all()),
+        f"{name}: a valid observation contains NaN or infinity",
+    )
+
+
+def _require_unit_quaternions(
+    name: str, value: np.ndarray, valid: np.ndarray | None = None
+) -> None:
     norms = np.linalg.norm(value, axis=-1)
+    if valid is not None:
+        norms = norms[valid]
     max_error = float(np.max(np.abs(norms - 1.0)))
     _require(max_error < 1e-5, f"{name}: quaternion norm error {max_error:.3e}")
 
@@ -117,16 +135,25 @@ def validate_packet(arrays: dict[str, np.ndarray], metadata: dict[str, Any]) -> 
     _require(arrays["object_valid"].dtype == np.bool_, "object_valid: dtype must be bool")
 
     for name in (
-        "body_position",
-        "body_quaternion_xyzw",
         "body_confidence",
         "hand_position",
         "hand_confidence",
-        "object_pose_xyzw",
         "object_pose_confidence",
         "object_cloud_local",
     ):
         _require_finite(name, arrays[name])
+
+    _require_finite_where(
+        "body_position", arrays["body_position"], arrays["body_valid"]
+    )
+    _require_finite_where(
+        "body_quaternion_xyzw",
+        arrays["body_quaternion_xyzw"],
+        arrays["body_valid"],
+    )
+    _require_finite_where(
+        "object_pose_xyzw", arrays["object_pose_xyzw"], arrays["object_valid"]
+    )
 
     for name in ("body_confidence", "hand_confidence", "object_pose_confidence"):
         values = arrays[name]
@@ -136,9 +163,15 @@ def validate_packet(arrays: dict[str, np.ndarray], metadata: dict[str, Any]) -> 
         )
 
     _require_unit_quaternions(
-        "body_quaternion_xyzw", arrays["body_quaternion_xyzw"]
+        "body_quaternion_xyzw",
+        arrays["body_quaternion_xyzw"],
+        arrays["body_valid"],
     )
-    _require_unit_quaternions("object_pose_xyzw", arrays["object_pose_xyzw"][..., 3:])
+    _require_unit_quaternions(
+        "object_pose_xyzw",
+        arrays["object_pose_xyzw"][..., 3:],
+        arrays["object_valid"],
+    )
 
     frames = metadata["coordinate_frames"]
     for field in ("body_position", "hand_position", "object_pose_xyzw"):
@@ -231,7 +264,7 @@ def make_synthetic_packet(frame_count: int = 10) -> tuple[dict[str, np.ndarray],
         "hand_keypoint_names": list(HAND_KEYPOINT_NAMES),
         "timestamp_source": "synthetic_30_hz_clock",
         "confidence_definition": "synthetic score in [0,1]; larger is more reliable",
-        "missing_value_policy": "valid mask is false; values must not be silently replaced by zero",
+        "missing_value_policy": "missing values use NaN and the corresponding valid mask is false",
     }
     return arrays, metadata
 
@@ -316,4 +349,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
