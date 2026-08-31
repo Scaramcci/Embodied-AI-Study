@@ -1,9 +1,11 @@
 # Embodied-AI-Guide 论文导向学习总计划
 
-> 状态：当前学习主线  
+> 状态：当前学习主线（2026-08-30 起采用论文优先加速版）
 > 建立日期：2026-08-24  
 > 学习资料：以 [`Embodied-AI-Guide-main`](../../Embodied-AI-Guide-main/README.md) 为知识索引  
 > 目标论文：DexTele（动作重定向与自适应力控制）、ObjRetarget（物体感知动作重定向）
+
+> **当前权威执行路线：**[论文优先加速路线](ACCELERATED_PAPER_FIRST_ROUTE.md)。下方六阶段仍用于组织知识，但论文第一遍从现在并行开始，基础数据处理不再逐项设置实验与 Gate。
 
 ## 1. 总目标
 
@@ -54,24 +56,26 @@ RGB / RGB-D human demonstration
 
 其中 ROS、SLAM、VLM、MPC 和触觉只学习论文中实际使用的接口与作用，不扩展成独立完整课程。
 
-## 3. 修订后的六阶段路线
+## 3. 论文优先的六阶段路线
 
 | 阶段 | 主题 | 对应论文问题 | 最低完成证据 | 详细计划 |
 |---|---|---|---|---|
 | 1 | 机械臂仿真与可执行轨迹 | 机器人关节角、末端位姿和参考腕部轨迹怎样对应？怎样判断轨迹可执行？ | PyBullet 腕部参考轨迹跟随程序、FK/IK 误差、限位与平滑性报告 | [PHASE_01_ROBOT_ARM_SIMULATION.md](PHASE_01_ROBOT_ARM_SIMULATION.md) |
-| 2 | 人体、手部与物体感知表示 | FrankMocap/SLAHMR、RGB-D、骨架图和物体跟踪向后续模块提供什么？ | 一份带 frame/unit/timestamp 的上肢与手部序列、深度反投影和物体位姿示例 | [PHASE_02_PERCEPTION_REPRESENTATION.md](PHASE_02_PERCEPTION_REPRESENTATION.md) |
-| 3 | 动作重定向与轨迹优化 | 人和机器人拓扑不同时怎样映射？DexTele/ObjRetarget 的损失和约束各解决什么？ | 人体腕部参考轨迹到机器人轨迹的 baseline、约束优化与消融 | 开始本阶段时创建 |
-| 4 | 手物接触、灵巧手与力调节 | 多面体接触几何、阶段切换、力反馈和 MPC 类滚动优化怎样工作？ | 简化接触几何实验、接触状态机和目标力跟踪仿真 | 开始本阶段时创建 |
-| 5 | 示范数据、模仿学习与评测 | 重定向轨迹怎样成为训练数据？策略 loss 与真实任务成功率为何不同？ | 小型 demonstration schema、BC/ACT 概念实验和指标实现 | 开始本阶段时创建 |
-| 6 | 论文精读、对比与最小实验 | 两篇论文的输入、表示、优化、控制和评测如何对应，哪些结论可以复核？ | 两张完整方法图、一张对比表、指标测试和一个最小消融实验 | 开始本阶段时创建 |
+| 2 | 感知表示最小桥梁（压缩） | RGB-D、骨架、手部关键点和物体点云怎样形成接触/重定向输入？ | object local/world cloud、palm+fingertips 与 contact distance 示例 | [PHASE_02_PERCEPTION_REPRESENTATION.md](PHASE_02_PERCEPTION_REPRESENTATION.md) |
+| 3 | 动作重定向与轨迹优化（最高优先级） | 人和机器人拓扑不同时怎样映射？两文的损失和约束各防止什么失败？ | geometric baseline、整段约束优化和关键 loss 消融 | [PHASE_03_MOTION_RETARGETING_OPTIMIZATION.md](PHASE_03_MOTION_RETARGETING_OPTIMIZATION.md) |
+| 4 | 手物接触、灵巧手与力调节（高优先级） | 接触几何、阶段切换、力反馈和滚动优化怎样工作？ | polyhedral contact 几何与简化目标力闭环 | [PHASE_04_CONTACT_FORCE_CONTROL.md](PHASE_04_CONTACT_FORCE_CONTROL.md) |
+| 5 | 示范数据与评测（压缩） | 重定向轨迹怎样成为训练数据？离线 loss 与真实成功率为何不同？ | demonstration 接口、BC/ACT 概念和论文指标 | 开始本阶段时创建 |
+| 6 | 论文综合与小规模复现 | 两文的方法、控制、评测和复现结果如何对应？ | 方法图、对比表；DexTele 小规模训练优先，ObjRetarget 方法级实验作为互补/备用 | [PAPER_REPRODUCTION_PLAN.md](PAPER_REPRODUCTION_PLAN.md) |
 
 主依赖关系：
 
 ```text
-Phase 1 -> Phase 2 -> Phase 3 -> Phase 4 -> Phase 5 -> Phase 6
+Paper Pass 1 从现在开始并行
+                 |
+Phase 1 -> 压缩 Phase 2 -> 核心 Phase 3 -> 核心 Phase 4 -> 压缩 Phase 5 -> Phase 6 综合
 ```
 
-Phase 5 不以完整 RoboTwin/ACT 训练为强制前置。如果计算资源和时间允许，可用 RoboTwin 做一次数据—训练—评测闭环；否则优先保证重定向、接触和论文指标主线。
+Phase 5 不以完整 RoboTwin/ACT 训练为前置。训练实战集中到论文复现轨：优先缩小复现 DexTele 官方训练代码，而不是额外训练一个与目标论文无关的大型策略。
 
 ## 4. 各阶段边界
 
@@ -81,11 +85,11 @@ Phase 5 不以完整 RoboTwin/ACT 训练为强制前置。如果计算资源和�
 
 ### Phase 2：人体、手部与物体感知表示
 
-学习两篇论文感知模块的输入输出：RGB 与 RGB-D、2D/3D keypoints、位置与四元数、skeleton graph、相机内外参、depth/point cloud、object pose、tracking confidence、时间同步和 contact event。只理解 FrankMocap、SLAHMR、VLM 物体识别和跟踪器的接口与误差来源，不训练大型视觉模型。
+只保留论文下游真正消费的表示：相机/世界 frame、上肢 skeleton graph、palm + five fingertips、object local/world cloud、6D pose 和 contact distance/event。中心化、缺失值、confidence、插值等常规处理只讲概念与一个例子，不再做独立练习；不训练大型视觉模型。
 
 ### Phase 3：动作重定向与轨迹优化
 
-从运动学 baseline 进入两篇论文核心：尺度归一化、root/frame 对齐、人机拓扑差异、图消息传递的作用、末端/方向/arm-plane/平滑/关节限位损失、逐帧 IK 与整段轨迹优化、潜在空间优化和约束消融。
+作为最高优先级，从 geometric/IK baseline 进入人机拓扑差异、root/frame 对齐、图表示作用、末端/方向/arm-plane/平滑/关节限位/object-relative loss、逐帧 IK 与整段轨迹优化和关键约束消融。通用优化数学按需补充。
 
 ### Phase 4：手物接触、灵巧手与力调节
 
@@ -93,11 +97,11 @@ Phase 5 不以完整 RoboTwin/ACT 训练为强制前置。如果计算资源和�
 
 ### Phase 5：示范数据、模仿学习与评测
 
-学习 demonstration、trajectory、observation、action、policy、Behavior Cloning、ACT/action chunk、distribution shift 和 rollout evaluation。重点理解重定向怎样为技能学习提供数据；强化学习只比较范式，不完整展开。实现论文相关指标并建立可复现实验记录。
+压缩为 demonstration/observation/action 接口、BC/ACT/action chunk 各一个例子、distribution shift 与 rollout evaluation。重点读懂论文指标和消融，不要求大型策略训练。
 
-### Phase 6：论文精读、对比与最小实验
+### Phase 6：论文精读、对比与小规模复现
 
-正式逐模块精读 DexTele 与 ObjRetarget，整理 input -> representation -> retargeting -> control -> evaluation，核对公式、指标、消融和复现缺口。最小实验优先验证 tracking、joint limit、smoothness 和 arm-plane；有余力再加入手物几何或简化力调节。
+论文粗读已从 Phase 2 并行开始；本阶段完成最终综合和复现报告。DexTele 以官方代码的小数据短程训练为主，走通数据、训练、checkpoint、评测和受控消融；ObjRetarget 在无公开代码时复现 arm-plane/平滑约束与简化接触几何。两者均不要求真实机器人或论文全部规模。
 
 ## 5. 环境分层原则
 
@@ -105,9 +109,10 @@ Phase 5 不以完整 RoboTwin/ACT 训练为强制前置。如果计算资源和�
 
 | 环境 | 用途 | 建立时机 |
 |---|---|---|
-| `eai-sim` | Phase 1：PyBullet、NumPy、SciPy、Matplotlib、pytest | 现在 |
+| `robotics` | Phase 1：PyBullet、NumPy、SciPy、Matplotlib、pytest | 已建立 |
 | `eai-retarget` | Phase 2–4：PyTorch、图结构、优化、Open3D、数据接口 | Phase 2 开始时 |
-| 策略/视觉专用环境 | ACT、特定姿态模型或论文遗留依赖 | Phase 5–6 确认确实需要时 |
+| `eai-dextele-repro` | DexTele 作者代码、PyTorch/CUDA/PyG 与训练评测 | 完成 Phase 3 并审计仓库版本后 |
+| 其他论文专用环境 | 特定姿态模型或论文遗留依赖 | 复现审计确认确实需要时 |
 
 Phase 1 在 Windows + CPU 上即可完成，不需要 CUDA。现代姿态估计、PyG 或策略训练到对应阶段再配置。不要为了本计划提前安装 ROS 2、Isaac Sim、真实机器人驱动或老版 FrankMocap/SLAHMR 依赖。
 
@@ -117,14 +122,20 @@ Phase 1 在 Windows + CPU 上即可完成，不需要 CUDA。现代姿态估计�
 2. 理论讲解后立刻运行最小数值或仿真实验。
 3. 任何数组必须说明 shape、字段、frame、unit、timestamp；姿态还要说明四元数顺序。
 4. 同时保存成功和失败案例，不隐藏不可达、未收敛、越界或接触误判。
-5. 每个阶段至少形成代码、测试、图表、结构化笔记和可重复命令中的三类证据。
-6. 只有当前阶段 Gate 通过后，才创建下一阶段的详细计划文件。
-7. Guide 是知识索引；学习深度由两篇论文的实际需求决定。
+5. A档核心概念必须有最小实验；B档只需概念和一个例子；C档不设独立实验。
+6. 不再等待全部阶段完成才读论文；论文粗读、技术补课和回读并行。
+7. 阶段 Gate 只检查是否还存在阻塞论文理解的关键缺口，不以完成所有练习为标准。
+8. Guide 是知识索引；学习深度由两篇论文的实际需求决定。
+9. 论文复现必须区分作者报告与本机结果，并固定代码版本、数据子集、随机种子、配置和环境。
 
 ## 7. 当前状态与下一步
 
 - 已完成：《机器人学简介》阅读。
 - 已完成：Phase 1 — 机械臂仿真与可执行轨迹（阶段 Gate 通过）。
-- 当前阶段：Phase 2 — 人体、手部与物体感知表示。
-- 当前入口：[第二阶段详细计划](PHASE_02_PERCEPTION_REPRESENTATION.md)。
-- 下一行动：创建并验证 `eai-retarget` 环境，进入 Unit 1 的 canonical schema 与 validator。
+- 已完成：加速 Phase 2 — hand/object 已统一到 world frame，并完成 contact distance/event 与 timestamp 失败案例。
+- 已完成：Phase 3 — task-space baseline、arm-plane/smoothness、whole-trajectory optimization 与论文映射。
+- 当前阶段：Phase 4 — 手物接触、灵巧手与力调节。
+- 当前入口：[第四阶段详细计划](PHASE_04_CONTACT_FORCE_CONTROL.md)。
+- 并行入口：[论文优先加速路线](ACCELERATED_PAPER_FIRST_ROUTE.md)。
+- 后续实战入口：[论文小规模复现计划](PAPER_REPRODUCTION_PLAN.md)。
+- 下一行动：立即进行论文第一遍，并学习 object local/world cloud、palm/fingertips 与 contact distance。

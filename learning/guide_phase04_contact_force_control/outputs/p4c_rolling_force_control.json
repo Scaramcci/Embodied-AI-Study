@@ -1,0 +1,45 @@
+{
+  "frames": 121,
+  "sample_rate_hz": 30.0,
+  "object_category": "plastic_bottle",
+  "target_force_n": 8.0,
+  "surrogate": "linear differentiable command+feedback model",
+  "cases": {
+    "no_adjustment": {
+      "smooth_weight": null,
+      "mean_absolute_force_error_n": 4.043838297524049,
+      "final_30_frame_mae_n": 4.009403780694707,
+      "overshoot_n": 0.0,
+      "tail_force_oscillation_n": 0.15931746723834417,
+      "max_command_step_rad": 0.0,
+      "settling_time_s": null
+    },
+    "weak_regularization": {
+      "smooth_weight": 1.0,
+      "mean_absolute_force_error_n": 0.2663383768416175,
+      "final_30_frame_mae_n": 0.04815206686862027,
+      "overshoot_n": 2.635961432696048,
+      "tail_force_oscillation_n": 0.15931751261432048,
+      "max_command_step_rad": 0.39999999999999997,
+      "settling_time_s": 0.43333333333333335
+    },
+    "balanced": {
+      "smooth_weight": 1200.0,
+      "mean_absolute_force_error_n": 0.29751009947381146,
+      "final_30_frame_mae_n": 0.048151992748858154,
+      "overshoot_n": 0.49254988846207404,
+      "tail_force_oscillation_n": 0.1593176326867649,
+      "max_command_step_rad": 0.04642857142857143,
+      "settling_time_s": 0.5666666666666667
+    },
+    "over_regularized": {
+      "smooth_weight": 10000.0,
+      "mean_absolute_force_error_n": 1.3635474893154906,
+      "final_30_frame_mae_n": 0.33181964003482006,
+      "overshoot_n": 0.0,
+      "tail_force_oscillation_n": 0.27067714862477477,
+      "max_command_step_rad": 0.006151419558359572,
+      "settling_time_s": 2.8666666666666667
+    }
+  }
+}

@@ -1,5 +1,16 @@
 # 阶段二：人体、手部与物体感知表示
 
+> 2026-08-30 起采用[论文优先加速路线](../../planning/03_embodied_ai_guide_learning/ACCELERATED_PAPER_FIRST_ROUTE.md)：中心化、缺失值、异常和通用插值降为可选；主线直接转向 object local/world cloud、palm/fingertips、contact geometry，并并行开始论文粗读。
+
+## 当前状态：加速版 Phase 2 已完成
+
+```powershell
+python learning\guide_phase02_perception_representation\src\p2a_hand_object_geometry.py
+```
+
+P2-A 与 P2-B 已完成：物体 local/world cloud、掌心/五指尖、最近表面距离、接触事件和时间错位
+失败案例均已验证。下一步进入 Phase 3 动作重定向与轨迹优化。
+
 本目录用于完成 `Embodied-AI-Guide-main` 论文导向路线的 Phase 2。重点不是训练大型视觉模型，
 而是理解并验证感知模块交给动作重定向模块的数据。
 
@@ -95,3 +106,41 @@ python learning\guide_phase02_perception_representation\src\unit02_depth_image_t
 
 该实验生成一张小型 Z-depth 图，将每个像素反投影为相机系三维点，并保存深度图/点云对照图。
 它直接比较光轴中心与偏轴像素的 Z-depth 和欧氏 range。
+
+Unit 2 已完成，阶段总结见 [Unit 2 总结](notes/unit02_summary.md)。
+
+## Unit 3 第一部分：上肢骨架图
+
+```powershell
+python learning\guide_phase02_perception_representation\src\unit03_skeleton_graph.py
+```
+
+该实验把左右 `shoulder-elbow-wrist` 关键点构造成节点与有向边，生成 `[position, quaternion]`
+节点特征和 `p_child-p_parent` 边特征，并验证边特征对全局平移不变。
+
+## Unit 3 第二部分：中心化与尺度归一化
+
+```powershell
+python learning\guide_phase02_perception_representation\src\unit03_skeleton_normalization.py
+```
+
+该实验以关节几何中心作为 `center`，以平均骨长作为 `scale`，验证归一化骨架对整体平移和统一
+尺寸缩放不变，并使用保留的 center/scale 重建米制坐标。
+
+## 加速 Phase 2A：手—物任务几何
+
+```powershell
+python learning\guide_phase02_perception_representation\src\p2a_hand_object_geometry.py
+```
+
+该实验把物体局部点云通过 `world_T_object` 放入 world frame，并在同一 world frame 中表示
+掌心和五个指尖，为接触距离计算建立几何输入。
+
+## 加速 Phase 2B：接触距离与时间错位
+
+```powershell
+python learning\guide_phase02_perception_representation\src\p2b_contact_events.py
+```
+
+该实验模拟手的 approach/contact/release，计算五个指尖到物体表面的最近距离并以 8 mm 阈值
+生成接触事件；随后故意把物体流错开 5 帧，展示“frame 相同但 timestamp 错误”仍会造成接触误判。

@@ -81,6 +81,30 @@
 
 ## 问题记录
 
+## Session 003：Figure 2 的参考计划输入
+
+ObjRetarget 的感知输出不是机器人命令，而是一份时间同步的几何参考计划：
+
+```text
+RGB-D video
+  -> SLAHMR human body/hand motion
+  -> object identity + tracked object pose
+  -> object surface point cloud
+  -> palm + five fingertips
+  -> hand/object distance and contact phase
+  -> arm/hand retargeting and unified scheduler
+```
+
+本阶段最重要的接口是：手部点和物体表面必须转换到同一个 world frame，才能计算距离；
+`object_cloud_local` 保存物体自身形状，`world_T_object[t]` 决定每帧物体在场景中的位置和朝向。
+
+论文选择掌心加五指尖，并不是认为其他手部关节无用，而是因为后续多面体接触模型需要紧凑、
+跨人手/机器人手形态都能对应的局部几何锚点。完整复制人体手指关节角反而会受到自由度、关节轴和
+指长差异影响。
+
+接下来只做两个最小验证：物体 local/world cloud 变换，以及 fingertip—object distance/contact event。
+confidence、missing 和通用同步算法只保留接口说明。
+
 ### 学习者回答 1
 
 - 人和机器人的手指长度、结构不同，不能直接复制人体手指关节角；保留手—物体局部
@@ -120,3 +144,25 @@ ObjRetarget 对每根接触手指构造一个局部四面体：
 
 该论文的 polyhedral modeling 主要是几何约束，不等同于真实接触力或摩擦建模。因此
 几何保持更好通常有利于稳定抓取，但不能单独保证物体一定不会滑落。
+
+## 小规模复现安排
+
+截至 2026-08-30，官方项目页与 arXiv 页面没有公开代码入口，因此当前不声称做作者代码复现。
+
+- 完成 Phase 3 后，自行实现末端任务、arm-plane、joint limit 和 temporal smoothness 的整段轨迹优化；
+- 完成 Phase 4 后，用合成物体点云、掌心和指尖实现简化的 object-relative/polyhedral contact geometry；
+- 对比去掉 arm-plane、smoothness 或接触几何后的失败行为；
+- 只评价几何误差、平滑性、限位余量和接触保持，不外推真实机器人成功率；
+- Phase 6 前复查作者是否发布代码。详细步骤见 [`PAPER_REPRODUCTION_PLAN.md`](../../planning/03_embodied_ai_guide_learning/PAPER_REPRODUCTION_PLAN.md)。
+
+复现性质：论文核心思想的方法级简化复现，而非原系统完整复现。
+
+## Phase 3 回读：拟人手臂轨迹优化
+
+本项目已分别验证 ObjRetarget 手臂目标的三个角色：
+
+- `L_task`：通过 FK 保持腕部位置/方向；
+- `L_plane`：在腕部任务相同的冗余解中选择合理的肘部弯曲方向；
+- temporal smoothness：抑制相邻关节跳变和 IK branch flip。
+
+受控消融表明 task-only 可在腕部零误差时产生 119.2 deg 最大平面误差和约 380 mm/frame 肘部跳变；过强 smoothness 又会增加 plane error。边界：实验使用合成 swivel reference 和二维/简化运动学，尚未实现论文的 task-adaptive normal、`w(t)`、SO(3) log 或物体接触几何。详细映射见 [`P3_PAPER_MAPPING.md`](../guide_phase03_motion_retargeting_optimization/notes/P3_PAPER_MAPPING.md)。

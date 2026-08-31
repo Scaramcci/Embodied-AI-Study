@@ -1,0 +1,6 @@
+{
+  "open3d_numpy_transform_error_m": 1.1443916996305594e-16,
+  "rigid_radius_preservation_error_m": 1.1102230246251565e-16,
+  "local_cloud_centroid_norm_m": 2.4934289661075117e-18,
+  "world_centroid_to_pose_translation_error_m": 2.2233931234159104e-15
+}

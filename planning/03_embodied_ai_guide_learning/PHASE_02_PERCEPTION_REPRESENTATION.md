@@ -1,10 +1,12 @@
 # Phase 2：人体、手部与物体感知表示
 
-> 状态：进行中（Unit 2：相机模型、深度与坐标变换）  
+> 状态：加速版已完成（2026-08-30；P2-A/P2-B 与阶段 Gate 通过）
 > 前置条件：完成 Phase 1《机械臂仿真与可执行轨迹》  
 > 建议用时：6 次学习，每次 60–90 分钟  
 > 实验栈：Python + NumPy + SciPy + OpenCV + Matplotlib + Open3D + pytest  
 > 论文出口：为 DexTele/ObjRetarget 构造可验证的人体骨架、手部关键点、物体位姿/点云和接触事件输入
+
+> **2026-08-30 加速覆盖规则：**当前执行以[论文优先加速路线](ACCELERATED_PAPER_FIRST_ROUTE.md)为准。中心化、缺失值、异常、confidence 和通用插值只保留概念/示例，不再作为独立实验或 Gate；原六单元清单保留作以后速查。
 
 ## 1. 阶段核心问题
 
@@ -182,7 +184,34 @@ confidence definition
 missing-value policy
 ```
 
-## 5. 六个学习单元
+## 5. 加速版剩余路线（当前生效）
+
+已完成：Unit 1 数据接口、Unit 2 相机/RGB-D 几何、Unit 3 上肢 skeleton graph。已有 normalization 脚本改为可选参考，不要求运行。
+
+### P2-A：物体与手的任务几何
+
+- 一个概念/例子带过：palm + five fingertips、confidence/valid、缺失关键点；
+- 重点实验：`world_T_object`、object local/world cloud 与 6D pose；
+- 把掌心/五指指尖与物体点云放在同一 world frame；
+- 明确 2D box、mask、category、track id、6D pose 和表面点云分别解决什么问题。
+
+### P2-B：接触距离、事件与最小时间接口
+
+- 计算 fingertip 到 object world cloud 的最近距离；
+- 区分 contact event、contact point/region、contact geometry 和 contact force；
+- timestamp 对齐、SLERP、confidence 和 missing 只讲接口与一个 timestamp 偏移误判；
+- 输出一份 Phase 3/4 可直接消费的短序列，不再另做原 Unit 6 综合工程。
+
+### 加速通过条件
+
+- 能解释 `object_cloud_local` 为什么必须通过 `world_T_object` 才能与 world-frame fingertip 算距离；
+- 能说明 palm + five fingertips 表示相对完整人体手指关节角的跨形态价值；
+- 能区分“是否接触”“接触处局部几何”和“接触力”；
+- 能指出不同 frame 或 timestamp 直接计算距离会产生什么错误。
+
+满足后直接进入 Phase 3，不要求额外完成归一化、NaN、异常检测或通用插值练习。
+
+## A. 原六个学习单元（仅作速查，不作为当前执行要求）
 
 ### Unit 1：论文输入接口与数据契约
 
@@ -317,7 +346,7 @@ camera intrinsics / extrinsics / timestamps
 
 通过条件：综合数据包可由新终端重复生成，并能明确指出哪些字段供 DexTele 图重定向使用，哪些字段供 ObjRetarget 物体/接触模块使用。
 
-## 6. 阶段 Gate
+## B. 原完整版阶段 Gate（已由加速 Gate 覆盖）
 
 全部满足后才进入 Phase 3：
 
@@ -332,7 +361,7 @@ camera intrinsics / extrinsics / timestamps
 - [ ] 能从 hand keypoints 与 object cloud 生成可诊断的 contact event；
 - [ ] 能把综合数据包映射到 DexTele/ObjRetarget 的下游输入。
 
-## 7. 每次学习的协作流程
+## C. 原协作流程（保留参考）
 
 遵循 Phase 1 中形成的教学节奏：
 
@@ -360,7 +389,7 @@ Gate result:
 Next single action:
 ```
 
-## 8. 当前入口
+## D. 原始入口（已完成）
 
 第一课只做 Unit 1：
 
