@@ -64,7 +64,7 @@ RGB / RGB-D human demonstration
 | 2 | 感知表示最小桥梁（压缩） | RGB-D、骨架、手部关键点和物体点云怎样形成接触/重定向输入？ | object local/world cloud、palm+fingertips 与 contact distance 示例 | [PHASE_02_PERCEPTION_REPRESENTATION.md](PHASE_02_PERCEPTION_REPRESENTATION.md) |
 | 3 | 动作重定向与轨迹优化（最高优先级） | 人和机器人拓扑不同时怎样映射？两文的损失和约束各防止什么失败？ | geometric baseline、整段约束优化和关键 loss 消融 | [PHASE_03_MOTION_RETARGETING_OPTIMIZATION.md](PHASE_03_MOTION_RETARGETING_OPTIMIZATION.md) |
 | 4 | 手物接触、灵巧手与力调节（高优先级） | 接触几何、阶段切换、力反馈和滚动优化怎样工作？ | polyhedral contact 几何与简化目标力闭环 | [PHASE_04_CONTACT_FORCE_CONTROL.md](PHASE_04_CONTACT_FORCE_CONTROL.md) |
-| 5 | 示范数据与评测（压缩） | 重定向轨迹怎样成为训练数据？离线 loss 与真实成功率为何不同？ | demonstration 接口、BC/ACT 概念和论文指标 | 开始本阶段时创建 |
+| 5 | 示范数据与评测（压缩） | 重定向轨迹怎样成为训练数据？离线 loss 与真实成功率为何不同？ | demonstration 接口、BC/ACT 概念和论文指标 | [PHASE_05_DEMONSTRATION_EVALUATION.md](PHASE_05_DEMONSTRATION_EVALUATION.md) |
 | 6 | 论文综合与小规模复现 | 两文的方法、控制、评测和复现结果如何对应？ | 方法图、对比表；DexTele 小规模训练优先，ObjRetarget 方法级实验作为互补/备用 | [PAPER_REPRODUCTION_PLAN.md](PAPER_REPRODUCTION_PLAN.md) |
 
 主依赖关系：
@@ -134,8 +134,11 @@ Phase 1 在 Windows + CPU 上即可完成，不需要 CUDA。现代姿态估计�
 - 已完成：Phase 1 — 机械臂仿真与可执行轨迹（阶段 Gate 通过）。
 - 已完成：加速 Phase 2 — hand/object 已统一到 world frame，并完成 contact distance/event 与 timestamp 失败案例。
 - 已完成：Phase 3 — task-space baseline、arm-plane/smoothness、whole-trajectory optimization 与论文映射。
-- 当前阶段：Phase 4 — 手物接触、灵巧手与力调节。
-- 当前入口：[第四阶段详细计划](PHASE_04_CONTACT_FORCE_CONTROL.md)。
+- 已完成：Phase 4 — contact region/polyhedral geometry、phase scheduler 与 rolling force refinement（阶段 Gate 通过）。
+- 已完成：Phase 5 — demonstration/action chunk contract 与 offline-vs-rollout evaluation（阶段 Gate 通过）。
+- 当前阶段：准备进入 Phase 6 — 论文综合与小规模复现。
+- 最近完成：[Phase 4 详细计划与 Gate](PHASE_04_CONTACT_FORCE_CONTROL.md)。
 - 并行入口：[论文优先加速路线](ACCELERATED_PAPER_FIRST_ROUTE.md)。
 - 后续实战入口：[论文小规模复现计划](PAPER_REPRODUCTION_PLAN.md)。
-- 下一行动：立即进行论文第一遍，并学习 object local/world cloud、palm/fingertips 与 contact distance。
+- 最近完成：[Phase 5 详细计划与 Gate](PHASE_05_DEMONSTRATION_EVALUATION.md)。
+- 下一行动：进入 Phase 6，先创建综合/复现计划，再审计 DexTele 官方代码与环境依赖。

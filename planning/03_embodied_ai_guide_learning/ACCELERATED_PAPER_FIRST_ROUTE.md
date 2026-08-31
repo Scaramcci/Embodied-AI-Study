@@ -169,7 +169,7 @@ end-effector position/orientation
 
 ## 10. 当前下一步
 
-1. 不再要求运行 Unit 3 normalization 脚本；把公式作为速查即可。
-2. 立即开始 Paper Pass 1，同时完成 P2-A 的 object local/world cloud 与 palm/fingertip 几何。
-3. P2-B 完成后直接进入 Phase 3，不再追加通用数据清洗实验。
-4. 当前只记录 DexTele 仓库结构；完成 Phase 3 后再创建隔离复现环境并启动小规模训练。
+1. Phase 2–4 Gate 已通过，基础几何、重定向、接触与力闭环不再追加通用练习。
+2. Phase 5 已完成 demonstration/action-chunk contract 与 offline-vs-rollout 最小实验。
+3. 不追加大型 ACT、RoboTwin 或 VLA 训练。
+4. 进入 Phase 6，创建综合/复现计划，审计 DexTele 官方代码后再建立隔离的 `eai-dextele-repro` 环境并启动小规模训练。

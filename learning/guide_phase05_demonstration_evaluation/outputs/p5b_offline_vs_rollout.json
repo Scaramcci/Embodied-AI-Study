@@ -1,0 +1,71 @@
+{
+  "training_episodes": 36,
+  "training_samples": 1116,
+  "training_error_range_m": [
+    -0.07823362362910158,
+    0.07940252127166786
+  ],
+  "bc_weights_position_goal_bias": [
+    -0.36935408861346847,
+    0.3692940215224487,
+    -3.82268698269142e-05
+  ],
+  "offline_action_mae_mps": 0.00027024924041537404,
+  "offline_action_max_error_mps": 0.002500105141773283,
+  "rollouts": {
+    "expert_ood": {
+      "initial_error_m": 0.8,
+      "final_error_m": 0.011984380587076349,
+      "trajectory_rmse_m": 0.16287678247284623,
+      "outside_training_fraction": 0.35403726708074534,
+      "success": true
+    },
+    "bc_id": {
+      "initial_error_m": 0.04999999999999999,
+      "final_error_m": 0.002693414827108276,
+      "trajectory_rmse_m": 0.020635529271319338,
+      "outside_training_fraction": 0.0,
+      "success": true
+    },
+    "bc_ood": {
+      "initial_error_m": 0.8,
+      "final_error_m": 0.04069452465261475,
+      "trajectory_rmse_m": 0.32924069508664616,
+      "outside_training_fraction": 0.7701863354037267,
+      "success": false
+    },
+    "disturbed_replan_every_step": {
+      "initial_error_m": 0.04999999999999999,
+      "final_error_m": 0.022890794989232188,
+      "trajectory_rmse_m": 0.0940719338785782,
+      "outside_training_fraction": 0.34782608695652173,
+      "success": false
+    },
+    "disturbed_execute_full_chunk": {
+      "initial_error_m": 0.04999999999999999,
+      "final_error_m": 0.02405243168063298,
+      "trajectory_rmse_m": 0.0983755905686595,
+      "outside_training_fraction": 0.36645962732919257,
+      "success": false
+    }
+  },
+  "action_chunk": {
+    "horizon": 8,
+    "disturbance_state_frame": 37,
+    "disturbance_m": -0.2,
+    "every_step_first_response_frame": 37,
+    "full_chunk_first_response_frame": 40,
+    "full_chunk_extra_delay_frames": 3
+  },
+  "paper_metric_example_bc_ood_vs_expert": {
+    "mpjpe_m": 0.10229626613613714,
+    "mean_quaternion_distance_rad": 0.0639487214307874,
+    "velocity_error_mps": 0.057863374321313735,
+    "acceleration_error_mps2": 0.11550258649692673,
+    "discrete_frechet_m": 0.03580605685875771,
+    "cumulative_slip_m": 0.0175620383472498,
+    "normalized_geometry_error": 0.03166666666666669,
+    "task_success": false,
+    "success_predicate": "absolute goal error <= 0.02 m for the final 10 frames"
+  }
+}
