@@ -1,4 +1,0 @@
-case,camera_3d_error_m,world_3d_error_m,pixel_error_px,diagnosis
-millimeter_depth_treated_as_meter,2011.5405177127304,,0.0,3D scale is wrong although pixel reprojection still matches
-euclidean_range_treated_as_z_depth,0.013645928215485185,,0.0,point stays on the same camera ray but has the wrong distance
-camera_T_world_used_as_world_T_camera,,2.835472402758267,,the inverse transform maps in the opposite frame direction
