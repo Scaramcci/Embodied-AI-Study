@@ -1,0 +1,1674 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\citation{brohan2022rt,zhao2023learning,fu2024mobile,ze20243d,chi2025diffusion}
+\citation{schulman2017proximal,fujimoto2018addressing,haarnoja2018soft,hafner2019dream,janner2019trust}
+\citation{chen2024expanding,grattafiori2024llama,yang2025qwen3}
+\citation{mccarthy2025towards,eze2025learning,feng2026human,zheng2026video}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Illustration of bridging human videos and robot execution reviewed in this survey. We organize related works into three categories: task-oriented, observation-oriented, and action-oriented transfer pathways. We conduct intra-family analysis and cross-family comparison to highlight their design principles and trade-offs, and further provide practical guidelines for selecting suitable LfHV routes.}}{1}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:teaser}{{1}{1}{Illustration of bridging human videos and robot execution reviewed in this survey. We organize related works into three categories: task-oriented, observation-oriented, and action-oriented transfer pathways. We conduct intra-family analysis and cross-family comparison to highlight their design principles and trade-offs, and further provide practical guidelines for selecting suitable LfHV routes}{figure.caption.2}{}}
+\newlabel{FirstPage}{{}{1}{}{section*.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}介绍}{1}{section.1}\protected@file@percent }
+\citation{jang2022bc}
+\citation{kareer2025egomimic}
+\citation{dan2025x}
+\citation{zhou2025you}
+\citation{freeman2026warped}
+\citation{mao2024learning,allshire2025visual,li2025robomirror,yang2026zerowbc}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Taxonomy of robot learning from human videos.}}{2}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:taxonomy}{{2}{2}{Taxonomy of robot learning from human videos}{figure.caption.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Quantitative evidence showing that human videos are more data-efficient than conventional robot teleoperation.}}{3}{table.caption.4}\protected@file@percent }
+\newlabel{tab:human_video_efficiency}{{1}{3}{Quantitative evidence showing that human videos are more data-efficient than conventional robot teleoperation}{table.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Illustration of bridging human videos and robot execution in task, observation, and action levels.}}{3}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:bridging_overview}{{3}{3}{Illustration of bridging human videos and robot execution in task, observation, and action levels}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}背景}{3}{section.2}\protected@file@percent }
+\newlabel{sec:background}{{2}{3}{背景}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Imitation Learning}{3}{subsection.2.1}\protected@file@percent }
+\newlabel{eq:il_eq}{{1}{3}{Imitation Learning}{equation.1}{}}
+\citation{yang2015robot}
+\citation{yang2015robot}
+\citation{aksoy2017unsupervised}
+\citation{aksoy2017unsupervised}
+\citation{nguyen2018translating}
+\citation{nguyen2018translating}
+\citation{yang2019learning}
+\citation{yang2019learning}
+\citation{yang2022learning}
+\citation{yang2022learning}
+\citation{pertsch2022cross}
+\citation{pertsch2022cross}
+\citation{yang2022explicit}
+\citation{yang2022explicit}
+\citation{guo2023learning}
+\citation{guo2023learning}
+\citation{yang2023watch}
+\citation{yang2023watch}
+\citation{wake2024gpt}
+\citation{wake2024gpt}
+\citation{ding2024knowledge}
+\citation{ding2024knowledge}
+\citation{wang2024vlm}
+\citation{wang2024vlm}
+\citation{chen2024vlmimic}
+\citation{chen2024vlmimic}
+\citation{clark2025action}
+\citation{clark2025action}
+\citation{hori2025interactive}
+\citation{hori2025interactive}
+\citation{wang2025chain}
+\citation{wang2025chain}
+\citation{ma2025egoloc}
+\citation{ma2025egoloc}
+\citation{ye2025watch}
+\citation{ye2025watch}
+\citation{chen2025fmimic}
+\citation{chen2025fmimic}
+\citation{hori2025robot}
+\citation{hori2025robot}
+\citation{lin2025physbrain}
+\citation{lin2025physbrain}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Reinforcement Learning}{4}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}A Unified Formulation of Learning from Human Videos}{4}{subsection.2.3}\protected@file@percent }
+\newlabel{sec:unified_formulation}{{2.3}{4}{A Unified Formulation of Learning from Human Videos}{subsection.2.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}人机技能迁移}{4}{section.3}\protected@file@percent }
+\newlabel{sec:hr_skill_transfer}{{3}{4}{人机技能迁移}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Task-Oriented Transfer}{4}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:task_structures}{{3.1.1}{4}{Task Structures}{subsubsection.3.1.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Task Structures}{4}{subsubsection.3.1.1}\protected@file@percent }
+\citation{yang2015robot}
+\citation{aksoy2017unsupervised}
+\citation{nguyen2018translating}
+\citation{yang2019learning}
+\citation{yang2022explicit}
+\citation{yang2023watch}
+\citation{pertsch2022cross}
+\citation{yang2022learning}
+\citation{guo2023learning}
+\citation{wake2024gpt}
+\citation{achiam2023gpt}
+\citation{clark2025action}
+\citation{wang2024vlm}
+\citation{ye2025watch}
+\citation{lin2025physbrain}
+\citation{wang2024vlm}
+\citation{ye2025watch}
+\citation{lin2025physbrain}
+\citation{hori2025robot}
+\citation{hori2025interactive}
+\citation{ma2025egoloc}
+\citation{ding2024knowledge}
+\citation{chen2024vlmimic}
+\citation{chen2025fmimic}
+\citation{wang2025chain}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces High-level diagram of \textit  {task structures as a bridge}.}}{5}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:task_structure_transfer}{{4}{5}{High-level diagram of \textit {task structures as a bridge}}{figure.caption.6}{}}
+\citation{yu2018one}
+\citation{yu2018one}
+\citation{jang2022bc}
+\citation{jang2022bc}
+\citation{jain2024vid2robot}
+\citation{jain2024vid2robot}
+\citation{sermanet2016unsupervised}
+\citation{sermanet2016unsupervised}
+\citation{yu2018one_hil}
+\citation{yu2018one_hil}
+\citation{sharma2019third}
+\citation{sharma2019third}
+\citation{xu2023xskill}
+\citation{xu2023xskill}
+\citation{li2026act}
+\citation{li2026act}
+\citation{yu2018one}
+\citation{jang2022bc}
+\citation{jain2024vid2robot}
+\citation{vaswani2017attention}
+\citation{perez2018film}
+\citation{jang2022bc}
+\citation{sermanet2016unsupervised}
+\citation{yu2018one_hil}
+\citation{xu2023xskill}
+\citation{sharma2019third}
+\citation{li2026act}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Chronological overview of methods under \textit  {task structures as a bridge} in Sec.~\ref {sec:task_structures}.}}{6}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:task_structure_timeline}{{5}{6}{Chronological overview of methods under \textit {task structures as a bridge} in Sec.~\ref {sec:task_structures}}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces High-level diagram of \textit  {task intents as a bridge}.}}{6}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:task_intent_transfer}{{6}{6}{High-level diagram of \textit {task intents as a bridge}}{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Chronological overview of methods under \textit  {task intents as a bridge} in Sec.~\ref {sec:task_intents}.}}{6}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:task_intent_timeline}{{7}{6}{Chronological overview of methods under \textit {task intents as a bridge} in Sec.~\ref {sec:task_intents}}{figure.caption.9}{}}
+\newlabel{sec:task_intents}{{3.1.2}{6}{Task Intents}{subsubsection.3.1.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Task Intents}{6}{subsubsection.3.1.2}\protected@file@percent }
+\citation{zhou2021manipulator}
+\citation{zhou2021manipulator}
+\citation{bahl2022human}
+\citation{bahl2022human}
+\citation{chang2023look}
+\citation{chang2023look}
+\citation{li2024ag2manip}
+\citation{li2024ag2manip}
+\citation{xiong2025ag2x2}
+\citation{xiong2025ag2x2}
+\citation{smith2020avid}
+\citation{smith2020avid}
+\citation{xiong2021learning}
+\citation{xiong2021learning}
+\citation{sun2022learning}
+\citation{sun2022learning}
+\citation{duan2023ar2}
+\citation{duan2023ar2}
+\citation{lepert2025phantom}
+\citation{lepert2025phantom}
+\citation{li2025h2r}
+\citation{li2025h2r}
+\citation{lepert2025masquerade}
+\citation{lepert2025masquerade}
+\citation{li2025mimicdreamer}
+\citation{li2025mimicdreamer}
+\citation{ci2025h2r}
+\citation{ci2025h2r}
+\citation{tang2025trajectory}
+\citation{tang2025trajectory}
+\citation{song2025mitty}
+\citation{song2025mitty}
+\citation{freeman2026warped}
+\citation{freeman2026warped}
+\citation{li2024ag2manip,lepert2025phantom}
+\citation{zhou2021manipulator}
+\citation{bahl2022human}
+\citation{lee2019copy}
+\citation{chang2023look}
+\citation{rombach2022high}
+\citation{bahl2022human}
+\citation{li2024ag2manip}
+\citation{xiong2025ag2x2}
+\citation{li2024ag2manip}
+\citation{li2022towards}
+\citation{xiong2025ag2x2}
+\citation{smith2020avid}
+\citation{zhu2017unpaired}
+\citation{ho2020denoising,rombach2022high}
+\citation{xiong2021learning}
+\citation{smith2020avid}
+\citation{huang2018multimodal}
+\citation{sun2022learning}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3}Summary for Task-Oriented Transfer}{7}{subsubsection.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Observation-Oriented Transfer}{7}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:transformed_videos}{{3.2.1}{7}{Transformed Videos}{subsubsection.3.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Transformed Videos}{7}{subsubsection.3.2.1}\protected@file@percent }
+\citation{lepert2025phantom}
+\citation{li2022towards}
+\citation{li2024ag2manip}
+\citation{lepert2025masquerade}
+\citation{lepert2025masquerade}
+\citation{lepert2025phantom}
+\citation{li2025h2r}
+\citation{li2025mimicdreamer}
+\citation{black2024pi_0}
+\citation{freeman2026warped}
+\citation{ci2025h2r}
+\citation{lepert2025masquerade,li2025h2r}
+\citation{duan2023ar2}
+\citation{shridhar2023perceiver}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Chronological overview of methods under \textit  {transformed videos as a bridge} in Sec.~\ref {sec:transformed_videos}.}}{8}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:transformed_videos_timeline}{{8}{8}{Chronological overview of methods under \textit {transformed videos as a bridge} in Sec.~\ref {sec:transformed_videos}}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Illustration of \textit  {transformed videos as a bridge}. Some elements are adapted from \cite  {li2024ag2manip,lepert2025phantom}.}}{8}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:transformed_videos_transfer}{{9}{8}{Illustration of \textit {transformed videos as a bridge}. Some elements are adapted from \cite {li2024ag2manip,lepert2025phantom}}{figure.caption.11}{}}
+\citation{song2025mitty}
+\citation{song2025mitty}
+\citation{tang2025trajectory}
+\citation{sermanet2017time}
+\citation{sermanet2017time}
+\citation{rothfuss2018deep}
+\citation{rothfuss2018deep}
+\citation{liu2018imitation}
+\citation{liu2018imitation}
+\citation{schmeckpeper2020reinforcement}
+\citation{schmeckpeper2020reinforcement}
+\citation{smith2020avid}
+\citation{smith2020avid}
+\citation{chen2021learning}
+\citation{chen2021learning}
+\citation{nair2022r3m}
+\citation{nair2022r3m}
+\citation{xiao2022masked}
+\citation{xiao2022masked}
+\citation{ma2022vip}
+\citation{ma2022vip}
+\citation{zakka2022xirl}
+\citation{zakka2022xirl}
+\citation{xiong2022robotube}
+\citation{xiong2022robotube}
+\citation{ma2023liv}
+\citation{ma2023liv}
+\citation{bhateja2023robotic}
+\citation{bhateja2023robotic}
+\citation{radosavovic2023real}
+\citation{radosavovic2023real}
+\citation{karamcheti2023language}
+\citation{karamcheti2023language}
+\citation{dasari2023unbiased}
+\citation{dasari2023unbiased}
+\citation{majumdar2023we}
+\citation{majumdar2023we}
+\citation{burns2023makes}
+\citation{burns2023makes}
+\citation{wu2023unleashing}
+\citation{wu2023unleashing}
+\citation{mendonca2023structured}
+\citation{mendonca2023structured}
+\citation{chane2023learning}
+\citation{chane2023learning}
+\citation{huo2023efficient}
+\citation{huo2023efficient}
+\citation{jain2024vid2robot}
+\citation{jain2024vid2robot}
+\citation{qian2024contrast}
+\citation{qian2024contrast}
+\citation{li2024ag2manip}
+\citation{li2024ag2manip}
+\citation{liu2024masked}
+\citation{liu2024masked}
+\citation{zeng2024learning}
+\citation{zeng2024learning}
+\citation{cheang2024gr}
+\citation{cheang2024gr}
+\citation{sun2025vtao}
+\citation{sun2025vtao}
+\citation{shah2025mimicdroid}
+\citation{shah2025mimicdroid}
+\citation{zhang2025generative}
+\citation{zhang2025generative}
+\citation{jiang2025rynnvla}
+\citation{jiang2025rynnvla}
+\citation{pai2025mimic}
+\citation{pai2025mimic}
+\citation{xiong2025ag2x2}
+\citation{xiong2025ag2x2}
+\citation{zhou2025mitigating}
+\citation{zhou2025mitigating}
+\citation{kedia2025one}
+\citation{kedia2025one}
+\citation{punamiya2025egobridge}
+\citation{punamiya2025egobridge}
+\citation{liu2025immimic}
+\citation{liu2025immimic}
+\citation{zhu2025learning}
+\citation{zhu2025learning}
+\citation{goswami2025world}
+\citation{goswami2025world}
+\citation{ye2026visual}
+\citation{ye2026visual}
+\citation{nair2022r3m,xiao2022masked,zhu2025learning,punamiya2025egobridge,chen2021learning}
+\citation{sermanet2017time}
+\citation{nair2022r3m,ma2022vip,ma2023liv}
+\citation{nair2022r3m}
+\citation{grauman2022ego4d}
+\citation{shaw2023videodex,mendonca2023structured,li2024ag2manip,xiong2025ag2x2}
+\citation{ma2022vip}
+\citation{ma2023liv}
+\citation{ma2022vip}
+\citation{bhateja2023robotic}
+\citation{ma2022vip}
+\citation{li2024ag2manip}
+\citation{xiong2025ag2x2}
+\citation{he2022masked}
+\citation{xiao2022masked}
+\citation{radosavovic2023real}
+\citation{xiao2022masked}
+\citation{xiao2022masked}
+\citation{nair2022r3m}
+\citation{karamcheti2023language}
+\citation{karamcheti2023language}
+\citation{liu2024masked}
+\citation{liu2024masked}
+\citation{sun2025vtao}
+\citation{ye2026visual}
+\citation{vaswani2017attention}
+\citation{shah2025mimicdroid}
+\newlabel{sec:visual_embeddings}{{3.2.2}{9}{Visual Embeddings}{subsubsection.3.2.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Visual Embeddings}{9}{subsubsection.3.2.2}\protected@file@percent }
+\citation{majumdar2023we}
+\citation{dosovitskiy2020image}
+\citation{dasari2023unbiased}
+\citation{deng2009imagenet}
+\citation{smaira2020short}
+\citation{shan2020understanding}
+\citation{dasari2023unbiased}
+\citation{majumdar2023we}
+\citation{burns2023makes}
+\citation{liao2025genie,ye2026world}
+\citation{rothfuss2018deep}
+\citation{zeng2024learning}
+\citation{nair2022r3m,xiao2022masked,karamcheti2023language}
+\citation{zhang2025generative}
+\citation{liu2022flow}
+\citation{zhang2025generative}
+\citation{zhu2025learning}
+\citation{wu2023unleashing}
+\citation{cheang2024gr}
+\citation{wu2023unleashing}
+\citation{jiang2025rynnvla}
+\citation{pai2025mimic}
+\citation{agarwal2025cosmos,ali2025world}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Chronological overview of methods under \textit  {visual embeddings as a bridge} in Sec.~\ref {sec:visual_embeddings}.}}{10}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:visual_embeddings_timeline}{{10}{10}{Chronological overview of methods under \textit {visual embeddings as a bridge} in Sec.~\ref {sec:visual_embeddings}}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces High-level diagram of \textit  {visual embeddings as a bridge}. Some elements of the illustrations are adapted from \cite  {nair2022r3m,xiao2022masked,zhu2025learning,punamiya2025egobridge,chen2021learning}.}}{10}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:visual_embeddings_transfer}{{11}{10}{High-level diagram of \textit {visual embeddings as a bridge}. Some elements of the illustrations are adapted from \cite {nair2022r3m,xiao2022masked,zhu2025learning,punamiya2025egobridge,chen2021learning}}{figure.caption.13}{}}
+\citation{mower2026robot}
+\citation{schmeckpeper2020reinforcement}
+\citation{jain2024vid2robot}
+\citation{kedia2025one}
+\citation{punamiya2025egobridge}
+\citation{sakoe1978dynamic}
+\citation{punamiya2025egobridge}
+\citation{liu2025immimic}
+\citation{zhang2017mixup}
+\citation{zhou2025mitigating}
+\citation{liu2018imitation}
+\citation{zakka2022xirl}
+\citation{huo2023efficient}
+\citation{xiong2022robotube}
+\citation{qian2024contrast}
+\citation{mendonca2023structured}
+\citation{goswami2025world}
+\citation{smith2020avid}
+\citation{smith2020avid}
+\citation{chen2021learning}
+\citation{smith2020avid}
+\citation{chane2023learning}
+\citation{chen2021learning}
+\citation{zhang2020mediapipe,labbe2022megapose,sivakumar2022robotic,qin2022dexmv,cheng2023towards,wen2023bundlesdf,wang2023mimicplay,kumar2023graph,bahl2023affordances,wen2023any,karaev2024cotracker,bahety2024screwmimic,kerr2024robot,zhang2025hawor,xiao2025spatialtrackerv2,chen2025visa,hsieh2025dexman,hsu2025spot,chen2025web2grasp,zhou2025you,cong2025dytact,wang2026paws}
+\citation{bahl2023affordances}
+\citation{kannan2023deft}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Summary for Observation-Oriented Transfer}{12}{subsubsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Action-Oriented Transfer}{12}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:affordances}{{3.3.1}{12}{Affordances}{subsubsection.3.3.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Affordances}{12}{subsubsection.3.3.1}\protected@file@percent }
+\citation{shan2020understanding}
+\citation{bahl2022human,bahl2023affordances,wang2023mimicplay,kumar2023graph,mendonca2023structured,srirama2024hrp,ju2024robo,jonnavittula2025view,lu2025visual}
+\citation{goyal2022human}
+\citation{heidinger20252handedafforder}
+\citation{cheng2023towards}
+\citation{heppert2024ditto,shan2025slot,wang2026paws}
+\citation{li2022grounded}
+\citation{liu2024grounding}
+\citation{Ultralytics2023,khanam2024yolov5,sohan2024review,cheng2024yolo}
+\citation{kirillov2023segment,zhang2023faster,ren2024grounded,ravi2024sam,carion2025sam}
+\citation{xu2024flow,wang2024vlm,ma2025madiff,yoshida2025developing,ma2025uni,ma2025egoloc,li2025h2r,chen2025visa,hsu2025spot,xiong2025ag2x2}
+\citation{karaev2024cotracker,karaev2025cotracker3}
+\citation{bharadhwaj2024track2act,li2024okami,yuan2024general,werby2025articulated,chen2025visa,hsu2025spot,guzey2025bridging,chen2025graphmimic,haldar2025point,liu2025egozero,ci2025h2r,tang2025functo,guzey2025dexterity,shi2026care}
+\citation{doersch2023tapir}
+\citation{doersch2024bootstap}
+\citation{xu2024flow,papagiannis2025r,chen2025graphmimic,spiridonov2025generalist}
+\citation{cho2024local}
+\citation{hu2025learning}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Illustration of HOI analysis techniques and extracted affordances from human videos. Part of images are taken from \cite  {zhang2020mediapipe,labbe2022megapose,sivakumar2022robotic,qin2022dexmv,cheng2023towards,wen2023bundlesdf,wang2023mimicplay,kumar2023graph,bahl2023affordances,wen2023any,karaev2024cotracker,bahety2024screwmimic,kerr2024robot,zhang2025hawor,xiao2025spatialtrackerv2,chen2025visa,hsieh2025dexman,hsu2025spot,chen2025web2grasp,zhou2025you,cong2025dytact,wang2026paws}.}}{13}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:hoi_affordances}{{12}{13}{Illustration of HOI analysis techniques and extracted affordances from human videos. Part of images are taken from \cite {zhang2020mediapipe,labbe2022megapose,sivakumar2022robotic,qin2022dexmv,cheng2023towards,wen2023bundlesdf,wang2023mimicplay,kumar2023graph,bahl2023affordances,wen2023any,karaev2024cotracker,bahety2024screwmimic,kerr2024robot,zhang2025hawor,xiao2025spatialtrackerv2,chen2025visa,hsieh2025dexman,hsu2025spot,chen2025web2grasp,zhou2025you,cong2025dytact,wang2026paws}}{figure.caption.14}{}}
+\citation{zhang2020mediapipe}
+\citation{arunachalam2022dexterous,qin2022one,gao2023k,gu2023rt,zhou2025human,lu2025visual,haldar2025point}
+\citation{rong2020frankmocap}
+\citation{patel2022learning,mandikal2022dexvip,sivakumar2022robotic,kannan2023deft,srirama2024hrp,bahety2024screwmimic,chen2024vlmimic,chen2025fmimic}
+\citation{pavlakos2024reconstructing}
+\citation{li2024okami,shi2025zeromimic,papagiannis2025r,lum2025crossing,liu2025egozero,hsieh2025dexman,luo2025being,guzey2025dexterity,chen2026dexterous}
+\citation{potamias2025wilor}
+\citation{zhou2025you,yuan2025hermes,zhu2025learning,shah2025mimicdroid}
+\citation{zhang2025hawor}
+\citation{li2025scalable,luo2026being,luo2026joint,feng2025spatial,yang2026aoe}
+\citation{xie2026egohandicl}
+\citation{yang2026sam}
+\citation{ma2025uni}
+\citation{wen2023bundlesdf}
+\citation{chen2024vlmimic,patel2025robotic,hsu2025spot}
+\citation{xu2024instantmesh}
+\citation{meshyai}
+\citation{xiang2025structured}
+\citation{chen2025web2grasp,ye2025video2policy,hsieh2025dexman,soraki2026objectforesight,chen2026dexterous}
+\citation{labbe2022megapose}
+\citation{liang2024dreamitate,patel2025robotic}
+\citation{wen2024foundationpose}
+\citation{chen2024vlmimic,yuan2025hermes,hsieh2025dexman,mao2025robot,lum2025crossing,hsu2025spot,patel2025robotic,soraki2026objectforesight,fan2026robopaint,zou2026activeglasses}
+\citation{lee2025any6d}
+\citation{wen2024foundationpose}
+\citation{hsieh2025dexman}
+\citation{bharadhwaj2024track2act,zhu2024vision,haldar2025point,liu2025egozero,tang2025functo}
+\citation{xiao2024spatialtracker}
+\citation{xiao2025spatialtrackerv2}
+\citation{hsieh2025dexman,yoshida2025generating,yoshida2025developing}
+\citation{kerr2024robot,wang2026paws}
+\citation{cong2025dytact}
+\citation{lee2017learning}
+\citation{lee2017learning}
+\citation{sieb2020graph}
+\citation{sieb2020graph}
+\citation{das2021model}
+\citation{das2021model}
+\citation{patel2022learning}
+\citation{patel2022learning}
+\citation{mandikal2022dexvip}
+\citation{mandikal2022dexvip}
+\citation{sivakumar2022robotic}
+\citation{sivakumar2022robotic}
+\citation{arunachalam2022dexterous}
+\citation{arunachalam2022dexterous}
+\citation{qin2022one}
+\citation{qin2022one}
+\citation{bahl2022human}
+\citation{bahl2022human}
+\citation{wen2022you}
+\citation{wen2022you}
+\citation{jiang2022ditto}
+\citation{jiang2022ditto}
+\citation{qin2022dexmv}
+\citation{qin2022dexmv}
+\citation{shaw2023videodex}
+\citation{shaw2023videodex}
+\citation{kumar2023graph}
+\citation{kumar2023graph}
+\citation{wang2023mimicplay}
+\citation{wang2023mimicplay}
+\citation{bharadhwaj2023towards}
+\citation{bharadhwaj2023towards}
+\citation{wen2023any}
+\citation{wen2023any}
+\citation{wang2023robot}
+\citation{wang2023robot}
+\citation{gu2023rt}
+\citation{gu2023rt}
+\citation{bharadhwaj2023zero}
+\citation{bharadhwaj2023zero}
+\citation{bahl2023affordances}
+\citation{bahl2023affordances}
+\citation{kannan2023deft}
+\citation{kannan2023deft}
+\citation{ko2023learning}
+\citation{ko2023learning}
+\citation{gao2023k}
+\citation{gao2023k}
+\citation{ye2023learning}
+\citation{ye2023learning}
+\citation{srirama2024hrp}
+\citation{srirama2024hrp}
+\citation{bharadhwaj2024track2act}
+\citation{bharadhwaj2024track2act}
+\citation{xu2024flow}
+\citation{xu2024flow}
+\citation{kuang2024ram}
+\citation{kuang2024ram}
+\citation{yuan2024general}
+\citation{yuan2024general}
+\citation{heppert2024ditto}
+\citation{heppert2024ditto}
+\citation{ju2024robo}
+\citation{ju2024robo}
+\citation{kerr2024robot}
+\citation{kerr2024robot}
+\citation{bahety2024screwmimic}
+\citation{bahety2024screwmimic}
+\citation{zhu2024vision}
+\citation{zhu2024vision}
+\citation{li2024okami}
+\citation{li2024okami}
+\citation{chen2025visa}
+\citation{chen2025visa}
+\citation{spiridonov2025generalist}
+\citation{spiridonov2025generalist}
+\citation{yang2025ar}
+\citation{yang2025ar}
+\citation{jiang2025rynnvla}
+\citation{jiang2025rynnvla}
+\citation{yoshida2025developing}
+\citation{yoshida2025developing}
+\citation{yang2025egovla}
+\citation{yang2025egovla}
+\citation{luo2025being}
+\citation{luo2025being}
+\citation{li2025scalable}
+\citation{li2025scalable}
+\citation{cai2025n}
+\citation{cai2025n}
+\citation{feng2025spatial}
+\citation{feng2025spatial}
+\citation{kareer2025egomimic}
+\citation{kareer2025egomimic}
+\citation{qiu2025humanoid}
+\citation{qiu2025humanoid}
+\citation{yuan2025motiontrans}
+\citation{yuan2025motiontrans}
+\citation{cheang2025gr}
+\citation{cheang2025gr}
+\citation{wen2025gr}
+\citation{wen2025gr}
+\citation{kareer2025emergence}
+\citation{kareer2025emergence}
+\citation{singh2025deep}
+\citation{singh2025deep}
+\citation{dan2025x}
+\citation{dan2025x}
+\citation{lum2025crossing}
+\citation{lum2025crossing}
+\citation{jonnavittula2025view}
+\citation{jonnavittula2025view}
+\citation{chen2025vividex}
+\citation{chen2025vividex}
+\citation{guzey2025bridging}
+\citation{guzey2025bridging}
+\citation{zhao2025dexh2r}
+\citation{zhao2025dexh2r}
+\citation{yuan2025hermes}
+\citation{yuan2025hermes}
+\citation{hsieh2025dexman}
+\citation{hsieh2025dexman}
+\citation{li2025maniptrans}
+\citation{li2025maniptrans}
+\citation{zhao2025towards}
+\citation{zhao2025towards}
+\citation{ye2025video2policy}
+\citation{ye2025video2policy}
+\citation{yang2025tra}
+\citation{yang2025tra}
+\citation{chen2025graphmimic}
+\citation{chen2025graphmimic}
+\citation{zhou2025human}
+\citation{zhou2025human}
+\citation{papagiannis2025r}
+\citation{papagiannis2025r}
+\citation{park2025demodiffusion}
+\citation{park2025demodiffusion}
+\citation{shi2025zeromimic}
+\citation{shi2025zeromimic}
+\citation{chen2025vidbot}
+\citation{chen2025vidbot}
+\citation{ma2025uni}
+\citation{ma2025uni}
+\citation{ren2025motion}
+\citation{ren2025motion}
+\citation{li2025novaflow}
+\citation{li2025novaflow}
+\citation{yin2025object}
+\citation{yin2025object}
+\citation{shan2025slot}
+\citation{shan2025slot}
+\citation{hsu2025spot}
+\citation{hsu2025spot}
+\citation{tang2025functo}
+\citation{tang2025functo}
+\citation{tang2025mimicfunc}
+\citation{tang2025mimicfunc}
+\citation{werby2025articulated}
+\citation{werby2025articulated}
+\citation{zhang2025actron3d}
+\citation{zhang2025actron3d}
+\citation{haldar2025point}
+\citation{haldar2025point}
+\citation{liu2025egozero}
+\citation{liu2025egozero}
+\citation{hu2025learning}
+\citation{hu2025learning}
+\citation{chen2025web2grasp}
+\citation{chen2025web2grasp}
+\citation{zhou2025you}
+\citation{zhou2025you}
+\citation{heidinger20252handedafforder}
+\citation{heidinger20252handedafforder}
+\citation{bi2026h}
+\citation{bi2026h}
+\citation{zheng2026egoscale}
+\citation{zheng2026egoscale}
+\citation{zhu2026emma}
+\citation{zhu2026emma}
+\citation{luo2026being}
+\citation{luo2026being}
+\citation{soraki2026objectforesight}
+\citation{soraki2026objectforesight}
+\citation{chen2026dexterous}
+\citation{chen2026dexterous}
+\citation{wang2026paws}
+\citation{wang2026paws}
+\citation{zhang2026unidex}
+\citation{zhang2026unidex}
+\citation{shaw2023videodex}
+\citation{srirama2024hrp}
+\citation{chen2025visa}
+\citation{spiridonov2025generalist}
+\citation{yang2025ar}
+\citation{jiang2025rynnvla}
+\citation{yoshida2025developing}
+\citation{yang2025egovla}
+\citation{luo2025being}
+\citation{li2025scalable}
+\citation{cai2025n}
+\citation{feng2025spatial}
+\citation{bi2026h}
+\citation{zheng2026egoscale}
+\citation{zhang2026unidex}
+\citation{kareer2025egomimic}
+\citation{qiu2025humanoid}
+\citation{yuan2025motiontrans}
+\citation{cheang2025gr}
+\citation{wen2025gr}
+\citation{kareer2025emergence}
+\citation{luo2026being}
+\citation{zhu2026emma}
+\citation{shaw2023videodex}
+\citation{srirama2024hrp}
+\citation{shaw2023videodex}
+\citation{srirama2024hrp}
+\citation{beyer2024paligemma}
+\citation{chen2024expanding}
+\citation{liu2025nvila}
+\citation{chen2025visa}
+\citation{spiridonov2025generalist}
+\citation{yang2025ar}
+\citation{jiang2025rynnvla}
+\citation{yoshida2025developing}
+\citation{yoshida2025generating}
+\citation{black2024pi_0}
+\citation{pavlakos2024reconstructing,potamias2025wilor,zhang2025hawor}
+\citation{yang2025egovla}
+\citation{luo2025being}
+\citation{yang2025egovla}
+\citation{luo2025being}
+\citation{li2025scalable}
+\citation{luo2025being}
+\citation{cai2025n}
+\citation{feng2025spatial}
+\citation{bi2026h}
+\citation{zhang2026joyai}
+\citation{zheng2026egoscale}
+\citation{zhang2026unidex}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces High-level diagram of \textit  {affordances as a bridge}.}}{15}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:affordances_transfer}{{13}{15}{High-level diagram of \textit {affordances as a bridge}}{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Chronological overview of methods under \textit  {affordances as a bridge} in Sec.~\ref {sec:affordances}.}}{16}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:affordances_timeline}{{14}{16}{Chronological overview of methods under \textit {affordances as a bridge} in Sec.~\ref {sec:affordances}}{figure.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Comparison of representative methods that formulate affordances for robot policy backbone training.}}{17}{table.caption.17}\protected@file@percent }
+\newlabel{tab:affordance_backbone}{{2}{17}{Comparison of representative methods that formulate affordances for robot policy backbone training}{table.caption.17}{}}
+\citation{kareer2025egomimic}
+\citation{zhao2023learning}
+\citation{zhu2026emma}
+\citation{kareer2025egomimic}
+\citation{qiu2025humanoid}
+\citation{kareer2025egomimic}
+\citation{qiu2025humanoid}
+\citation{yuan2025motiontrans}
+\citation{wei2025empirical}
+\citation{black2024pi_0}
+\citation{cheang2025gr}
+\citation{wu2023unleashing}
+\citation{cheang2024gr}
+\citation{wen2025gr}
+\citation{luo2026being}
+\citation{luo2025being}
+\citation{kareer2025emergence}
+\citation{das2021model}
+\citation{singh2025deep}
+\citation{dan2025x}
+\citation{ye2025video2policy}
+\citation{sieb2020graph}
+\citation{patel2022learning}
+\citation{mandikal2022dexvip}
+\citation{kumar2023graph}
+\citation{lum2025crossing}
+\citation{jonnavittula2025view}
+\citation{chen2025vividex}
+\citation{guzey2025bridging}
+\citation{zhao2025dexh2r}
+\citation{yuan2025hermes}
+\citation{hsieh2025dexman}
+\citation{li2025maniptrans}
+\citation{zhao2025towards}
+\citation{das2021model}
+\citation{singh2025deep}
+\citation{dan2025x}
+\citation{ye2025video2policy}
+\citation{patel2022learning}
+\citation{mandikal2022dexvip}
+\citation{lum2025crossing}
+\citation{jonnavittula2025view}
+\citation{chen2025vividex}
+\citation{guzey2025bridging,zhao2025dexh2r,yuan2025hermes,hsieh2025dexman}
+\citation{zhao2025dexh2r}
+\citation{yuan2025hermes}
+\citation{hsieh2025dexman}
+\citation{yuan2025hermes}
+\citation{li2025maniptrans}
+\citation{zhao2025towards}
+\citation{sieb2020graph}
+\citation{sieb2020graph}
+\citation{kumar2023graph}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Comparison of representative methods that formulate affordances for reward construction in robot policy learning.}}{19}{table.caption.18}\protected@file@percent }
+\newlabel{tab:affordance_reward}{{3}{19}{Comparison of representative methods that formulate affordances for reward construction in robot policy learning}{table.caption.18}{}}
+\citation{lee2017learning}
+\citation{wang2023mimicplay}
+\citation{bharadhwaj2023towards}
+\citation{wen2023any}
+\citation{bharadhwaj2024track2act}
+\citation{yang2025tra}
+\citation{xu2024flow}
+\citation{chen2025graphmimic}
+\citation{zhou2025human}
+\citation{wang2023robot}
+\citation{gu2023rt}
+\citation{papagiannis2025r}
+\citation{park2025demodiffusion}
+\citation{lee2017learning}
+\citation{wang2023mimicplay}
+\citation{wang2023mimicplay}
+\citation{bharadhwaj2023towards}
+\citation{wen2023any}
+\citation{bharadhwaj2024track2act}
+\citation{yang2025tra}
+\citation{bharadhwaj2024track2act}
+\citation{yang2025tra}
+\citation{xu2024flow}
+\citation{chen2025graphmimic}
+\citation{zhou2025human}
+\citation{wang2023robot}
+\citation{gu2023rt}
+\citation{papagiannis2025r}
+\citation{di2024keypoint}
+\citation{park2025demodiffusion}
+\citation{sivakumar2022robotic}
+\citation{arunachalam2022dexterous}
+\citation{qin2022one}
+\citation{bahl2022human}
+\citation{bharadhwaj2023zero}
+\citation{bahl2023affordances}
+\citation{kannan2023deft}
+\citation{kuang2024ram}
+\citation{shi2025zeromimic}
+\citation{ma2025uni}
+\citation{wen2022you}
+\citation{ko2023learning}
+\citation{yuan2024general}
+\citation{heppert2024ditto}
+\citation{ju2024robo}
+\citation{kerr2024robot}
+\citation{li2025novaflow}
+\citation{yin2025object}
+\citation{shan2025slot}
+\citation{hsu2025spot}
+\citation{tang2025functo}
+\citation{zhang2025actron3d}
+\citation{qin2022dexmv}
+\citation{gao2023k}
+\citation{ye2023learning}
+\citation{bahety2024screwmimic}
+\citation{li2024okami}
+\citation{haldar2025point}
+\citation{liu2025egozero}
+\citation{chen2025web2grasp}
+\citation{zhou2025you}
+\citation{heidinger20252handedafforder}
+\citation{chen2026dexterous}
+\citation{wang2026paws}
+\citation{sivakumar2022robotic}
+\citation{arunachalam2022dexterous}
+\citation{zhang2020mediapipe}
+\citation{sivakumar2022robotic}
+\citation{arunachalam2022dexterous}
+\citation{qin2022one}
+\citation{singh2025hand}
+\citation{bahl2022human}
+\citation{bharadhwaj2023zero}
+\citation{bahl2023affordances}
+\citation{kannan2023deft,kuang2024ram,shi2025zeromimic,chen2025vidbot,ma2025uni}
+\citation{kannan2023deft}
+\citation{romero2022embodied}
+\citation{shi2025zeromimic}
+\citation{fang2023anygrasp}
+\citation{kuang2024ram}
+\citation{chen2025vidbot}
+\citation{kuang2024ram}
+\citation{fang2023anygrasp}
+\citation{kuang2024ram}
+\citation{chen2025vidbot}
+\citation{ren2025motion}
+\citation{ma2025uni}
+\citation{zhang2025zero,ma2025egoloc}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Comparison of representative methods that formulate affordances as robot policy condition.}}{21}{table.caption.19}\protected@file@percent }
+\newlabel{tab:affordance_condition}{{4}{21}{Comparison of representative methods that formulate affordances as robot policy condition}{table.caption.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Comparison of representative methods that formulate affordances as robot policy.}}{22}{table.caption.20}\protected@file@percent }
+\newlabel{tab:affordance_policy}{{5}{22}{Comparison of representative methods that formulate affordances as robot policy}{table.caption.20}{}}
+\citation{bharadhwaj2024track2act}
+\citation{yuan2024general}
+\citation{bharadhwaj2024track2act}
+\citation{yuan2024general}
+\citation{ko2023learning}
+\citation{li2025novaflow}
+\citation{ko2023learning}
+\citation{yin2025object}
+\citation{bharadhwaj2024track2act,yuan2024general}
+\citation{heppert2024ditto}
+\citation{wen2022you}
+\citation{heppert2024ditto}
+\citation{shan2025slot}
+\citation{wen2024foundationpose}
+\citation{hsu2025spot}
+\citation{soraki2026objectforesight}
+\citation{zou2026activeglasses}
+\citation{ju2024robo}
+\citation{kuang2024ram}
+\citation{tang2025functo}
+\citation{tang2025mimicfunc}
+\citation{huang2024rekep}
+\citation{jiang2022ditto}
+\citation{kerr2024robot}
+\citation{werby2025articulated}
+\citation{zhang2025actron3d}
+\citation{qin2022dexmv}
+\citation{gao2023k}
+\citation{haldar2025point,liu2025egozero,hu2025learning}
+\citation{haldar2025point}
+\citation{liu2025egozero}
+\citation{haldar2025point}
+\citation{ye2023learning}
+\citation{ye2023learning}
+\citation{chen2025web2grasp}
+\citation{zhou2025you}
+\citation{chen2026dexterous}
+\citation{xue2025demogen}
+\citation{bahety2024screwmimic}
+\citation{wang2026paws}
+\citation{zhu2024vision}
+\citation{li2024okami}
+\citation{zhu2024vision}
+\citation{heidinger20252handedafforder}
+\citation{ye2024latent}
+\citation{ye2024latent}
+\citation{chen2024igor}
+\citation{chen2024igor}
+\citation{chen2025moto}
+\citation{chen2025moto}
+\citation{bu2025agibot}
+\citation{bu2025agibot}
+\citation{bu2025univla}
+\citation{bu2025univla}
+\citation{kim2025uniskill}
+\citation{kim2025uniskill}
+\citation{garrido2026learning}
+\citation{garrido2026learning}
+\citation{lee2026mvp}
+\citation{lee2026mvp}
+\citation{gao2026dreamdojo}
+\citation{gao2026dreamdojo}
+\citation{govind2026unilact}
+\citation{govind2026unilact}
+\citation{sun2026vla}
+\citation{sun2026vla}
+\citation{chen2025villa}
+\citation{chen2025villa}
+\citation{routray2025vipra}
+\citation{routray2025vipra}
+\citation{bi2025motus}
+\citation{bi2025motus}
+\citation{li2025latbot}
+\citation{li2025latbot}
+\citation{shi2026care}
+\citation{shi2026care}
+\citation{luo2026joint}
+\citation{luo2026joint}
+\citation{zhang2026clap}
+\citation{zhang2026clap}
+\citation{dai2026conla}
+\citation{dai2026conla}
+\citation{ye2024latent}
+\citation{ye2024latent}
+\citation{bjorck2025gr00t}
+\citation{he2025surgworld}
+\citation{chen2024igor}
+\citation{chen2025moto}
+\citation{bu2025agibot}
+\citation{bu2025univla}
+\citation{garrido2026learning}
+\citation{lee2026mvp}
+\citation{kim2025uniskill}
+\citation{gao2026dreamdojo}
+\citation{govind2026unilact}
+\citation{sun2026vla}
+\citation{assran2025v}
+\newlabel{sec:latent_action_transfer}{{3.3.2}{25}{Latent Actions}{subsubsection.3.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Latent Actions}{25}{subsubsection.3.3.2}\protected@file@percent }
+\citation{ye2024latent}
+\citation{chen2024igor}
+\citation{bjorck2025gr00t}
+\citation{chen2025moto}
+\citation{bu2025agibot}
+\citation{bu2025univla}
+\citation{kim2025uniskill}
+\citation{garrido2026learning}
+\citation{lyu2026lda}
+\citation{lee2026mvp}
+\citation{gao2026dreamdojo}
+\citation{govind2026unilact}
+\citation{sun2026vla}
+\citation{chen2025villa}
+\citation{routray2025vipra}
+\citation{bi2025motus}
+\citation{li2025latbot}
+\citation{shi2026care}
+\citation{luo2026joint}
+\citation{zhang2026clap}
+\citation{dai2026conla}
+\citation{chen2025villa}
+\citation{routray2025vipra}
+\citation{bi2025motus}
+\citation{shi2026care}
+\citation{luo2026joint}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Chronological overview of methods under \textit  {latent actions as a bridge} in Sec.~\ref {sec:latent_action_transfer}.}}{26}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:latent_actions_timeline}{{15}{26}{Chronological overview of methods under \textit {latent actions as a bridge} in Sec.~\ref {sec:latent_action_transfer}}{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces High-level diagram of \textit  {latent actions as a bridge}. Some elements of the illustrations are adapted from \cite  {ye2024latent}.}}{26}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:latent_action_transfer}{{16}{26}{High-level diagram of \textit {latent actions as a bridge}. Some elements of the illustrations are adapted from \cite {ye2024latent}}{figure.caption.22}{}}
+\citation{li2025latbot}
+\citation{zhang2026clap}
+\citation{dai2026conla}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Comparison of representative methods that formulate latent actions as a bridge.}}{27}{table.caption.23}\protected@file@percent }
+\newlabel{tab:latent_action}{{6}{27}{Comparison of representative methods that formulate latent actions as a bridge}{table.caption.23}{}}
+\citation{pertsch2022cross,lin2025physbrain,li2026act}
+\citation{yang2015robot,sermanet2016unsupervised,nguyen2018translating,yu2018one,yu2018one_hil,sharma2019third,yang2022learning,xu2023xskill,ding2024knowledge,jain2024vid2robot,chen2024vlmimic,clark2025action,chen2025fmimic,hori2025interactive,hori2025robot}
+\citation{jang2022bc,wake2024gpt,wang2024vlm,ma2025egoloc,ye2025watch}
+\citation{ma2022vip,nair2022r3m,bhateja2023robotic,chang2023look,duan2023ar2,ma2023liv,majumdar2023we,mendonca2023structured,wu2023unleashing,li2024ag2manip,liu2024masked,zeng2024learning,goswami2025world,jiang2025rynnvla,lepert2025masquerade,li2025h2r,li2025mimicdreamer,punamiya2025egobridge,song2025mitty,sun2025vtao,xiong2025ag2x2,freeman2026warped,ye2026visual}
+\citation{sermanet2017time,liu2018imitation,schmeckpeper2020reinforcement,smith2020avid,xiong2021learning,bahl2022human,sun2022learning,zakka2022xirl,jain2024vid2robot,qian2024contrast,zhu2024vision,ci2025h2r,kedia2025one,lepert2025phantom,liu2025immimic,shah2025mimicdroid,tang2025trajectory,zhang2025generative,zhu2025learning}
+\citation{xiao2022masked,xiong2022robotube,dasari2023unbiased,radosavovic2023real,cheang2024gr}
+\citation{lee2017learning,bahl2023affordances,bharadhwaj2023towards,bharadhwaj2023zero,kannan2023deft,shaw2023videodex,ju2024robo,kuang2024ram,srirama2024hrp,yuan2024general,ye2024latent,cai2025n,cheang2025gr,chen2025vidbot,feng2025spatial,heidinger20252handedafforder,hsu2025spot,jiang2025rynnvla,kareer2025egomimic,kareer2025emergence,li2025scalable,liu2025egozero,luo2025being,ma2025egoloc,ma2025uni,papagiannis2025r,qiu2025humanoid,shi2025zeromimic,wen2025gr,werby2025articulated,yang2025ar,yang2025egovla,yoshida2025developing,yuan2025motiontrans,zhang2025actron3d,zhang2025zero,bi2025motus,bu2025univla,bi2026h,chen2026dexterous,gao2026dreamdojo,li2025latbot,luo2026being,luo2026joint,lyu2026lda,soraki2026objectforesight,wang2026paws,zhang2026clap,zhang2026unidex,zheng2026egoscale,zhu2026emma}
+\citation{sieb2020graph,das2021model,arunachalam2022dexterous,bahl2022human,qin2022dexmv,qin2022one,wen2022you,gao2023k,gu2023rt,ko2023learning,kumar2023graph,wang2023mimicplay,wang2023robot,wen2023any,ye2023learning,bahety2024screwmimic,heppert2024ditto,li2024okami,xu2024flow,chen2025graphmimic,chen2025vividex,dan2025x,garrido2026learning,haldar2025point,hsieh2025dexman,jonnavittula2025view,li2025novaflow,lum2025crossing,park2025demodiffusion,ren2025motion,shan2025slot,singh2025deep,singh2025hand,spiridonov2025generalist,tang2025functo,tang2025mimicfunc,yang2025tra,yin2025object,zhao2025dexh2r,zhou2025human,zhou2025you}
+\citation{mandikal2022dexvip,sivakumar2022robotic,bharadhwaj2024track2act,bjorck2025gr00t,chen2024igor,chen2025villa,kim2025uniskill,lee2026mvp}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Summary for Action-Oriented Transfer}{28}{subsubsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Bridging Mechanisms Across Data Configurations and Learning Paradigms}{28}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Across Data Configurations}{28}{subsubsection.3.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces LfHV studies across egocentric, exocentric, and egocentric+exocentric video configurations.}}{29}{table.caption.24}\protected@file@percent }
+\newlabel{tab:oriented_ego_exo_breakdown}{{7}{29}{LfHV studies across egocentric, exocentric, and egocentric+exocentric video configurations}{table.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Popularity trends of egocentric, exocentric, and egocentric+exocentric video configurations.}}{29}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:yearly_grouped_bar_all}{{17}{29}{Popularity trends of egocentric, exocentric, and egocentric+exocentric video configurations}{figure.caption.25}{}}
+\citation{grauman2022ego4d,liu2022hoi4d,wang2023holoassist,banerjee2024hot3d,hoque2025egodex}
+\citation{labbe2022megapose,wen2023bundlesdf,wen2024foundationpose,pavlakos2024reconstructing,karaev2024cotracker,karaev2025cotracker3}
+\citation{shaw2023videodex,wen2025gr,zhang2026unidex}
+\citation{yuan2025motiontrans,kareer2025emergence,cheang2025gr}
+\citation{yu2018one,yu2018one_hil,sharma2019third,jang2022bc,xu2023xskill,jain2024vid2robot,clark2025action,lin2025physbrain,li2026act}
+\citation{sermanet2016unsupervised,yang2022learning}
+\citation{yang2015robot,nguyen2018translating,pertsch2022cross,chen2024vlmimic,ding2024knowledge,wake2024gpt,wang2024vlm,chen2025fmimic,ma2025egoloc,ye2025watch}
+\citation{ma2022vip,nair2022r3m,bhateja2023robotic,dasari2023unbiased,duan2023ar2,ma2023liv,majumdar2023we,radosavovic2023real,wu2023unleashing,cheang2024gr,jain2024vid2robot,li2024ag2manip,zeng2024learning,ci2025h2r,jiang2025rynnvla,kedia2025one,lepert2025masquerade,li2025h2r,li2025mimicdreamer,liu2025immimic,punamiya2025egobridge,song2025mitty,zhang2025generative,zhu2025learning}
+\citation{sermanet2017time,liu2018imitation,schmeckpeper2020reinforcement,smith2020avid,bahl2022human,chang2023look,mendonca2023structured,qian2024contrast,ye2026visual}
+\citation{xiong2021learning,sun2022learning,xiao2022masked,xiong2022robotube,zakka2022xirl,liu2024masked,zhu2024vision,goswami2025world,lepert2025phantom,shah2025mimicdroid,sun2025vtao,tang2025trajectory,xiong2025ag2x2,freeman2026warped}
+\citation{lee2017learning,das2021model,arunachalam2022dexterous,qin2022one,sivakumar2022robotic,bharadhwaj2023towards,gu2023rt,shaw2023videodex,wang2023mimicplay,wen2023any,chen2024igor,srirama2024hrp,ye2024latent,bi2025motus,bjorck2025gr00t,bu2025univla,cai2025n,chen2025graphmimic,chen2025villa,feng2025spatial,jiang2025rynnvla,kareer2025egomimic,kareer2025emergence,kim2025uniskill,li2025latbot,li2025scalable,luo2025being,qiu2025humanoid,ren2025motion,singh2025hand,spiridonov2025generalist,wen2025gr,yang2025ar,yang2025egovla,yang2025tra,yoshida2025developing,yuan2025motiontrans,zhou2025human,bi2026h,gao2026dreamdojo,garrido2026learning,lee2026mvp,luo2026being,luo2026joint,lyu2026lda,zhang2026clap,zhang2026unidex,zheng2026egoscale,zhu2026emma}
+\citation{sieb2020graph,bahl2022human,kannan2023deft,bahety2024screwmimic,chen2025vividex,jonnavittula2025view}
+\citation{mandikal2022dexvip,qin2022dexmv,wen2022you,bahl2023affordances,bharadhwaj2023zero,gao2023k,ko2023learning,kumar2023graph,wang2023robot,ye2023learning,bharadhwaj2024track2act,heppert2024ditto,ju2024robo,kuang2024ram,li2024okami,xu2024flow,yuan2024general,chen2025vidbot,dan2025x,haldar2025point,heidinger20252handedafforder,hsieh2025dexman,hsu2025spot,li2025novaflow,liu2025egozero,lum2025crossing,ma2025egoloc,ma2025uni,papagiannis2025r,park2025demodiffusion,shan2025slot,shi2025zeromimic,singh2025deep,tang2025functo,tang2025mimicfunc,werby2025articulated,yin2025object,zhang2025actron3d,zhang2025zero,zhao2025dexh2r,zhou2025you,chen2026dexterous,soraki2026objectforesight,wang2026paws}
+\citation{ding2024knowledge,chen2024vlmimic,chen2025fmimic,wake2024gpt,wang2024vlm,ye2025watch}
+\citation{li2024ag2manip,li2025h2r,li2025mimicdreamer,lepert2025masquerade,jiang2025rynnvla}
+\citation{srirama2024hrp,luo2025being,kareer2025egomimic,zhu2026emma}
+\citation{ye2024latent,chen2024igor,chen2025villa,li2025latbot}
+\citation{fang2023anygrasp}
+\citation{di2024keypoint}
+\citation{bahl2023affordances,bharadhwaj2024track2act,kuang2024ram,papagiannis2025r,hsu2025spot,zhang2025actron3d}
+\citation{bjorck2025gr00t,bi2025motus,wen2025gr}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Across Learning Paradigms}{30}{subsubsection.3.4.2}\protected@file@percent }
+\citation{jang2022bc}
+\citation{jain2024vid2robot}
+\citation{ding2024knowledge,wake2024gpt,wang2024vlm,ye2025watch}
+\citation{sermanet2016unsupervised}
+\citation{li2024ag2manip,lepert2025masquerade,li2025h2r,li2025mimicdreamer}
+\citation{smith2020avid,zakka2022xirl}
+\citation{chang2023look,mendonca2023structured,goswami2025world}
+\citation{ding2024knowledge,wake2024gpt,wang2024vlm,ye2025watch}
+\citation{nair2022r3m,li2024ag2manip,lepert2025masquerade,li2025h2r}
+\citation{bahl2023affordances,bharadhwaj2024track2act,kuang2024ram,chen2025vidbot,zhang2025actron3d}
+\citation{ye2024latent,chen2024igor,chen2025villa,luo2025being,yang2025egovla}
+\citation{wang2023mimicplay,kareer2025egomimic,yang2025egovla,luo2025being}
+\citation{ye2024latent,chen2024igor,chen2025villa}
+\citation{das2021model,sieb2020graph,kumar2023graph,lum2025crossing}
+\citation{bahl2023affordances,kuang2024ram,chen2025vidbot,zhang2025actron3d,shi2025zeromimic}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Statistics of dependence on real-world robot data in LfHV studies.}}{31}{table.caption.26}\protected@file@percent }
+\newlabel{tab:oriented_robot_data_requirement}{{8}{31}{Statistics of dependence on real-world robot data in LfHV studies}{table.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Data pyramids defined by~\cite  {bjorck2025gr00t,bi2025motus,wen2025gr}, respectively.}}{31}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:data_pyramid}{{18}{31}{Data pyramids defined by~\cite {bjorck2025gr00t,bi2025motus,wen2025gr}, respectively}{figure.caption.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Practical guidelines for selecting LfHV transfer routes.}}{32}{table.caption.28}\protected@file@percent }
+\newlabel{tab:route_selection_guidelines}{{9}{32}{Practical guidelines for selecting LfHV transfer routes}{table.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Route Selection: Effectiveness, Failure Modes, and Practical Guidelines}{32}{subsection.3.5}\protected@file@percent }
+\newlabel{sec:route_selection}{{3.5}{32}{Route Selection: Effectiveness, Failure Modes, and Practical Guidelines}{subsection.3.5}{}}
+\citation{liu2022hoi4d,grauman2022ego4d,mccarthy2025towards,eze2025learning,hoque2025egodex,banerjee2024hot3d,feng2026human}
+\@writefile{toc}{\contentsline {section}{\numberline {4}数据基础}{33}{section.4}\protected@file@percent }
+\newlabel{sec:data_foundations}{{4}{33}{数据基础}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Open-Source Datasets}{33}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:data_sources}{{4.1}{33}{Open-Source Datasets}{subsection.4.1}{}}
+\citation{miech2019howto100m}
+\citation{damen2020rescaling}
+\citation{chen2024panda}
+\citation{chen2026action100m}
+\citation{hoque2025egodex}
+\citation{zhan2024oakink2}
+\citation{liu2024taco}
+\citation{banerjee2024hot3d}
+\citation{luo2025being,luo2026joint,luo2026being}
+\citation{luo2025being,hoque2025egodex,qiu2025humanoid,luo2026being}
+\citation{hoque2025egodex,chavan2025indego,qiu2025humanoid}
+\citation{kuehne2014language,caba2015activitynet,goyal2017something}
+\citation{chavan2025indego,zhao2025taste,chen2026action100m}
+\citation{kuehne2014language}
+\citation{caba2015activitynet}
+\citation{bambach2015lending}
+\citation{sigurdsson2016hollywood}
+\citation{garcia2017first}
+\citation{goyal2017something}
+\citation{zhou2017towards}
+\citation{fouhey2017lifestyle}
+\citation{damen2018scaling}
+\citation{li2018eye}
+\citation{miech2019howto100m}
+\citation{zimmermann2019freihand}
+\citation{shan2020understanding}
+\citation{damen2020rescaling}
+\citation{smaira2020short}
+\citation{cao2020reconstructing}
+\citation{chao2021dexycb}
+\citation{kwon2021h2o}
+\citation{grauman2022ego4d}
+\citation{sener2022assembly101}
+\citation{li2022egocentric}
+\citation{luo2022grounded}
+\citation{liu2022hoi4d}
+\citation{yang2022oakink}
+\citation{zhang2022fine}
+\citation{fan2023arctic}
+\citation{fang2023rh20t}
+\citation{wang2023holoassist}
+\citation{grauman2023ego}
+\citation{peddi2024captaincook4d}
+\citation{liu2024taco}
+\citation{chen2024panda}
+\citation{zhan2024oakink2}
+\citation{wang2024ho}
+\citation{banerjee2024hot3d}
+\citation{ma2024nymeria}
+\citation{wang2024egovid}
+\citation{buildaiegocentric10k2025}
+\citation{buildaiegocentric100k2025}
+\citation{perrett2025hd}
+\citation{qiu2025humanoid}
+\citation{zhao2025taste}
+\citation{hoque2025egodex}
+\citation{luo2025being}
+\citation{chavan2025indego}
+\citation{chen2025large}
+\citation{chen2026action100m}
+\citation{luo2026being}
+\citation{gao2026dreamdojo}
+\citation{luo2026joint}
+\newlabel{RF1}{35}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Statistics of open-source human video datasets.}}{35}{table.caption.29}\protected@file@percent }
+\newlabel{tab:human_video_datasets}{{10}{35}{Statistics of open-source human video datasets}{table.caption.29}{}}
+\citation{kuehne2014language}
+\citation{nguyen2018translating}
+\citation{caba2015activitynet}
+\citation{rothfuss2018deep}
+\citation{bambach2015lending}
+\citation{lee2017learning}
+\citation{sigurdsson2016hollywood}
+\citation{qian2024contrast}
+\citation{garcia2017first}
+\citation{ding2024knowledge,luo2025being,feng2025spatial}
+\citation{goyal2017something}
+\citation{rothfuss2018deep,chen2021learning,xiao2022masked,chane2023learning,majumdar2023we,bharadhwaj2023visual,radosavovic2023real,karamcheti2023language,burns2023makes,bharadhwaj2023towards,ye2024latent,bharadhwaj2024track2act,cheang2024gr,chen2024igor,ye2025video2policy,kim2025uniskill,li2025h2r,chen2025large,chen2025visa,jiang2025rynnvla,chen2025moto,chen2025villa,li2025scalable,routray2025vipra,shi2026care,dai2026conla,lyu2026lda,sun2026vla,nie2026lary,zhang2026disentangled}
+\citation{zhou2017towards}
+\citation{hori2025interactive,hori2025robot}
+\citation{fouhey2017lifestyle}
+\citation{qian2024contrast}
+\citation{damen2018scaling}
+\citation{xiao2022masked,sivakumar2022robotic,majumdar2023we,kannan2023deft,bharadhwaj2023zero,mendonca2023structured,burns2023makes,bharadhwaj2024track2act,li2024ag2manip,cheang2024gr,chen2024igor,xiong2025ag2x2,lepert2025masquerade,song2025mitty,shi2025zeromimic,li2025scalable,chen2025villa,bjorck2025gr00t,jiang2025rynnvla,luo2026being,soraki2026objectforesight,nie2026lary}
+\citation{li2018eye}
+\citation{chen2024igor,chen2025villa,li2026gazevla}
+\citation{miech2019howto100m}
+\citation{mandikal2022dexvip,cheang2024gr,jiang2025rynnvla}
+\citation{zimmermann2019freihand}
+\citation{sivakumar2022robotic}
+\citation{shan2020understanding}
+\citation{xiao2022masked,patel2022learning,sivakumar2022robotic,bahl2023affordances,majumdar2023we,radosavovic2023real,dasari2023unbiased,burns2023makes,srirama2024hrp,singh2025hand,jonnavittula2025view}
+\citation{damen2020rescaling}
+\citation{xiao2022masked,pertsch2022cross,bahl2023affordances,ma2023liv,chang2023look,radosavovic2023real,bharadhwaj2023towards,ju2024robo,chen2025large,chen2025vidbot,heidinger20252handedafforder,jiang2025rynnvla,lyu2026lda}
+\citation{smaira2020short}
+\citation{dasari2023unbiased,cheang2024gr,zhou2025mitigating}
+\citation{cao2020reconstructing}
+\citation{patel2022learning}
+\citation{chao2021dexycb}
+\citation{sivakumar2022robotic,qin2022dexmv,ye2023learning,qian2024contrast,ci2025h2r,singh2025deep,luo2025being,feng2025spatial,singh2025hand,zhao2025dexh2r,chen2025vividex,luo2026joint}
+\citation{kwon2021h2o}
+\citation{kim2025uniskill,ma2025uni,luo2025being,feng2025spatial,luo2026joint,zhang2026unidex,li2026gazevla}
+\citation{grauman2022ego4d}
+\citation{nair2022r3m,ma2022vip,majumdar2023we,bhateja2023robotic,radosavovic2023real,chang2023look,wu2023unleashing,kannan2023deft,dasari2023unbiased,burns2023makes,bharadhwaj2023towards,zeng2024learning,cheang2024gr,srirama2024hrp,chen2024igor,chen2025large,zhou2025mitigating,bu2025univla,jiang2025rynnvla,bjorck2025gr00t,li2025h2r,heidinger20252handedafforder,yoshida2025developing,lin2025physbrain,chen2025villa,yang2025ar,li2025scalable,bu2025agibot,luo2026being,luo2026joint,zhang2026clap,lyu2026lda,nie2026lary,zhang2026disentangled,li2026gazevla}
+\citation{sener2022assembly101}
+\citation{bjorck2025gr00t}
+\citation{li2022egocentric}
+\citation{zhang2025zero,ma2025egoloc,ma2025uni,chen2025villa}
+\citation{luo2022grounded}
+\citation{ju2024robo}
+\citation{liu2022hoi4d}
+\citation{kannan2023deft,kuang2024ram,yuan2024general,bjorck2025gr00t,wang2025gat,zhu2025learning,feng2025spatial,chen2025villa,zhang2025actron3d,luo2025being,yang2025egovla,luo2026joint,lyu2026lda,zhang2026unidex,li2026gazevla}
+\citation{yang2022oakink}
+\citation{chen2025web2grasp}
+\citation{zhang2022fine}
+\citation{kannan2023learning,soraki2026objectforesight}
+\citation{fan2023arctic}
+\citation{li2025maniptrans,luo2025being,feng2025spatial,luo2026joint,lyu2026lda}
+\citation{fang2023rh20t}
+\citation{bjorck2025gr00t,zhou2025mitigating,zhu2025learning,spiridonov2025generalist,chen2025villa,lyu2026lda}
+\citation{wang2023holoassist}
+\citation{bjorck2025gr00t,yang2025egovla,chen2025villa,lyu2026lda,nie2026lary,li2026gazevla}
+\citation{grauman2023ego}
+\citation{bjorck2025gr00t,yoshida2025developing,li2025scalable,li2026act,lyu2026lda,lee2026mvp,li2026gazevla}
+\citation{peddi2024captaincook4d}
+\citation{li2026act}
+\citation{liu2024taco}
+\citation{hsieh2025dexman,yang2025egovla,luo2025being,feng2025spatial,luo2026joint,lyu2026lda,zhang2026unidex,nie2026lary,li2026gazevla}
+\citation{chen2024panda}
+\citation{chen2025large}
+\citation{zhan2024oakink2}
+\citation{yuan2025hermes,li2025maniptrans,zhao2025towards,luo2025being,feng2025spatial,hsieh2025dexman,luo2026joint,lyu2026lda,li2026gazevla}
+\citation{wang2024ho}
+\citation{chen2025villa}
+\citation{banerjee2024hot3d}
+\citation{luo2025being,ma2025uni,yang2025egovla,soraki2026objectforesight,lyu2026lda,zhang2026unidex,li2026gazevla}
+\citation{ma2024nymeria}
+\citation{yoshida2025developing,gao2026dreamdojo,li2026gazevla}
+\citation{wang2024egovid}
+\citation{jiang2025rynnvla}
+\citation{perrett2025hd}
+\citation{yoshida2025developing}
+\citation{qiu2025humanoid}
+\citation{cai2025n}
+\citation{zhao2025taste}
+\citation{kim2025dexterous,luo2025being,feng2025spatial,lyu2026lda}
+\citation{hoque2025egodex}
+\citation{bi2025h,lin2025physbrain,goswami2025world,li2025mimicdreamer,li2025latbot,jiang2025rynnvla,luo2025being,feng2025spatial,cai2025n,bi2025motus,luo2026joint,gao2026dreamdojo,zheng2026egoscale,lyu2026lda,nie2026lary,li2026gazevla}
+\citation{luo2025being}
+\citation{luo2026joint,luo2026being}
+\citation{buildaiegocentric10k2025}
+\citation{lin2025physbrain,luo2026being,lyu2026lda}
+\citation{buildaiegocentric100k2025}
+\citation{chavan2025indego}
+\citation{chen2025large}
+\citation{chen2026action100m}
+\citation{luo2026being}
+\citation{gao2026dreamdojo}
+\citation{luo2026joint}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces LfHV studies grouped by the open-source human video datasets they use.}}{36}{table.caption.30}\protected@file@percent }
+\newlabel{tab:human_video_datasets_usedby}{{11}{36}{LfHV studies grouped by the open-source human video datasets they use}{table.caption.30}{}}
+\citation{grauman2022ego4d}
+\citation{damen2018scaling}
+\citation{damen2020rescaling}
+\citation{nair2022r3m}
+\citation{xiao2022masked}
+\citation{ci2025h2r}
+\citation{chen2025large}
+\citation{goyal2017something}
+\citation{ma2025uni}
+\citation{chen2025web2grasp}
+\citation{bi2025h}
+\citation{chao2021dexycb}
+\citation{kwon2021h2o}
+\citation{zhan2024oakink2}
+\citation{hoque2025egodex}
+\citation{banerjee2024hot3d}
+\citation{yang2025egovla}
+\citation{luo2025being}
+\citation{bjorck2025gr00t}
+\citation{lyu2026lda}
+\citation{luo2025being}
+\citation{luo2026being}
+\citation{luo2026joint}
+\citation{li2025novaflow}
+\citation{bonardi2020learning}
+\citation{du2023learning}
+\citation{ho2022imagen}
+\citation{du2023learning}
+\citation{bharadhwaj2024gen2act}
+\citation{kondratyuk2023videopoet}
+\citation{liang2024dreamitate}
+\citation{van2024generative}
+\citation{patel2025robotic}
+\citation{brooks2024video}
+\citation{KlingAI2024}
+\citation{achiam2023gpt}
+\citation{li2025novaflow}
+\citation{wan2025wan}
+\citation{wiedemer2025video}
+\citation{dharmarajan2025dream2flow}
+\citation{wan2025wan}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Human Video Generation}{37}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:human_video_gen}{{4.2}{37}{Human Video Generation}{subsection.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Illustration of human video generation for robot execution, which is originally shown in~\cite  {li2025novaflow}.}}{37}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:nova_flow_teaser}{{19}{37}{Illustration of human video generation for robot execution, which is originally shown in~\cite {li2025novaflow}}{figure.caption.31}{}}
+\citation{chen2025large}
+\citation{kim2025dexterous}
+\citation{bharadhwaj2024gen2act}
+\citation{wu2023unleashing,mendonca2023structured,cheang2024gr,zhu2025learning}
+\citation{goswami2025world}
+\citation{kim2025dexterous}
+\citation{cheng2024egothink,plizzari2025omnia,vinod2025egovlm,su2025annexe,lin2025physbrain}
+\citation{tang2025functo}
+\citation{tang2025mimicfunc}
+\citation{jiang2022ditto}
+\citation{kerr2024robot}
+\citation{werby2025articulated,wang2026paws}
+\@writefile{toc}{\contentsline {section}{\numberline {5}讨论}{38}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{38}{讨论}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Physically Grounded World Models}{38}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Physics-Aware Functional Affordance Extraction}{38}{subsection.5.2}\protected@file@percent }
+\citation{black2024pi_0,bjorck2025gr00t,luo2025being,yang2025egovla,lyu2026lda}
+\citation{liu2023libero}
+\citation{bahety2024screwmimic,li2025maniptrans,zhou2025you,bi2026h}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Continual Learning with Human Video Data}{39}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Multi-Agent Interaction}{39}{subsection.5.4}\protected@file@percent }
+\citation{zhu2024vision,bharadhwaj2024track2act,ma2025uni}
+\citation{chen2025vidbot,li2025novaflow,govind2026unilact}
+\citation{seth2026egoavu,zhu2026egosound}
+\citation{li2026gazevla}
+\citation{li2018eye}
+\citation{grauman2022ego4d}
+\citation{wang2023holoassist}
+\citation{grauman2023ego}
+\citation{ma2024nymeria}
+\citation{perrett2025hd}
+\citation{chavan2025indego}
+\citation{zhou2026touchanything}
+\citation{zhou2026touchanything}
+\citation{grauman2022ego4d}
+\citation{chen2024igor,cheang2024gr,cheang2025gr,zhao2025dexh2r,bjorck2025gr00t,luo2026joint}
+\citation{mees2022calvin}
+\citation{liu2023libero}
+\citation{mu2025robotwin}
+\citation{kerbl20233d}
+\citation{lin2025physbrain,zhang2025zero}
+\citation{ma2025novel,chen2025flowing}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Multimodal Signals Accompanying Human Videos}{40}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Utilization of Low-Quality Human Videos}{40}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Standardized Benchmarking}{40}{subsection.5.7}\protected@file@percent }
+\citation{damen2018scaling,damen2020rescaling}
+\citation{grauman2022ego4d}
+\citation{hoque2025egodex}
+\citation{banerjee2024hot3d}
+\citation{li2026egolive}
+\citation{punamiya2026egoverse}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Egocentric Data Ecosystems}{41}{subsection.5.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Summary for Challenges and Future Directions}{41}{subsection.5.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}结论}{41}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{6}{41}{结论}{section.6}{}}
+\bibstyle{SageH}
+\bibdata{main.bib}
+\bibcite{achiam2023gpt}{{1}{2023}{{Achiam et~al.}}{{Achiam, Adler, Agarwal, Ahmad, Akkaya, Aleman, Almeida, Altenschmidt, Altman, Anadkat et~al.}}}
+\bibcite{agarwal2025cosmos}{{2}{2025}{{Agarwal et~al.}}{{Agarwal, Ali, Bala, Balaji, Barker, Cai, Chattopadhyay, Chen, Cui, Ding et~al.}}}
+\bibcite{aksoy2017unsupervised}{{3}{2017}{{Aksoy et~al.}}{{Aksoy, Ovchinnikova, Orhan, Yang and Asfour}}}
+\bibcite{ali2025world}{{4}{2025}{{Ali et~al.}}{{Ali, Bai, Bala, Balaji, Blakeman, Cai, Cao, Cao, Cha, Chao et~al.}}}
+\bibcite{allshire2025visual}{{5}{2025}{{Allshire et~al.}}{{Allshire, Choi, Zhang, McAllister, Zhang, Kim, Darrell, Abbeel, Malik and Kanazawa}}}
+\bibcite{arunachalam2022dexterous}{{6}{2022}{{Arunachalam et~al.}}{{Arunachalam, Silwal, Evans and Pinto}}}
+\bibcite{assran2025v}{{7}{2025}{{Assran et~al.}}{{Assran, Bardes, Fan, Garrido, Howes, Muckley, Rizvi, Roberts, Sinha, Zholus et~al.}}}
+\bibcite{bahety2024screwmimic}{{8}{2024}{{Bahety et~al.}}{{Bahety, Mandikal, Abbatematteo and Mart{\'\i }n-Mart{\'\i }n}}}
+\bibcite{bahl2022human}{{9}{2022}{{Bahl et~al.}}{{Bahl, Gupta and Pathak}}}
+\bibcite{bahl2023affordances}{{10}{2023}{{Bahl et~al.}}{{Bahl, Mendonca, Chen, Jain and Pathak}}}
+\bibcite{bambach2015lending}{{11}{2015}{{Bambach et~al.}}{{Bambach, Lee, Crandall and Yu}}}
+\bibcite{banerjee2024hot3d}{{12}{2024}{{Banerjee et~al.}}{{Banerjee, Shkodrani, Moulon, Hampali, Han, Zhang, Zhang, Fountain, Miller, Basol et~al.}}}
+\bibcite{beyer2024paligemma}{{13}{2024}{{Beyer et~al.}}{{Beyer, Steiner, Pinto, Kolesnikov, Wang, Salz, Neumann, Alabdulmohsin, Tschannen, Bugliarello et~al.}}}
+\bibcite{bharadhwaj2024gen2act}{{14}{2024{a}}{{Bharadhwaj et~al.}}{{Bharadhwaj, Dwibedi, Gupta, Tulsiani, Doersch, Xiao, Shah, Xia, Sadigh and Kirmani}}}
+\bibcite{bharadhwaj2023towards}{{15}{2023{a}}{{Bharadhwaj et~al.}}{{Bharadhwaj, Gupta, Kumar and Tulsiani}}}
+\bibcite{bharadhwaj2023visual}{{16}{2023{b}}{{Bharadhwaj et~al.}}{{Bharadhwaj, Gupta and Tulsiani}}}
+\bibcite{bharadhwaj2023zero}{{17}{2023{c}}{{Bharadhwaj et~al.}}{{Bharadhwaj, Gupta, Tulsiani and Kumar}}}
+\bibcite{bharadhwaj2024track2act}{{18}{2024{b}}{{Bharadhwaj et~al.}}{{Bharadhwaj, Mottaghi, Gupta and Tulsiani}}}
+\bibcite{bhateja2023robotic}{{19}{2023}{{Bhateja et~al.}}{{Bhateja, Guo, Ghosh, Singh, Tomar, Vuong, Chebotar, Levine and Kumar}}}
+\bibcite{bi2025motus}{{20}{2025{a}}{{Bi et~al.}}{{Bi, Tan, Xie, Wang, Huang, Liu, Zhao, Feng, Xiang, Rong et~al.}}}
+\bibcite{bi2025h}{{21}{2025{b}}{{Bi et~al.}}{{Bi, Wu, Lin, Tan, Su, Su and Zhu}}}
+\bibcite{bi2026h}{{22}{2026}{{Bi et~al.}}{{Bi, Wu, Lin, Tan, Su, Su and Zhu}}}
+\bibcite{bjorck2025gr00t}{{23}{2025}{{Bjorck et~al.}}{{Bjorck, Casta{\~n}eda, Cherniadev, Da, Ding, Fan, Fang, Fox, Hu, Huang et~al.}}}
+\bibcite{black2024pi_0}{{24}{2024}{{Black et~al.}}{{Black, Brown, Driess, Esmail, Equi, Finn, Fusai, Groom, Hausman, Ichter et~al.}}}
+\bibcite{bonardi2020learning}{{25}{2020}{{Bonardi et~al.}}{{Bonardi, James and Davison}}}
+\bibcite{brohan2022rt}{{26}{2022}{{Brohan et~al.}}{{Brohan, Brown, Carbajal, Chebotar, Dabis, Finn, Gopalakrishnan, Hausman, Herzog, Hsu et~al.}}}
+\bibcite{brooks2024video}{{27}{2024}{{Brooks et~al.}}{{Brooks, Peebles, Holmes, DePue, Guo, Jing, Schnurr, Taylor, Luhman, Luhman et~al.}}}
+\bibcite{bu2025agibot}{{28}{2025{a}}{{Bu et~al.}}{{Bu, Cai, Chen, Cui, Ding, Feng, Gao, He, Hu, Huang et~al.}}}
+\bibcite{bu2025univla}{{29}{2025{b}}{{Bu et~al.}}{{Bu, Yang, Cai, Gao, Ren, Yao, Luo and Li}}}
+\bibcite{buildaiegocentric100k2025}{{30}{2025{a}}{{Build AI}}{{}}}
+\bibcite{buildaiegocentric10k2025}{{31}{2025{b}}{{Build AI}}{{}}}
+\bibcite{burns2023makes}{{32}{2023}{{Burns et~al.}}{{Burns, Witzel, Hamid, Yu, Finn and Hausman}}}
+\bibcite{caba2015activitynet}{{33}{2015}{{Caba~Heilbron et~al.}}{{Caba~Heilbron, Escorcia, Ghanem and Carlos~Niebles}}}
+\bibcite{cai2025n}{{34}{2025}{{Cai et~al.}}{{Cai, Qiu, Chen, Wei, Liu, Huang, Cheng and Wang}}}
+\bibcite{cao2020reconstructing}{{35}{2020}{{Cao et~al.}}{{Cao, Radosavovic, Kanazawa and Malik}}}
+\bibcite{carion2025sam}{{36}{2025}{{Carion et~al.}}{{Carion, Gustafson, Hu, Debnath, Hu, Suris, Ryali, Alwala, Khedr, Huang et~al.}}}
+\bibcite{chane2023learning}{{37}{2023}{{Chane-Sane et~al.}}{{Chane-Sane, Schmid and Laptev}}}
+\bibcite{chang2023look}{{38}{2023}{{Chang et~al.}}{{Chang, Prakash and Gupta}}}
+\bibcite{chao2021dexycb}{{39}{2021}{{Chao et~al.}}{{Chao, Yang, Xiang, Molchanov, Handa, Tremblay, Narang, Van~Wyk, Iqbal, Birchfield et~al.}}}
+\bibcite{chavan2025indego}{{40}{2025}{{Chavan et~al.}}{{Chavan, Imgrund, Dao, Bai, Wang, Lu, Heimann and Kr{\"u}ger}}}
+\bibcite{cheang2025gr}{{41}{2025}{{Cheang et~al.}}{{Cheang, Chen, Cui, Hu, Huang, Kong, Li, Li, Liu, Ma et~al.}}}
+\bibcite{cheang2024gr}{{42}{2024}{{Cheang et~al.}}{{Cheang, Chen, Jing, Kong, Li, Li, Liu, Wu, Xu, Yang et~al.}}}
+\bibcite{chen2021learning}{{43}{2021}{{Chen et~al.}}{{Chen, Nair and Finn}}}
+\bibcite{chen2025large}{{44}{2025{a}}{{Chen et~al.}}{{Chen, Zhang, Geng, Song, Zhang, Li, Freeman, Malik, Abbeel, Tedrake et~al.}}}
+\bibcite{chen2025visa}{{45}{2025{b}}{{Chen et~al.}}{{Chen, Yang, Xu, Fazeli and Andersson}}}
+\bibcite{chen2026action100m}{{46}{2026{a}}{{Chen et~al.}}{{Chen, Kasarla, Bang, Shukor, Chung, Yu, Bolourchi, Moutakanni and Fung}}}
+\bibcite{chen2025graphmimic}{{47}{2025{c}}{{Chen et~al.}}{{Chen, Cui, Wang, Yang, Hu, Lu, Mu, Peng, Zhou, Jiang et~al.}}}
+\bibcite{chen2025fmimic}{{48}{2025{d}}{{Chen et~al.}}{{Chen, Wang, Cui, Mu, Lu, Peng, Hu, Zhou, Fu, Yang et~al.}}}
+\bibcite{chen2024vlmimic}{{49}{2024{a}}{{Chen et~al.}}{{Chen, Wang, Cui, Mu, Lu, Zhou, Peng, Hu, Li, Yuan et~al.}}}
+\bibcite{chen2026dexterous}{{50}{2026{b}}{{Chen et~al.}}{{Chen, Dong, Wu, Wang, Jangir, Niu, Ye, Bharadhwaj, Erickson and Ichnowski}}}
+\bibcite{chen2025vidbot}{{51}{2025{e}}{{Chen et~al.}}{{Chen, Sun, Zhang, Pollefeys and Leutenegger}}}
+\bibcite{chen2025web2grasp}{{52}{2025{f}}{{Chen et~al.}}{{Chen, Yao, Ye, Xu, Bharadhwaj, Wang, Tulsiani, Erickson and Ichnowski}}}
+\bibcite{chen2025flowing}{{53}{2025{g}}{{Chen et~al.}}{{Chen, Wang, Li, Bharadhwaj, Chen, Qin, Kou, Tian, Whitmire, Sodhi et~al.}}}
+\bibcite{chen2024panda}{{54}{2024{b}}{{Chen et~al.}}{{Chen, Siarohin, Menapace, Deyneka, Chao, Jeon, Fang, Lee, Ren, Yang et~al.}}}
+\bibcite{chen2024igor}{{55}{2024{c}}{{Chen et~al.}}{{Chen, Guo, He, Zhang, Zhang, Yang, Zhao and Bian}}}
+\bibcite{chen2025villa}{{56}{2025{h}}{{Chen et~al.}}{{Chen, Wei, Zhang, Zhang, Wang, Guo, Yang, Wang, Xiao, Zhao et~al.}}}
+\bibcite{chen2025moto}{{57}{2025{i}}{{Chen et~al.}}{{Chen, Ge, Tang, Li, Ge, Ding, Shan and Liu}}}
+\bibcite{chen2025vividex}{{58}{2025{j}}{{Chen et~al.}}{{Chen, Chen, Arlaud, Laptev and Schmid}}}
+\bibcite{chen2024expanding}{{59}{2024{d}}{{Chen et~al.}}{{Chen, Wang, Cao, Liu, Gao, Cui, Zhu, Ye, Tian, Liu et~al.}}}
+\bibcite{cheng2024egothink}{{60}{2024{a}}{{Cheng et~al.}}{{Cheng, Guo, Wu, Fang, Li, Liu and Liu}}}
+\bibcite{cheng2023towards}{{61}{2023}{{Cheng et~al.}}{{Cheng, Shan, Hassen, Higgins and Fouhey}}}
+\bibcite{cheng2024yolo}{{62}{2024{b}}{{Cheng et~al.}}{{Cheng, Song, Ge, Liu, Wang and Shan}}}
+\bibcite{chi2025diffusion}{{63}{2025}{{Chi et~al.}}{{Chi, Xu, Feng, Cousineau, Du, Burchfiel, Tedrake and Song}}}
+\bibcite{cho2024local}{{64}{2024}{{Cho et~al.}}{{Cho, Huang, Nam, An, Kim and Lee}}}
+\bibcite{ci2025h2r}{{65}{2025}{{Ci et~al.}}{{Ci, Liu, Yang, Song and Shou}}}
+\bibcite{clark2025action}{{66}{2025}{{Clark et~al.}}{{Clark, Mirchandani, Sadigh and Belkhale}}}
+\bibcite{cong2025dytact}{{67}{2025}{{Cong et~al.}}{{Cong, Xing, Pokhariya, Fu and Sridhar}}}
+\bibcite{dai2026conla}{{68}{2026}{{Dai et~al.}}{{Dai, Lan, Zhou, Zhao, Su, Tong, Guan and Yang}}}
+\bibcite{damen2018scaling}{{69}{2018}{{Damen et~al.}}{{Damen, Doughty, Farinella, Fidler, Furnari, Kazakos, Moltisanti, Munro, Perrett, Price et~al.}}}
+\bibcite{damen2020rescaling}{{70}{2020}{{Damen et~al.}}{{Damen, Doughty, Farinella, Furnari, Kazakos, Ma, Moltisanti, Munro, Perrett, Price et~al.}}}
+\bibcite{dan2025x}{{71}{2025}{{Dan et~al.}}{{Dan, Kedia, Chao, Duan, Pace, Ma and Choudhury}}}
+\bibcite{das2021model}{{72}{2021}{{Das et~al.}}{{Das, Bechtle, Davchev, Jayaraman, Rai and Meier}}}
+\bibcite{dasari2023unbiased}{{73}{2023}{{Dasari et~al.}}{{Dasari, Srirama, Jain and Gupta}}}
+\bibcite{deng2009imagenet}{{74}{2009}{{Deng et~al.}}{{Deng, Dong, Socher, Li, Li and Fei-Fei}}}
+\bibcite{dharmarajan2025dream2flow}{{75}{2025}{{Dharmarajan et~al.}}{{Dharmarajan, Huang, Wu, Fei-Fei and Zhang}}}
+\bibcite{di2024keypoint}{{76}{2024}{{Di~Palo and Johns}}{{}}}
+\bibcite{ding2024knowledge}{{77}{2024}{{Ding et~al.}}{{Ding, Zhang, Li, Zhou and Perzylo}}}
+\bibcite{doersch2024bootstap}{{78}{2024}{{Doersch et~al.}}{{Doersch, Luc, Yang, Gokay, Koppula, Gupta, Heyward, Rocco, Goroshin, Carreira et~al.}}}
+\bibcite{doersch2023tapir}{{79}{2023}{{Doersch et~al.}}{{Doersch, Yang, Vecerik, Gokay, Gupta, Aytar, Carreira and Zisserman}}}
+\bibcite{dosovitskiy2020image}{{80}{2020}{{Dosovitskiy et~al.}}{{Dosovitskiy, Beyer, Kolesnikov, Weissenborn, Zhai, Unterthiner, Dehghani, Minderer, Heigold, Gelly et~al.}}}
+\bibcite{du2023learning}{{81}{2023}{{Du et~al.}}{{Du, Yang, Dai, Dai, Nachum, Tenenbaum, Schuurmans and Abbeel}}}
+\bibcite{duan2023ar2}{{82}{2023}{{Duan et~al.}}{{Duan, Wang, Shridhar, Fox and Krishna}}}
+\bibcite{eze2025learning}{{83}{2025}{{Eze and Crick}}{{}}}
+\bibcite{fan2026robopaint}{{84}{2026}{{Fan et~al.}}{{Fan, Zhao, Zhang, Chen, Wang, Zhang and Cheng}}}
+\bibcite{fan2023arctic}{{85}{2023}{{Fan et~al.}}{{Fan, Taheri, Tzionas, Kocabas, Kaufmann, Black and Hilliges}}}
+\bibcite{fang2023rh20t}{{86}{2023{a}}{{Fang et~al.}}{{Fang, Fang, Tang, Liu, Wang, Wang, Zhu and Lu}}}
+\bibcite{fang2023anygrasp}{{87}{2023{b}}{{Fang et~al.}}{{Fang, Wang, Fang, Gou, Liu, Yan, Liu, Xie and Lu}}}
+\bibcite{feng2025spatial}{{88}{2025}{{Feng et~al.}}{{Feng, Zhang, Wang, Luo, Yuan, Zheng and Lu}}}
+\bibcite{feng2026human}{{89}{2026}{{Feng et~al.}}{{Feng, Li, Liang, Yang, Shen, Du, Zhang, Deng, Zhao, Zhao et~al.}}}
+\bibcite{fouhey2017lifestyle}{{90}{2017}{{Fouhey et~al.}}{{Fouhey, Kuo, Efros and Malik}}}
+\bibcite{freeman2026warped}{{91}{2026}{{Freeman et~al.}}{{Freeman, Kim and Kantor}}}
+\bibcite{fu2024mobile}{{92}{2024}{{Fu et~al.}}{{Fu, Zhao and Finn}}}
+\bibcite{fujimoto2018addressing}{{93}{2018}{{Fujimoto et~al.}}{{Fujimoto, Hoof and Meger}}}
+\bibcite{gao2023k}{{94}{2023}{{Gao et~al.}}{{Gao, Tao, Jaquier and Asfour}}}
+\bibcite{gao2026dreamdojo}{{95}{2026}{{Gao et~al.}}{{Gao, Liang, Zheng, Malik, Ye, Yu, Tseng, Dong, Mo, Lin et~al.}}}
+\bibcite{garcia2017first}{{96}{2017}{{Garcia-Hernando et~al.}}{{Garcia-Hernando, Yuan, Baek and Kim}}}
+\bibcite{garrido2026learning}{{97}{2026}{{Garrido et~al.}}{{Garrido, Nagarajan, Terver, Ballas, LeCun and Rabbat}}}
+\bibcite{goswami2025world}{{98}{2025}{{Goswami et~al.}}{{Goswami, Bar, Fan, Yang, Zhou, Krishnamurthy, Rabbat, Khorrami and LeCun}}}
+\bibcite{govind2026unilact}{{99}{2026}{{Govind et~al.}}{{Govind, Reilly, Wang and Das}}}
+\bibcite{goyal2022human}{{100}{2022}{{Goyal et~al.}}{{Goyal, Modi, Goyal and Gupta}}}
+\bibcite{goyal2017something}{{101}{2017}{{Goyal et~al.}}{{Goyal, Ebrahimi~Kahou, Michalski, Materzynska, Westphal, Kim, Haenel, Fruend, Yianilos, Mueller-Freitag et~al.}}}
+\bibcite{grattafiori2024llama}{{102}{2024}{{Grattafiori et~al.}}{{Grattafiori, Dubey, Jauhri, Pandey, Kadian, Al-Dahle, Letman, Mathur, Schelten, Vaughan et~al.}}}
+\bibcite{grauman2022ego4d}{{103}{2021}{{Grauman et~al.}}{{Grauman, Westbury, Byrne, Chavis, Furnari, Girdhar, Hamburger, Jiang, Liu, Liu et~al.}}}
+\bibcite{grauman2023ego}{{104}{2023}{{Grauman et~al.}}{{Grauman, Westbury, Torresani, Kitani, Malik, Afouras, Ashutosh, Baiyya, Bansal, Boote et~al.}}}
+\bibcite{gu2023rt}{{105}{2023}{{Gu et~al.}}{{Gu, Kirmani, Wohlhart, Lu, Arenas, Rao, Yu, Fu, Gopalakrishnan, Xu et~al.}}}
+\bibcite{guo2023learning}{{106}{2023}{{Guo}}{{}}}
+\bibcite{guzey2025bridging}{{107}{2025{a}}{{Guzey et~al.}}{{Guzey, Dai, Savva, Bhirangi and Pinto}}}
+\bibcite{guzey2025dexterity}{{108}{2025{b}}{{Guzey et~al.}}{{Guzey, Qi, Urain, Wang, Yin, Bodduluri, Lambeta, Pinto, Rai, Malik et~al.}}}
+\bibcite{haarnoja2018soft}{{109}{2018}{{Haarnoja et~al.}}{{Haarnoja, Zhou, Abbeel and Levine}}}
+\bibcite{hafner2019dream}{{110}{2019}{{Hafner et~al.}}{{Hafner, Lillicrap, Ba and Norouzi}}}
+\bibcite{haldar2025point}{{111}{2025}{{Haldar and Pinto}}{{}}}
+\bibcite{he2022masked}{{112}{2022}{{He et~al.}}{{He, Chen, Xie, Li, Doll{\'a}r and Girshick}}}
+\bibcite{he2025surgworld}{{113}{2025}{{He et~al.}}{{He, Guo, Xu, Li, Myronenko, Imans, Liu, Yang, Gu, Ji et~al.}}}
+\bibcite{heidinger20252handedafforder}{{114}{2025}{{Heidinger et~al.}}{{Heidinger, Jauhri, Prasad and Chalvatzaki}}}
+\bibcite{heppert2024ditto}{{115}{2024}{{Heppert et~al.}}{{Heppert, Argus, Welschehold, Brox and Valada}}}
+\bibcite{ho2022imagen}{{116}{2022}{{Ho et~al.}}{{Ho, Chan, Saharia, Whang, Gao, Gritsenko, Kingma, Poole, Norouzi, Fleet et~al.}}}
+\bibcite{ho2020denoising}{{117}{2020}{{Ho et~al.}}{{Ho, Jain and Abbeel}}}
+\bibcite{hoque2025egodex}{{118}{2025}{{Hoque et~al.}}{{Hoque, Huang, Yoon, Sivapurapu and Zhang}}}
+\bibcite{hori2025interactive}{{119}{2025{a}}{{Hori et~al.}}{{Hori, Kambara, Sugiura, Ota, Khurana, Jain, Corcodel, Jha, Romeres and Le~Roux}}}
+\bibcite{hori2025robot}{{120}{2025{b}}{{Hori et~al.}}{{Hori, Masuyama, Jain, Corcodel, Jha, Romeres and Roux}}}
+\bibcite{hsieh2025dexman}{{121}{2025}{{Hsieh et~al.}}{{Hsieh, Tu, Hung and Ke}}}
+\bibcite{hsu2025spot}{{122}{2025}{{Hsu et~al.}}{{Hsu, Wen, Xu, Narang, Wang, Zhu, Biswas and Birchfield}}}
+\bibcite{hu2025learning}{{123}{2025}{{Hu and Ye}}{{}}}
+\bibcite{huang2024rekep}{{124}{2024}{{Huang et~al.}}{{Huang, Wang, Li, Zhang and Fei-Fei}}}
+\bibcite{huang2018multimodal}{{125}{2018}{{Huang et~al.}}{{Huang, Liu, Belongie and Kautz}}}
+\bibcite{huo2023efficient}{{126}{2023}{{Huo et~al.}}{{Huo, Duan, Han, Hu, Wang and Navarro-Alarcon}}}
+\bibcite{jain2024vid2robot}{{127}{2024}{{Jain et~al.}}{{Jain, Attarian, Joshi, Wahid, Driess, Vuong, Sanketi, Sermanet, Welker, Chan et~al.}}}
+\bibcite{jang2022bc}{{128}{2022}{{Jang et~al.}}{{Jang, Irpan, Khansari, Kappler, Ebert, Lynch, Levine and Finn}}}
+\bibcite{janner2019trust}{{129}{2019}{{Janner et~al.}}{{Janner, Fu, Zhang and Levine}}}
+\bibcite{jiang2025rynnvla}{{130}{2025}{{Jiang et~al.}}{{Jiang, Huang, Xue, Zhao, Cen, Leng, Li, Guo, Wang, Chen et~al.}}}
+\bibcite{jiang2022ditto}{{131}{2022}{{Jiang et~al.}}{{Jiang, Hsu and Zhu}}}
+\bibcite{jonnavittula2025view}{{132}{2025}{{Jonnavittula et~al.}}{{Jonnavittula, Parekh and P.~Losey}}}
+\bibcite{ju2024robo}{{133}{2024}{{Ju et~al.}}{{Ju, Hu, Zhang, Zhang, Jiang and Xu}}}
+\bibcite{kannan2023learning}{{134}{2023}{{Kannan}}{{}}}
+\bibcite{kannan2023deft}{{135}{2023}{{Kannan et~al.}}{{Kannan, Shaw, Bahl, Mannam and Pathak}}}
+\bibcite{karaev2025cotracker3}{{136}{2025}{{Karaev et~al.}}{{Karaev, Makarov, Wang, Neverova, Vedaldi and Rupprecht}}}
+\bibcite{karaev2024cotracker}{{137}{2024}{{Karaev et~al.}}{{Karaev, Rocco, Graham, Neverova, Vedaldi and Rupprecht}}}
+\bibcite{karamcheti2023language}{{138}{2023}{{Karamcheti et~al.}}{{Karamcheti, Nair, Chen, Kollar, Finn, Sadigh and Liang}}}
+\bibcite{kareer2025egomimic}{{139}{2025{a}}{{Kareer et~al.}}{{Kareer, Patel, Punamiya, Mathur, Cheng, Wang, Hoffman and Xu}}}
+\bibcite{kareer2025emergence}{{140}{2025{b}}{{Kareer et~al.}}{{Kareer, Pertsch, Darpinian, Hoffman, Xu, Levine, Finn and Nair}}}
+\bibcite{kedia2025one}{{141}{2025}{{Kedia et~al.}}{{Kedia, Dan, Chao, Pace and Choudhury}}}
+\bibcite{kerbl20233d}{{142}{2023}{{Kerbl et~al.}}{{Kerbl, Kopanas, Leimk{\"u}hler, Drettakis et~al.}}}
+\bibcite{kerr2024robot}{{143}{2024}{{Kerr et~al.}}{{Kerr, Kim, Wu, Yi, Wang, Goldberg and Kanazawa}}}
+\bibcite{khanam2024yolov5}{{144}{2024}{{Khanam and Hussain}}{{}}}
+\bibcite{kim2025dexterous}{{145}{2025{a}}{{Kim et~al.}}{{Kim, Kim, Lee and Joo}}}
+\bibcite{kim2025uniskill}{{146}{2025{b}}{{Kim et~al.}}{{Kim, Kang, Kang, Cho, Kim and Lee}}}
+\bibcite{kirillov2023segment}{{147}{2023}{{Kirillov et~al.}}{{Kirillov, Mintun, Ravi, Mao, Rolland, Gustafson, Xiao, Whitehead, Berg, Lo et~al.}}}
+\bibcite{KlingAI2024}{{148}{2024}{{Kling AI}}{{}}}
+\bibcite{ko2023learning}{{149}{2023}{{Ko et~al.}}{{Ko, Mao, Du, Sun and Tenenbaum}}}
+\bibcite{kondratyuk2023videopoet}{{150}{2023}{{Kondratyuk et~al.}}{{Kondratyuk, Yu, Gu, Lezama, Huang, Schindler, Hornung, Birodkar, Yan, Chiu et~al.}}}
+\bibcite{kuang2024ram}{{151}{2024}{{Kuang et~al.}}{{Kuang, Ye, Geng, Mao, Deng, Guibas, Wang and Wang}}}
+\bibcite{kuehne2014language}{{152}{2014}{{Kuehne et~al.}}{{Kuehne, Arslan and Serre}}}
+\bibcite{kumar2023graph}{{153}{2023}{{Kumar et~al.}}{{Kumar, Zamora, Hansen, Jangir and Wang}}}
+\bibcite{kwon2021h2o}{{154}{2021}{{Kwon et~al.}}{{Kwon, Tekin, St{\"u}hmer, Bogo and Pollefeys}}}
+\bibcite{labbe2022megapose}{{155}{2022}{{Labb{\'e} et~al.}}{{Labb{\'e}, Manuelli, Mousavian, Tyree, Birchfield, Tremblay, Carpentier, Aubry, Fox and Sivic}}}
+\bibcite{lee2017learning}{{156}{2017}{{Lee and Ryoo}}{{}}}
+\bibcite{lee2026mvp}{{157}{2026}{{Lee et~al.}}{{Lee, Lee, Ju, Cho, Koo, Zhao, Hong and Lee}}}
+\bibcite{lee2019copy}{{158}{2019}{{Lee et~al.}}{{Lee, Oh, Won and Kim}}}
+\bibcite{lee2025any6d}{{159}{2025}{{Lee et~al.}}{{Lee, Wen, Kang, Kang, Kweon and Yoon}}}
+\bibcite{lepert2025masquerade}{{160}{2025{a}}{{Lepert et~al.}}{{Lepert, Fang and Bohg}}}
+\bibcite{lepert2025phantom}{{161}{2025{b}}{{Lepert et~al.}}{{Lepert, Fang and Bohg}}}
+\bibcite{li2026gazevla}{{162}{2026{a}}{{Li et~al.}}{{Li, Xiong, Xu, Qian, Wang and Zhu}}}
+\bibcite{li2025h2r}{{163}{2025{a}}{{Li et~al.}}{{Li, Lyu, Liu, Hou, Zhang and Zhang}}}
+\bibcite{li2025novaflow}{{164}{2025{b}}{{Li et~al.}}{{Li, Sun, Hu, Ta, Barry, Konidaris and Fu}}}
+\bibcite{li2025mimicdreamer}{{165}{2025{c}}{{Li et~al.}}{{Li, Zhang, Ouyang, Wang, Zhu, Yang, Zhang, Wang, Ni, Qin et~al.}}}
+\bibcite{li2026act}{{166}{2026{b}}{{Li et~al.}}{{Li, Qiao, Guo, Chen and Lian}}}
+\bibcite{li2024okami}{{167}{2024{a}}{{Li et~al.}}{{Li, Zhu, Xie, Jiang, Seo, Pavlakos and Zhu}}}
+\bibcite{li2025maniptrans}{{168}{2025{d}}{{Li et~al.}}{{Li, Li, Liu, Li and Huang}}}
+\bibcite{li2022grounded}{{169}{2022{a}}{{Li et~al.}}{{Li, Zhang, Zhang, Yang, Li, Zhong, Wang, Yuan, Zhang, Hwang et~al.}}}
+\bibcite{li2024ag2manip}{{170}{2024{b}}{{Li et~al.}}{{Li, Liu, Li, Han, Geng, Wang, Zhu, Zhu and Huang}}}
+\bibcite{li2025scalable}{{171}{2025{e}}{{Li et~al.}}{{Li, Deng, Liang, Luo, Zhou, Yao, Zeng, Feng, Liang, Xu et~al.}}}
+\bibcite{li2022egocentric}{{172}{2022{b}}{{Li et~al.}}{{Li, Cao, Liang, Liang, Chen, Zhao and Feng}}}
+\bibcite{li2018eye}{{173}{2018}{{Li et~al.}}{{Li, Liu and Rehg}}}
+\bibcite{li2026egolive}{{174}{2026{c}}{{Li et~al.}}{{Li, Wei, Luo, Xiao, Bai, Zhou, Zou, Gui, Wen, Zhang, Chen, Pan, Liu, Wang, An, Li, Jin, Zhang, Wang, Wei, Huang, Liu, Li, Zhang, Li, Gong, Cao, Liang and Lin}}}
+\bibcite{li2025robomirror}{{175}{2025{f}}{{Li et~al.}}{{Li, Chi, Zhu, Wei, Bai, Ji, Peng, Huang, Wang, Wang et~al.}}}
+\bibcite{li2025latbot}{{176}{2025{g}}{{Li et~al.}}{{Li, Gao, Wang and Fu}}}
+\bibcite{li2022towards}{{177}{2022{c}}{{Li et~al.}}{{Li, Lu, Qin, Guo and Cheng}}}
+\bibcite{liang2024dreamitate}{{178}{2024}{{Liang et~al.}}{{Liang, Liu, Ozguroglu, Sudhakar, Dave, Tokmakov, Song and Vondrick}}}
+\bibcite{liao2025genie}{{179}{2025}{{Liao et~al.}}{{Liao, Zhou, Huang, Yang, Chen, Jiang, Hu, Cai, Liu, Luo et~al.}}}
+\bibcite{lin2025physbrain}{{180}{2025}{{Lin et~al.}}{{Lin, Lian, Yu, Yang, Wu, Miao, Jin, Shi, Huang, Cheng et~al.}}}
+\bibcite{liu2023libero}{{181}{2023}{{Liu et~al.}}{{Liu, Zhu, Gao, Feng, Liu, Zhu and Stone}}}
+\bibcite{liu2024masked}{{182}{2024{a}}{{Liu et~al.}}{{Liu, Ye, Sun, Cui, Li and Chen}}}
+\bibcite{liu2024grounding}{{183}{2024{b}}{{Liu et~al.}}{{Liu, Zeng, Ren, Li, Zhang, Yang, Jiang, Li, Yang, Su et~al.}}}
+\bibcite{liu2025egozero}{{184}{2025{a}}{{Liu et~al.}}{{Liu, Adeniji, Zhan, Haldar, Bhirangi, Abbeel and Pinto}}}
+\bibcite{liu2022flow}{{185}{2022{a}}{{Liu et~al.}}{{Liu, Gong and Liu}}}
+\bibcite{liu2018imitation}{{186}{2018}{{Liu et~al.}}{{Liu, Gupta, Abbeel and Levine}}}
+\bibcite{liu2022hoi4d}{{187}{2022{b}}{{Liu et~al.}}{{Liu, Liu, Jiang, Lyu, Wan, Shen, Liang, Fu, Wang and Yi}}}
+\bibcite{liu2025immimic}{{188}{2025{b}}{{Liu et~al.}}{{Liu, Shin, Han, Chen, Ravichandar and Xu}}}
+\bibcite{liu2024taco}{{189}{2024{c}}{{Liu et~al.}}{{Liu, Yang, Si, Liu, Li, Zhang, Liu and Yi}}}
+\bibcite{liu2025nvila}{{190}{2025{c}}{{Liu et~al.}}{{Liu, Zhu, Shi, Zhang, Lou, Yang, Xi, Cao, Gu, Li et~al.}}}
+\bibcite{lu2025visual}{{191}{2025}{{Lu et~al.}}{{Lu, H{\"a}rdtlein and Schilp}}}
+\bibcite{lum2025crossing}{{192}{2025}{{Lum et~al.}}{{Lum, Lee, Liu and Bohg}}}
+\bibcite{luo2025being}{{193}{2025}{{Luo et~al.}}{{Luo, Feng, Zhang, Zheng, Wang, Yuan, Liu, Xu, Jin and Lu}}}
+\bibcite{luo2026joint}{{194}{2026{a}}{{Luo et~al.}}{{Luo, Wang, Zhang, Yuan, Feng, Xu, Zheng and Lu}}}
+\bibcite{luo2026being}{{195}{2026{b}}{{Luo et~al.}}{{Luo, Wang, Zhang, Zheng, Xi, Xu, Xu, Yuan, Zhang, Wang et~al.}}}
+\bibcite{luo2022grounded}{{196}{2022}{{Luo et~al.}}{{Luo, Zhai, Zhang, Cao and Tao}}}
+\bibcite{lyu2026lda}{{197}{2026}{{Lyu et~al.}}{{Lyu, Liu, Zhang, Liao, Feng, Zhu, Shen, Chen, Zhang, Dong et~al.}}}
+\bibcite{ma2025novel}{{198}{2025{a}}{{Ma et~al.}}{{Ma, Bao, Xu, Sun, Chen and Wang}}}
+\bibcite{ma2025uni}{{199}{2025{b}}{{Ma et~al.}}{{Ma, Bao, Xu, Sun, Zheng, Zhang, Chen and Wang}}}
+\bibcite{ma2025madiff}{{200}{2025{c}}{{Ma et~al.}}{{Ma, Chen, Bao, Xu and Wang}}}
+\bibcite{ma2025egoloc}{{201}{2025{d}}{{Ma et~al.}}{{Ma, Zhang, Zheng, Xie, Zhou and Wang}}}
+\bibcite{ma2024nymeria}{{202}{2024}{{Ma et~al.}}{{Ma, Ye, Hong, Guzov, Jiang, Postyeni, Pesqueira, Gamino, Baiyya, Kim et~al.}}}
+\bibcite{ma2023liv}{{203}{2023}{{Ma et~al.}}{{Ma, Kumar, Zhang, Bastani and Jayaraman}}}
+\bibcite{ma2022vip}{{204}{2022}{{Ma et~al.}}{{Ma, Sodhani, Jayaraman, Bastani, Kumar and Zhang}}}
+\bibcite{majumdar2023we}{{205}{2023}{{Majumdar et~al.}}{{Majumdar, Yadav, Arnaud, Ma, Chen, Silwal, Jain, Berges, Wu, Vakil et~al.}}}
+\bibcite{mandikal2022dexvip}{{206}{2022}{{Mandikal and Grauman}}{{}}}
+\bibcite{mao2025robot}{{207}{2025}{{Mao et~al.}}{{Mao, He, Wu, You, Sun, Wang, Bao, Chen, Guibas, Guizilini et~al.}}}
+\bibcite{mao2024learning}{{208}{2024}{{Mao et~al.}}{{Mao, Zhao, Song, Shi, Ye, Zhang, Geng, Malik, Guizilini and Wang}}}
+\bibcite{mccarthy2025towards}{{209}{2025}{{McCarthy et~al.}}{{McCarthy, Tan, Schmidt, Acero, Herr, Du, Thuruthel and Li}}}
+\bibcite{mees2022calvin}{{210}{2022}{{Mees et~al.}}{{Mees, Hermann, Rosete-Beas and Burgard}}}
+\bibcite{mendonca2023structured}{{211}{2023}{{Mendonca et~al.}}{{Mendonca, Bahl and Pathak}}}
+\bibcite{meshyai}{{212}{2025}{{Meshy AI}}{{}}}
+\bibcite{miech2019howto100m}{{213}{2019}{{Miech et~al.}}{{Miech, Zhukov, Alayrac, Tapaswi, Laptev and Sivic}}}
+\bibcite{mower2026robot}{{214}{2026}{{Mower et~al.}}{{Mower, Wan, Yu, Grosnit, Gonzalez-Billandon, Zimmer, Liu, Palenicek, Tateo, Peters et~al.}}}
+\bibcite{mu2025robotwin}{{215}{2025}{{Mu et~al.}}{{Mu, Chen, Chen, Peng, Lan, Gao, Liang, Yu, Zou, Xu et~al.}}}
+\bibcite{nair2022r3m}{{216}{2022}{{Nair et~al.}}{{Nair, Rajeswaran, Kumar, Finn and Gupta}}}
+\bibcite{nguyen2018translating}{{217}{2018}{{Nguyen et~al.}}{{Nguyen, Kanoulas, Muratore, Caldwell and Tsagarakis}}}
+\bibcite{nie2026lary}{{218}{2026}{{Nie et~al.}}{{Nie, Chen, Lv, Kuang, Li, Cao and Cai}}}
+\bibcite{pai2025mimic}{{219}{2025}{{Pai et~al.}}{{Pai, Achenbach, Montesinos, Forrai, Mees and Nava}}}
+\bibcite{papagiannis2025r}{{220}{2025}{{Papagiannis et~al.}}{{Papagiannis, Di~Palo, Vitiello and Johns}}}
+\bibcite{park2025demodiffusion}{{221}{2025}{{Park et~al.}}{{Park, Bharadhwaj and Tulsiani}}}
+\bibcite{patel2022learning}{{222}{2022}{{Patel et~al.}}{{Patel, Wang, Radosavovic and Malik}}}
+\bibcite{patel2025robotic}{{223}{2025}{{Patel et~al.}}{{Patel, Mohan, Mai, Jain, Lazebnik and Li}}}
+\bibcite{pavlakos2024reconstructing}{{224}{2024}{{Pavlakos et~al.}}{{Pavlakos, Shan, Radosavovic, Kanazawa, Fouhey and Malik}}}
+\bibcite{peddi2024captaincook4d}{{225}{2023}{{Peddi et~al.}}{{Peddi, Arya, Challa, Pallapothula, Vyas, Gouripeddi, Wang, Zhang, Komaragiri, Ragan et~al.}}}
+\bibcite{perez2018film}{{226}{2018}{{Perez et~al.}}{{Perez, Strub, De~Vries, Dumoulin and Courville}}}
+\bibcite{perrett2025hd}{{227}{2025}{{Perrett et~al.}}{{Perrett, Darkhalil, Sinha, Emara, Pollard, Parida, Liu, Gatti, Bansal, Flanagan et~al.}}}
+\bibcite{pertsch2022cross}{{228}{2022}{{Pertsch et~al.}}{{Pertsch, Desai, Kumar, Meier, Lim, Batra and Rai}}}
+\bibcite{plizzari2025omnia}{{229}{2025}{{Plizzari et~al.}}{{Plizzari, Tonioni, Xian, Kulshrestha and Tombari}}}
+\bibcite{potamias2025wilor}{{230}{2025}{{Potamias et~al.}}{{Potamias, Zhang, Deng and Zafeiriou}}}
+\bibcite{punamiya2026egoverse}{{231}{2026}{{Punamiya et~al.}}{{Punamiya, Kareer, Liu, Citron, Qiu, Cai, Gavryushin, Chen, Liconti, Zhu, Aphiwetsa, Li, Cheluva, Kuppili, Liu, Patel, Gao, Chung, Co, Zbizika, Liu, Xu, Xiong, Chen, Oliani, Yang, Wang, Fort, Newcombe, Gao, Chong, Matsuda, Doriwala, Pollefeys, Katzschmann, Wang, Song, Hoffman and Xu}}}
+\bibcite{punamiya2025egobridge}{{232}{2025}{{Punamiya et~al.}}{{Punamiya, Patel, Aphiwetsa, Kuppili, Zhu, Kareer, Hoffman and Xu}}}
+\bibcite{qian2024contrast}{{233}{2024}{{Qian et~al.}}{{Qian, You, Zhou, Xu, Fu, Xue and He}}}
+\bibcite{qin2022one}{{234}{2022{a}}{{Qin et~al.}}{{Qin, Su and Wang}}}
+\bibcite{qin2022dexmv}{{235}{2022{b}}{{Qin et~al.}}{{Qin, Wu, Liu, Jiang, Yang, Fu and Wang}}}
+\bibcite{qiu2025humanoid}{{236}{2025}{{Qiu et~al.}}{{Qiu, Yang, Cheng, Chawla, Li, He, Yan, Yoon, Hoque, Paulsen et~al.}}}
+\bibcite{radosavovic2023real}{{237}{2023}{{Radosavovic et~al.}}{{Radosavovic, Xiao, James, Abbeel, Malik and Darrell}}}
+\bibcite{ravi2024sam}{{238}{2024}{{Ravi et~al.}}{{Ravi, Gabeur, Hu, Hu, Ryali, Ma, Khedr, R{\"a}dle, Rolland, Gustafson et~al.}}}
+\bibcite{ren2025motion}{{239}{2025}{{Ren et~al.}}{{Ren, Sundaresan, Sadigh, Choudhury and Bohg}}}
+\bibcite{ren2024grounded}{{240}{2024}{{Ren et~al.}}{{Ren, Liu, Zeng, Lin, Li, Cao, Chen, Huang, Chen, Yan et~al.}}}
+\bibcite{rombach2022high}{{241}{2022}{{Rombach et~al.}}{{Rombach, Blattmann, Lorenz, Esser and Ommer}}}
+\bibcite{romero2022embodied}{{242}{2022}{{Romero et~al.}}{{Romero, Tzionas and Black}}}
+\bibcite{rong2020frankmocap}{{243}{2020}{{Rong et~al.}}{{Rong, Shiratori and Joo}}}
+\bibcite{rothfuss2018deep}{{244}{2018}{{Rothfuss et~al.}}{{Rothfuss, Ferreira, Aksoy, Zhou and Asfour}}}
+\bibcite{routray2025vipra}{{245}{2025}{{Routray et~al.}}{{Routray, Pan, Jain, Bahl and Pathak}}}
+\bibcite{sakoe1978dynamic}{{246}{1978}{{Sakoe and Chiba}}{{}}}
+\bibcite{schmeckpeper2020reinforcement}{{247}{2020}{{Schmeckpeper et~al.}}{{Schmeckpeper, Rybkin, Daniilidis, Levine and Finn}}}
+\bibcite{schulman2017proximal}{{248}{2017}{{Schulman et~al.}}{{Schulman, Wolski, Dhariwal, Radford and Klimov}}}
+\bibcite{sener2022assembly101}{{249}{2022}{{Sener et~al.}}{{Sener, Chatterjee, Shelepov, He, Singhania, Wang and Yao}}}
+\bibcite{sermanet2017time}{{250}{2017}{{Sermanet et~al.}}{{Sermanet, Lynch, Hsu and Levine}}}
+\bibcite{sermanet2016unsupervised}{{251}{2016}{{Sermanet et~al.}}{{Sermanet, Xu and Levine}}}
+\bibcite{seth2026egoavu}{{252}{2026}{{Seth et~al.}}{{Seth, Mei, Zhao, Nagaraja, Chang, Meyer, Lan, Xiong, Chandra, Shi et~al.}}}
+\bibcite{shah2025mimicdroid}{{253}{2025}{{Shah et~al.}}{{Shah, Liu, Wang, Jiang, Kumar, Seo, Mart{\'\i }n-Mart{\'\i }n and Zhu}}}
+\bibcite{shan2020understanding}{{254}{2020}{{Shan et~al.}}{{Shan, Geng, Shu and Fouhey}}}
+\bibcite{shan2025slot}{{255}{2025}{{Shan et~al.}}{{Shan, Mo, Yang, Chao, Fouhey, Fox and Mousavian}}}
+\bibcite{sharma2019third}{{256}{2019}{{Sharma et~al.}}{{Sharma, Pathak and Gupta}}}
+\bibcite{shaw2023videodex}{{257}{2023}{{Shaw et~al.}}{{Shaw, Bahl and Pathak}}}
+\bibcite{shi2026care}{{258}{2026}{{Shi et~al.}}{{Shi, Zhang, Qu and Wang}}}
+\bibcite{shi2025zeromimic}{{259}{2025}{{Shi et~al.}}{{Shi, Zhao, Wang, Pedroza, Luo, Wang, Ma and Jayaraman}}}
+\bibcite{shridhar2023perceiver}{{260}{2023}{{Shridhar et~al.}}{{Shridhar, Manuelli and Fox}}}
+\bibcite{sieb2020graph}{{261}{2020}{{Sieb et~al.}}{{Sieb, Xian, Huang, Kroemer and Fragkiadaki}}}
+\bibcite{sigurdsson2016hollywood}{{262}{2016}{{Sigurdsson et~al.}}{{Sigurdsson, Varol, Wang, Farhadi, Laptev and Gupta}}}
+\bibcite{singh2025deep}{{263}{2025{a}}{{Singh et~al.}}{{Singh, Abbeel, Malik and Loquercio}}}
+\bibcite{singh2025hand}{{264}{2025{b}}{{Singh et~al.}}{{Singh, Loquercio, Sferrazza, Wu, Qi, Abbeel and Malik}}}
+\bibcite{sivakumar2022robotic}{{265}{2022}{{Sivakumar et~al.}}{{Sivakumar, Shaw and Pathak}}}
+\bibcite{smaira2020short}{{266}{2020}{{Smaira et~al.}}{{Smaira, Carreira, Noland, Clancy, Wu and Zisserman}}}
+\bibcite{smith2020avid}{{267}{2020}{{Smith et~al.}}{{Smith, Dhawan, Zhang, Abbeel and Levine}}}
+\bibcite{sohan2024review}{{268}{2024}{{Sohan et~al.}}{{Sohan, Sai~Ram and Rami~Reddy}}}
+\bibcite{song2025mitty}{{269}{2025}{{Song et~al.}}{{Song, Liu, Mao and Shou}}}
+\bibcite{soraki2026objectforesight}{{270}{2026}{{Soraki et~al.}}{{Soraki, Bharadhwaj, Farhadi and Mottaghi}}}
+\bibcite{spiridonov2025generalist}{{271}{2025}{{Spiridonov et~al.}}{{Spiridonov, Zaech, Nikolov, Van~Gool and Paudel}}}
+\bibcite{srirama2024hrp}{{272}{2024}{{Srirama et~al.}}{{Srirama, Dasari, Bahl and Gupta}}}
+\bibcite{su2025annexe}{{273}{2025}{{Su et~al.}}{{Su, Wang, Hu, Yang and Chau}}}
+\bibcite{sun2026vla}{{274}{2026}{{Sun et~al.}}{{Sun, Zhang, Qi, Ren, Liu, Zhu, Sun, Jin and Chen}}}
+\bibcite{sun2022learning}{{275}{2022}{{Sun et~al.}}{{Sun, Lin, Wu and Huang}}}
+\bibcite{sun2025vtao}{{276}{2025}{{Sun et~al.}}{{Sun, Shi, Chen, Liu, Cui, Chen and Ye}}}
+\bibcite{tang2025functo}{{277}{2025{a}}{{Tang et~al.}}{{Tang, Xiao, Deng, Hu, Dong, Zhang, Hsu and Zhang}}}
+\bibcite{tang2025mimicfunc}{{278}{2025{b}}{{Tang et~al.}}{{Tang, Xiao, Deng, Hu, Dong, Zhang, Hsu and Zhang}}}
+\bibcite{tang2025trajectory}{{279}{2025{c}}{{Tang et~al.}}{{Tang, Lou, Han, Song, Ye, Wang and Zhao}}}
+\bibcite{Ultralytics2023}{{280}{2024}{{Ultralytics}}{{}}}
+\bibcite{van2024generative}{{281}{2024}{{Van~Hoorick et~al.}}{{Van~Hoorick, Wu, Ozguroglu, Sargent, Liu, Tokmakov, Dave, Zheng and Vondrick}}}
+\bibcite{vaswani2017attention}{{282}{2017}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser and Polosukhin}}}
+\bibcite{vinod2025egovlm}{{283}{2025}{{Vinod et~al.}}{{Vinod, Pandit, Vavre and Liu}}}
+\bibcite{wake2024gpt}{{284}{2024}{{Wake et~al.}}{{Wake, Kanehira, Sasabuchi, Takamatsu and Ikeuchi}}}
+\bibcite{wan2025wan}{{285}{2025}{{Wan et~al.}}{{Wan, Wang, Ai, Wen, Mao, Xie, Chen, Yu, Zhao, Yang et~al.}}}
+\bibcite{wang2024vlm}{{286}{2024{a}}{{Wang et~al.}}{{Wang, Zhang, Dong, Fang and Feng}}}
+\bibcite{wang2023mimicplay}{{287}{2023{a}}{{Wang et~al.}}{{Wang, Fan, Sun, Zhang, Fei-Fei, Xu, Zhu and Anandkumar}}}
+\bibcite{wang2025chain}{{288}{2025{a}}{{Wang et~al.}}{{Wang, Xia, Yu, Zhang, Zhang, Liu, Fei-Fei, Tan and Liang}}}
+\bibcite{wang2024ho}{{289}{2024{b}}{{Wang et~al.}}{{Wang, Zhang, Chao, Wen, Guo and Xiang}}}
+\bibcite{wang2023robot}{{290}{2023{b}}{{Wang et~al.}}{{Wang, Fan and Sakuma}}}
+\bibcite{wang2025gat}{{291}{2025{b}}{{Wang et~al.}}{{Wang, Zhou, Yao, Liu and Jia}}}
+\bibcite{wang2023holoassist}{{292}{2023{c}}{{Wang et~al.}}{{Wang, Kwon, Rad, Pan, Chakraborty, Andrist, Bohus, Feniello, Tekin, Frujeri et~al.}}}
+\bibcite{wang2024egovid}{{293}{2024{c}}{{Wang et~al.}}{{Wang, Zhao, Liu, Wang, Zhao, Bao, Zhu, Zhang and Wang}}}
+\bibcite{wang2026paws}{{294}{2026}{{Wang et~al.}}{{Wang, Miao, Zhao, Yang, Wang, Pajarinen, Van~Gool, Paudel, Kannala, Wang et~al.}}}
+\bibcite{wei2025empirical}{{295}{2025}{{Wei et~al.}}{{Wei, Agarwal, Chen, Bosworth, Pfaff and Tedrake}}}
+\bibcite{wen2022you}{{296}{2022}{{Wen et~al.}}{{Wen, Lian, Bekris and Schaal}}}
+\bibcite{wen2023bundlesdf}{{297}{2023{a}}{{Wen et~al.}}{{Wen, Tremblay, Blukis, Tyree, M{\"u}ller, Evans, Fox, Kautz and Birchfield}}}
+\bibcite{wen2024foundationpose}{{298}{2024}{{Wen et~al.}}{{Wen, Yang, Kautz and Birchfield}}}
+\bibcite{wen2023any}{{299}{2023{b}}{{Wen et~al.}}{{Wen, Lin, So, Chen, Dou, Gao and Abbeel}}}
+\bibcite{wen2025gr}{{300}{2025}{{Wen et~al.}}{{Wen, Chen, Cui, Du, Gou, Han, Huang, Lei, Li, Li et~al.}}}
+\bibcite{werby2025articulated}{{301}{2025}{{Werby et~al.}}{{Werby, B{\"u}chner, R{\"o}fer, Huang, Burgard and Valada}}}
+\bibcite{wiedemer2025video}{{302}{2025}{{Wiedemer et~al.}}{{Wiedemer, Li, Vicol, Gu, Matarese, Swersky, Kim, Jaini and Geirhos}}}
+\bibcite{wu2023unleashing}{{303}{2023}{{Wu et~al.}}{{Wu, Jing, Cheang, Chen, Xu, Li, Liu, Li and Kong}}}
+\bibcite{xiang2025structured}{{304}{2025}{{Xiang et~al.}}{{Xiang, Lv, Xu, Deng, Wang, Zhang, Chen, Tong and Yang}}}
+\bibcite{xiao2022masked}{{305}{2022}{{Xiao et~al.}}{{Xiao, Radosavovic, Darrell and Malik}}}
+\bibcite{xiao2025spatialtrackerv2}{{306}{2025}{{Xiao et~al.}}{{Xiao, Wang, Xue, Karaev, Makarov, Kang, Zhu, Bao, Shen and Zhou}}}
+\bibcite{xiao2024spatialtracker}{{307}{2024}{{Xiao et~al.}}{{Xiao, Wang, Zhang, Xue, Peng, Shen and Zhou}}}
+\bibcite{xie2026egohandicl}{{308}{2026}{{Xie et~al.}}{{Xie, Qiu, Zhang, Wang, Xu, Naseer, Fu and Heng}}}
+\bibcite{xiong2022robotube}{{309}{2022}{{Xiong et~al.}}{{Xiong, Fu, Zhang, Bao, Zhang, Huang, Xu, Garg and Lu}}}
+\bibcite{xiong2021learning}{{310}{2021}{{Xiong et~al.}}{{Xiong, Li, Chen, Bharadhwaj, Sinha and Garg}}}
+\bibcite{xiong2025ag2x2}{{311}{2025}{{Xiong et~al.}}{{Xiong, Chen, Li, Zhu, Liu and Huang}}}
+\bibcite{xu2024instantmesh}{{312}{2024{a}}{{Xu et~al.}}{{Xu, Cheng, Gao, Wang, Gao and Shan}}}
+\bibcite{xu2023xskill}{{313}{2023}{{Xu et~al.}}{{Xu, Xu, Chi, Veloso and Song}}}
+\bibcite{xu2024flow}{{314}{2024{b}}{{Xu et~al.}}{{Xu, Xu, Xu, Chi, Wetzstein, Veloso and Song}}}
+\bibcite{xue2025demogen}{{315}{2025}{{Xue et~al.}}{{Xue, Deng, Chen, Wang, Yuan and Xu}}}
+\bibcite{yang2025qwen3}{{316}{2025{a}}{{Yang et~al.}}{{Yang, Li, Yang, Zhang, Hui, Zheng, Yu, Gao, Huang, Lv et~al.}}}
+\bibcite{yang2026aoe}{{317}{2026{a}}{{Yang et~al.}}{{Yang, Li, Sun, Miao, Yang, Luo, Yan, Jiang, Shi, Fu et~al.}}}
+\bibcite{yang2025ar}{{318}{2025{b}}{{Yang et~al.}}{{Yang, Zhao and Liu}}}
+\bibcite{yang2026zerowbc}{{319}{2026{b}}{{Yang et~al.}}{{Yang, Bao, Xin, Song, Tian, Zhao, Wang and Li}}}
+\bibcite{yang2022learning}{{320}{2022{a}}{{Yang et~al.}}{{Yang, Zhang, Settle, Rai, Antonova and Bohg}}}
+\bibcite{yang2025tra}{{321}{2025{c}}{{Yang et~al.}}{{Yang, Zhu, Wang, Wu, He and Wang}}}
+\bibcite{yang2022oakink}{{322}{2022{b}}{{Yang et~al.}}{{Yang, Li, Zhan, Wu, Xu, Liu and Lu}}}
+\bibcite{yang2025egovla}{{323}{2025{d}}{{Yang et~al.}}{{Yang, Yu, Wu, Yan, Li, Cheng, Zou, Fang, Cheng, Qiu et~al.}}}
+\bibcite{yang2019learning}{{324}{2019}{{Yang et~al.}}{{Yang, Zhang, Lu, Wang and Li}}}
+\bibcite{yang2023watch}{{325}{2023}{{Yang et~al.}}{{Yang, Zhang, Song, Cheng, Wang and Li}}}
+\bibcite{yang2022explicit}{{326}{2022{c}}{{Yang et~al.}}{{Yang, Zhang, Song, Lu, Wang and Li}}}
+\bibcite{yang2026sam}{{327}{2026{c}}{{Yang et~al.}}{{Yang, Kukreja, Pinkus, Sagar, Fan, Park, Shin, Cao, Liu, Ugrinovic et~al.}}}
+\bibcite{yang2015robot}{{328}{2015}{{Yang et~al.}}{{Yang, Li, Fermuller and Aloimonos}}}
+\bibcite{ye2023learning}{{329}{2023}{{Ye et~al.}}{{Ye, Wang, Huang, Qin and Wang}}}
+\bibcite{ye2025watch}{{330}{2025{a}}{{Ye et~al.}}{{Ye, Zhou, Qiu, Liu, Zhou, Lin and Liang}}}
+\bibcite{ye2026visual}{{331}{2026{a}}{{Ye et~al.}}{{Ye, Liu, Wang, Chen, Cui, Jin, Chen, Cai, Li and Chen}}}
+\bibcite{ye2026world}{{332}{2026{b}}{{Ye et~al.}}{{Ye, Ge, Zheng, Gao, Yu, Kurian, Indupuru, Tan, Zhu, Xiang et~al.}}}
+\bibcite{ye2024latent}{{333}{2024}{{Ye et~al.}}{{Ye, Jang, Jeon, Joo, Yang, Peng, Mandlekar, Tan, Chao, Lin et~al.}}}
+\bibcite{ye2025video2policy}{{334}{2025{b}}{{Ye et~al.}}{{Ye, Liu, Ding, Gao, Rybkin and Abbeel}}}
+\bibcite{yin2025object}{{335}{2025}{{Yin et~al.}}{{Yin, Yang and Abbeel}}}
+\bibcite{yoshida2025developing}{{336}{2025{a}}{{Yoshida et~al.}}{{Yoshida, Kurita, Nishimura and Mori}}}
+\bibcite{yoshida2025generating}{{337}{2025{b}}{{Yoshida et~al.}}{{Yoshida, Kurita, Nishimura and Mori}}}
+\bibcite{yu2018one_hil}{{338}{2018{a}}{{Yu et~al.}}{{Yu, Abbeel, Levine and Finn}}}
+\bibcite{yu2018one}{{339}{2018{b}}{{Yu et~al.}}{{Yu, Finn, Xie, Dasari, Zhang, Abbeel and Levine}}}
+\bibcite{yuan2024general}{{340}{2024}{{Yuan et~al.}}{{Yuan, Wen, Zhang and Gao}}}
+\bibcite{yuan2025motiontrans}{{341}{2025{a}}{{Yuan et~al.}}{{Yuan, Zhou, Liu, Hu, Wang, Yi, Wen, Zhang and Gao}}}
+\bibcite{yuan2025hermes}{{342}{2025{b}}{{Yuan et~al.}}{{Yuan, Wei, Gu, Hua, Liang, Chen and Xu}}}
+\bibcite{zakka2022xirl}{{343}{2022}{{Zakka et~al.}}{{Zakka, Zeng, Florence, Tompson, Bohg and Dwibedi}}}
+\bibcite{ze20243d}{{344}{2024}{{Ze et~al.}}{{Ze, Zhang, Zhang, Hu, Wang and Xu}}}
+\bibcite{zeng2024learning}{{345}{2024}{{Zeng et~al.}}{{Zeng, Bu, Wang, Xia, Chen, Dong, Song, Wang, Hu, Luo et~al.}}}
+\bibcite{zhan2024oakink2}{{346}{2024}{{Zhan et~al.}}{{Zhan, Yang, Zhao, Mao, Xu, Lin, Li and Lu}}}
+\bibcite{zhang2025actron3d}{{347}{2025{a}}{{Zhang et~al.}}{{Zhang, Chen, Burkhardt, Zhong, Betz, Oleynikova and Leutenegger}}}
+\bibcite{zhang2023faster}{{348}{2023}{{Zhang et~al.}}{{Zhang, Han, Qiao, Kim, Bae, Lee and Hong}}}
+\bibcite{zhang2026clap}{{349}{2026{a}}{{Zhang et~al.}}{{Zhang, Wang, Gao, Su, Dai, Zhou, Lu and Tang}}}
+\bibcite{zhang2025generative}{{350}{2025{b}}{{Zhang et~al.}}{{Zhang, Zhang, Pan, Zheng and Zhang}}}
+\bibcite{zhang2025zero}{{351}{2025{c}}{{Zhang et~al.}}{{Zhang, Ma, Zheng, Zhou and Xu}}}
+\bibcite{zhang2020mediapipe}{{352}{2020}{{Zhang et~al.}}{{Zhang, Bazarevsky, Vakunov, Tkachenka, Sung, Chang and Grundmann}}}
+\bibcite{zhang2026unidex}{{353}{2026{b}}{{Zhang et~al.}}{{Zhang, Xu, Zhang, Ma, He, Bao, Ping, Yuan, Lu, Yuan et~al.}}}
+\bibcite{zhang2017mixup}{{354}{2017}{{Zhang et~al.}}{{Zhang, Cisse, Dauphin and Lopez-Paz}}}
+\bibcite{zhang2025hawor}{{355}{2025{d}}{{Zhang et~al.}}{{Zhang, Deng, Ma and Potamias}}}
+\bibcite{zhang2022fine}{{356}{2022}{{Zhang et~al.}}{{Zhang, Zhou, Stent and Shi}}}
+\bibcite{zhang2026joyai}{{357}{2026{c}}{{Zhang et~al.}}{{Zhang, Yuan, Chi, Liu, Li, Hu, Zhang, Nie, Wei, Chen et~al.}}}
+\bibcite{zhang2026disentangled}{{358}{2026{d}}{{Zhang et~al.}}{{Zhang, Zhang, Qi, Zeng, Jin and Zhang}}}
+\bibcite{zhao2025taste}{{359}{2025{a}}{{Zhao et~al.}}{{Zhao, Liu, Xu, Hao, Chen and Han}}}
+\bibcite{zhao2025towards}{{360}{2025{b}}{{Zhao et~al.}}{{Zhao, Zhuang, Zhao, Zeng, Xu, Jiang, Cen, Wang, Guo, Huang et~al.}}}
+\bibcite{zhao2025dexh2r}{{361}{2025{c}}{{Zhao et~al.}}{{Zhao, Zhu, Chen, Li, Xie, Zhang, Ding and Tomizuka}}}
+\bibcite{zhao2023learning}{{362}{2023}{{Zhao et~al.}}{{Zhao, Kumar, Levine and Finn}}}
+\bibcite{zheng2026video}{{363}{2026{a}}{{Zheng et~al.}}{{Zheng, Ouyang, Wang, Pan and Zhang}}}
+\bibcite{zheng2026egoscale}{{364}{2026{b}}{{Zheng et~al.}}{{Zheng, Niu, Xie, Wang, Xu, Jiang, Casta{\~n}eda, Hu, Tan, Fu et~al.}}}
+\bibcite{zhou2025human}{{365}{2025{a}}{{Zhou et~al.}}{{Zhou, Cao, Ma, Fang and Qi}}}
+\bibcite{zhou2025you}{{366}{2025{b}}{{Zhou et~al.}}{{Zhou, Wang, Tai, Deng, Liu and Jia}}}
+\bibcite{zhou2026touchanything}{{367}{2026}{{Zhou et~al.}}{{Zhou, Gao, Hong, Liu, Zhang, Dai, Zhen, Lyu, Wu, Mao, Wang, Jiang and Yang}}}
+\bibcite{zhou2025mitigating}{{368}{2025{c}}{{Zhou et~al.}}{{Zhou, Ma, Lin, Wang, Qiu and Liang}}}
+\bibcite{zhou2017towards}{{369}{2017}{{Zhou et~al.}}{{Zhou, Xu and Corso}}}
+\bibcite{zhou2021manipulator}{{370}{2021}{{Zhou et~al.}}{{Zhou, Aytar and Bousmalis}}}
+\bibcite{zhu2026egosound}{{371}{2026{a}}{{Zhu et~al.}}{{Zhu, Fu, Dong, Sun, Qian, Wu, Paudel, Xue and Fu}}}
+\bibcite{zhu2017unpaired}{{372}{2017}{{Zhu et~al.}}{{Zhu, Park, Isola and Efros}}}
+\bibcite{zhu2026emma}{{373}{2026{b}}{{Zhu et~al.}}{{Zhu, Kuppili, Punamiya, Aphiwetsa, Patel, Kareer, Ha and Xu}}}
+\bibcite{zhu2025learning}{{374}{2025}{{Zhu et~al.}}{{Zhu, Liu, Li and Chen}}}
+\bibcite{zhu2024vision}{{375}{2024}{{Zhu et~al.}}{{Zhu, Lim, Stone and Zhu}}}
+\bibcite{zimmermann2019freihand}{{376}{2019}{{Zimmermann et~al.}}{{Zimmermann, Ceylan, Yang, Russell, Argus and Brox}}}
+\bibcite{zou2026activeglasses}{{377}{2026}{{Zou et~al.}}{{Zou, Shi, Yu, Xue, Lv, Pan, Wen and Lu}}}
+\newlabel{LastPage}{{6}{55}{结论}{section*.32}{}}
+\gdef \@abspage@last{55}

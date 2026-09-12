@@ -1,0 +1,148 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\citation{kirillov2023segment,brown2020language}
+\citation{brohan2022rt,padalkar2023open,fang2023rh20t}
+\citation{mandlekar2021matters,brohan2022rt}
+\citation{zhang2018deep,wu2023gello}
+\citation{brohan2022rt}
+\citation{sermanet2018tcn,nair2023r3m,seo2022reinforcement}
+\citation{du2023unipi,yang2023learning,Escontrela23arXiv_VIPER}
+\citation{du2023unipi}
+\citation{du2023unipi,black2023zero}
+\citation{karaev2023cotracker}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 鉴于任务指令和图像框架中的任何点的初始位置,我们的任意点轨迹模型 (ATM) 可以预测这些点的未来轨迹,根据任务. 经过在无动作视频数据集上训练模型后,预测的轨迹作为学习视觉运动策略的有效指导,用于一组语言条件的操作任务.}}{1}{figure.caption.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {I}介绍}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}{介绍}{section.1}{}}
+\citation{reed2022generalist,brohan2022rt,walke2023bridgedata}
+\citation{qin2020keto,manuelli2020keypoints}
+\citation{lin2021VCD,huang2022medor}
+\citation{li20213d,rashid2023language}
+\citation{aguiar2007trajectory,peng2018deepmimic}
+\citation{goyal2022ifor,seita2023toolflownet,gu2023rt}
+\citation{vecerik2023robotap}
+\citation{schmeckpeper2019learning,baker2022vpt,torabi2018behavioral,schmidt2024learning}
+\citation{sermanet2017tcn,nair2023r3m,ma2023vip}
+\citation{du2023unipi,Ko2023Learning,bharadhwaj2023zero,yang2023learning,Escontrela23arXiv_VIPER}
+\citation{xiong2021learning,shao2021concept2robot,mendonca2023structured,bahl418affordances,shaw2023videodex,wang2023mimicplay}
+\citation{harley2022particle,doersch2023tapvid,doersch2023tapir,wang2023tracking,zheng2023pointodyssey}
+\citation{karaev2023cotracker}
+\citation{sermanet2017tcn,nair2023r3m,ma2023vip}
+\citation{du2023unipi,Ko2023Learning,black2023zero}
+\@writefile{toc}{\contentsline {section}{\numberline {II}相关工作}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}初步}{2}{section.3}\protected@file@percent }
+\newlabel{sec:prelim}{{III}{2}{初步}{section.3}{}}
+\newlabel{eq:bc}{{1}{2}{初步}{equation.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}方法}{2}{section.4}\protected@file@percent }
+\citation{devlin2019-bert}
+\citation{he2022masked}
+\citation{vecerik2023robotap}
+\citation{liu2023libero,kim2021vilt}
+\citation{lin2023spawnnet}
+\citation{nair2023r3m,ma2023vip}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 我们的框架概述. (a) 在第一阶段,由于无动作视频数据集,我们首先在一个视频框架上采样2D点,然后使用预训练的跟踪器跟踪整个视频的轨迹.然后我们训练一个轨迹 Transformer以预测当前的图像观测,语言指令和点的初始位置.对于变压器输入,我们用隐藏值来取代未来的点位置. (2) 在第二阶段,我们学习了轨迹引导的策略来预测控制行动.预测的轨道的指导使我们能够从仅几项动作标签的示范中学习强大的策略. }}{3}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:system}{{2}{3}{我们的框架概述. (a) 在第一阶段,由于无动作视频数据集,我们首先在一个视频框架上采样2D点,然后使用预训练的跟踪器跟踪整个视频的轨迹.然后我们训练一个轨迹 Transformer以预测当前的图像观测,语言指令和点的初始位置.对于变压器输入,我们用隐藏值来取代未来的点位置. (2) 在第二阶段,我们学习了轨迹引导的策略来预测控制行动.预测的轨道的指导使我们能够从仅几项动作标签的示范中学习强大的策略}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}从视频数据集进行轨迹建模}{3}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:track-model}{{\mbox  {IV-A}}{3}{从视频数据集进行轨迹建模}{subsection.4.1}{}}
+\newlabel{sec:TAP-annotation}{{\mbox  {IV-A}0a}{3}{自主监督轨道注释}{paragraph.4.1.0.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {IV-A}0a}自主监督轨道注释.}{3}{paragraph.4.1.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {IV-A}0b}多动轨道建模.}{3}{paragraph.4.1.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}随轨指导的策略学习}{3}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:track-policy}{{\mbox  {IV-B}}{3}{随轨指导的策略学习}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {IV-B}0a}随意追踪点.}{3}{paragraph.4.2.0.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 鉴于目前的观察和预测的轨迹 Transformer的预测,我们从有限的示范数据集中训练了轨迹引导的策略.}}{3}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:track_policy}{{3}{3}{鉴于目前的观察和预测的轨迹 Transformer的预测,我们从有限的示范数据集中训练了轨迹引导的策略}{figure.caption.3}{}}
+\citation{liu2023libero}
+\citation{liu2023libero}
+\citation{liu2023libero}
+\citation{devlin2019-bert}
+\citation{nair2023r3m}
+\citation{baker2022vpt}
+\citation{du2023unipi,Ko2023Learning,black2023zero}
+\citation{Ko2023Learning}
+\citation{Chi2023diffusion}
+\citation{wu2023gello}
+\citation{robomimic2021,lin2023spawnnet}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {IV-B}0b}随轨指导的策略学习.}{4}{paragraph.4.2.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}实验}{4}{section.5}\protected@file@percent }
+\newlabel{sec:experiment}{{V}{4}{实验}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}视频 预训练 模仿学习}{4}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:video_bc}{{\mbox  {V-A}}{4}{视频 预训练 模仿学习}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}人与机器人,机器人与机器人转移}{4}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:human_video}{{\mbox  {V-B}}{4}{人与机器人,机器人与机器人转移}{subsection.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 在 LIBERO基准指标中,我们与最先进的视频预训方法进行语言调控任务的比较~\cite  {liu2023libero}. (a) 视觉化 LIBERO任务分为四个套件,重点关注空间推理,对象推理,任务理解和执行长视界任务中的操纵策略的不同方面. (b) 进行不同套件的数量比较.我们还将基线与包含90项任务的任务套件 (即 LIBERO-90) 的快速计算进行比较.ATM在所有任务中优于基线,并在 LIBERO-Goal和 LIBERO-Long中卓越.}}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:sim_exp}{{4}{5}{在 LIBERO基准指标中,我们与最先进的视频预训方法进行语言调控任务的比较~\cite {liu2023libero}. (a) 视觉化 LIBERO任务分为四个套件,重点关注空间推理,对象推理,任务理解和执行长视界任务中的操纵策略的不同方面. (b) 进行不同套件的数量比较.我们还将基线与包含90项任务的任务套件 (即 LIBERO-90) 的快速计算进行比较.ATM在所有任务中优于基线,并在 LIBERO-Goal和 LIBERO-Long中卓越}{figure.caption.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces 人与机器人实验的平均成功率.使用人类视频训练的ATM显著超过BC和仅使用10个机器人视频训练的ATM,这证明了ATM的跨具身能力.}}{5}{table.caption.9}\protected@file@percent }
+\newlabel{tab:human-robot-result}{{I}{5}{人与机器人实验的平均成功率.使用人类视频训练的ATM显著超过BC和仅使用10个机器人视频训练的ATM,这证明了ATM的跨具身能力}{table.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}废除分析}{5}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:ablation}{{\mbox  {V-C}}{5}{废除分析}{subsection.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 现实机器人实验在一个餐桌设置由五项任务组成.左图显示了我们的现实世界设置和任务.右上图显示了预测粒子轨迹和策略执行的一个例子,紧随预测轨迹.从量化结果,我们可以看到ATM显示了显著的改善与最先进的视频预训基线平均.}}{6}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:real_exp}{{5}{6}{现实机器人实验在一个餐桌设置由五项任务组成.左图显示了我们的现实世界设置和任务.右上图显示了预测粒子轨迹和策略执行的一个例子,紧随预测轨迹.从量化结果,我们可以看到ATM显示了显著的改善与最先进的视频预训基线平均}{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 我们通过增加预测未来轨迹作为额外的条件来实施ATM扩散策略,并在基准套件中显示了基本扩散策略的持续改善.}}{6}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:diff-policy-results}{{6}{6}{我们通过增加预测未来轨迹作为额外的条件来实施ATM扩散策略,并在基准套件中显示了基本扩散策略的持续改善}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}限制}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}结论}{6}{section.7}\protected@file@percent }
+\bibstyle{鱼}
+\bibdata{references}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 通过人类视频学习机器人技能.我们收集了人类直接执行任务的100个视频和10个远程操作示范轨迹.从上到下面的每一行都显示了人类视频的三个快照,无人视频训练的ATM和人类视频训练的ATM.比较来说,我们可以看到人类视频对于学习准确的轨迹预测至关重要,并使策略能够成功执行任务.}}{7}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:human_video}{{7}{7}{通过人类视频学习机器人技能.我们收集了人类直接执行任务的100个视频和10个远程操作示范轨迹.从上到下面的每一行都显示了人类视频的三个快照,无人视频训练的ATM和人类视频训练的ATM.比较来说,我们可以看到人类视频对于学习准确的轨迹预测至关重要,并使策略能够成功执行任务}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 在这里,我们收集了160个无动作视频的Franka手臂和10个无动作标签的示范从一个 UR手臂,最终目标是学习一个 UR 策略.我们比较一个尼拉BC基线与ATM训练使用数据类型:仅使用10个 UR 视频,仅使用160个Franka 视频,并使用 Franka 和 UR 视频 (Franka 视频) $\Rightarrow $ 在正确的图表中,我们观察到,额外的交叉具身数据导致了显著更好的结果.令人惊的是,即使轨迹模型仅使用Franka视频进行训练,它表现出比 BC没有Franka视频更好的性能.}}{7}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:rob-rob}{{8}{7}{在这里,我们收集了160个无动作视频的Franka手臂和10个无动作标签的示范从一个 UR手臂,最终目标是学习一个 UR 策略.我们比较一个尼拉BC基线与ATM训练使用数据类型:仅使用10个 UR 视频,仅使用160个Franka 视频,并使用 Franka 和 UR 视频 (Franka 视频) $\Rightarrow $ 在正确的图表中,我们观察到,额外的交叉具身数据导致了显著更好的结果.令人惊的是,即使轨迹模型仅使用Franka视频进行训练,它表现出比 BC没有Franka视频更好的性能}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}认可}{7}{section.8}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces 轨迹 Transformer的图像掩饰的除研究, ``在轨迹 Transformer训练中,我们不会掩盖图像补丁. ``"w/图像掩盖"意味着我们随机掩盖50\% 我们可以看到,轨迹 Transformer中的面具图像建模提高了策略性能.}}{8}{table.caption.12}\protected@file@percent }
+\newlabel{tab:ablation-mask-ratio}{{II}{8}{轨迹 Transformer的图像掩饰的除研究, ``在轨迹 Transformer训练中,我们不会掩盖图像补丁. ``"w/图像掩盖"意味着我们随机掩盖50\% 我们可以看到,轨迹 Transformer中的面具图像建模提高了策略性能}{table.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces 我们在两个位置探讨了被输入到策略中的轨道的影响:变压器输入 (早期融合) 和MLP头 (后期融合),如图所示~\ref {fig:track_policy}.}}{8}{table.caption.13}\protected@file@percent }
+\newlabel{tab:arch-ablation}{{III}{8}{我们在两个位置探讨了被输入到策略中的轨道的影响:变压器输入 (早期融合) 和MLP头 (后期融合),如图所示~\ref {fig:track_policy}}{table.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 我们的策略成功率\%, 10\% 和20\% 我们的策略训练只有4个\% 与BC基线相比的表现\% 在Libero-Spatial,Object和Goal上进行了演示,甚至更好的是在Libero-Spatial上.\% 我们的表现接近BC,所有的训练数据.}}{8}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:num-demos}{{9}{8}{我们的策略成功率\%, 10\% 和20\% 我们的策略训练只有4个\% 与BC基线相比的表现\% 在Libero-Spatial,Object和Goal上进行了演示,甚至更好的是在Libero-Spatial上.\% 我们的表现接近BC,所有的训练数据}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces 总体而言,更长的轨迹长度提高了性能,但在16后的效益往往会平稳.}}{8}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:libero-track-len}{{10}{8}{总体而言,更长的轨迹长度提高了性能,但在16后的效益往往会平稳}{figure.caption.11}{}}
+\citation{du2023unipi}
+\citation{Ko2023Learning}
+\citation{black2023zero}
+\citation{nair2023r3m}
+\citation{baker2022vpt}
+\citation{du2023unipi,Ko2023Learning}
+\citation{black2023zero}
+\citation{liu2023libero}
+\citation{Chi2023diffusion}
+\citation{liu2023libero,kim2021vilt}
+\@writefile{toc}{\contentsline {section}{Appendix~A: 其他实验结果}{9}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-A}}模拟实验}{9}{subsection.Appendix.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-B}}关于UniPi基线的讨论}{9}{subsection.Appendix.A.2}\protected@file@percent }
+\newlabel{sec:app:unipi}{{\mbox  {A-B}}{9}{关于UniPi基线的讨论}{subsection.Appendix.A.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces 计算成本和推断时间在V100GPU上的不同方法.ATM执行轨迹生成,而不是预测高维框架,使其成为关闭循环控制的计算效率和可行性最高.UniPi在开始时采用视频扩散模型来开放循环未来目标生成,需要更高的计算资源.UniPi-Replan使用较小的模型生成比UniPi少的框架,从而产生了稍快的生成.然而,其在关闭循环控制中使用仍然是计算上的禁令.}}{9}{table.caption.15}\protected@file@percent }
+\newlabel{tab:runtime}{{IV}{9}{计算成本和推断时间在V100GPU上的不同方法.ATM执行轨迹生成,而不是预测高维框架,使其成为关闭循环控制的计算效率和可行性最高.UniPi在开始时采用视频扩散模型来开放循环未来目标生成,需要更高的计算资源.UniPi-Replan使用较小的模型生成比UniPi少的框架,从而产生了稍快的生成.然而,其在关闭循环控制中使用仍然是计算上的禁令}{table.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-C}}将ATM应用到传播策略中}{9}{subsection.Appendix.A.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-D}}人与机器人传输细节}{9}{subsection.Appendix.A.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Appendix~B: 实施细节}{9}{section*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-A}}策略架构}{9}{subsection.Appendix.B.1}\protected@file@percent }
+\newlabel{sec:app:policy-arch}{{\mbox  {B-A}}{9}{策略架构}{subsection.Appendix.B.1}{}}
+\citation{karaev2023cotracker}
+\citation{wen2022primenet}
+\citation{liu2023libero}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces 空间变压器中的BC和我们的注意力地图.我们提取了空间CLS代币和RGB代币之间的注意力权重,突出了策略的关注特定空间区域的决策过程中.热地图显示了我们的策略的针对性关注任务相关领域,而BC倾向于关注不相关的背景.这突出了空间变压器中的输入轨道作为好任务提示的有效性,引导CLS代币进入适当领域.}}{10}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:policy-attention-map}{{11}{10}{空间变压器中的BC和我们的注意力地图.我们提取了空间CLS代币和RGB代币之间的注意力权重,突出了策略的关注特定空间区域的决策过程中.热地图显示了我们的策略的针对性关注任务相关领域,而BC倾向于关注不相关的背景.这突出了空间变压器中的输入轨道作为好任务提示的有效性,引导CLS代币进入适当领域}{figure.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces 在 LIBERO 基准上平均成功率. 我们的方法在所有套件中比所有基线都保持更好的表现.由于计算成本,UniPi-Replan仅被评估为单个种子.}}{10}{table.caption.17}\protected@file@percent }
+\newlabel{tab:libero-results}{{V}{10}{在 LIBERO 基准上平均成功率. 我们的方法在所有套件中比所有基线都保持更好的表现.由于计算成本,UniPi-Replan仅被评估为单个种子}{table.caption.17}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces 我们的方法可以进一步改进这种策略,这表明我们的任意点轨迹建模框架是适用于任何策略模型的重要基石.}}{10}{table.caption.20}\protected@file@percent }
+\newlabel{tab:diff-policy}{{VI}{10}{我们的方法可以进一步改进这种策略,这表明我们的任意点轨迹建模框架是适用于任何策略模型的重要基石}{table.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-B}}用点过进行有效训练}{10}{subsection.Appendix.B.2}\protected@file@percent }
+\newlabel{sec:app:track-filter}{{\mbox  {B-B}}{10}{用点过进行有效训练}{subsection.Appendix.B.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-C}}培训细节}{10}{subsection.Appendix.B.3}\protected@file@percent }
+\newlabel{sec:app:train-detail}{{\mbox  {B-C}}{10}{培训细节}{subsection.Appendix.B.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces 为了总结空间信息,我们执行自我注意力,包括所有视图的轨迹和图像补丁和CLS标记.为了整合信息,我们执行随机自我注意力,在空间CLS标记,自觉感知和每个时间步骤的行动CLS标记之间.为了退回行动,我们将每个时间步骤的行动CLS标记和建议的轨迹连接. }}{10}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:arch-appendix}{{12}{10}{为了总结空间信息,我们执行自我注意力,包括所有视图的轨迹和图像补丁和CLS标记.为了整合信息,我们执行随机自我注意力,在空间CLS标记,自觉感知和每个时间步骤的行动CLS标记之间.为了退回行动,我们将每个时间步骤的行动CLS标记和建议的轨迹连接}{figure.caption.18}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces 轨迹 Transformer训练的超参数.}}{11}{table.caption.21}\protected@file@percent }
+\newlabel{tab:tt-hyperparameter}{{VII}{11}{轨迹 Transformer训练的超参数}{table.caption.21}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces 策略培训的超级参数.}}{11}{table.caption.21}\protected@file@percent }
+\newlabel{tab:policy-hyperparameter}{{VIII}{11}{策略培训的超级参数}{table.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces 视频 (左) 显示时,我们采用现有TAP模型 (中部) 查询1000个随机抽样点,每个颜色点都代表了轨道的起始位置.然后我们通过视频中位置移动的选,重新抽样这些点 (右).我们可以看到提取的轨道集中在信息对象,如机器人的抓住器和操纵目标.}}{11}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:filtering}{{13}{11}{视频 (左) 显示时,我们采用现有TAP模型 (中部) 查询1000个随机抽样点,每个颜色点都代表了轨道的起始位置.然后我们通过视频中位置移动的选,重新抽样这些点 (右).我们可以看到提取的轨道集中在信息对象,如机器人的抓住器和操纵目标}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces 随着人类视频的训练和没有人类视频的轨道变换器的注意力地图.包括大规模的人类视频导致了更清晰的注意力地图,专注于对象和机器人手臂,而没有人类视频的训练将关注错误的区域,如背景墙壁.}}{12}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:tt-attention-map}{{14}{12}{随着人类视频的训练和没有人类视频的轨道变换器的注意力地图.包括大规模的人类视频导致了更清晰的注意力地图,专注于对象和机器人手臂,而没有人类视频的训练将关注错误的区域,如背景墙壁}{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces 我们可以看到ATM能够利用域外视频,即人类视频,产生更精确的轨道,从而提高策略性能.}}{13}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:human_video_supp}{{15}{13}{我们可以看到ATM能够利用域外视频,即人类视频,产生更精确的轨道,从而提高策略性能}{figure.caption.23}{}}
+\gdef \@abspage@last{13}

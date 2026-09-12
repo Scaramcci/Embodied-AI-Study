@@ -1,0 +1,12 @@
+\section{Limitations}
+One limitation is that our approach still relies on a set of action-labeled demonstration trajectories for mapping to actions, which limits the generalization of the learned policies. Future works can consider learning the trajectory-following policies using reinforcement learning so that no additional demonstration data are needed. Another limitation of our method is that the video dataset we use in this paper only contains small domain gaps. Learning from in-the-wild video dataset poses additional challenges such as multi-modal distribution, diverse camera motions, and sub-optimal motions. We leave these extensions for future work. 
+
+
+\section{Conclusions}
+In this work, we present an any-point trajectory modeling framework as video pre-training that effectively learns behaviors and dynamics from action-free video datasets. After pre-training, by learning a track-guided policy, we demonstrate significant improvements over prior state-of-the-art approaches and show effective learning from out-of-distribution human videos.  We show that a particle-based representation is interpretable, structured, and naturally incorporates physical inductive biases such as object permanence. We hope our works will open doors to more exciting directions in learning from videos with structured representations.
+
+
+\section{Acknowledgement}
+This work was supported in part by the BAIR Industrial Consortium, and the InnoHK of the Government of the Hong Kong Special Administrative Region via the Hong Kong Centre for Logistics Robotics.
+This work is also supported by the Ministry of Science and Technology of the People's Republic of China, the 2030 Innovation Megaprojects ``Program on New Generation Artificial Intelligence" (Grant No. 2021AAA0150000), and the National Key R\&D Program of China (2022ZD0161700). This work is done when Chuan Wen is visiting UC Berkeley.
+

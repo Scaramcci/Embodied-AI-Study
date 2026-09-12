@@ -1,0 +1,125 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{times}
+
+% numbers option provides compact numerical references in the text. 
+\usepackage[numbers]{natbib}
+\usepackage{multicol}
+\usepackage[bookmarks=true]{hyperref}
+
+
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{bbding}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+  
+\newcommand{\authnote}[2]{$\ll$\textsf{\footnotesize #1 notes: #2}$\gg$}
+%\newcommand{\authnote}[2]{}
+
+\newcommand{\chuan}[1]{{\color{blue}\authnote{Chuan}{#1}}}
+\newcommand{\xingyu}[1]{{\color{red}\authnote{Xingyu}{#1}}}
+
+
+\pdfinfo{
+   /Author (Homer Simpson)
+   /Title  (Robots: Our new overlords)
+   /CreationDate (D:20101201120000)
+   /Subject (Robots)
+   /Keywords (Robots;Overlords)
+}
+
+\begin{document}
+
+% paper title
+\title{Any-point Trajectory Modeling for Policy Learning}
+
+% You will get a Paper-ID when submitting a pdf file to the conference system
+% \author{Author Names Omitted for Anonymous Review. Paper-ID [63]}
+\author{Chuan Wen $^{*1,2,5}$ \quad Xingyu Lin$^{*1}$ \quad John So$^{*3}$ \\
+Kai Chen$^{6}$ \quad Qi Dou$^{6}$ \quad Yang Gao$^{2,4,5}$ \quad Pieter Abbeel$^{1}$ \\
+$^{1}$UC Berkeley \quad $^{2}$IIIS, Tsinghua University \quad $^{3}$Stanford University \\
+$^{4}$Shanghai AI Laboratory \quad $^{5}$Shanghai Qi Zhi Institute \quad $^{6}$ CUHK \\
+}
+
+%\author{\authorblockN{Michael Shell}
+%\authorblockA{School of Electrical and\\Computer Engineering\\
+%Georgia Institute of Technology\\
+%Atlanta, Georgia 30332--0250\\
+%Email: mshell@ece.gatech.edu}
+%\and
+%\authorblockN{Homer Simpson}
+%\authorblockA{Twentieth Century Fox\\
+%Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\and
+%\authorblockN{James Kirk\\ and Montgomery Scott}
+%\authorblockA{Starfleet Academy\\
+%San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212\\
+%Fax: (888) 555--1212}}
+
+
+% avoiding spaces at the end of the author lines is not a problem with
+% conference papers because we don't use \thanks or \IEEEmembership
+
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\authorblockN{Michael Shell\authorrefmark{1},
+%Homer Simpson\authorrefmark{2},
+%James Kirk\authorrefmark{3}, 
+%Montgomery Scott\authorrefmark{3} and
+%Eldon Tyrell\authorrefmark{4}}
+%\authorblockA{\authorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: mshell@ece.gatech.edu}
+%\authorblockA{\authorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\authorblockA{\authorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\authorblockA{\authorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+\twocolumn[{%
+\renewcommand\twocolumn[1][]{#1}%
+\maketitle
+\begin{center}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=0.92\textwidth]{fig/pull.pdf}
+    \captionof{figure}{Given a task instruction and the initial positions of any set of points in an image frame, our \textbf{A}ny-point \textbf{T}rajectory \textbf{M}odel (ATM) can predict the future trajectories of these points conditioned on the task. After training the model on an action-free video dataset, the predicted trajectories serve as effective guidance for learning visuomotor policies for a set of language-conditioned manipulation tasks.}
+\end{center}%
+}]
+
+\IEEEpeerreviewmaketitle
+
+\makeatletter\def\Hy@Warning#1{}\makeatother\let\thefootnote\relax\footnotetext{*First three authors contributed equally: Chuan Wen led the implementation and experiments. 
+Xingyu Lin came up with the idea, supervised the technical development, and contributed to model debugging. 
+John So implemented the Robot-to-robot transfer experiments and UniPi baselines.}
+
+\input{sec/0_abstract}    
+\input{sec/1_intro}
+\input{sec/2_related_work}
+\input{sec/3_method}
+\input{sec/4_experiment}
+\input{sec/5_conclusion}
+
+%% Use plainnat to work nicely with natbib. 
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\input{sec/6_supp}
+
+\end{document}
+
+

@@ -1,0 +1,2473 @@
+\begin{thebibliography}{377}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Achiam et~al.(2023)Achiam, Adler, Agarwal, Ahmad, Akkaya, Aleman,
+  Almeida, Altenschmidt, Altman, Anadkat et~al.}]{achiam2023gpt}
+Achiam J, Adler S, Agarwal S, Ahmad L, Akkaya I, Aleman FL, Almeida D,
+  Altenschmidt J, Altman S, Anadkat S et~al. (2023) Gpt-4 technical report.
+\newblock \emph{arXiv preprint arXiv:2303.08774} .
+
+\bibitem[{Agarwal et~al.(2025)Agarwal, Ali, Bala, Balaji, Barker, Cai,
+  Chattopadhyay, Chen, Cui, Ding et~al.}]{agarwal2025cosmos}
+Agarwal N, Ali A, Bala M, Balaji Y, Barker E, Cai T, Chattopadhyay P, Chen Y,
+  Cui Y, Ding Y et~al. (2025) Cosmos world foundation model platform for
+  physical ai.
+\newblock \emph{arXiv preprint arXiv:2501.03575} .
+
+\bibitem[{Aksoy et~al.(2017)Aksoy, Ovchinnikova, Orhan, Yang and
+  Asfour}]{aksoy2017unsupervised}
+Aksoy EE, Ovchinnikova E, Orhan A, Yang Y and Asfour T (2017) Unsupervised
+  linking of visual features to textual descriptions in long manipulation
+  activities.
+\newblock \emph{IEEE Robotics and Automation Letters} 2(3): 1397--1404.
+
+\bibitem[{Ali et~al.(2025)Ali, Bai, Bala, Balaji, Blakeman, Cai, Cao, Cao, Cha,
+  Chao et~al.}]{ali2025world}
+Ali A, Bai J, Bala M, Balaji Y, Blakeman A, Cai T, Cao J, Cao T, Cha E, Chao YW
+  et~al. (2025) World simulation with video foundation models for physical ai.
+\newblock \emph{arXiv preprint arXiv:2511.00062} .
+
+\bibitem[{Allshire et~al.(2025)Allshire, Choi, Zhang, McAllister, Zhang, Kim,
+  Darrell, Abbeel, Malik and Kanazawa}]{allshire2025visual}
+Allshire A, Choi H, Zhang J, McAllister D, Zhang A, Kim CM, Darrell T, Abbeel
+  P, Malik J and Kanazawa A (2025) Visual imitation enables contextual humanoid
+  control.
+\newblock \emph{arXiv preprint arXiv:2505.03729} .
+
+\bibitem[{Arunachalam et~al.(2022)Arunachalam, Silwal, Evans and
+  Pinto}]{arunachalam2022dexterous}
+Arunachalam SP, Silwal S, Evans B and Pinto L (2022) Dexterous imitation made
+  easy: A learning-based framework for efficient dexterous manipulation.
+\newblock \urlprefix\url{https://arxiv.org/abs/2203.13251}.
+
+\bibitem[{Assran et~al.(2025)Assran, Bardes, Fan, Garrido, Howes, Muckley,
+  Rizvi, Roberts, Sinha, Zholus et~al.}]{assran2025v}
+Assran M, Bardes A, Fan D, Garrido Q, Howes R, Muckley M, Rizvi A, Roberts C,
+  Sinha K, Zholus A et~al. (2025) V-jepa 2: Self-supervised video models enable
+  understanding, prediction and planning.
+\newblock \emph{arXiv preprint arXiv:2506.09985} .
+
+\bibitem[{Bahety et~al.(2024)Bahety, Mandikal, Abbatematteo and
+  Mart{\'\i}n-Mart{\'\i}n}]{bahety2024screwmimic}
+Bahety A, Mandikal P, Abbatematteo B and Mart{\'\i}n-Mart{\'\i}n R (2024)
+  Screwmimic: Bimanual imitation from human videos with screw space projection.
+\newblock \emph{arXiv preprint arXiv:2405.03666} .
+
+\bibitem[{Bahl et~al.(2022)Bahl, Gupta and Pathak}]{bahl2022human}
+Bahl S, Gupta A and Pathak D (2022) Human-to-robot imitation in the wild.
+\newblock \emph{arXiv preprint arXiv:2207.09450} .
+
+\bibitem[{Bahl et~al.(2023)Bahl, Mendonca, Chen, Jain and
+  Pathak}]{bahl2023affordances}
+Bahl S, Mendonca R, Chen L, Jain U and Pathak D (2023) Affordances from human
+  videos as a versatile representation for robotics.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 13778--13790.
+
+\bibitem[{Bambach et~al.(2015)Bambach, Lee, Crandall and
+  Yu}]{bambach2015lending}
+Bambach S, Lee S, Crandall DJ and Yu C (2015) Lending a hand: Detecting hands
+  and recognizing activities in complex egocentric interactions.
+\newblock In: \emph{Proceedings of the IEEE international conference on
+  computer vision}. pp. 1949--1957.
+
+\bibitem[{Banerjee et~al.(2024)Banerjee, Shkodrani, Moulon, Hampali, Han,
+  Zhang, Zhang, Fountain, Miller, Basol et~al.}]{banerjee2024hot3d}
+Banerjee P, Shkodrani S, Moulon P, Hampali S, Han S, Zhang F, Zhang L, Fountain
+  J, Miller E, Basol S et~al. (2024) Hot3d: Hand and object tracking in 3d from
+  egocentric multi-view videos.
+\newblock \emph{arXiv preprint arXiv:2411.19167} .
+
+\bibitem[{Beyer et~al.(2024)Beyer, Steiner, Pinto, Kolesnikov, Wang, Salz,
+  Neumann, Alabdulmohsin, Tschannen, Bugliarello et~al.}]{beyer2024paligemma}
+Beyer L, Steiner A, Pinto AS, Kolesnikov A, Wang X, Salz D, Neumann M,
+  Alabdulmohsin I, Tschannen M, Bugliarello E et~al. (2024) Paligemma: A
+  versatile 3b vlm for transfer.
+\newblock \emph{arXiv preprint arXiv:2407.07726} .
+
+\bibitem[{Bharadhwaj et~al.(2024{\natexlab{a}})Bharadhwaj, Dwibedi, Gupta,
+  Tulsiani, Doersch, Xiao, Shah, Xia, Sadigh and
+  Kirmani}]{bharadhwaj2024gen2act}
+Bharadhwaj H, Dwibedi D, Gupta A, Tulsiani S, Doersch C, Xiao T, Shah D, Xia F,
+  Sadigh D and Kirmani S (2024{\natexlab{a}}) Gen2act: Human video generation
+  in novel scenarios enables generalizable robot manipulation.
+\newblock \emph{arXiv preprint arXiv:2409.16283} .
+
+\bibitem[{Bharadhwaj et~al.(2023{\natexlab{a}})Bharadhwaj, Gupta, Kumar and
+  Tulsiani}]{bharadhwaj2023towards}
+Bharadhwaj H, Gupta A, Kumar V and Tulsiani S (2023{\natexlab{a}}) Towards
+  generalizable zero-shot manipulation via translating human interaction plans.
+\newblock \emph{arXiv preprint arXiv:2312.00775} .
+
+\bibitem[{Bharadhwaj et~al.(2023{\natexlab{b}})Bharadhwaj, Gupta and
+  Tulsiani}]{bharadhwaj2023visual}
+Bharadhwaj H, Gupta A and Tulsiani S (2023{\natexlab{b}}) Visual affordance
+  prediction for guiding robot exploration.
+\newblock \emph{arXiv preprint arXiv:2305.17783} .
+
+\bibitem[{Bharadhwaj et~al.(2023{\natexlab{c}})Bharadhwaj, Gupta, Tulsiani and
+  Kumar}]{bharadhwaj2023zero}
+Bharadhwaj H, Gupta A, Tulsiani S and Kumar V (2023{\natexlab{c}}) Zero-shot
+  robot manipulation from passive human videos.
+\newblock \emph{arXiv preprint arXiv:2302.02011} .
+
+\bibitem[{Bharadhwaj et~al.(2024{\natexlab{b}})Bharadhwaj, Mottaghi, Gupta and
+  Tulsiani}]{bharadhwaj2024track2act}
+Bharadhwaj H, Mottaghi R, Gupta A and Tulsiani S (2024{\natexlab{b}})
+  Track2act: Predicting point tracks from internet videos enables generalizable
+  robot manipulation.
+\newblock In: \emph{European Conference on Computer Vision}. Springer, pp.
+  306--324.
+
+\bibitem[{Bhateja et~al.(2023)Bhateja, Guo, Ghosh, Singh, Tomar, Vuong,
+  Chebotar, Levine and Kumar}]{bhateja2023robotic}
+Bhateja C, Guo D, Ghosh D, Singh A, Tomar M, Vuong Q, Chebotar Y, Levine S and
+  Kumar A (2023) Robotic offline rl from internet videos via value-function
+  pre-training.
+\newblock \emph{arXiv preprint arXiv:2309.13041} .
+
+\bibitem[{Bi et~al.(2025{\natexlab{a}})Bi, Tan, Xie, Wang, Huang, Liu, Zhao,
+  Feng, Xiang, Rong et~al.}]{bi2025motus}
+Bi H, Tan H, Xie S, Wang Z, Huang S, Liu H, Zhao R, Feng Y, Xiang C, Rong Y
+  et~al. (2025{\natexlab{a}}) Motus: A unified latent action world model.
+\newblock \emph{arXiv preprint arXiv:2512.13030} .
+
+\bibitem[{Bi et~al.(2025{\natexlab{b}})Bi, Wu, Lin, Tan, Su, Su and
+  Zhu}]{bi2025h}
+Bi H, Wu L, Lin T, Tan H, Su Z, Su H and Zhu J (2025{\natexlab{b}}) H-rdt:
+  Human manipulation enhanced bimanual robotic manipulation.
+\newblock \emph{arXiv preprint arXiv:2507.23523} .
+
+\bibitem[{Bi et~al.(2026)Bi, Wu, Lin, Tan, Su, Su and Zhu}]{bi2026h}
+Bi H, Wu L, Lin T, Tan H, Su Z, Su H and Zhu J (2026) H-rdt: Human manipulation
+  enhanced bimanual robotic manipulation.
+\newblock In: \emph{Proceedings of the AAAI Conference on Artificial
+  Intelligence}, volume~40. pp. 18135--18143.
+
+\bibitem[{Bjorck et~al.(2025)Bjorck, Casta{\~n}eda, Cherniadev, Da, Ding, Fan,
+  Fang, Fox, Hu, Huang et~al.}]{bjorck2025gr00t}
+Bjorck J, Casta{\~n}eda F, Cherniadev N, Da X, Ding R, Fan L, Fang Y, Fox D, Hu
+  F, Huang S et~al. (2025) Gr00t n1: An open foundation model for generalist
+  humanoid robots.
+\newblock \emph{arXiv preprint arXiv:2503.14734} .
+
+\bibitem[{Black et~al.(2024)Black, Brown, Driess, Esmail, Equi, Finn, Fusai,
+  Groom, Hausman, Ichter et~al.}]{black2024pi_0}
+Black K, Brown N, Driess D, Esmail A, Equi M, Finn C, Fusai N, Groom L, Hausman
+  K, Ichter B et~al. (2024) $\pi_0$: A vision-language-action flow model for
+  general robot control.
+\newblock \emph{arXiv preprint arXiv:2410.24164} .
+
+\bibitem[{Bonardi et~al.(2020)Bonardi, James and Davison}]{bonardi2020learning}
+Bonardi A, James S and Davison AJ (2020) Learning one-shot imitation from
+  humans without humans.
+\newblock \emph{IEEE Robotics and Automation Letters} 5(2): 3533--3539.
+
+\bibitem[{Brohan et~al.(2022)Brohan, Brown, Carbajal, Chebotar, Dabis, Finn,
+  Gopalakrishnan, Hausman, Herzog, Hsu et~al.}]{brohan2022rt}
+Brohan A, Brown N, Carbajal J, Chebotar Y, Dabis J, Finn C, Gopalakrishnan K,
+  Hausman K, Herzog A, Hsu J et~al. (2022) Rt-1: Robotics transformer for
+  real-world control at scale.
+\newblock \emph{arXiv preprint arXiv:2212.06817} .
+
+\bibitem[{Brooks et~al.(2024)Brooks, Peebles, Holmes, DePue, Guo, Jing,
+  Schnurr, Taylor, Luhman, Luhman et~al.}]{brooks2024video}
+Brooks T, Peebles B, Holmes C, DePue W, Guo Y, Jing L, Schnurr D, Taylor J,
+  Luhman T, Luhman E et~al. (2024) Video generation models as world simulators.
+\newblock \emph{OpenAI Blog} 1(8): 1.
+
+\bibitem[{Bu et~al.(2025{\natexlab{a}})Bu, Cai, Chen, Cui, Ding, Feng, Gao, He,
+  Hu, Huang et~al.}]{bu2025agibot}
+Bu Q, Cai J, Chen L, Cui X, Ding Y, Feng S, Gao S, He X, Hu X, Huang X et~al.
+  (2025{\natexlab{a}}) Agibot world colosseo: A large-scale manipulation
+  platform for scalable and intelligent embodied systems.
+\newblock \emph{arXiv preprint arXiv:2503.06669} .
+
+\bibitem[{Bu et~al.(2025{\natexlab{b}})Bu, Yang, Cai, Gao, Ren, Yao, Luo and
+  Li}]{bu2025univla}
+Bu Q, Yang Y, Cai J, Gao S, Ren G, Yao M, Luo P and Li H (2025{\natexlab{b}})
+  Univla: Learning to act anywhere with task-centric latent actions.
+\newblock \emph{arXiv preprint arXiv:2505.06111} .
+
+\bibitem[{{Build AI}(2025{\natexlab{a}})}]{buildaiegocentric100k2025}
+{Build AI} (2025{\natexlab{a}}) Egocentric-100k.
+\newblock
+  \urlprefix\url{https://huggingface.co/datasets/builddotai/Egocentric-100K}.
+
+\bibitem[{{Build AI}(2025{\natexlab{b}})}]{buildaiegocentric10k2025}
+{Build AI} (2025{\natexlab{b}}) Egocentric-10k.
+\newblock
+  \urlprefix\url{https://huggingface.co/datasets/builddotai/Egocentric-10K}.
+
+\bibitem[{Burns et~al.(2023)Burns, Witzel, Hamid, Yu, Finn and
+  Hausman}]{burns2023makes}
+Burns K, Witzel Z, Hamid JI, Yu T, Finn C and Hausman K (2023) What makes
+  pre-trained visual representations successful for robust manipulation?
+\newblock \emph{arXiv preprint arXiv:2312.12444} .
+
+\bibitem[{Caba~Heilbron et~al.(2015)Caba~Heilbron, Escorcia, Ghanem and
+  Carlos~Niebles}]{caba2015activitynet}
+Caba~Heilbron F, Escorcia V, Ghanem B and Carlos~Niebles J (2015) Activitynet:
+  A large-scale video benchmark for human activity understanding.
+\newblock In: \emph{Proceedings of the ieee conference on computer vision and
+  pattern recognition}. pp. 961--970.
+
+\bibitem[{Cai et~al.(2025)Cai, Qiu, Chen, Wei, Liu, Huang, Cheng and
+  Wang}]{cai2025n}
+Cai X, Qiu RZ, Chen G, Wei L, Liu I, Huang T, Cheng X and Wang X (2025)
+  In-n-on: Scaling egocentric manipulation with in-the-wild and on-task data.
+\newblock \emph{arXiv preprint arXiv:2511.15704} .
+
+\bibitem[{Cao et~al.(2020)Cao, Radosavovic, Kanazawa and
+  Malik}]{cao2020reconstructing}
+Cao Z, Radosavovic I, Kanazawa A and Malik J (2020) Reconstructing hand-object
+  interactions in the wild.
+\newblock \emph{arXiv preprint arXiv:2012.09856} .
+
+\bibitem[{Carion et~al.(2025)Carion, Gustafson, Hu, Debnath, Hu, Suris, Ryali,
+  Alwala, Khedr, Huang et~al.}]{carion2025sam}
+Carion N, Gustafson L, Hu YT, Debnath S, Hu R, Suris D, Ryali C, Alwala KV,
+  Khedr H, Huang A et~al. (2025) Sam 3: Segment anything with concepts.
+\newblock \emph{arXiv preprint arXiv:2511.16719} .
+
+\bibitem[{Chane-Sane et~al.(2023)Chane-Sane, Schmid and
+  Laptev}]{chane2023learning}
+Chane-Sane E, Schmid C and Laptev I (2023) Learning video-conditioned policies
+  for unseen manipulation tasks.
+\newblock \emph{arXiv preprint arXiv:2305.06289} .
+
+\bibitem[{Chang et~al.(2023)Chang, Prakash and Gupta}]{chang2023look}
+Chang M, Prakash A and Gupta S (2023) Look ma, no hands! agent-environment
+  factorization of egocentric videos.
+\newblock \emph{Advances in Neural Information Processing Systems} 36:
+  21466--21486.
+
+\bibitem[{Chao et~al.(2021)Chao, Yang, Xiang, Molchanov, Handa, Tremblay,
+  Narang, Van~Wyk, Iqbal, Birchfield et~al.}]{chao2021dexycb}
+Chao YW, Yang W, Xiang Y, Molchanov P, Handa A, Tremblay J, Narang YS, Van~Wyk
+  K, Iqbal U, Birchfield S et~al. (2021) Dexycb: A benchmark for capturing hand
+  grasping of objects.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 9044--9053.
+
+\bibitem[{Chavan et~al.(2025)Chavan, Imgrund, Dao, Bai, Wang, Lu, Heimann and
+  Kr{\"u}ger}]{chavan2025indego}
+Chavan V, Imgrund Y, Dao T, Bai S, Wang B, Lu Z, Heimann O and Kr{\"u}ger J
+  (2025) Indego: A dataset of industrial scenarios and collaborative work for
+  egocentric assistants.
+\newblock \emph{arXiv preprint arXiv:2511.19684} .
+
+\bibitem[{Cheang et~al.(2025)Cheang, Chen, Cui, Hu, Huang, Kong, Li, Li, Liu,
+  Ma et~al.}]{cheang2025gr}
+Cheang C, Chen S, Cui Z, Hu Y, Huang L, Kong T, Li H, Li Y, Liu Y, Ma X et~al.
+  (2025) Gr-3 technical report.
+\newblock \emph{arXiv preprint arXiv:2507.15493} .
+
+\bibitem[{Cheang et~al.(2024)Cheang, Chen, Jing, Kong, Li, Li, Liu, Wu, Xu,
+  Yang et~al.}]{cheang2024gr}
+Cheang CL, Chen G, Jing Y, Kong T, Li H, Li Y, Liu Y, Wu H, Xu J, Yang Y et~al.
+  (2024) Gr-2: A generative video-language-action model with web-scale
+  knowledge for robot manipulation.
+\newblock \emph{arXiv preprint arXiv:2410.06158} .
+
+\bibitem[{Chen et~al.(2021)Chen, Nair and Finn}]{chen2021learning}
+Chen AS, Nair S and Finn C (2021) Learning generalizable robotic reward
+  functions from" in-the-wild" human videos.
+\newblock \emph{arXiv preprint arXiv:2103.16817} .
+
+\bibitem[{Chen et~al.(2025{\natexlab{a}})Chen, Zhang, Geng, Song, Zhang, Li,
+  Freeman, Malik, Abbeel, Tedrake et~al.}]{chen2025large}
+Chen B, Zhang T, Geng H, Song K, Zhang C, Li P, Freeman WT, Malik J, Abbeel P,
+  Tedrake R et~al. (2025{\natexlab{a}}) Large video planner enables
+  generalizable robot control.
+\newblock \emph{arXiv preprint arXiv:2512.15840} .
+
+\bibitem[{Chen et~al.(2025{\natexlab{b}})Chen, Yang, Xu, Fazeli and
+  Andersson}]{chen2025visa}
+Chen C, Yang Q, Xu X, Fazeli N and Andersson O (2025{\natexlab{b}}) Visa-flow:
+  Accelerating robot skill learning via large-scale video semantic action flow.
+\newblock \emph{arXiv preprint arXiv:2505.01288} .
+
+\bibitem[{Chen et~al.(2026{\natexlab{a}})Chen, Kasarla, Bang, Shukor, Chung,
+  Yu, Bolourchi, Moutakanni and Fung}]{chen2026action100m}
+Chen D, Kasarla T, Bang Y, Shukor M, Chung W, Yu J, Bolourchi A, Moutakanni T
+  and Fung P (2026{\natexlab{a}}) Action100m: A large-scale video action
+  dataset.
+\newblock \emph{arXiv preprint arXiv:2601.10592} .
+
+\bibitem[{Chen et~al.(2025{\natexlab{c}})Chen, Cui, Wang, Yang, Hu, Lu, Mu,
+  Peng, Zhou, Jiang et~al.}]{chen2025graphmimic}
+Chen G, Cui T, Wang M, Yang C, Hu M, Lu H, Mu Y, Peng Z, Zhou T, Jiang X et~al.
+  (2025{\natexlab{c}}) Graphmimic: Graph-to-graphs generative modeling from
+  videos for policy learning.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 1756--1768.
+
+\bibitem[{Chen et~al.(2025{\natexlab{d}})Chen, Wang, Cui, Mu, Lu, Peng, Hu,
+  Zhou, Fu, Yang et~al.}]{chen2025fmimic}
+Chen G, Wang M, Cui T, Mu Y, Lu H, Peng Z, Hu M, Zhou T, Fu M, Yang Y et~al.
+  (2025{\natexlab{d}}) Fmimic: Foundation models are fine-grained action
+  learners from human videos.
+\newblock \emph{The International Journal of Robotics Research} :
+  02783649251377335.
+
+\bibitem[{Chen et~al.(2024{\natexlab{a}})Chen, Wang, Cui, Mu, Lu, Zhou, Peng,
+  Hu, Li, Yuan et~al.}]{chen2024vlmimic}
+Chen G, Wang M, Cui T, Mu Y, Lu H, Zhou T, Peng Z, Hu M, Li H, Yuan L et~al.
+  (2024{\natexlab{a}}) Vlmimic: Vision language models are visual imitation
+  learner for fine-grained actions.
+\newblock \emph{Advances in Neural Information Processing Systems} 37:
+  77860--77887.
+
+\bibitem[{Chen et~al.(2026{\natexlab{b}})Chen, Dong, Wu, Wang, Jangir, Niu, Ye,
+  Bharadhwaj, Erickson and Ichnowski}]{chen2026dexterous}
+Chen H, Dong T, Wu T, Wang L, Jangir Y, Niu Y, Ye Y, Bharadhwaj H, Erickson Z
+  and Ichnowski J (2026{\natexlab{b}}) Dexterous manipulation policies from rgb
+  human videos via 3d hand-object trajectory reconstruction.
+\newblock \emph{arXiv preprint arXiv:2602.09013} .
+
+\bibitem[{Chen et~al.(2025{\natexlab{e}})Chen, Sun, Zhang, Pollefeys and
+  Leutenegger}]{chen2025vidbot}
+Chen H, Sun B, Zhang A, Pollefeys M and Leutenegger S (2025{\natexlab{e}})
+  Vidbot: Learning generalizable 3d actions from in-the-wild 2d human videos
+  for zero-shot robotic manipulation.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 27661--27672.
+
+\bibitem[{Chen et~al.(2025{\natexlab{f}})Chen, Yao, Ye, Xu, Bharadhwaj, Wang,
+  Tulsiani, Erickson and Ichnowski}]{chen2025web2grasp}
+Chen H, Yao Y, Ye Y, Xu Z, Bharadhwaj H, Wang J, Tulsiani S, Erickson Z and
+  Ichnowski J (2025{\natexlab{f}}) Web2grasp: Learning functional grasps from
+  web images of hand-object interactions.
+\newblock \emph{arXiv preprint arXiv:2505.05517} .
+
+\bibitem[{Chen et~al.(2025{\natexlab{g}})Chen, Wang, Li, Bharadhwaj, Chen, Qin,
+  Kou, Tian, Whitmire, Sodhi et~al.}]{chen2025flowing}
+Chen M, Wang Y, Li Z, Bharadhwaj H, Chen Y, Qin C, Kou Z, Tian Y, Whitmire E,
+  Sodhi R et~al. (2025{\natexlab{g}}) Flowing from reasoning to motion:
+  Learning 3d hand trajectory prediction from egocentric human interaction
+  videos.
+\newblock \emph{arXiv preprint arXiv:2512.16907} .
+
+\bibitem[{Chen et~al.(2024{\natexlab{b}})Chen, Siarohin, Menapace, Deyneka,
+  Chao, Jeon, Fang, Lee, Ren, Yang et~al.}]{chen2024panda}
+Chen TS, Siarohin A, Menapace W, Deyneka E, Chao Hw, Jeon BE, Fang Y, Lee HY,
+  Ren J, Yang MH et~al. (2024{\natexlab{b}}) Panda-70m: Captioning 70m videos
+  with multiple cross-modality teachers.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 13320--13331.
+
+\bibitem[{Chen et~al.(2024{\natexlab{c}})Chen, Guo, He, Zhang, Zhang, Yang,
+  Zhao and Bian}]{chen2024igor}
+Chen X, Guo J, He T, Zhang C, Zhang P, Yang DC, Zhao L and Bian J
+  (2024{\natexlab{c}}) Igor: Image-goal representations are the atomic control
+  units for foundation models in embodied ai.
+\newblock \emph{arXiv preprint arXiv:2411.00785} .
+
+\bibitem[{Chen et~al.(2025{\natexlab{h}})Chen, Wei, Zhang, Zhang, Wang, Guo,
+  Yang, Wang, Xiao, Zhao et~al.}]{chen2025villa}
+Chen X, Wei H, Zhang P, Zhang C, Wang K, Guo Y, Yang R, Wang Y, Xiao X, Zhao L
+  et~al. (2025{\natexlab{h}}) Villa-x: enhancing latent action modeling in
+  vision-language-action models.
+\newblock \emph{arXiv preprint arXiv:2507.23682} .
+
+\bibitem[{Chen et~al.(2025{\natexlab{i}})Chen, Ge, Tang, Li, Ge, Ding, Shan and
+  Liu}]{chen2025moto}
+Chen Y, Ge Y, Tang W, Li Y, Ge Y, Ding M, Shan Y and Liu X (2025{\natexlab{i}})
+  Moto: Latent motion token as the bridging language for learning robot
+  manipulation from videos.
+\newblock In: \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}. pp. 19752--19763.
+
+\bibitem[{Chen et~al.(2025{\natexlab{j}})Chen, Chen, Arlaud, Laptev and
+  Schmid}]{chen2025vividex}
+Chen Z, Chen S, Arlaud E, Laptev I and Schmid C (2025{\natexlab{j}}) Vividex:
+  Learning vision-based dexterous manipulation from human videos.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 3336--3343.
+
+\bibitem[{Chen et~al.(2024{\natexlab{d}})Chen, Wang, Cao, Liu, Gao, Cui, Zhu,
+  Ye, Tian, Liu et~al.}]{chen2024expanding}
+Chen Z, Wang W, Cao Y, Liu Y, Gao Z, Cui E, Zhu J, Ye S, Tian H, Liu Z et~al.
+  (2024{\natexlab{d}}) Expanding performance boundaries of open-source
+  multimodal models with model, data, and test-time scaling.
+\newblock \emph{arXiv preprint arXiv:2412.05271} .
+
+\bibitem[{Cheng et~al.(2024{\natexlab{a}})Cheng, Guo, Wu, Fang, Li, Liu and
+  Liu}]{cheng2024egothink}
+Cheng S, Guo Z, Wu J, Fang K, Li P, Liu H and Liu Y (2024{\natexlab{a}})
+  Egothink: Evaluating first-person perspective thinking capability of
+  vision-language models.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 14291--14302.
+
+\bibitem[{Cheng et~al.(2023)Cheng, Shan, Hassen, Higgins and
+  Fouhey}]{cheng2023towards}
+Cheng T, Shan D, Hassen A, Higgins R and Fouhey D (2023) Towards a richer 2d
+  understanding of hands at scale.
+\newblock \emph{Advances in Neural Information Processing Systems} 36:
+  30453--30465.
+
+\bibitem[{Cheng et~al.(2024{\natexlab{b}})Cheng, Song, Ge, Liu, Wang and
+  Shan}]{cheng2024yolo}
+Cheng T, Song L, Ge Y, Liu W, Wang X and Shan Y (2024{\natexlab{b}})
+  Yolo-world: Real-time open-vocabulary object detection.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 16901--16911.
+
+\bibitem[{Chi et~al.(2025)Chi, Xu, Feng, Cousineau, Du, Burchfiel, Tedrake and
+  Song}]{chi2025diffusion}
+Chi C, Xu Z, Feng S, Cousineau E, Du Y, Burchfiel B, Tedrake R and Song S
+  (2025) Diffusion policy: Visuomotor policy learning via action diffusion.
+\newblock \emph{The International Journal of Robotics Research} 44(10-11):
+  1684--1704.
+
+\bibitem[{Cho et~al.(2024)Cho, Huang, Nam, An, Kim and Lee}]{cho2024local}
+Cho S, Huang J, Nam J, An H, Kim S and Lee JY (2024) Local all-pair
+  correspondence for point tracking.
+\newblock In: \emph{European conference on computer vision}. Springer, pp.
+  306--325.
+
+\bibitem[{Ci et~al.(2025)Ci, Liu, Yang, Song and Shou}]{ci2025h2r}
+Ci H, Liu X, Yang P, Song Y and Shou MZ (2025) H2r-grounder: A paired-data-free
+  paradigm for translating human interaction videos into physically grounded
+  robot videos.
+\newblock \emph{arXiv preprint arXiv:2512.09406} .
+
+\bibitem[{Clark et~al.(2025)Clark, Mirchandani, Sadigh and
+  Belkhale}]{clark2025action}
+Clark J, Mirchandani S, Sadigh D and Belkhale S (2025) Action-free reasoning
+  for policy generalization.
+\newblock \emph{arXiv preprint arXiv:2502.03729} .
+
+\bibitem[{Cong et~al.(2025)Cong, Xing, Pokhariya, Fu and
+  Sridhar}]{cong2025dytact}
+Cong X, Xing A, Pokhariya C, Fu R and Sridhar S (2025) Dytact: Capturing
+  dynamic contacts in hand-object manipulation.
+\newblock In: \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}. pp. 7191--7203.
+
+\bibitem[{Dai et~al.(2026)Dai, Lan, Zhou, Zhao, Su, Tong, Guan and
+  Yang}]{dai2026conla}
+Dai W, Lan K, Zhou J, Zhao B, Su X, Tong J, Guan W and Yang S (2026) Conla:
+  Contrastive latent action learning from human videos for robotic
+  manipulation.
+\newblock \emph{arXiv preprint arXiv:2602.00557} .
+
+\bibitem[{Damen et~al.(2018)Damen, Doughty, Farinella, Fidler, Furnari,
+  Kazakos, Moltisanti, Munro, Perrett, Price et~al.}]{damen2018scaling}
+Damen D, Doughty H, Farinella GM, Fidler S, Furnari A, Kazakos E, Moltisanti D,
+  Munro J, Perrett T, Price W et~al. (2018) Scaling egocentric vision: The
+  epic-kitchens dataset.
+\newblock In: \emph{Proceedings of the European conference on computer vision
+  (ECCV)}. pp. 720--736.
+
+\bibitem[{Damen et~al.(2020)Damen, Doughty, Farinella, Furnari, Kazakos, Ma,
+  Moltisanti, Munro, Perrett, Price et~al.}]{damen2020rescaling}
+Damen D, Doughty H, Farinella GM, Furnari A, Kazakos E, Ma J, Moltisanti D,
+  Munro J, Perrett T, Price W et~al. (2020) Rescaling egocentric vision.
+\newblock \emph{arXiv preprint arXiv:2006.13256} .
+
+\bibitem[{Dan et~al.(2025)Dan, Kedia, Chao, Duan, Pace, Ma and
+  Choudhury}]{dan2025x}
+Dan P, Kedia K, Chao A, Duan EW, Pace MA, Ma WC and Choudhury S (2025) X-sim:
+  Cross-embodiment learning via real-to-sim-to-real.
+\newblock \emph{arXiv preprint arXiv:2505.07096} .
+
+\bibitem[{Das et~al.(2021)Das, Bechtle, Davchev, Jayaraman, Rai and
+  Meier}]{das2021model}
+Das N, Bechtle S, Davchev T, Jayaraman D, Rai A and Meier F (2021) Model-based
+  inverse reinforcement learning from visual demonstrations.
+\newblock In: \emph{Conference on Robot Learning}. PMLR, pp. 1930--1942.
+
+\bibitem[{Dasari et~al.(2023)Dasari, Srirama, Jain and
+  Gupta}]{dasari2023unbiased}
+Dasari S, Srirama MK, Jain U and Gupta A (2023) An unbiased look at datasets
+  for visuo-motor pre-training.
+\newblock In: \emph{Conference on Robot Learning}. PMLR, pp. 1183--1198.
+
+\bibitem[{Deng et~al.(2009)Deng, Dong, Socher, Li, Li and
+  Fei-Fei}]{deng2009imagenet}
+Deng J, Dong W, Socher R, Li LJ, Li K and Fei-Fei L (2009) Imagenet: A
+  large-scale hierarchical image database.
+\newblock In: \emph{2009 IEEE conference on computer vision and pattern
+  recognition}. Ieee, pp. 248--255.
+
+\bibitem[{Dharmarajan et~al.(2025)Dharmarajan, Huang, Wu, Fei-Fei and
+  Zhang}]{dharmarajan2025dream2flow}
+Dharmarajan K, Huang W, Wu J, Fei-Fei L and Zhang R (2025) Dream2flow: Bridging
+  video generation and open-world manipulation with 3d object flow.
+\newblock \emph{arXiv preprint arXiv:2512.24766} .
+
+\bibitem[{Di~Palo and Johns(2024)}]{di2024keypoint}
+Di~Palo N and Johns E (2024) Keypoint action tokens enable in-context imitation
+  learning in robotics.
+\newblock \emph{arXiv preprint arXiv:2403.19578} .
+
+\bibitem[{Ding et~al.(2024)Ding, Zhang, Li, Zhou and
+  Perzylo}]{ding2024knowledge}
+Ding J, Zhang H, Li W, Zhou L and Perzylo A (2024) Knowledge-based programming
+  by demonstration using semantic action models for industrial assembly.
+\newblock In: \emph{2024 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 5128--5135.
+
+\bibitem[{Doersch et~al.(2024)Doersch, Luc, Yang, Gokay, Koppula, Gupta,
+  Heyward, Rocco, Goroshin, Carreira et~al.}]{doersch2024bootstap}
+Doersch C, Luc P, Yang Y, Gokay D, Koppula S, Gupta A, Heyward J, Rocco I,
+  Goroshin R, Carreira J et~al. (2024) Bootstap: Bootstrapped training for
+  tracking-any-point.
+\newblock In: \emph{Proceedings of the Asian Conference on Computer Vision}.
+  pp. 3257--3274.
+
+\bibitem[{Doersch et~al.(2023)Doersch, Yang, Vecerik, Gokay, Gupta, Aytar,
+  Carreira and Zisserman}]{doersch2023tapir}
+Doersch C, Yang Y, Vecerik M, Gokay D, Gupta A, Aytar Y, Carreira J and
+  Zisserman A (2023) Tapir: Tracking any point with per-frame initialization
+  and temporal refinement.
+\newblock In: \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}. pp. 10061--10072.
+
+\bibitem[{Dosovitskiy et~al.(2020)Dosovitskiy, Beyer, Kolesnikov, Weissenborn,
+  Zhai, Unterthiner, Dehghani, Minderer, Heigold, Gelly
+  et~al.}]{dosovitskiy2020image}
+Dosovitskiy A, Beyer L, Kolesnikov A, Weissenborn D, Zhai X, Unterthiner T,
+  Dehghani M, Minderer M, Heigold G, Gelly S et~al. (2020) An image is worth
+  16x16 words: Transformers for image recognition at scale.
+\newblock \emph{arXiv preprint arXiv:2010.11929} .
+
+\bibitem[{Du et~al.(2023)Du, Yang, Dai, Dai, Nachum, Tenenbaum, Schuurmans and
+  Abbeel}]{du2023learning}
+Du Y, Yang S, Dai B, Dai H, Nachum O, Tenenbaum J, Schuurmans D and Abbeel P
+  (2023) Learning universal policies via text-guided video generation.
+\newblock \emph{Advances in neural information processing systems} 36:
+  9156--9172.
+
+\bibitem[{Duan et~al.(2023)Duan, Wang, Shridhar, Fox and Krishna}]{duan2023ar2}
+Duan J, Wang YR, Shridhar M, Fox D and Krishna R (2023) Ar2-d2: Training a
+  robot without a robot.
+\newblock \emph{arXiv preprint arXiv:2306.13818} .
+
+\bibitem[{Eze and Crick(2025)}]{eze2025learning}
+Eze C and Crick C (2025) Learning by watching: A review of video-based learning
+  approaches for robot manipulation.
+\newblock \emph{IEEE Access} .
+
+\bibitem[{Fan et~al.(2026)Fan, Zhao, Zhang, Chen, Wang, Zhang and
+  Cheng}]{fan2026robopaint}
+Fan J, Zhao Z, Zhang Y, Chen C, Wang P, Zhang H and Cheng Z (2026) Robopaint:
+  From human demonstration to any robot and any view.
+\newblock \emph{arXiv preprint arXiv:2602.05325} .
+
+\bibitem[{Fan et~al.(2023)Fan, Taheri, Tzionas, Kocabas, Kaufmann, Black and
+  Hilliges}]{fan2023arctic}
+Fan Z, Taheri O, Tzionas D, Kocabas M, Kaufmann M, Black MJ and Hilliges O
+  (2023) Arctic: A dataset for dexterous bimanual hand-object manipulation.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 12943--12954.
+
+\bibitem[{Fang et~al.(2023{\natexlab{a}})Fang, Fang, Tang, Liu, Wang, Wang, Zhu
+  and Lu}]{fang2023rh20t}
+Fang HS, Fang H, Tang Z, Liu J, Wang C, Wang J, Zhu H and Lu C
+  (2023{\natexlab{a}}) Rh20t: A comprehensive robotic dataset for learning
+  diverse skills in one-shot.
+\newblock \emph{arXiv preprint arXiv:2307.00595} .
+
+\bibitem[{Fang et~al.(2023{\natexlab{b}})Fang, Wang, Fang, Gou, Liu, Yan, Liu,
+  Xie and Lu}]{fang2023anygrasp}
+Fang HS, Wang C, Fang H, Gou M, Liu J, Yan H, Liu W, Xie Y and Lu C
+  (2023{\natexlab{b}}) Anygrasp: Robust and efficient grasp perception in
+  spatial and temporal domains.
+\newblock \emph{IEEE Transactions on Robotics} 39(5): 3929--3945.
+
+\bibitem[{Feng et~al.(2025)Feng, Zhang, Wang, Luo, Yuan, Zheng and
+  Lu}]{feng2025spatial}
+Feng Y, Zhang W, Wang Y, Luo H, Yuan H, Zheng S and Lu Z (2025) Spatial-aware
+  vla pretraining through visual-physical alignment from human videos.
+\newblock \emph{arXiv preprint arXiv:2512.13080} .
+
+\bibitem[{Feng et~al.(2026)Feng, Li, Liang, Yang, Shen, Du, Zhang, Deng, Zhao,
+  Zhao et~al.}]{feng2026human}
+Feng Z, Li Q, Liang H, Yang R, Shen Y, Du Z, Zhang Z, Deng Y, Zhao L, Zhao H
+  et~al. (2026) From human videos to robot manipulation: A survey on scalable
+  vision-language-action learning with human-centric data.
+\newblock \emph{Authorea Preprints} .
+
+\bibitem[{Fouhey et~al.(2017)Fouhey, Kuo, Efros and
+  Malik}]{fouhey2017lifestyle}
+Fouhey DF, Kuo Wc, Efros AA and Malik J (2017) From lifestyle vlogs to everyday
+  interactions.
+\newblock \emph{arXiv e-prints} : arXiv--1712.
+
+\bibitem[{Freeman et~al.(2026)Freeman, Kim and Kantor}]{freeman2026warped}
+Freeman H, Kim CH and Kantor G (2026) Warped: Wrist-aligned rendering for robot
+  policy learning from egocentric human demonstrations.
+\newblock \urlprefix\url{https://arxiv.org/abs/2604.10809}.
+
+\bibitem[{Fu et~al.(2024)Fu, Zhao and Finn}]{fu2024mobile}
+Fu Z, Zhao TZ and Finn C (2024) Mobile aloha: Learning bimanual mobile
+  manipulation with low-cost whole-body teleoperation.
+\newblock \emph{arXiv preprint arXiv:2401.02117} .
+
+\bibitem[{Fujimoto et~al.(2018)Fujimoto, Hoof and
+  Meger}]{fujimoto2018addressing}
+Fujimoto S, Hoof H and Meger D (2018) Addressing function approximation error
+  in actor-critic methods.
+\newblock In: \emph{International conference on machine learning}. PMLR, pp.
+  1587--1596.
+
+\bibitem[{Gao et~al.(2023)Gao, Tao, Jaquier and Asfour}]{gao2023k}
+Gao J, Tao Z, Jaquier N and Asfour T (2023) K-vil: Keypoints-based visual
+  imitation learning.
+\newblock \emph{IEEE Transactions on Robotics} 39(5): 3888--3908.
+
+\bibitem[{Gao et~al.(2026)Gao, Liang, Zheng, Malik, Ye, Yu, Tseng, Dong, Mo,
+  Lin et~al.}]{gao2026dreamdojo}
+Gao S, Liang W, Zheng K, Malik A, Ye S, Yu S, Tseng WC, Dong Y, Mo K, Lin CH
+  et~al. (2026) Dreamdojo: A generalist robot world model from large-scale
+  human videos.
+\newblock \emph{arXiv preprint arXiv:2602.06949} .
+
+\bibitem[{Garcia-Hernando et~al.(2017)Garcia-Hernando, Yuan, Baek and
+  Kim}]{garcia2017first}
+Garcia-Hernando G, Yuan S, Baek S and Kim TK (2017) First-person hand action
+  benchmark with rgb-d videos and 3d hand pose annotations.
+\newblock \emph{arXiv preprint arXiv:1704.02463} .
+
+\bibitem[{Garrido et~al.(2026)Garrido, Nagarajan, Terver, Ballas, LeCun and
+  Rabbat}]{garrido2026learning}
+Garrido Q, Nagarajan T, Terver B, Ballas N, LeCun Y and Rabbat M (2026)
+  Learning latent action world models in the wild.
+\newblock \emph{arXiv preprint arXiv:2601.05230} .
+
+\bibitem[{Goswami et~al.(2025)Goswami, Bar, Fan, Yang, Zhou, Krishnamurthy,
+  Rabbat, Khorrami and LeCun}]{goswami2025world}
+Goswami RG, Bar A, Fan D, Yang TY, Zhou G, Krishnamurthy P, Rabbat M, Khorrami
+  F and LeCun Y (2025) World models can leverage human videos for dexterous
+  manipulation.
+\newblock \emph{arXiv preprint arXiv:2512.13644} .
+
+\bibitem[{Govind et~al.(2026)Govind, Reilly, Wang and Das}]{govind2026unilact}
+Govind MK, Reilly D, Wang P and Das S (2026) Unilact: Depth-aware rgb latent
+  action learning for vision-language-action models.
+\newblock \emph{arXiv preprint arXiv:2602.20231} .
+
+\bibitem[{Goyal et~al.(2022)Goyal, Modi, Goyal and Gupta}]{goyal2022human}
+Goyal M, Modi S, Goyal R and Gupta S (2022) Human hands as probes for
+  interactive object understanding.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 3293--3303.
+
+\bibitem[{Goyal et~al.(2017)Goyal, Ebrahimi~Kahou, Michalski, Materzynska,
+  Westphal, Kim, Haenel, Fruend, Yianilos, Mueller-Freitag
+  et~al.}]{goyal2017something}
+Goyal R, Ebrahimi~Kahou S, Michalski V, Materzynska J, Westphal S, Kim H,
+  Haenel V, Fruend I, Yianilos P, Mueller-Freitag M et~al. (2017) The"
+  something something" video database for learning and evaluating visual common
+  sense.
+\newblock In: \emph{Proceedings of the IEEE international conference on
+  computer vision}. pp. 5842--5850.
+
+\bibitem[{Grattafiori et~al.(2024)Grattafiori, Dubey, Jauhri, Pandey, Kadian,
+  Al-Dahle, Letman, Mathur, Schelten, Vaughan et~al.}]{grattafiori2024llama}
+Grattafiori A, Dubey A, Jauhri A, Pandey A, Kadian A, Al-Dahle A, Letman A,
+  Mathur A, Schelten A, Vaughan A et~al. (2024) The llama 3 herd of models.
+\newblock \emph{arXiv preprint arXiv:2407.21783} .
+
+\bibitem[{Grauman et~al.(2021)Grauman, Westbury, Byrne, Chavis, Furnari,
+  Girdhar, Hamburger, Jiang, Liu, Liu et~al.}]{grauman2022ego4d}
+Grauman K, Westbury A, Byrne E, Chavis Z, Furnari A, Girdhar R, Hamburger J,
+  Jiang H, Liu M, Liu X et~al. (2021) Ego4d: Around the world in 3,000 hours of
+  egocentric video.
+\newblock \emph{eprint arXiv: 2110.07058} .
+
+\bibitem[{Grauman et~al.(2023)Grauman, Westbury, Torresani, Kitani, Malik,
+  Afouras, Ashutosh, Baiyya, Bansal, Boote et~al.}]{grauman2023ego}
+Grauman K, Westbury A, Torresani L, Kitani K, Malik J, Afouras T, Ashutosh K,
+  Baiyya V, Bansal S, Boote B et~al. (2023) Ego-exo4d: Understanding skilled
+  human activity from first-and third-person perspectives.
+\newblock \emph{arXiv preprint arXiv:2311.18259} .
+
+\bibitem[{Gu et~al.(2023)Gu, Kirmani, Wohlhart, Lu, Arenas, Rao, Yu, Fu,
+  Gopalakrishnan, Xu et~al.}]{gu2023rt}
+Gu J, Kirmani S, Wohlhart P, Lu Y, Arenas MG, Rao K, Yu W, Fu C, Gopalakrishnan
+  K, Xu Z et~al. (2023) Rt-trajectory: Robotic task generalization via
+  hindsight trajectory sketches.
+\newblock \emph{arXiv preprint arXiv:2311.01977} .
+
+\bibitem[{Guo(2023)}]{guo2023learning}
+Guo D (2023) Learning multi-step manipulation tasks from a single human
+  demonstration.
+\newblock \emph{arXiv preprint arXiv:2312.15346} .
+
+\bibitem[{Guzey et~al.(2025{\natexlab{a}})Guzey, Dai, Savva, Bhirangi and
+  Pinto}]{guzey2025bridging}
+Guzey I, Dai Y, Savva G, Bhirangi R and Pinto L (2025{\natexlab{a}}) Bridging
+  the human to robot dexterity gap through object-oriented rewards.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 3344--3351.
+
+\bibitem[{Guzey et~al.(2025{\natexlab{b}})Guzey, Qi, Urain, Wang, Yin,
+  Bodduluri, Lambeta, Pinto, Rai, Malik et~al.}]{guzey2025dexterity}
+Guzey I, Qi H, Urain J, Wang C, Yin J, Bodduluri K, Lambeta M, Pinto L, Rai A,
+  Malik J et~al. (2025{\natexlab{b}}) Dexterity from smart lenses:
+  Multi-fingered robot manipulation with in-the-wild human demonstrations.
+\newblock \emph{arXiv preprint arXiv:2511.16661} .
+
+\bibitem[{Haarnoja et~al.(2018)Haarnoja, Zhou, Abbeel and
+  Levine}]{haarnoja2018soft}
+Haarnoja T, Zhou A, Abbeel P and Levine S (2018) Soft actor-critic: Off-policy
+  maximum entropy deep reinforcement learning with a stochastic actor.
+\newblock In: \emph{International conference on machine learning}. Pmlr, pp.
+  1861--1870.
+
+\bibitem[{Hafner et~al.(2019)Hafner, Lillicrap, Ba and
+  Norouzi}]{hafner2019dream}
+Hafner D, Lillicrap T, Ba J and Norouzi M (2019) Dream to control: Learning
+  behaviors by latent imagination.
+\newblock \emph{arXiv preprint arXiv:1912.01603} .
+
+\bibitem[{Haldar and Pinto(2025)}]{haldar2025point}
+Haldar S and Pinto L (2025) Point policy: Unifying observations and actions
+  with key points for robot manipulation.
+\newblock \emph{arXiv preprint arXiv:2502.20391} .
+
+\bibitem[{He et~al.(2022)He, Chen, Xie, Li, Doll{\'a}r and
+  Girshick}]{he2022masked}
+He K, Chen X, Xie S, Li Y, Doll{\'a}r P and Girshick R (2022) Masked
+  autoencoders are scalable vision learners.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 16000--16009.
+
+\bibitem[{He et~al.(2025)He, Guo, Xu, Li, Myronenko, Imans, Liu, Yang, Gu, Ji
+  et~al.}]{he2025surgworld}
+He Y, Guo P, Xu M, Li Z, Myronenko A, Imans D, Liu B, Yang D, Gu M, Ji Y et~al.
+  (2025) Surgworld: Learning surgical robot policies from videos via world
+  modeling.
+\newblock \emph{arXiv preprint arXiv:2512.23162} .
+
+\bibitem[{Heidinger et~al.(2025)Heidinger, Jauhri, Prasad and
+  Chalvatzaki}]{heidinger20252handedafforder}
+Heidinger M, Jauhri S, Prasad V and Chalvatzaki G (2025) 2handedafforder:
+  Learning precise actionable bimanual affordances from human videos.
+\newblock In: \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}. pp. 14743--14753.
+
+\bibitem[{Heppert et~al.(2024)Heppert, Argus, Welschehold, Brox and
+  Valada}]{heppert2024ditto}
+Heppert N, Argus M, Welschehold T, Brox T and Valada A (2024) Ditto:
+  Demonstration imitation by trajectory transformation.
+\newblock In: \emph{2024 IEEE/RSJ international conference on intelligent
+  robots and systems (IROS)}. IEEE, pp. 7565--7572.
+
+\bibitem[{Ho et~al.(2022)Ho, Chan, Saharia, Whang, Gao, Gritsenko, Kingma,
+  Poole, Norouzi, Fleet et~al.}]{ho2022imagen}
+Ho J, Chan W, Saharia C, Whang J, Gao R, Gritsenko A, Kingma DP, Poole B,
+  Norouzi M, Fleet DJ et~al. (2022) Imagen video: High definition video
+  generation with diffusion models.
+\newblock \emph{arXiv preprint arXiv:2210.02303} .
+
+\bibitem[{Ho et~al.(2020)Ho, Jain and Abbeel}]{ho2020denoising}
+Ho J, Jain A and Abbeel P (2020) Denoising diffusion probabilistic models.
+\newblock \emph{Advances in neural information processing systems} 33:
+  6840--6851.
+
+\bibitem[{Hoque et~al.(2025)Hoque, Huang, Yoon, Sivapurapu and
+  Zhang}]{hoque2025egodex}
+Hoque R, Huang P, Yoon DJ, Sivapurapu M and Zhang J (2025) Egodex: Learning
+  dexterous manipulation from large-scale egocentric video.
+\newblock \emph{arXiv preprint arXiv:2505.11709} .
+
+\bibitem[{Hori et~al.(2025{\natexlab{a}})Hori, Kambara, Sugiura, Ota, Khurana,
+  Jain, Corcodel, Jha, Romeres and Le~Roux}]{hori2025interactive}
+Hori C, Kambara M, Sugiura K, Ota K, Khurana S, Jain S, Corcodel R, Jha D,
+  Romeres D and Le~Roux J (2025{\natexlab{a}}) Interactive robot action
+  replanning using multimodal llm trained from human demonstration videos.
+\newblock In: \emph{ICASSP 2025-2025 IEEE International Conference on
+  Acoustics, Speech and Signal Processing (ICASSP)}. IEEE, pp. 1--5.
+
+\bibitem[{Hori et~al.(2025{\natexlab{b}})Hori, Masuyama, Jain, Corcodel, Jha,
+  Romeres and Roux}]{hori2025robot}
+Hori C, Masuyama Y, Jain S, Corcodel R, Jha D, Romeres D and Roux JL
+  (2025{\natexlab{b}}) Robot confirmation generation and action planning using
+  long-context q-former integrated with multimodal llm.
+\newblock \emph{arXiv preprint arXiv:2511.17335} .
+
+\bibitem[{Hsieh et~al.(2025)Hsieh, Tu, Hung and Ke}]{hsieh2025dexman}
+Hsieh J, Tu KH, Hung KH and Ke TW (2025) Dexman: Learning bimanual dexterous
+  manipulation from human and generated videos.
+\newblock \emph{arXiv preprint arXiv:2510.08475} .
+
+\bibitem[{Hsu et~al.(2025)Hsu, Wen, Xu, Narang, Wang, Zhu, Biswas and
+  Birchfield}]{hsu2025spot}
+Hsu CC, Wen B, Xu J, Narang Y, Wang X, Zhu Y, Biswas J and Birchfield S (2025)
+  Spot: Se (3) pose trajectory diffusion for object-centric manipulation.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 4853--4860.
+
+\bibitem[{Hu and Ye(2025)}]{hu2025learning}
+Hu X and Ye G (2025) Learning from watching: Scalable extraction of
+  manipulation trajectories from human videos.
+\newblock \emph{arXiv preprint arXiv:2512.00024} .
+
+\bibitem[{Huang et~al.(2024)Huang, Wang, Li, Zhang and
+  Fei-Fei}]{huang2024rekep}
+Huang W, Wang C, Li Y, Zhang R and Fei-Fei L (2024) Rekep: Spatio-temporal
+  reasoning of relational keypoint constraints for robotic manipulation.
+\newblock \emph{arXiv preprint arXiv:2409.01652} .
+
+\bibitem[{Huang et~al.(2018)Huang, Liu, Belongie and
+  Kautz}]{huang2018multimodal}
+Huang X, Liu MY, Belongie S and Kautz J (2018) Multimodal unsupervised
+  image-to-image translation.
+\newblock In: \emph{Proceedings of the European conference on computer vision
+  (ECCV)}. pp. 172--189.
+
+\bibitem[{Huo et~al.(2023)Huo, Duan, Han, Hu, Wang and
+  Navarro-Alarcon}]{huo2023efficient}
+Huo S, Duan A, Han L, Hu L, Wang H and Navarro-Alarcon D (2023) Efficient robot
+  skill learning with imitation from a single video for contact-rich fabric
+  manipulation.
+\newblock \emph{arXiv preprint arXiv:2304.11801} .
+
+\bibitem[{Jain et~al.(2024)Jain, Attarian, Joshi, Wahid, Driess, Vuong,
+  Sanketi, Sermanet, Welker, Chan et~al.}]{jain2024vid2robot}
+Jain V, Attarian M, Joshi NJ, Wahid A, Driess D, Vuong Q, Sanketi PR, Sermanet
+  P, Welker S, Chan C et~al. (2024) Vid2robot: End-to-end video-conditioned
+  policy learning with cross-attention transformers.
+\newblock \emph{arXiv preprint arXiv:2403.12943} .
+
+\bibitem[{Jang et~al.(2022)Jang, Irpan, Khansari, Kappler, Ebert, Lynch, Levine
+  and Finn}]{jang2022bc}
+Jang E, Irpan A, Khansari M, Kappler D, Ebert F, Lynch C, Levine S and Finn C
+  (2022) Bc-z: Zero-shot task generalization with robotic imitation learning.
+\newblock In: \emph{conference on Robot Learning}. PMLR, pp. 991--1002.
+
+\bibitem[{Janner et~al.(2019)Janner, Fu, Zhang and Levine}]{janner2019trust}
+Janner M, Fu J, Zhang M and Levine S (2019) When to trust your model:
+  Model-based policy optimization.
+\newblock \emph{Advances in neural information processing systems} 32.
+
+\bibitem[{Jiang et~al.(2025)Jiang, Huang, Xue, Zhao, Cen, Leng, Li, Guo, Wang,
+  Chen et~al.}]{jiang2025rynnvla}
+Jiang Y, Huang S, Xue S, Zhao Y, Cen J, Leng S, Li K, Guo J, Wang K, Chen M
+  et~al. (2025) Rynnvla-001: Using human demonstrations to improve robot
+  manipulation.
+\newblock \emph{arXiv preprint arXiv:2509.15212} .
+
+\bibitem[{Jiang et~al.(2022)Jiang, Hsu and Zhu}]{jiang2022ditto}
+Jiang Z, Hsu CC and Zhu Y (2022) Ditto: Building digital twins of articulated
+  objects from interaction.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 5616--5626.
+
+\bibitem[{Jonnavittula et~al.(2025)Jonnavittula, Parekh and
+  P.~Losey}]{jonnavittula2025view}
+Jonnavittula A, Parekh S and P~Losey D (2025) View: Visual imitation learning
+  with waypoints.
+\newblock \emph{Autonomous Robots} 49(1): 5.
+
+\bibitem[{Ju et~al.(2024)Ju, Hu, Zhang, Zhang, Jiang and Xu}]{ju2024robo}
+Ju Y, Hu K, Zhang G, Zhang G, Jiang M and Xu H (2024) Robo-abc: Affordance
+  generalization beyond categories via semantic correspondence for robot
+  manipulation.
+\newblock In: \emph{European Conference on Computer Vision}. Springer, pp.
+  222--239.
+
+\bibitem[{Kannan(2023)}]{kannan2023learning}
+Kannan A (2023) \emph{Learning from human videos for robotic manipulation}.
+\newblock PhD Thesis, Carnegie Mellon University Pittsburgh, PA.
+
+\bibitem[{Kannan et~al.(2023)Kannan, Shaw, Bahl, Mannam and
+  Pathak}]{kannan2023deft}
+Kannan A, Shaw K, Bahl S, Mannam P and Pathak D (2023) Deft: Dexterous
+  fine-tuning for real-world hand policies.
+\newblock \emph{arXiv preprint arXiv:2310.19797} .
+
+\bibitem[{Karaev et~al.(2025)Karaev, Makarov, Wang, Neverova, Vedaldi and
+  Rupprecht}]{karaev2025cotracker3}
+Karaev N, Makarov Y, Wang J, Neverova N, Vedaldi A and Rupprecht C (2025)
+  Cotracker3: Simpler and better point tracking by pseudo-labelling real
+  videos.
+\newblock In: \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}. pp. 6013--6022.
+
+\bibitem[{Karaev et~al.(2024)Karaev, Rocco, Graham, Neverova, Vedaldi and
+  Rupprecht}]{karaev2024cotracker}
+Karaev N, Rocco I, Graham B, Neverova N, Vedaldi A and Rupprecht C (2024)
+  Cotracker: It is better to track together.
+\newblock In: \emph{European conference on computer vision}. Springer, pp.
+  18--35.
+
+\bibitem[{Karamcheti et~al.(2023)Karamcheti, Nair, Chen, Kollar, Finn, Sadigh
+  and Liang}]{karamcheti2023language}
+Karamcheti S, Nair S, Chen AS, Kollar T, Finn C, Sadigh D and Liang P (2023)
+  Language-driven representation learning for robotics.
+\newblock \emph{arXiv preprint arXiv:2302.12766} .
+
+\bibitem[{Kareer et~al.(2025{\natexlab{a}})Kareer, Patel, Punamiya, Mathur,
+  Cheng, Wang, Hoffman and Xu}]{kareer2025egomimic}
+Kareer S, Patel D, Punamiya R, Mathur P, Cheng S, Wang C, Hoffman J and Xu D
+  (2025{\natexlab{a}}) Egomimic: Scaling imitation learning via egocentric
+  video.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 13226--13233.
+
+\bibitem[{Kareer et~al.(2025{\natexlab{b}})Kareer, Pertsch, Darpinian, Hoffman,
+  Xu, Levine, Finn and Nair}]{kareer2025emergence}
+Kareer S, Pertsch K, Darpinian J, Hoffman J, Xu D, Levine S, Finn C and Nair S
+  (2025{\natexlab{b}}) Emergence of human to robot transfer in
+  vision-language-action models.
+\newblock \emph{arXiv preprint arXiv:2512.22414} .
+
+\bibitem[{Kedia et~al.(2025)Kedia, Dan, Chao, Pace and
+  Choudhury}]{kedia2025one}
+Kedia K, Dan P, Chao A, Pace MA and Choudhury S (2025) One-shot imitation under
+  mismatched execution.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 15649--15656.
+
+\bibitem[{Kerbl et~al.(2023)Kerbl, Kopanas, Leimk{\"u}hler, Drettakis
+  et~al.}]{kerbl20233d}
+Kerbl B, Kopanas G, Leimk{\"u}hler T, Drettakis G et~al. (2023) 3d gaussian
+  splatting for real-time radiance field rendering.
+\newblock \emph{ACM Trans. Graph.} 42(4): 139--1.
+
+\bibitem[{Kerr et~al.(2024)Kerr, Kim, Wu, Yi, Wang, Goldberg and
+  Kanazawa}]{kerr2024robot}
+Kerr J, Kim CM, Wu M, Yi B, Wang Q, Goldberg K and Kanazawa A (2024) Robot see
+  robot do: Imitating articulated object manipulation with monocular 4d
+  reconstruction.
+\newblock \emph{arXiv preprint arXiv:2409.18121} .
+
+\bibitem[{Khanam and Hussain(2024)}]{khanam2024yolov5}
+Khanam R and Hussain M (2024) What is yolov5: A deep look into the internal
+  features of the popular object detector.
+\newblock \emph{arXiv preprint arXiv:2407.20892} .
+
+\bibitem[{Kim et~al.(2025{\natexlab{a}})Kim, Kim, Lee and
+  Joo}]{kim2025dexterous}
+Kim B, Kim T, Lee J and Joo H (2025{\natexlab{a}}) Dexterous world models.
+\newblock \emph{arXiv preprint arXiv:2512.17907} .
+
+\bibitem[{Kim et~al.(2025{\natexlab{b}})Kim, Kang, Kang, Cho, Kim and
+  Lee}]{kim2025uniskill}
+Kim H, Kang J, Kang H, Cho M, Kim SJ and Lee Y (2025{\natexlab{b}}) Uniskill:
+  Imitating human videos via cross-embodiment skill representations.
+\newblock \emph{arXiv preprint arXiv:2505.08787} .
+
+\bibitem[{Kirillov et~al.(2023)Kirillov, Mintun, Ravi, Mao, Rolland, Gustafson,
+  Xiao, Whitehead, Berg, Lo et~al.}]{kirillov2023segment}
+Kirillov A, Mintun E, Ravi N, Mao H, Rolland C, Gustafson L, Xiao T, Whitehead
+  S, Berg AC, Lo WY et~al. (2023) Segment anything.
+\newblock In: \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}. pp. 4015--4026.
+
+\bibitem[{{Kling AI}(2024)}]{KlingAI2024}
+{Kling AI} (2024) Kling ai.
+\newblock \url{https://www.klingai.com/}.
+\newblock Accessed: 2024-02-10.
+
+\bibitem[{Ko et~al.(2023)Ko, Mao, Du, Sun and Tenenbaum}]{ko2023learning}
+Ko PC, Mao J, Du Y, Sun SH and Tenenbaum JB (2023) Learning to act from
+  actionless videos through dense correspondences.
+\newblock \emph{arXiv preprint arXiv:2310.08576} .
+
+\bibitem[{Kondratyuk et~al.(2023)Kondratyuk, Yu, Gu, Lezama, Huang, Schindler,
+  Hornung, Birodkar, Yan, Chiu et~al.}]{kondratyuk2023videopoet}
+Kondratyuk D, Yu L, Gu X, Lezama J, Huang J, Schindler G, Hornung R, Birodkar
+  V, Yan J, Chiu MC et~al. (2023) Videopoet: A large language model for
+  zero-shot video generation.
+\newblock \emph{arXiv preprint arXiv:2312.14125} .
+
+\bibitem[{Kuang et~al.(2024)Kuang, Ye, Geng, Mao, Deng, Guibas, Wang and
+  Wang}]{kuang2024ram}
+Kuang Y, Ye J, Geng H, Mao J, Deng C, Guibas L, Wang H and Wang Y (2024) Ram:
+  Retrieval-based affordance transfer for generalizable zero-shot robotic
+  manipulation.
+\newblock \emph{arXiv preprint arXiv:2407.04689} .
+
+\bibitem[{Kuehne et~al.(2014)Kuehne, Arslan and Serre}]{kuehne2014language}
+Kuehne H, Arslan A and Serre T (2014) The language of actions: Recovering the
+  syntax and semantics of goal-directed human activities.
+\newblock In: \emph{Proceedings of the IEEE conference on computer vision and
+  pattern recognition}. pp. 780--787.
+
+\bibitem[{Kumar et~al.(2023)Kumar, Zamora, Hansen, Jangir and
+  Wang}]{kumar2023graph}
+Kumar S, Zamora J, Hansen N, Jangir R and Wang X (2023) Graph inverse
+  reinforcement learning from diverse videos.
+\newblock In: \emph{Conference on Robot Learning}. PMLR, pp. 55--66.
+
+\bibitem[{Kwon et~al.(2021)Kwon, Tekin, St{\"u}hmer, Bogo and
+  Pollefeys}]{kwon2021h2o}
+Kwon T, Tekin B, St{\"u}hmer J, Bogo F and Pollefeys M (2021) H2o: Two hands
+  manipulating objects for first person interaction recognition.
+\newblock In: \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}. pp. 10138--10148.
+
+\bibitem[{Labb{\'e} et~al.(2022)Labb{\'e}, Manuelli, Mousavian, Tyree,
+  Birchfield, Tremblay, Carpentier, Aubry, Fox and Sivic}]{labbe2022megapose}
+Labb{\'e} Y, Manuelli L, Mousavian A, Tyree S, Birchfield S, Tremblay J,
+  Carpentier J, Aubry M, Fox D and Sivic J (2022) Megapose: 6d pose estimation
+  of novel objects via render \& compare.
+\newblock \emph{arXiv preprint arXiv:2212.06870} .
+
+\bibitem[{Lee and Ryoo(2017)}]{lee2017learning}
+Lee J and Ryoo MS (2017) Learning robot activities from first-person human
+  videos using convolutional future regression.
+\newblock In: \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition Workshops}. pp. 1--2.
+
+\bibitem[{Lee et~al.(2026)Lee, Lee, Ju, Cho, Koo, Zhao, Hong and
+  Lee}]{lee2026mvp}
+Lee JM, Lee D, Ju S, Cho T, Koo JW, Zhao L, Hong S and Lee J (2026) Mvp-lam:
+  Learning action-centric latent action via cross-viewpoint reconstruction.
+\newblock \emph{arXiv preprint arXiv:2602.03668} .
+
+\bibitem[{Lee et~al.(2019)Lee, Oh, Won and Kim}]{lee2019copy}
+Lee S, Oh SW, Won D and Kim SJ (2019) Copy-and-paste networks for deep video
+  inpainting.
+\newblock In: \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}. pp. 4413--4421.
+
+\bibitem[{Lee et~al.(2025)Lee, Wen, Kang, Kang, Kweon and Yoon}]{lee2025any6d}
+Lee T, Wen B, Kang M, Kang G, Kweon IS and Yoon KJ (2025) Any6d: Model-free 6d
+  pose estimation of novel objects.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 11633--11643.
+
+\bibitem[{Lepert et~al.(2025{\natexlab{a}})Lepert, Fang and
+  Bohg}]{lepert2025masquerade}
+Lepert M, Fang J and Bohg J (2025{\natexlab{a}}) Masquerade: Learning from
+  in-the-wild human videos using data-editing.
+\newblock \emph{arXiv preprint arXiv:2508.09976} .
+
+\bibitem[{Lepert et~al.(2025{\natexlab{b}})Lepert, Fang and
+  Bohg}]{lepert2025phantom}
+Lepert M, Fang J and Bohg J (2025{\natexlab{b}}) Phantom: Training robots
+  without robots using only human videos.
+\newblock \emph{arXiv preprint arXiv:2503.00779} .
+
+\bibitem[{Li et~al.(2026{\natexlab{a}})Li, Xiong, Xu, Qian, Wang and
+  Zhu}]{li2026gazevla}
+Li C, Xiong K, Xu Y, Qian L, Wang Y and Zhu W (2026{\natexlab{a}}) Gazevla:
+  Learning human intention for robotic manipulation.
+\newblock \urlprefix\url{https://arxiv.org/abs/2604.22615}.
+
+\bibitem[{Li et~al.(2025{\natexlab{a}})Li, Lyu, Liu, Hou, Zhang and
+  Zhang}]{li2025h2r}
+Li G, Lyu Y, Liu Z, Hou C, Zhang J and Zhang S (2025{\natexlab{a}}) H2r: A
+  human-to-robot data augmentation for robot pre-training from videos.
+\newblock \emph{arXiv preprint arXiv:2505.11920} .
+
+\bibitem[{Li et~al.(2025{\natexlab{b}})Li, Sun, Hu, Ta, Barry, Konidaris and
+  Fu}]{li2025novaflow}
+Li H, Sun L, Hu Y, Ta D, Barry J, Konidaris G and Fu J (2025{\natexlab{b}})
+  Novaflow: Zero-shot manipulation via actionable flow from generated videos.
+\newblock \emph{arXiv preprint arXiv:2510.08568} .
+
+\bibitem[{Li et~al.(2025{\natexlab{c}})Li, Zhang, Ouyang, Wang, Zhu, Yang,
+  Zhang, Wang, Ni, Qin et~al.}]{li2025mimicdreamer}
+Li H, Zhang I, Ouyang R, Wang X, Zhu Z, Yang Z, Zhang Z, Wang B, Ni C, Qin W
+  et~al. (2025{\natexlab{c}}) Mimicdreamer: Aligning human and robot
+  demonstrations for scalable vla training.
+\newblock \emph{arXiv preprint arXiv:2509.22199} .
+
+\bibitem[{Li et~al.(2026{\natexlab{b}})Li, Qiao, Guo, Chen and
+  Lian}]{li2026act}
+Li J, Qiao Y, Guo Y, Chen C and Lian W (2026{\natexlab{b}}) Act, sense, act:
+  Learning non-markovian active perception strategies from large-scale
+  egocentric human data.
+\newblock \emph{arXiv preprint arXiv:2602.04600} .
+
+\bibitem[{Li et~al.(2024{\natexlab{a}})Li, Zhu, Xie, Jiang, Seo, Pavlakos and
+  Zhu}]{li2024okami}
+Li J, Zhu Y, Xie Y, Jiang Z, Seo M, Pavlakos G and Zhu Y (2024{\natexlab{a}})
+  Okami: Teaching humanoid robots manipulation skills through single video
+  imitation.
+\newblock \emph{arXiv preprint arXiv:2410.11792} .
+
+\bibitem[{Li et~al.(2025{\natexlab{d}})Li, Li, Liu, Li and
+  Huang}]{li2025maniptrans}
+Li K, Li P, Liu T, Li Y and Huang S (2025{\natexlab{d}}) Maniptrans: Efficient
+  dexterous bimanual manipulation transfer via residual learning.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 6991--7003.
+
+\bibitem[{Li et~al.(2022{\natexlab{a}})Li, Zhang, Zhang, Yang, Li, Zhong, Wang,
+  Yuan, Zhang, Hwang et~al.}]{li2022grounded}
+Li LH, Zhang P, Zhang H, Yang J, Li C, Zhong Y, Wang L, Yuan L, Zhang L, Hwang
+  JN et~al. (2022{\natexlab{a}}) Grounded language-image pre-training.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 10965--10975.
+
+\bibitem[{Li et~al.(2024{\natexlab{b}})Li, Liu, Li, Han, Geng, Wang, Zhu, Zhu
+  and Huang}]{li2024ag2manip}
+Li P, Liu T, Li Y, Han M, Geng H, Wang S, Zhu Y, Zhu SC and Huang S
+  (2024{\natexlab{b}}) Ag2manip: Learning novel manipulation skills with
+  agent-agnostic visual and action representations.
+\newblock In: \emph{2024 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 573--580.
+
+\bibitem[{Li et~al.(2025{\natexlab{e}})Li, Deng, Liang, Luo, Zhou, Yao, Zeng,
+  Feng, Liang, Xu et~al.}]{li2025scalable}
+Li Q, Deng Y, Liang Y, Luo L, Zhou L, Yao C, Zeng L, Feng Z, Liang H, Xu S
+  et~al. (2025{\natexlab{e}}) Scalable vision-language-action model pretraining
+  for robotic manipulation with real-life human activity videos.
+\newblock \emph{arXiv preprint arXiv:2510.21571} .
+
+\bibitem[{Li et~al.(2022{\natexlab{b}})Li, Cao, Liang, Liang, Chen, Zhao and
+  Feng}]{li2022egocentric}
+Li Y, Cao Z, Liang A, Liang B, Chen L, Zhao H and Feng C (2022{\natexlab{b}})
+  Egocentric prediction of action target in 3d.
+\newblock In: \emph{2022 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}. IEEE, pp. 20971--20980.
+
+\bibitem[{Li et~al.(2018)Li, Liu and Rehg}]{li2018eye}
+Li Y, Liu M and Rehg JM (2018) In the eye of beholder: Joint learning of gaze
+  and actions in first person video.
+\newblock In: \emph{Proceedings of the European conference on computer vision
+  (ECCV)}. pp. 619--635.
+
+\bibitem[{Li et~al.(2026{\natexlab{c}})Li, Wei, Luo, Xiao, Bai, Zhou, Zou, Gui,
+  Wen, Zhang, Chen, Pan, Liu, Wang, An, Li, Jin, Zhang, Wang, Wei, Huang, Liu,
+  Li, Zhang, Li, Gong, Cao, Liang and Lin}]{li2026egolive}
+Li Y, Wei X, Luo J, Xiao Y, Bai Y, Zhou G, Zou T, Gui C, Wen J, Zhang H, Chen
+  K, Pan X, Liu S, Wang D, An T, Li J, Jin S, Zhang W, Wang T, Wei B, Huang Z,
+  Liu F, Li R, Zhang H, Li A, Gong Y, Cao P, Liang J and Lin L
+  (2026{\natexlab{c}}) Egolive: A large-scale egocentric dataset from
+  real-world human tasks.
+\newblock \urlprefix\url{https://arxiv.org/abs/2604.23570}.
+
+\bibitem[{Li et~al.(2025{\natexlab{f}})Li, Chi, Zhu, Wei, Bai, Ji, Peng, Huang,
+  Wang, Wang et~al.}]{li2025robomirror}
+Li Z, Chi C, Zhu B, Wei Y, Bai S, Ji Y, Peng Y, Huang T, Wang P, Wang Z et~al.
+  (2025{\natexlab{f}}) Robomirror: Understand before you imitate for video to
+  humanoid locomotion.
+\newblock \emph{arXiv preprint arXiv:2512.23649} .
+
+\bibitem[{Li et~al.(2025{\natexlab{g}})Li, Gao, Wang and Fu}]{li2025latbot}
+Li Z, Gao X, Wang X and Fu J (2025{\natexlab{g}}) Latbot: Distilling universal
+  latent actions for vision-language-action models.
+\newblock \urlprefix\url{https://arxiv.org/abs/2511.23034}.
+
+\bibitem[{Li et~al.(2022{\natexlab{c}})Li, Lu, Qin, Guo and
+  Cheng}]{li2022towards}
+Li Z, Lu CZ, Qin J, Guo CL and Cheng MM (2022{\natexlab{c}}) Towards an
+  end-to-end framework for flow-guided video inpainting.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 17562--17571.
+
+\bibitem[{Liang et~al.(2024)Liang, Liu, Ozguroglu, Sudhakar, Dave, Tokmakov,
+  Song and Vondrick}]{liang2024dreamitate}
+Liang J, Liu R, Ozguroglu E, Sudhakar S, Dave A, Tokmakov P, Song S and
+  Vondrick C (2024) Dreamitate: Real-world visuomotor policy learning via video
+  generation.
+\newblock \emph{arXiv preprint arXiv:2406.16862} .
+
+\bibitem[{Liao et~al.(2025)Liao, Zhou, Huang, Yang, Chen, Jiang, Hu, Cai, Liu,
+  Luo et~al.}]{liao2025genie}
+Liao Y, Zhou P, Huang S, Yang D, Chen S, Jiang Y, Hu Y, Cai J, Liu S, Luo J
+  et~al. (2025) Genie envisioner: A unified world foundation platform for
+  robotic manipulation.
+\newblock \emph{arXiv preprint arXiv:2508.05635} .
+
+\bibitem[{Lin et~al.(2025)Lin, Lian, Yu, Yang, Wu, Miao, Jin, Shi, Huang, Cheng
+  et~al.}]{lin2025physbrain}
+Lin X, Lian S, Yu B, Yang R, Wu C, Miao Y, Jin Y, Shi Y, Huang C, Cheng B
+  et~al. (2025) Physbrain: Human egocentric data as a bridge from vision
+  language models to physical intelligence.
+\newblock \emph{arXiv preprint arXiv:2512.16793} .
+
+\bibitem[{Liu et~al.(2023)Liu, Zhu, Gao, Feng, Liu, Zhu and
+  Stone}]{liu2023libero}
+Liu B, Zhu Y, Gao C, Feng Y, Liu Q, Zhu Y and Stone P (2023) Libero:
+  Benchmarking knowledge transfer for lifelong robot learning.
+\newblock \emph{Advances in Neural Information Processing Systems} 36:
+  44776--44791.
+
+\bibitem[{Liu et~al.(2024{\natexlab{a}})Liu, Ye, Sun, Cui, Li and
+  Chen}]{liu2024masked}
+Liu Q, Ye Q, Sun Z, Cui Y, Li G and Chen J (2024{\natexlab{a}}) Masked
+  visual-tactile pre-training for robot manipulation.
+\newblock In: \emph{2024 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 13859--13875.
+
+\bibitem[{Liu et~al.(2024{\natexlab{b}})Liu, Zeng, Ren, Li, Zhang, Yang, Jiang,
+  Li, Yang, Su et~al.}]{liu2024grounding}
+Liu S, Zeng Z, Ren T, Li F, Zhang H, Yang J, Jiang Q, Li C, Yang J, Su H et~al.
+  (2024{\natexlab{b}}) Grounding dino: Marrying dino with grounded pre-training
+  for open-set object detection.
+\newblock In: \emph{European conference on computer vision}. Springer, pp.
+  38--55.
+
+\bibitem[{Liu et~al.(2025{\natexlab{a}})Liu, Adeniji, Zhan, Haldar, Bhirangi,
+  Abbeel and Pinto}]{liu2025egozero}
+Liu V, Adeniji A, Zhan H, Haldar S, Bhirangi R, Abbeel P and Pinto L
+  (2025{\natexlab{a}}) Egozero: Robot learning from smart glasses.
+\newblock \emph{arXiv preprint arXiv:2505.20290} .
+
+\bibitem[{Liu et~al.(2022{\natexlab{a}})Liu, Gong and Liu}]{liu2022flow}
+Liu X, Gong C and Liu Q (2022{\natexlab{a}}) Flow straight and fast: Learning
+  to generate and transfer data with rectified flow.
+\newblock \emph{arXiv preprint arXiv:2209.03003} .
+
+\bibitem[{Liu et~al.(2018)Liu, Gupta, Abbeel and Levine}]{liu2018imitation}
+Liu Y, Gupta A, Abbeel P and Levine S (2018) Imitation from observation:
+  Learning to imitate behaviors from raw video via context translation.
+\newblock In: \emph{2018 IEEE international conference on robotics and
+  automation (ICRA)}. IEEE, pp. 1118--1125.
+
+\bibitem[{Liu et~al.(2022{\natexlab{b}})Liu, Liu, Jiang, Lyu, Wan, Shen, Liang,
+  Fu, Wang and Yi}]{liu2022hoi4d}
+Liu Y, Liu Y, Jiang C, Lyu K, Wan W, Shen H, Liang B, Fu Z, Wang H and Yi L
+  (2022{\natexlab{b}}) Hoi4d: A 4d egocentric dataset for category-level
+  human-object interaction.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 21013--21022.
+
+\bibitem[{Liu et~al.(2025{\natexlab{b}})Liu, Shin, Han, Chen, Ravichandar and
+  Xu}]{liu2025immimic}
+Liu Y, Shin WC, Han Y, Chen Z, Ravichandar H and Xu D (2025{\natexlab{b}})
+  Immimic: Cross-domain imitation from human videos via mapping and
+  interpolation.
+\newblock \emph{arXiv preprint arXiv:2509.10952} .
+
+\bibitem[{Liu et~al.(2024{\natexlab{c}})Liu, Yang, Si, Liu, Li, Zhang, Liu and
+  Yi}]{liu2024taco}
+Liu Y, Yang H, Si X, Liu L, Li Z, Zhang Y, Liu Y and Yi L (2024{\natexlab{c}})
+  Taco: Benchmarking generalizable bimanual tool-action-object understanding.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 21740--21751.
+
+\bibitem[{Liu et~al.(2025{\natexlab{c}})Liu, Zhu, Shi, Zhang, Lou, Yang, Xi,
+  Cao, Gu, Li et~al.}]{liu2025nvila}
+Liu Z, Zhu L, Shi B, Zhang Z, Lou Y, Yang S, Xi H, Cao S, Gu Y, Li D et~al.
+  (2025{\natexlab{c}}) Nvila: Efficient frontier visual language models.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 4122--4134.
+
+\bibitem[{Lu et~al.(2025)Lu, H{\"a}rdtlein and Schilp}]{lu2025visual}
+Lu S, H{\"a}rdtlein C and Schilp J (2025) Visual imitation learning from
+  one-shot demonstration for multi-step robot pick and place tasks.
+\newblock \emph{Scientific Reports} .
+
+\bibitem[{Lum et~al.(2025)Lum, Lee, Liu and Bohg}]{lum2025crossing}
+Lum TGW, Lee OY, Liu CK and Bohg J (2025) Crossing the human-robot embodiment
+  gap with sim-to-real rl using one human demonstration.
+\newblock \emph{arXiv preprint arXiv:2504.12609} .
+
+\bibitem[{Luo et~al.(2025)Luo, Feng, Zhang, Zheng, Wang, Yuan, Liu, Xu, Jin and
+  Lu}]{luo2025being}
+Luo H, Feng Y, Zhang W, Zheng S, Wang Y, Yuan H, Liu J, Xu C, Jin Q and Lu Z
+  (2025) Being-h0: vision-language-action pretraining from large-scale human
+  videos.
+\newblock \emph{arXiv preprint arXiv:2507.15597} .
+
+\bibitem[{Luo et~al.(2026{\natexlab{a}})Luo, Wang, Zhang, Yuan, Feng, Xu, Zheng
+  and Lu}]{luo2026joint}
+Luo H, Wang Y, Zhang W, Yuan H, Feng Y, Xu H, Zheng S and Lu Z
+  (2026{\natexlab{a}}) Joint-aligned latent action: Towards scalable vla
+  pretraining in the wild.
+\newblock \emph{arXiv preprint arXiv:2602.21736} .
+
+\bibitem[{Luo et~al.(2026{\natexlab{b}})Luo, Wang, Zhang, Zheng, Xi, Xu, Xu,
+  Yuan, Zhang, Wang et~al.}]{luo2026being}
+Luo H, Wang Y, Zhang W, Zheng S, Xi Z, Xu C, Xu H, Yuan H, Zhang C, Wang Y
+  et~al. (2026{\natexlab{b}}) Being-h0.5: Scaling human-centric robot learning
+  for cross-embodiment generalization.
+\newblock \emph{arXiv preprint arXiv:2601.12993} .
+
+\bibitem[{Luo et~al.(2022)Luo, Zhai, Zhang, Cao and Tao}]{luo2022grounded}
+Luo H, Zhai W, Zhang J, Cao Y and Tao D (2022) Grounded affordance from
+  exocentric view.
+\newblock \emph{arXiv preprint arXiv:2208.13196} .
+
+\bibitem[{Lyu et~al.(2026)Lyu, Liu, Zhang, Liao, Feng, Zhu, Shen, Chen, Zhang,
+  Dong et~al.}]{lyu2026lda}
+Lyu J, Liu K, Zhang X, Liao H, Feng Y, Zhu W, Shen T, Chen J, Zhang J, Dong Y
+  et~al. (2026) Lda-1b: Scaling latent dynamics action model via universal
+  embodied data ingestion.
+\newblock \emph{arXiv preprint arXiv:2602.12215} .
+
+\bibitem[{Ma et~al.(2025{\natexlab{a}})Ma, Bao, Xu, Sun, Chen and
+  Wang}]{ma2025novel}
+Ma J, Bao W, Xu J, Sun G, Chen X and Wang H (2025{\natexlab{a}}) Novel
+  diffusion models for multimodal 3d hand trajectory prediction.
+\newblock In: \emph{2025 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 2408--2415.
+
+\bibitem[{Ma et~al.(2025{\natexlab{b}})Ma, Bao, Xu, Sun, Zheng, Zhang, Chen and
+  Wang}]{ma2025uni}
+Ma J, Bao W, Xu J, Sun G, Zheng Y, Zhang E, Chen X and Wang H
+  (2025{\natexlab{b}}) Uni-hand: Universal hand motion forecasting in
+  egocentric views.
+\newblock \emph{arXiv preprint arXiv:2511.12878} .
+
+\bibitem[{Ma et~al.(2025{\natexlab{c}})Ma, Chen, Bao, Xu and
+  Wang}]{ma2025madiff}
+Ma J, Chen X, Bao W, Xu J and Wang H (2025{\natexlab{c}}) Madiff: Motion-aware
+  mamba diffusion models for hand trajectory prediction on egocentric videos.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+  .
+
+\bibitem[{Ma et~al.(2025{\natexlab{d}})Ma, Zhang, Zheng, Xie, Zhou and
+  Wang}]{ma2025egoloc}
+Ma J, Zhang E, Zheng YD, Xie Y, Zhou Y and Wang H (2025{\natexlab{d}}) Egoloc:
+  A generalizable solution for temporal interaction localization in egocentric
+  videos.
+\newblock \emph{arXiv preprint arXiv:2508.12349} .
+
+\bibitem[{Ma et~al.(2024)Ma, Ye, Hong, Guzov, Jiang, Postyeni, Pesqueira,
+  Gamino, Baiyya, Kim et~al.}]{ma2024nymeria}
+Ma L, Ye Y, Hong F, Guzov V, Jiang Y, Postyeni R, Pesqueira L, Gamino A, Baiyya
+  V, Kim HJ et~al. (2024) Nymeria: A massive collection of multimodal
+  egocentric daily motion in the wild.
+\newblock In: \emph{European Conference on Computer Vision}. Springer, pp.
+  445--465.
+
+\bibitem[{Ma et~al.(2023)Ma, Kumar, Zhang, Bastani and Jayaraman}]{ma2023liv}
+Ma YJ, Kumar V, Zhang A, Bastani O and Jayaraman D (2023) Liv: Language-image
+  representations and rewards for robotic control.
+\newblock In: \emph{International Conference on Machine Learning}. PMLR, pp.
+  23301--23320.
+
+\bibitem[{Ma et~al.(2022)Ma, Sodhani, Jayaraman, Bastani, Kumar and
+  Zhang}]{ma2022vip}
+Ma YJ, Sodhani S, Jayaraman D, Bastani O, Kumar V and Zhang A (2022) Vip:
+  Towards universal visual reward and representation via value-implicit
+  pre-training.
+\newblock \emph{arXiv preprint arXiv:2210.00030} .
+
+\bibitem[{Majumdar et~al.(2023)Majumdar, Yadav, Arnaud, Ma, Chen, Silwal, Jain,
+  Berges, Wu, Vakil et~al.}]{majumdar2023we}
+Majumdar A, Yadav K, Arnaud S, Ma J, Chen C, Silwal S, Jain A, Berges VP, Wu T,
+  Vakil J et~al. (2023) Where are we in the search for an artificial visual
+  cortex for embodied intelligence?
+\newblock \emph{Advances in Neural Information Processing Systems} 36:
+  655--677.
+
+\bibitem[{Mandikal and Grauman(2022)}]{mandikal2022dexvip}
+Mandikal P and Grauman K (2022) Dexvip: Learning dexterous grasping with human
+  hand pose priors from video.
+\newblock In: \emph{Conference on Robot Learning}. PMLR, pp. 651--661.
+
+\bibitem[{Mao et~al.(2025)Mao, He, Wu, You, Sun, Wang, Bao, Chen, Guibas,
+  Guizilini et~al.}]{mao2025robot}
+Mao J, He S, Wu HN, You Y, Sun S, Wang Z, Bao Y, Chen H, Guibas L, Guizilini V
+  et~al. (2025) Robot learning from a physical world model.
+\newblock \emph{arXiv preprint arXiv:2511.07416} .
+
+\bibitem[{Mao et~al.(2024)Mao, Zhao, Song, Shi, Ye, Zhang, Geng, Malik,
+  Guizilini and Wang}]{mao2024learning}
+Mao J, Zhao S, Song S, Shi T, Ye J, Zhang M, Geng H, Malik J, Guizilini V and
+  Wang Y (2024) Learning from massive human videos for universal humanoid pose
+  control.
+\newblock \emph{arXiv preprint arXiv:2412.14172} .
+
+\bibitem[{McCarthy et~al.(2025)McCarthy, Tan, Schmidt, Acero, Herr, Du,
+  Thuruthel and Li}]{mccarthy2025towards}
+McCarthy R, Tan DC, Schmidt D, Acero F, Herr N, Du Y, Thuruthel TG and Li Z
+  (2025) Towards generalist robot learning from internet video: A survey.
+\newblock \emph{Journal of Artificial Intelligence Research} 83.
+
+\bibitem[{Mees et~al.(2022)Mees, Hermann, Rosete-Beas and
+  Burgard}]{mees2022calvin}
+Mees O, Hermann L, Rosete-Beas E and Burgard W (2022) Calvin: A benchmark for
+  language-conditioned policy learning for long-horizon robot manipulation
+  tasks.
+\newblock \emph{IEEE Robotics and Automation Letters} 7(3): 7327--7334.
+
+\bibitem[{Mendonca et~al.(2023)Mendonca, Bahl and
+  Pathak}]{mendonca2023structured}
+Mendonca R, Bahl S and Pathak D (2023) Structured world models from human
+  videos.
+\newblock \emph{arXiv preprint arXiv:2308.10901} .
+
+\bibitem[{{Meshy AI}(2025)}]{meshyai}
+{Meshy AI} (2025) Meshy ai: The \#1 ai 3d model generator for creators.
+\newblock \urlprefix\url{https://www.meshy.ai/}.
+\newblock Accessed: 2025-04-17.
+
+\bibitem[{Miech et~al.(2019)Miech, Zhukov, Alayrac, Tapaswi, Laptev and
+  Sivic}]{miech2019howto100m}
+Miech A, Zhukov D, Alayrac JB, Tapaswi M, Laptev I and Sivic J (2019)
+  Howto100m: Learning a text-video embedding by watching hundred million
+  narrated video clips.
+\newblock In: \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}. pp. 2630--2640.
+
+\bibitem[{Mower et~al.(2026)Mower, Wan, Yu, Grosnit, Gonzalez-Billandon,
+  Zimmer, Liu, Palenicek, Tateo, Peters et~al.}]{mower2026robot}
+Mower CE, Wan Y, Yu H, Grosnit A, Gonzalez-Billandon J, Zimmer M, Liu P,
+  Palenicek D, Tateo D, Peters J et~al. (2026) A robot operating system
+  framework for using large language models in embodied ai.
+\newblock \emph{Nature Machine Intelligence} : 1--13.
+
+\bibitem[{Mu et~al.(2025)Mu, Chen, Chen, Peng, Lan, Gao, Liang, Yu, Zou, Xu
+  et~al.}]{mu2025robotwin}
+Mu Y, Chen T, Chen Z, Peng S, Lan Z, Gao Z, Liang Z, Yu Q, Zou Y, Xu M et~al.
+  (2025) Robotwin: Dual-arm robot benchmark with generative digital twins.
+\newblock In: \emph{Proceedings of the computer vision and pattern recognition
+  conference}. pp. 27649--27660.
+
+\bibitem[{Nair et~al.(2022)Nair, Rajeswaran, Kumar, Finn and
+  Gupta}]{nair2022r3m}
+Nair S, Rajeswaran A, Kumar V, Finn C and Gupta A (2022) R3m: A universal
+  visual representation for robot manipulation.
+\newblock \emph{arXiv preprint arXiv:2203.12601} .
+
+\bibitem[{Nguyen et~al.(2018)Nguyen, Kanoulas, Muratore, Caldwell and
+  Tsagarakis}]{nguyen2018translating}
+Nguyen A, Kanoulas D, Muratore L, Caldwell DG and Tsagarakis NG (2018)
+  Translating videos to commands for robotic manipulation with deep recurrent
+  neural networks.
+\newblock In: \emph{2018 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 3782--3788.
+
+\bibitem[{Nie et~al.(2026)Nie, Chen, Lv, Kuang, Li, Cao and Cai}]{nie2026lary}
+Nie D, Chen F, Lv Q, Kuang J, Li X, Cao X and Cai X (2026) Lary: A latent
+  action representation yielding benchmark for generalizable vision-to-action
+  alignment.
+\newblock \emph{arXiv preprint arXiv:2604.11689} .
+
+\bibitem[{Pai et~al.(2025)Pai, Achenbach, Montesinos, Forrai, Mees and
+  Nava}]{pai2025mimic}
+Pai J, Achenbach L, Montesinos V, Forrai B, Mees O and Nava E (2025)
+  mimic-video: Video-action models for generalizable robot control beyond vlas.
+\newblock \emph{arXiv preprint arXiv:2512.15692} .
+
+\bibitem[{Papagiannis et~al.(2025)Papagiannis, Di~Palo, Vitiello and
+  Johns}]{papagiannis2025r}
+Papagiannis G, Di~Palo N, Vitiello P and Johns E (2025) R + x: Retrieval and
+  execution from everyday human videos.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 8284--8290.
+
+\bibitem[{Park et~al.(2025)Park, Bharadhwaj and
+  Tulsiani}]{park2025demodiffusion}
+Park S, Bharadhwaj H and Tulsiani S (2025) Demodiffusion: One-shot human
+  imitation using pre-trained diffusion policy.
+\newblock \emph{arXiv preprint arXiv:2506.20668} .
+
+\bibitem[{Patel et~al.(2022)Patel, Wang, Radosavovic and
+  Malik}]{patel2022learning}
+Patel A, Wang A, Radosavovic I and Malik J (2022) Learning to imitate object
+  interactions from internet videos.
+\newblock \emph{arXiv preprint arXiv:2211.13225} .
+
+\bibitem[{Patel et~al.(2025)Patel, Mohan, Mai, Jain, Lazebnik and
+  Li}]{patel2025robotic}
+Patel S, Mohan S, Mai H, Jain U, Lazebnik S and Li Y (2025) Robotic
+  manipulation by imitating generated videos without physical demonstrations.
+\newblock \emph{arXiv preprint arXiv:2507.00990} .
+
+\bibitem[{Pavlakos et~al.(2024)Pavlakos, Shan, Radosavovic, Kanazawa, Fouhey
+  and Malik}]{pavlakos2024reconstructing}
+Pavlakos G, Shan D, Radosavovic I, Kanazawa A, Fouhey D and Malik J (2024)
+  Reconstructing hands in 3{D} with transformers.
+\newblock In: \emph{CVPR}.
+
+\bibitem[{Peddi et~al.(2023)Peddi, Arya, Challa, Pallapothula, Vyas,
+  Gouripeddi, Wang, Zhang, Komaragiri, Ragan et~al.}]{peddi2024captaincook4d}
+Peddi R, Arya S, Challa B, Pallapothula L, Vyas A, Gouripeddi B, Wang J, Zhang
+  Q, Komaragiri V, Ragan E et~al. (2023) Captaincook4d: A dataset for
+  understanding errors in procedural activities.
+\newblock \emph{arXiv e-prints} : arXiv--2312.
+
+\bibitem[{Perez et~al.(2018)Perez, Strub, De~Vries, Dumoulin and
+  Courville}]{perez2018film}
+Perez E, Strub F, De~Vries H, Dumoulin V and Courville A (2018) Film: Visual
+  reasoning with a general conditioning layer.
+\newblock In: \emph{Proceedings of the AAAI conference on artificial
+  intelligence}, volume~32.
+
+\bibitem[{Perrett et~al.(2025)Perrett, Darkhalil, Sinha, Emara, Pollard,
+  Parida, Liu, Gatti, Bansal, Flanagan et~al.}]{perrett2025hd}
+Perrett T, Darkhalil A, Sinha S, Emara O, Pollard S, Parida KK, Liu K, Gatti P,
+  Bansal S, Flanagan K et~al. (2025) Hd-epic: A highly-detailed egocentric
+  video dataset.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 23901--23913.
+
+\bibitem[{Pertsch et~al.(2022)Pertsch, Desai, Kumar, Meier, Lim, Batra and
+  Rai}]{pertsch2022cross}
+Pertsch K, Desai R, Kumar V, Meier F, Lim JJ, Batra D and Rai A (2022)
+  Cross-domain transfer via semantic skill imitation.
+\newblock \emph{arXiv preprint arXiv:2212.07407} .
+
+\bibitem[{Plizzari et~al.(2025)Plizzari, Tonioni, Xian, Kulshrestha and
+  Tombari}]{plizzari2025omnia}
+Plizzari C, Tonioni A, Xian Y, Kulshrestha A and Tombari F (2025) Omnia de
+  egotempo: Benchmarking temporal understanding of multi-modal llms in
+  egocentric videos.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 24129--24138.
+
+\bibitem[{Potamias et~al.(2025)Potamias, Zhang, Deng and
+  Zafeiriou}]{potamias2025wilor}
+Potamias RA, Zhang J, Deng J and Zafeiriou S (2025) Wilor: End-to-end 3d hand
+  localization and reconstruction in-the-wild.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 12242--12254.
+
+\bibitem[{Punamiya et~al.(2026)Punamiya, Kareer, Liu, Citron, Qiu, Cai,
+  Gavryushin, Chen, Liconti, Zhu, Aphiwetsa, Li, Cheluva, Kuppili, Liu, Patel,
+  Gao, Chung, Co, Zbizika, Liu, Xu, Xiong, Chen, Oliani, Yang, Wang, Fort,
+  Newcombe, Gao, Chong, Matsuda, Doriwala, Pollefeys, Katzschmann, Wang, Song,
+  Hoffman and Xu}]{punamiya2026egoverse}
+Punamiya R, Kareer S, Liu Z, Citron J, Qiu RZ, Cai X, Gavryushin A, Chen J,
+  Liconti D, Zhu LY, Aphiwetsa P, Li B, Cheluva A, Kuppili P, Liu Y, Patel D,
+  Gao A, Chung HY, Co R, Zbizika R, Liu J, Xu X, Xiong H, Chen G, Oliani S,
+  Yang C, Wang X, Fort J, Newcombe R, Gao J, Chong J, Matsuda G, Doriwala A,
+  Pollefeys M, Katzschmann R, Wang X, Song S, Hoffman J and Xu D (2026)
+  Egoverse: An egocentric human dataset for robot learning from around the
+  world.
+\newblock \urlprefix\url{https://arxiv.org/abs/2604.07607}.
+
+\bibitem[{Punamiya et~al.(2025)Punamiya, Patel, Aphiwetsa, Kuppili, Zhu,
+  Kareer, Hoffman and Xu}]{punamiya2025egobridge}
+Punamiya R, Patel D, Aphiwetsa P, Kuppili P, Zhu LY, Kareer S, Hoffman J and Xu
+  D (2025) Egobridge: Domain adaptation for generalizable imitation from
+  egocentric human data.
+\newblock In: \emph{Human to Robot: Workshop on Sensorizing, Modeling, and
+  Learning from Humans}.
+
+\bibitem[{Qian et~al.(2024)Qian, You, Zhou, Xu, Fu, Xue and
+  He}]{qian2024contrast}
+Qian Z, You M, Zhou H, Xu X, Fu H, Xue J and He B (2024) Contrast, imitate,
+  adapt: Learning robotic skills from raw human videos.
+\newblock \emph{IEEE Transactions on Automation Science and Engineering} 22:
+  3993--4005.
+
+\bibitem[{Qin et~al.(2022{\natexlab{a}})Qin, Su and Wang}]{qin2022one}
+Qin Y, Su H and Wang X (2022{\natexlab{a}}) From one hand to multiple hands:
+  Imitation learning for dexterous manipulation from single-camera
+  teleoperation.
+\newblock \emph{IEEE Robotics and Automation Letters} 7(4): 10873--10881.
+
+\bibitem[{Qin et~al.(2022{\natexlab{b}})Qin, Wu, Liu, Jiang, Yang, Fu and
+  Wang}]{qin2022dexmv}
+Qin Y, Wu YH, Liu S, Jiang H, Yang R, Fu Y and Wang X (2022{\natexlab{b}})
+  Dexmv: Imitation learning for dexterous manipulation from human videos.
+\newblock In: \emph{European Conference on Computer Vision}. Springer, pp.
+  570--587.
+
+\bibitem[{Qiu et~al.(2025)Qiu, Yang, Cheng, Chawla, Li, He, Yan, Yoon, Hoque,
+  Paulsen et~al.}]{qiu2025humanoid}
+Qiu RZ, Yang S, Cheng X, Chawla C, Li J, He T, Yan G, Yoon DJ, Hoque R, Paulsen
+  L et~al. (2025) Humanoid policy\~{} human policy.
+\newblock \emph{arXiv preprint arXiv:2503.13441} .
+
+\bibitem[{Radosavovic et~al.(2023)Radosavovic, Xiao, James, Abbeel, Malik and
+  Darrell}]{radosavovic2023real}
+Radosavovic I, Xiao T, James S, Abbeel P, Malik J and Darrell T (2023)
+  Real-world robot learning with masked visual pre-training.
+\newblock In: \emph{Conference on Robot Learning}. PMLR, pp. 416--426.
+
+\bibitem[{Ravi et~al.(2024)Ravi, Gabeur, Hu, Hu, Ryali, Ma, Khedr, R{\"a}dle,
+  Rolland, Gustafson et~al.}]{ravi2024sam}
+Ravi N, Gabeur V, Hu YT, Hu R, Ryali C, Ma T, Khedr H, R{\"a}dle R, Rolland C,
+  Gustafson L et~al. (2024) Sam 2: Segment anything in images and videos.
+\newblock \emph{arXiv preprint arXiv:2408.00714} .
+
+\bibitem[{Ren et~al.(2025)Ren, Sundaresan, Sadigh, Choudhury and
+  Bohg}]{ren2025motion}
+Ren J, Sundaresan P, Sadigh D, Choudhury S and Bohg J (2025) Motion tracks: A
+  unified representation for human-robot transfer in few-shot imitation
+  learning.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 8802--8810.
+
+\bibitem[{Ren et~al.(2024)Ren, Liu, Zeng, Lin, Li, Cao, Chen, Huang, Chen, Yan
+  et~al.}]{ren2024grounded}
+Ren T, Liu S, Zeng A, Lin J, Li K, Cao H, Chen J, Huang X, Chen Y, Yan F et~al.
+  (2024) Grounded sam: Assembling open-world models for diverse visual tasks.
+\newblock \emph{arXiv preprint arXiv:2401.14159} .
+
+\bibitem[{Rombach et~al.(2022)Rombach, Blattmann, Lorenz, Esser and
+  Ommer}]{rombach2022high}
+Rombach R, Blattmann A, Lorenz D, Esser P and Ommer B (2022) High-resolution
+  image synthesis with latent diffusion models.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 10684--10695.
+
+\bibitem[{Romero et~al.(2022)Romero, Tzionas and Black}]{romero2022embodied}
+Romero J, Tzionas D and Black MJ (2022) Embodied hands: Modeling and capturing
+  hands and bodies together.
+\newblock \emph{arXiv preprint arXiv:2201.02610} .
+
+\bibitem[{Rong et~al.(2020)Rong, Shiratori and Joo}]{rong2020frankmocap}
+Rong Y, Shiratori T and Joo H (2020) Frankmocap: Fast monocular 3d hand and
+  body motion capture by regression and integration.
+\newblock \emph{arXiv preprint arXiv:2008.08324} .
+
+\bibitem[{Rothfuss et~al.(2018)Rothfuss, Ferreira, Aksoy, Zhou and
+  Asfour}]{rothfuss2018deep}
+Rothfuss J, Ferreira F, Aksoy EE, Zhou Y and Asfour T (2018) Deep episodic
+  memory: Encoding, recalling, and predicting episodic experiences for robot
+  action execution.
+\newblock \emph{IEEE Robotics and Automation Letters} 3(4): 4007--4014.
+
+\bibitem[{Routray et~al.(2025)Routray, Pan, Jain, Bahl and
+  Pathak}]{routray2025vipra}
+Routray S, Pan H, Jain U, Bahl S and Pathak D (2025) Vipra: Video prediction
+  for robot actions.
+\newblock \emph{arXiv preprint arXiv:2511.07732} .
+
+\bibitem[{Sakoe and Chiba(1978)}]{sakoe1978dynamic}
+Sakoe H and Chiba S (1978) Dynamic programming algorithm optimization for
+  spoken word recognition.
+\newblock \emph{IEEE Transactions on Acoustics Speech and Signal Processing}
+  26(1): 43--49.
+
+\bibitem[{Schmeckpeper et~al.(2020)Schmeckpeper, Rybkin, Daniilidis, Levine and
+  Finn}]{schmeckpeper2020reinforcement}
+Schmeckpeper K, Rybkin O, Daniilidis K, Levine S and Finn C (2020)
+  Reinforcement learning with videos: Combining offline observations with
+  interaction.
+\newblock \emph{arXiv preprint arXiv:2011.06507} .
+
+\bibitem[{Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford and
+  Klimov}]{schulman2017proximal}
+Schulman J, Wolski F, Dhariwal P, Radford A and Klimov O (2017) Proximal policy
+  optimization algorithms.
+\newblock \emph{arXiv preprint arXiv:1707.06347} .
+
+\bibitem[{Sener et~al.(2022)Sener, Chatterjee, Shelepov, He, Singhania, Wang
+  and Yao}]{sener2022assembly101}
+Sener F, Chatterjee D, Shelepov D, He K, Singhania D, Wang R and Yao A (2022)
+  Assembly101: A large-scale multi-view video dataset for understanding
+  procedural activities.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 21096--21106.
+
+\bibitem[{Sermanet et~al.(2017)Sermanet, Lynch, Hsu and
+  Levine}]{sermanet2017time}
+Sermanet P, Lynch C, Hsu J and Levine S (2017) Time-contrastive networks:
+  Self-supervised learning from multi-view observation.
+\newblock In: \emph{2017 IEEE Conference on Computer Vision and Pattern
+  Recognition Workshops (CVPRW)}. IEEE Computer Society, pp. 486--487.
+
+\bibitem[{Sermanet et~al.(2016)Sermanet, Xu and
+  Levine}]{sermanet2016unsupervised}
+Sermanet P, Xu K and Levine S (2016) Unsupervised perceptual rewards for
+  imitation learning.
+\newblock \emph{arXiv preprint arXiv:1612.06699} .
+
+\bibitem[{Seth et~al.(2026)Seth, Mei, Zhao, Nagaraja, Chang, Meyer, Lan, Xiong,
+  Chandra, Shi et~al.}]{seth2026egoavu}
+Seth A, Mei X, Zhao C, Nagaraja V, Chang E, Meyer GP, Lan GL, Xiong Y, Chandra
+  V, Shi Y et~al. (2026) Egoavu: Egocentric audio-visual understanding.
+\newblock \emph{arXiv preprint arXiv:2602.06139} .
+
+\bibitem[{Shah et~al.(2025)Shah, Liu, Wang, Jiang, Kumar, Seo,
+  Mart{\'\i}n-Mart{\'\i}n and Zhu}]{shah2025mimicdroid}
+Shah R, Liu S, Wang Q, Jiang Z, Kumar S, Seo M, Mart{\'\i}n-Mart{\'\i}n R and
+  Zhu Y (2025) Mimicdroid: In-context learning for humanoid robot manipulation
+  from human play videos.
+\newblock \emph{arXiv preprint arXiv:2509.09769} .
+
+\bibitem[{Shan et~al.(2020)Shan, Geng, Shu and Fouhey}]{shan2020understanding}
+Shan D, Geng J, Shu M and Fouhey DF (2020) Understanding human hands in contact
+  at internet scale.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 9869--9878.
+
+\bibitem[{Shan et~al.(2025)Shan, Mo, Yang, Chao, Fouhey, Fox and
+  Mousavian}]{shan2025slot}
+Shan D, Mo K, Yang W, Chao YW, Fouhey D, Fox D and Mousavian A (2025)
+  Slot-level robotic placement via visual imitation from single human video.
+\newblock \emph{arXiv preprint arXiv:2504.01959} .
+
+\bibitem[{Sharma et~al.(2019)Sharma, Pathak and Gupta}]{sharma2019third}
+Sharma P, Pathak D and Gupta A (2019) Third-person visual imitation learning
+  via decoupled hierarchical controller.
+\newblock \emph{Advances in Neural Information Processing Systems} 32.
+
+\bibitem[{Shaw et~al.(2023)Shaw, Bahl and Pathak}]{shaw2023videodex}
+Shaw K, Bahl S and Pathak D (2023) Videodex: Learning dexterity from internet
+  videos.
+\newblock In: \emph{Conference on Robot Learning}. PMLR, pp. 654--665.
+
+\bibitem[{Shi et~al.(2026)Shi, Zhang, Qu and Wang}]{shi2026care}
+Shi J, Zhang X, Qu X and Wang J (2026) Care: Multi-task pretraining for latent
+  continuous action representation in robot control.
+\newblock \emph{arXiv preprint arXiv:2601.22467} .
+
+\bibitem[{Shi et~al.(2025)Shi, Zhao, Wang, Pedroza, Luo, Wang, Ma and
+  Jayaraman}]{shi2025zeromimic}
+Shi J, Zhao Z, Wang T, Pedroza I, Luo A, Wang J, Ma J and Jayaraman D (2025)
+  Zeromimic: Distilling robotic manipulation skills from web videos.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 16939--16947.
+
+\bibitem[{Shridhar et~al.(2023)Shridhar, Manuelli and
+  Fox}]{shridhar2023perceiver}
+Shridhar M, Manuelli L and Fox D (2023) Perceiver-actor: A multi-task
+  transformer for robotic manipulation.
+\newblock In: \emph{Conference on Robot Learning}. PMLR, pp. 785--799.
+
+\bibitem[{Sieb et~al.(2020)Sieb, Xian, Huang, Kroemer and
+  Fragkiadaki}]{sieb2020graph}
+Sieb M, Xian Z, Huang A, Kroemer O and Fragkiadaki K (2020) Graph-structured
+  visual imitation.
+\newblock In: \emph{Conference on Robot learning}. PMLR, pp. 979--989.
+
+\bibitem[{Sigurdsson et~al.(2016)Sigurdsson, Varol, Wang, Farhadi, Laptev and
+  Gupta}]{sigurdsson2016hollywood}
+Sigurdsson GA, Varol G, Wang X, Farhadi A, Laptev I and Gupta A (2016)
+  Hollywood in homes: Crowdsourcing data collection for activity understanding.
+\newblock In: \emph{European conference on computer vision}. Springer, pp.
+  510--526.
+
+\bibitem[{Singh et~al.(2025{\natexlab{a}})Singh, Abbeel, Malik and
+  Loquercio}]{singh2025deep}
+Singh HG, Abbeel P, Malik J and Loquercio A (2025{\natexlab{a}}) Deep
+  sensorimotor control by imitating predictive models of human motion.
+\newblock \emph{arXiv preprint arXiv:2508.18691} .
+
+\bibitem[{Singh et~al.(2025{\natexlab{b}})Singh, Loquercio, Sferrazza, Wu, Qi,
+  Abbeel and Malik}]{singh2025hand}
+Singh HG, Loquercio A, Sferrazza C, Wu J, Qi H, Abbeel P and Malik J
+  (2025{\natexlab{b}}) Hand-object interaction pretraining from videos.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 3352--3360.
+
+\bibitem[{Sivakumar et~al.(2022)Sivakumar, Shaw and
+  Pathak}]{sivakumar2022robotic}
+Sivakumar A, Shaw K and Pathak D (2022) Robotic telekinesis: Learning a robotic
+  hand imitator by watching humans on youtube.
+\newblock \emph{arXiv preprint arXiv:2202.10448} .
+
+\bibitem[{Smaira et~al.(2020)Smaira, Carreira, Noland, Clancy, Wu and
+  Zisserman}]{smaira2020short}
+Smaira L, Carreira J, Noland E, Clancy E, Wu A and Zisserman A (2020) A short
+  note on the kinetics-700-2020 human action dataset.
+\newblock \emph{arXiv preprint arXiv:2010.10864} .
+
+\bibitem[{Smith et~al.(2020)Smith, Dhawan, Zhang, Abbeel and
+  Levine}]{smith2020avid}
+Smith L, Dhawan N, Zhang M, Abbeel P and Levine S (2020) Avid: Learning
+  multi-stage tasks via pixel-level translation of human videos.
+\newblock \emph{Robotics: Science and Systems} .
+
+\bibitem[{Sohan et~al.(2024)Sohan, Sai~Ram and Rami~Reddy}]{sohan2024review}
+Sohan M, Sai~Ram T and Rami~Reddy CV (2024) A review on yolov8 and its
+  advancements.
+\newblock In: \emph{International conference on data intelligence and cognitive
+  informatics}. Springer, pp. 529--545.
+
+\bibitem[{Song et~al.(2025)Song, Liu, Mao and Shou}]{song2025mitty}
+Song Y, Liu C, Mao W and Shou MZ (2025) Mitty: Diffusion-based human-to-robot
+  video generation.
+\newblock \emph{arXiv preprint arXiv:2512.17253} .
+
+\bibitem[{Soraki et~al.(2026)Soraki, Bharadhwaj, Farhadi and
+  Mottaghi}]{soraki2026objectforesight}
+Soraki R, Bharadhwaj H, Farhadi A and Mottaghi R (2026) Objectforesight:
+  Predicting future 3d object trajectories from human videos.
+\newblock \emph{arXiv preprint arXiv:2601.05237} .
+
+\bibitem[{Spiridonov et~al.(2025)Spiridonov, Zaech, Nikolov, Van~Gool and
+  Paudel}]{spiridonov2025generalist}
+Spiridonov A, Zaech JN, Nikolov N, Van~Gool L and Paudel DP (2025) Generalist
+  robot manipulation beyond action labeled data.
+\newblock \emph{arXiv preprint arXiv:2509.19958} .
+
+\bibitem[{Srirama et~al.(2024)Srirama, Dasari, Bahl and Gupta}]{srirama2024hrp}
+Srirama MK, Dasari S, Bahl S and Gupta A (2024) Hrp: Human affordances for
+  robotic pre-training.
+\newblock \emph{arXiv preprint arXiv:2407.18911} .
+
+\bibitem[{Su et~al.(2025)Su, Wang, Hu, Yang and Chau}]{su2025annexe}
+Su Y, Wang Y, Hu Q, Yang C and Chau LP (2025) Annexe: Unified analyzing,
+  answering, and pixel grounding for egocentric interaction.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 9027--9038.
+
+\bibitem[{Sun et~al.(2026)Sun, Zhang, Qi, Ren, Liu, Zhu, Sun, Jin and
+  Chen}]{sun2026vla}
+Sun J, Zhang W, Qi Z, Ren S, Liu Z, Zhu H, Sun G, Jin X and Chen Z (2026)
+  Vla-jepa: Enhancing vision-language-action model with latent world model.
+\newblock \emph{arXiv preprint arXiv:2602.10098} .
+
+\bibitem[{Sun et~al.(2022)Sun, Lin, Wu and Huang}]{sun2022learning}
+Sun YTA, Lin HC, Wu PY and Huang JT (2022) Learning by watching via keypoint
+  extraction and imitation learning.
+\newblock \emph{Machines} 10(11): 1049.
+
+\bibitem[{Sun et~al.(2025)Sun, Shi, Chen, Liu, Cui, Chen and Ye}]{sun2025vtao}
+Sun Z, Shi Z, Chen J, Liu Q, Cui Y, Chen J and Ye Q (2025) Vtao-bimanip: Masked
+  visual-tactile-action pre-training with object understanding for bimanual
+  dexterous manipulation.
+\newblock In: \emph{2025 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 3201--3208.
+
+\bibitem[{Tang et~al.(2025{\natexlab{a}})Tang, Xiao, Deng, Hu, Dong, Zhang, Hsu
+  and Zhang}]{tang2025functo}
+Tang C, Xiao A, Deng Y, Hu T, Dong W, Zhang H, Hsu D and Zhang H
+  (2025{\natexlab{a}}) Functo: Function-centric one-shot imitation learning for
+  tool manipulation.
+\newblock \emph{arXiv preprint arXiv:2502.11744} .
+
+\bibitem[{Tang et~al.(2025{\natexlab{b}})Tang, Xiao, Deng, Hu, Dong, Zhang, Hsu
+  and Zhang}]{tang2025mimicfunc}
+Tang C, Xiao A, Deng Y, Hu T, Dong W, Zhang H, Hsu D and Zhang H
+  (2025{\natexlab{b}}) Mimicfunc: Imitating tool manipulation from a single
+  human video via functional correspondence.
+\newblock \emph{arXiv preprint arXiv:2508.13534} .
+
+\bibitem[{Tang et~al.(2025{\natexlab{c}})Tang, Lou, Han, Song, Ye, Wang and
+  Zhao}]{tang2025trajectory}
+Tang Y, Lou Y, Han P, Song H, Ye X, Wang D and Zhao B (2025{\natexlab{c}})
+  Trajectory conditioned cross-embodiment skill transfer.
+\newblock \emph{arXiv preprint arXiv:2510.07773} .
+
+\bibitem[{Ultralytics(2024)}]{Ultralytics2023}
+Ultralytics (2024) Yolo.
+\newblock \url{https://www.ultralytics.com/yolo}.
+\newblock Accessed: 2024-08-17.
+
+\bibitem[{Van~Hoorick et~al.(2024)Van~Hoorick, Wu, Ozguroglu, Sargent, Liu,
+  Tokmakov, Dave, Zheng and Vondrick}]{van2024generative}
+Van~Hoorick B, Wu R, Ozguroglu E, Sargent K, Liu R, Tokmakov P, Dave A, Zheng C
+  and Vondrick C (2024) Generative camera dolly: Extreme monocular dynamic
+  novel view synthesis.
+\newblock In: \emph{European Conference on Computer Vision}. Springer, pp.
+  313--331.
+
+\bibitem[{Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones,
+  Gomez, Kaiser and Polosukhin}]{vaswani2017attention}
+Vaswani A, Shazeer N, Parmar N, Uszkoreit J, Jones L, Gomez AN, Kaiser {\L} and
+  Polosukhin I (2017) Attention is all you need.
+\newblock \emph{Advances in neural information processing systems} 30.
+
+\bibitem[{Vinod et~al.(2025)Vinod, Pandit, Vavre and Liu}]{vinod2025egovlm}
+Vinod A, Pandit S, Vavre A and Liu L (2025) Egovlm: Policy optimization for
+  egocentric video understanding.
+\newblock \emph{arXiv preprint arXiv:2506.03097} .
+
+\bibitem[{Wake et~al.(2024)Wake, Kanehira, Sasabuchi, Takamatsu and
+  Ikeuchi}]{wake2024gpt}
+Wake N, Kanehira A, Sasabuchi K, Takamatsu J and Ikeuchi K (2024) Gpt-4v
+  (ision) for robotics: Multimodal task planning from human demonstration.
+\newblock \emph{IEEE Robotics and Automation Letters} 9(11): 10567--10574.
+
+\bibitem[{Wan et~al.(2025)Wan, Wang, Ai, Wen, Mao, Xie, Chen, Yu, Zhao, Yang
+  et~al.}]{wan2025wan}
+Wan T, Wang A, Ai B, Wen B, Mao C, Xie CW, Chen D, Yu F, Zhao H, Yang J et~al.
+  (2025) Wan: Open and advanced large-scale video generative models.
+\newblock \emph{arXiv preprint arXiv:2503.20314} .
+
+\bibitem[{Wang et~al.(2024{\natexlab{a}})Wang, Zhang, Dong, Fang and
+  Feng}]{wang2024vlm}
+Wang B, Zhang J, Dong S, Fang I and Feng C (2024{\natexlab{a}}) Vlm see, robot
+  do: Human demo video to robot action plan via vision language model.
+\newblock \emph{arXiv preprint arXiv:2410.08792} .
+
+\bibitem[{Wang et~al.(2023{\natexlab{a}})Wang, Fan, Sun, Zhang, Fei-Fei, Xu,
+  Zhu and Anandkumar}]{wang2023mimicplay}
+Wang C, Fan L, Sun J, Zhang R, Fei-Fei L, Xu D, Zhu Y and Anandkumar A
+  (2023{\natexlab{a}}) Mimicplay: Long-horizon imitation learning by watching
+  human play.
+\newblock \emph{arXiv preprint arXiv:2302.12422} .
+
+\bibitem[{Wang et~al.(2025{\natexlab{a}})Wang, Xia, Yu, Zhang, Zhang, Liu,
+  Fei-Fei, Tan and Liang}]{wang2025chain}
+Wang C, Xia F, Yu W, Zhang T, Zhang R, Liu CK, Fei-Fei L, Tan J and Liang J
+  (2025{\natexlab{a}}) Chain-of-modality: Learning manipulation programs from
+  multimodal human videos with vision-language-models.
+\newblock In: \emph{2025 IEEE International Conference on Robotics and
+  Automation (ICRA)}. IEEE, pp. 6527--6535.
+
+\bibitem[{Wang et~al.(2024{\natexlab{b}})Wang, Zhang, Chao, Wen, Guo and
+  Xiang}]{wang2024ho}
+Wang J, Zhang Q, Chao YW, Wen B, Guo X and Xiang Y (2024{\natexlab{b}}) Ho-cap:
+  A capture system and dataset for 3d reconstruction and pose tracking of
+  hand-object interaction.
+\newblock \emph{arXiv preprint arXiv:2406.06843} .
+
+\bibitem[{Wang et~al.(2023{\natexlab{b}})Wang, Fan and Sakuma}]{wang2023robot}
+Wang K, Fan Y and Sakuma I (2023{\natexlab{b}}) Robot programming from a single
+  demonstration for high precision industrial insertion.
+\newblock \emph{Sensors} 23(5): 2514.
+
+\bibitem[{Wang et~al.(2025{\natexlab{b}})Wang, Zhou, Yao, Liu and
+  Jia}]{wang2025gat}
+Wang R, Zhou H, Yao X, Liu G and Jia K (2025{\natexlab{b}}) Gat-grasp:
+  Gesture-driven affordance transfer for task-aware robotic grasping.
+\newblock In: \emph{2025 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 1076--1083.
+
+\bibitem[{Wang et~al.(2023{\natexlab{c}})Wang, Kwon, Rad, Pan, Chakraborty,
+  Andrist, Bohus, Feniello, Tekin, Frujeri et~al.}]{wang2023holoassist}
+Wang X, Kwon T, Rad M, Pan B, Chakraborty I, Andrist S, Bohus D, Feniello A,
+  Tekin B, Frujeri FV et~al. (2023{\natexlab{c}}) Holoassist: an egocentric
+  human interaction dataset for interactive ai assistants in the real world.
+\newblock In: \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}. pp. 20270--20281.
+
+\bibitem[{Wang et~al.(2024{\natexlab{c}})Wang, Zhao, Liu, Wang, Zhao, Bao, Zhu,
+  Zhang and Wang}]{wang2024egovid}
+Wang X, Zhao K, Liu F, Wang J, Zhao G, Bao X, Zhu Z, Zhang Y and Wang X
+  (2024{\natexlab{c}}) Egovid-5m: A large-scale video-action dataset for
+  egocentric video generation.
+\newblock \emph{arXiv preprint arXiv:2411.08380} .
+
+\bibitem[{Wang et~al.(2026)Wang, Miao, Zhao, Yang, Wang, Pajarinen, Van~Gool,
+  Paudel, Kannala, Wang et~al.}]{wang2026paws}
+Wang Y, Miao Y, Zhao W, Yang W, Wang Z, Pajarinen J, Van~Gool L, Paudel DP,
+  Kannala J, Wang X et~al. (2026) Paws: Perception of articulation in the wild
+  at scale from egocentric videos.
+\newblock \emph{arXiv preprint arXiv:2603.25539} .
+
+\bibitem[{Wei et~al.(2025)Wei, Agarwal, Chen, Bosworth, Pfaff and
+  Tedrake}]{wei2025empirical}
+Wei A, Agarwal A, Chen B, Bosworth R, Pfaff N and Tedrake R (2025) Empirical
+  analysis of sim-and-real cotraining of diffusion policies for planar pushing
+  from pixels.
+\newblock In: \emph{2025 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 5625--5632.
+
+\bibitem[{Wen et~al.(2022)Wen, Lian, Bekris and Schaal}]{wen2022you}
+Wen B, Lian W, Bekris K and Schaal S (2022) You only demonstrate once:
+  Category-level manipulation from single visual demonstration.
+\newblock \emph{arXiv preprint arXiv:2201.12716} .
+
+\bibitem[{Wen et~al.(2023{\natexlab{a}})Wen, Tremblay, Blukis, Tyree,
+  M{\"u}ller, Evans, Fox, Kautz and Birchfield}]{wen2023bundlesdf}
+Wen B, Tremblay J, Blukis V, Tyree S, M{\"u}ller T, Evans A, Fox D, Kautz J and
+  Birchfield S (2023{\natexlab{a}}) Bundlesdf: Neural 6-dof tracking and 3d
+  reconstruction of unknown objects.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 606--617.
+
+\bibitem[{Wen et~al.(2024)Wen, Yang, Kautz and
+  Birchfield}]{wen2024foundationpose}
+Wen B, Yang W, Kautz J and Birchfield S (2024) Foundationpose: Unified 6d pose
+  estimation and tracking of novel objects.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 17868--17879.
+
+\bibitem[{Wen et~al.(2023{\natexlab{b}})Wen, Lin, So, Chen, Dou, Gao and
+  Abbeel}]{wen2023any}
+Wen C, Lin X, So J, Chen K, Dou Q, Gao Y and Abbeel P (2023{\natexlab{b}})
+  Any-point trajectory modeling for policy learning.
+\newblock \emph{arXiv preprint arXiv:2401.00025} .
+
+\bibitem[{Wen et~al.(2025)Wen, Chen, Cui, Du, Gou, Han, Huang, Lei, Li, Li
+  et~al.}]{wen2025gr}
+Wen R, Chen G, Cui Z, Du M, Gou Y, Han Z, Huang L, Lei M, Li Y, Li Z et~al.
+  (2025) Gr-dexter technical report.
+\newblock \emph{arXiv preprint arXiv:2512.24210} .
+
+\bibitem[{Werby et~al.(2025)Werby, B{\"u}chner, R{\"o}fer, Huang, Burgard and
+  Valada}]{werby2025articulated}
+Werby A, B{\"u}chner M, R{\"o}fer A, Huang C, Burgard W and Valada A (2025)
+  Articulated object estimation in the wild.
+\newblock In: \emph{Conference on Robot Learning (CoRL)}.
+
+\bibitem[{Wiedemer et~al.(2025)Wiedemer, Li, Vicol, Gu, Matarese, Swersky, Kim,
+  Jaini and Geirhos}]{wiedemer2025video}
+Wiedemer T, Li Y, Vicol P, Gu SS, Matarese N, Swersky K, Kim B, Jaini P and
+  Geirhos R (2025) Video models are zero-shot learners and reasoners.
+\newblock \emph{arXiv preprint arXiv:2509.20328} .
+
+\bibitem[{Wu et~al.(2023)Wu, Jing, Cheang, Chen, Xu, Li, Liu, Li and
+  Kong}]{wu2023unleashing}
+Wu H, Jing Y, Cheang C, Chen G, Xu J, Li X, Liu M, Li H and Kong T (2023)
+  Unleashing large-scale video generative pre-training for visual robot
+  manipulation.
+\newblock \emph{arXiv preprint arXiv:2312.13139} .
+
+\bibitem[{Xiang et~al.(2025)Xiang, Lv, Xu, Deng, Wang, Zhang, Chen, Tong and
+  Yang}]{xiang2025structured}
+Xiang J, Lv Z, Xu S, Deng Y, Wang R, Zhang B, Chen D, Tong X and Yang J (2025)
+  Structured 3d latents for scalable and versatile 3d generation.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 21469--21480.
+
+\bibitem[{Xiao et~al.(2022)Xiao, Radosavovic, Darrell and
+  Malik}]{xiao2022masked}
+Xiao T, Radosavovic I, Darrell T and Malik J (2022) Masked visual pre-training
+  for motor control.
+\newblock \emph{arXiv preprint arXiv:2203.06173} .
+
+\bibitem[{Xiao et~al.(2025)Xiao, Wang, Xue, Karaev, Makarov, Kang, Zhu, Bao,
+  Shen and Zhou}]{xiao2025spatialtrackerv2}
+Xiao Y, Wang J, Xue N, Karaev N, Makarov Y, Kang B, Zhu X, Bao H, Shen Y and
+  Zhou X (2025) Spatialtrackerv2: Advancing 3d point tracking with explicit
+  camera motion.
+\newblock In: \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}. pp. 6726--6737.
+
+\bibitem[{Xiao et~al.(2024)Xiao, Wang, Zhang, Xue, Peng, Shen and
+  Zhou}]{xiao2024spatialtracker}
+Xiao Y, Wang Q, Zhang S, Xue N, Peng S, Shen Y and Zhou X (2024)
+  Spatialtracker: Tracking any 2d pixels in 3d space.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 20406--20417.
+
+\bibitem[{Xie et~al.(2026)Xie, Qiu, Zhang, Wang, Xu, Naseer, Fu and
+  Heng}]{xie2026egohandicl}
+Xie B, Qiu S, Zhang S, Wang Y, Xu H, Naseer M, Fu CW and Heng PA (2026)
+  Egohandicl: Egocentric 3d hand reconstruction with in-context learning.
+\newblock \emph{arXiv preprint arXiv:2601.19850} .
+
+\bibitem[{Xiong et~al.(2022)Xiong, Fu, Zhang, Bao, Zhang, Huang, Xu, Garg and
+  Lu}]{xiong2022robotube}
+Xiong H, Fu H, Zhang J, Bao C, Zhang Q, Huang Y, Xu W, Garg A and Lu C (2022)
+  Robotube: Learning household manipulation from human videos with simulated
+  twin environments.
+\newblock In: \emph{6th Annual Conference on Robot Learning}.
+
+\bibitem[{Xiong et~al.(2021)Xiong, Li, Chen, Bharadhwaj, Sinha and
+  Garg}]{xiong2021learning}
+Xiong H, Li Q, Chen YC, Bharadhwaj H, Sinha S and Garg A (2021) Learning by
+  watching: Physical imitation of manipulation skills from human videos.
+\newblock In: \emph{2021 IEEE/RSJ international conference on intelligent
+  robots and systems (iros)}. IEEE, pp. 7827--7834.
+
+\bibitem[{Xiong et~al.(2025)Xiong, Chen, Li, Zhu, Liu and
+  Huang}]{xiong2025ag2x2}
+Xiong Z, Chen Y, Li P, Zhu Y, Liu T and Huang S (2025) Ag2x2: Robust
+  agent-agnostic visual representations for zero-shot bimanual manipulation.
+\newblock In: \emph{2025 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 12224--12231.
+
+\bibitem[{Xu et~al.(2024{\natexlab{a}})Xu, Cheng, Gao, Wang, Gao and
+  Shan}]{xu2024instantmesh}
+Xu J, Cheng W, Gao Y, Wang X, Gao S and Shan Y (2024{\natexlab{a}})
+  Instantmesh: Efficient 3d mesh generation from a single image with
+  sparse-view large reconstruction models.
+\newblock \emph{arXiv preprint arXiv:2404.07191} .
+
+\bibitem[{Xu et~al.(2023)Xu, Xu, Chi, Veloso and Song}]{xu2023xskill}
+Xu M, Xu Z, Chi C, Veloso M and Song S (2023) Xskill: Cross embodiment skill
+  discovery.
+\newblock In: \emph{Conference on robot learning}. PMLR, pp. 3536--3555.
+
+\bibitem[{Xu et~al.(2024{\natexlab{b}})Xu, Xu, Xu, Chi, Wetzstein, Veloso and
+  Song}]{xu2024flow}
+Xu M, Xu Z, Xu Y, Chi C, Wetzstein G, Veloso M and Song S (2024{\natexlab{b}})
+  Flow as the cross-domain manipulation interface.
+\newblock \emph{arXiv preprint arXiv:2407.15208} .
+
+\bibitem[{Xue et~al.(2025)Xue, Deng, Chen, Wang, Yuan and Xu}]{xue2025demogen}
+Xue Z, Deng S, Chen Z, Wang Y, Yuan Z and Xu H (2025) Demogen: Synthetic
+  demonstration generation for data-efficient visuomotor policy learning.
+\newblock \emph{arXiv preprint arXiv:2502.16932} .
+
+\bibitem[{Yang et~al.(2025{\natexlab{a}})Yang, Li, Yang, Zhang, Hui, Zheng, Yu,
+  Gao, Huang, Lv et~al.}]{yang2025qwen3}
+Yang A, Li A, Yang B, Zhang B, Hui B, Zheng B, Yu B, Gao C, Huang C, Lv C
+  et~al. (2025{\natexlab{a}}) Qwen3 technical report.
+\newblock \emph{arXiv preprint arXiv:2505.09388} .
+
+\bibitem[{Yang et~al.(2026{\natexlab{a}})Yang, Li, Sun, Miao, Yang, Luo, Yan,
+  Jiang, Shi, Fu et~al.}]{yang2026aoe}
+Yang B, Li Z, Sun Y, Miao C, Yang Y, Luo M, Yan X, Jiang F, Shi J, Fu Y et~al.
+  (2026{\natexlab{a}}) Aoe: Always-on egocentric human video collection for
+  embodied ai.
+\newblock \emph{arXiv preprint arXiv:2602.23893} .
+
+\bibitem[{Yang et~al.(2025{\natexlab{b}})Yang, Zhao and Liu}]{yang2025ar}
+Yang D, Zhao Z and Liu Y (2025{\natexlab{b}}) Ar-vrm: Imitating human motions
+  for visual robot manipulation with analogical reasoning.
+\newblock In: \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}. pp. 6818--6827.
+
+\bibitem[{Yang et~al.(2026{\natexlab{b}})Yang, Bao, Xin, Song, Tian, Zhao, Wang
+  and Li}]{yang2026zerowbc}
+Yang H, Bao J, Xin Y, Song H, Tian Y, Zhao B, Wang D and Li X
+  (2026{\natexlab{b}}) Zerowbc: Learning natural visuomotor humanoid control
+  directly from human egocentric video.
+\newblock \emph{arXiv preprint arXiv:2603.09170} .
+
+\bibitem[{Yang et~al.(2022{\natexlab{a}})Yang, Zhang, Settle, Rai, Antonova and
+  Bohg}]{yang2022learning}
+Yang J, Zhang J, Settle C, Rai A, Antonova R and Bohg J (2022{\natexlab{a}})
+  Learning periodic tasks from human demonstrations.
+\newblock In: \emph{2022 International Conference on Robotics and Automation
+  (ICRA)}. IEEE, pp. 8658--8665.
+
+\bibitem[{Yang et~al.(2025{\natexlab{c}})Yang, Zhu, Wang, Wu, He and
+  Wang}]{yang2025tra}
+Yang J, Zhu H, Wang Y, Wu G, He T and Wang L (2025{\natexlab{c}}) Tra-moe:
+  Learning trajectory prediction model from multiple domains for adaptive
+  policy conditioning.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 6960--6970.
+
+\bibitem[{Yang et~al.(2022{\natexlab{b}})Yang, Li, Zhan, Wu, Xu, Liu and
+  Lu}]{yang2022oakink}
+Yang L, Li K, Zhan X, Wu F, Xu A, Liu L and Lu C (2022{\natexlab{b}}) Oakink: A
+  large-scale knowledge repository for understanding hand-object interaction.
+\newblock In: \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}. pp. 20953--20962.
+
+\bibitem[{Yang et~al.(2025{\natexlab{d}})Yang, Yu, Wu, Yan, Li, Cheng, Zou,
+  Fang, Cheng, Qiu et~al.}]{yang2025egovla}
+Yang R, Yu Q, Wu Y, Yan R, Li B, Cheng AC, Zou X, Fang Y, Cheng X, Qiu RZ
+  et~al. (2025{\natexlab{d}}) Egovla: Learning vision-language-action models
+  from egocentric human videos.
+\newblock \emph{arXiv preprint arXiv:2507.12440} .
+
+\bibitem[{Yang et~al.(2019)Yang, Zhang, Lu, Wang and Li}]{yang2019learning}
+Yang S, Zhang W, Lu W, Wang H and Li Y (2019) Learning actions from human
+  demonstration video for robotic manipulation.
+\newblock In: \emph{2019 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 1805--1811.
+
+\bibitem[{Yang et~al.(2023)Yang, Zhang, Song, Cheng, Wang and
+  Li}]{yang2023watch}
+Yang S, Zhang W, Song R, Cheng J, Wang H and Li Y (2023) Watch and act:
+  Learning robotic manipulation from visual demonstration.
+\newblock \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}
+  53(7): 4404--4416.
+
+\bibitem[{Yang et~al.(2022{\natexlab{c}})Yang, Zhang, Song, Lu, Wang and
+  Li}]{yang2022explicit}
+Yang S, Zhang W, Song R, Lu W, Wang H and Li Y (2022{\natexlab{c}})
+  Explicit-to-implicit robot imitation learning by exploring visual content
+  change.
+\newblock \emph{IEEE/ASME Transactions on Mechatronics} 27(6): 4920--4931.
+
+\bibitem[{Yang et~al.(2026{\natexlab{c}})Yang, Kukreja, Pinkus, Sagar, Fan,
+  Park, Shin, Cao, Liu, Ugrinovic et~al.}]{yang2026sam}
+Yang X, Kukreja D, Pinkus D, Sagar A, Fan T, Park J, Shin S, Cao J, Liu J,
+  Ugrinovic N et~al. (2026{\natexlab{c}}) Sam 3d body: Robust full-body human
+  mesh recovery.
+\newblock \emph{arXiv preprint arXiv:2602.15989} .
+
+\bibitem[{Yang et~al.(2015)Yang, Li, Fermuller and Aloimonos}]{yang2015robot}
+Yang Y, Li Y, Fermuller C and Aloimonos Y (2015) Robot learning manipulation
+  action plans by" watching" unconstrained videos from the world wide web.
+\newblock In: \emph{Proceedings of the AAAI conference on artificial
+  intelligence}, volume~29.
+
+\bibitem[{Ye et~al.(2023)Ye, Wang, Huang, Qin and Wang}]{ye2023learning}
+Ye J, Wang J, Huang B, Qin Y and Wang X (2023) Learning continuous grasping
+  function with a dexterous hand from human demonstrations.
+\newblock \emph{IEEE Robotics and Automation Letters} 8(5): 2882--2889.
+
+\bibitem[{Ye et~al.(2025{\natexlab{a}})Ye, Zhou, Qiu, Liu, Zhou, Lin and
+  Liang}]{ye2025watch}
+Ye K, Zhou J, Qiu Y, Liu J, Zhou S, Lin KY and Liang J (2025{\natexlab{a}})
+  From watch to imagine: Steering long-horizon manipulation via human
+  demonstration and future envisionment.
+\newblock \emph{arXiv preprint arXiv:2509.22205} .
+
+\bibitem[{Ye et~al.(2026{\natexlab{a}})Ye, Liu, Wang, Chen, Cui, Jin, Chen,
+  Cai, Li and Chen}]{ye2026visual}
+Ye Q, Liu Q, Wang S, Chen J, Cui Y, Jin K, Chen H, Cai X, Li G and Chen J
+  (2026{\natexlab{a}}) Visual-tactile pretraining and online multitask learning
+  for humanlike manipulation dexterity.
+\newblock \emph{Science Robotics} 11(110): eady2869.
+
+\bibitem[{Ye et~al.(2026{\natexlab{b}})Ye, Ge, Zheng, Gao, Yu, Kurian,
+  Indupuru, Tan, Zhu, Xiang et~al.}]{ye2026world}
+Ye S, Ge Y, Zheng K, Gao S, Yu S, Kurian G, Indupuru S, Tan YL, Zhu C, Xiang J
+  et~al. (2026{\natexlab{b}}) World action models are zero-shot policies.
+\newblock \emph{arXiv preprint arXiv:2602.15922} .
+
+\bibitem[{Ye et~al.(2024)Ye, Jang, Jeon, Joo, Yang, Peng, Mandlekar, Tan, Chao,
+  Lin et~al.}]{ye2024latent}
+Ye S, Jang J, Jeon B, Joo S, Yang J, Peng B, Mandlekar A, Tan R, Chao YW, Lin
+  BY et~al. (2024) Latent action pretraining from videos.
+\newblock \emph{arXiv preprint arXiv:2410.11758} .
+
+\bibitem[{Ye et~al.(2025{\natexlab{b}})Ye, Liu, Ding, Gao, Rybkin and
+  Abbeel}]{ye2025video2policy}
+Ye W, Liu F, Ding Z, Gao Y, Rybkin O and Abbeel P (2025{\natexlab{b}})
+  Video2policy: Scaling up manipulation tasks in simulation through internet
+  videos.
+\newblock \emph{arXiv preprint arXiv:2502.09886} .
+
+\bibitem[{Yin et~al.(2025)Yin, Yang and Abbeel}]{yin2025object}
+Yin ZH, Yang S and Abbeel P (2025) Object-centric 3d motion field for robot
+  learning from human videos.
+\newblock \emph{arXiv preprint arXiv:2506.04227} .
+
+\bibitem[{Yoshida et~al.(2025{\natexlab{a}})Yoshida, Kurita, Nishimura and
+  Mori}]{yoshida2025developing}
+Yoshida T, Kurita S, Nishimura T and Mori S (2025{\natexlab{a}}) Developing
+  vision-language-action model from egocentric videos.
+\newblock \emph{arXiv preprint arXiv:2509.21986} .
+
+\bibitem[{Yoshida et~al.(2025{\natexlab{b}})Yoshida, Kurita, Nishimura and
+  Mori}]{yoshida2025generating}
+Yoshida T, Kurita S, Nishimura T and Mori S (2025{\natexlab{b}}) Generating
+  6dof object manipulation trajectories from action description in egocentric
+  vision.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 17370--17382.
+
+\bibitem[{Yu et~al.(2018{\natexlab{a}})Yu, Abbeel, Levine and
+  Finn}]{yu2018one_hil}
+Yu T, Abbeel P, Levine S and Finn C (2018{\natexlab{a}}) One-shot hierarchical
+  imitation learning of compound visuomotor tasks.
+\newblock \emph{arXiv preprint arXiv:1810.11043} .
+
+\bibitem[{Yu et~al.(2018{\natexlab{b}})Yu, Finn, Xie, Dasari, Zhang, Abbeel and
+  Levine}]{yu2018one}
+Yu T, Finn C, Xie A, Dasari S, Zhang T, Abbeel P and Levine S
+  (2018{\natexlab{b}}) One-shot imitation from observing humans via
+  domain-adaptive meta-learning.
+\newblock \emph{arXiv preprint arXiv:1802.01557} .
+
+\bibitem[{Yuan et~al.(2024)Yuan, Wen, Zhang and Gao}]{yuan2024general}
+Yuan C, Wen C, Zhang T and Gao Y (2024) General flow as foundation affordance
+  for scalable robot learning.
+\newblock \emph{arXiv preprint arXiv:2401.11439} .
+
+\bibitem[{Yuan et~al.(2025{\natexlab{a}})Yuan, Zhou, Liu, Hu, Wang, Yi, Wen,
+  Zhang and Gao}]{yuan2025motiontrans}
+Yuan C, Zhou R, Liu M, Hu Y, Wang S, Yi L, Wen C, Zhang S and Gao Y
+  (2025{\natexlab{a}}) Motiontrans: Human vr data enable motion-level learning
+  for robotic manipulation policies.
+\newblock \emph{arXiv preprint arXiv:2509.17759} .
+
+\bibitem[{Yuan et~al.(2025{\natexlab{b}})Yuan, Wei, Gu, Hua, Liang, Chen and
+  Xu}]{yuan2025hermes}
+Yuan Z, Wei T, Gu L, Hua P, Liang T, Chen Y and Xu H (2025{\natexlab{b}})
+  Hermes: Human-to-robot embodied learning from multi-source motion data for
+  mobile dexterous manipulation.
+\newblock \emph{arXiv preprint arXiv:2508.20085} .
+
+\bibitem[{Zakka et~al.(2022)Zakka, Zeng, Florence, Tompson, Bohg and
+  Dwibedi}]{zakka2022xirl}
+Zakka K, Zeng A, Florence P, Tompson J, Bohg J and Dwibedi D (2022) Xirl:
+  Cross-embodiment inverse reinforcement learning.
+\newblock In: \emph{Conference on Robot Learning}. PMLR, pp. 537--546.
+
+\bibitem[{Ze et~al.(2024)Ze, Zhang, Zhang, Hu, Wang and Xu}]{ze20243d}
+Ze Y, Zhang G, Zhang K, Hu C, Wang M and Xu H (2024) 3d diffusion policy:
+  Generalizable visuomotor policy learning via simple 3d representations.
+\newblock \emph{arXiv preprint arXiv:2403.03954} .
+
+\bibitem[{Zeng et~al.(2024)Zeng, Bu, Wang, Xia, Chen, Dong, Song, Wang, Hu, Luo
+  et~al.}]{zeng2024learning}
+Zeng J, Bu Q, Wang B, Xia W, Chen L, Dong H, Song H, Wang D, Hu D, Luo P et~al.
+  (2024) Learning manipulation by predicting interaction.
+\newblock \emph{arXiv preprint arXiv:2406.00439} .
+
+\bibitem[{Zhan et~al.(2024)Zhan, Yang, Zhao, Mao, Xu, Lin, Li and
+  Lu}]{zhan2024oakink2}
+Zhan X, Yang L, Zhao Y, Mao K, Xu H, Lin Z, Li K and Lu C (2024) Oakink2: A
+  dataset of bimanual hands-object manipulation in complex task completion.
+\newblock In: \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}. pp. 445--456.
+
+\bibitem[{Zhang et~al.(2025{\natexlab{a}})Zhang, Chen, Burkhardt, Zhong, Betz,
+  Oleynikova and Leutenegger}]{zhang2025actron3d}
+Zhang A, Chen H, Burkhardt Y, Zhong Y, Betz J, Oleynikova H and Leutenegger S
+  (2025{\natexlab{a}}) Actron3d: Learning actionable neural functions from
+  videos for transferable robotic manipulation.
+\newblock \emph{arXiv preprint arXiv:2510.12971} .
+
+\bibitem[{Zhang et~al.(2023)Zhang, Han, Qiao, Kim, Bae, Lee and
+  Hong}]{zhang2023faster}
+Zhang C, Han D, Qiao Y, Kim JU, Bae SH, Lee S and Hong CS (2023) Faster segment
+  anything: Towards lightweight sam for mobile applications.
+\newblock \emph{arXiv preprint arXiv:2306.14289} .
+
+\bibitem[{Zhang et~al.(2026{\natexlab{a}})Zhang, Wang, Gao, Su, Dai, Zhou, Lu
+  and Tang}]{zhang2026clap}
+Zhang C, Wang J, Gao Z, Su Y, Dai T, Zhou C, Lu J and Tang Y
+  (2026{\natexlab{a}}) Clap: Contrastive latent action pretraining for learning
+  vision-language-action models from human videos.
+\newblock \emph{arXiv preprint arXiv:2601.04061} .
+
+\bibitem[{Zhang et~al.(2025{\natexlab{b}})Zhang, Zhang, Pan, Zheng and
+  Zhang}]{zhang2025generative}
+Zhang C, Zhang X, Pan W, Zheng L and Zhang W (2025{\natexlab{b}}) Generative
+  visual foresight meets task-agnostic pose estimation in robotic table-top
+  manipulation.
+\newblock \emph{arXiv preprint arXiv:2509.00361} .
+
+\bibitem[{Zhang et~al.(2025{\natexlab{c}})Zhang, Ma, Zheng, Zhou and
+  Xu}]{zhang2025zero}
+Zhang E, Ma J, Zheng YD, Zhou Y and Xu F (2025{\natexlab{c}}) Zero-shot
+  temporal interaction localization for egocentric videos.
+\newblock In: \emph{2025 IEEE/RSJ International Conference on Intelligent
+  Robots and Systems (IROS)}. IEEE, pp. 19554--19561.
+
+\bibitem[{Zhang et~al.(2020)Zhang, Bazarevsky, Vakunov, Tkachenka, Sung, Chang
+  and Grundmann}]{zhang2020mediapipe}
+Zhang F, Bazarevsky V, Vakunov A, Tkachenka A, Sung G, Chang CL and Grundmann M
+  (2020) Mediapipe hands: On-device real-time hand tracking.
+\newblock \emph{arXiv preprint arXiv:2006.10214} .
+
+\bibitem[{Zhang et~al.(2026{\natexlab{b}})Zhang, Xu, Zhang, Ma, He, Bao, Ping,
+  Yuan, Lu, Yuan et~al.}]{zhang2026unidex}
+Zhang G, Xu Q, Zhang H, Ma J, He L, Bao Y, Ping Z, Yuan Z, Lu C, Yuan C et~al.
+  (2026{\natexlab{b}}) Unidex: A robot foundation suite for universal dexterous
+  hand control from egocentric human videos.
+\newblock \emph{arXiv preprint arXiv:2603.22264} .
+
+\bibitem[{Zhang et~al.(2017)Zhang, Cisse, Dauphin and
+  Lopez-Paz}]{zhang2017mixup}
+Zhang H, Cisse M, Dauphin YN and Lopez-Paz D (2017) mixup: Beyond empirical
+  risk minimization.
+\newblock \emph{arXiv preprint arXiv:1710.09412} .
+
+\bibitem[{Zhang et~al.(2025{\natexlab{d}})Zhang, Deng, Ma and
+  Potamias}]{zhang2025hawor}
+Zhang J, Deng J, Ma C and Potamias RA (2025{\natexlab{d}}) Hawor: World-space
+  hand motion reconstruction from egocentric videos.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 1805--1815.
+
+\bibitem[{Zhang et~al.(2022)Zhang, Zhou, Stent and Shi}]{zhang2022fine}
+Zhang L, Zhou S, Stent S and Shi J (2022) Fine-grained egocentric hand-object
+  segmentation: Dataset, model, and applications.
+\newblock In: \emph{European Conference on Computer Vision}. Springer, pp.
+  127--145.
+
+\bibitem[{Zhang et~al.(2026{\natexlab{c}})Zhang, Yuan, Chi, Liu, Li, Hu, Zhang,
+  Nie, Wei, Chen et~al.}]{zhang2026joyai}
+Zhang T, Yuan Z, Chi D, Liu P, Li D, Hu K, Zhang L, Nie J, Wei Z, Chen Z et~al.
+  (2026{\natexlab{c}}) Joyai-ra 0.1: A foundation model for robotic autonomy.
+\newblock \emph{arXiv preprint arXiv:2604.20100} .
+
+\bibitem[{Zhang et~al.(2026{\natexlab{d}})Zhang, Zhang, Qi, Zeng, Jin and
+  Zhang}]{zhang2026disentangled}
+Zhang W, Zhang B, Qi Z, Zeng W, Jin X and Zhang L (2026{\natexlab{d}})
+  Disentangled robot learning via separate forward and inverse dynamics
+  pretraining.
+\newblock \urlprefix\url{https://arxiv.org/abs/2604.16391}.
+
+\bibitem[{Zhao et~al.(2025{\natexlab{a}})Zhao, Liu, Xu, Hao, Chen and
+  Han}]{zhao2025taste}
+Zhao H, Liu X, Xu M, Hao Y, Chen W and Han X (2025{\natexlab{a}}) Taste-rob:
+  Advancing video generation of task-oriented hand-object interaction for
+  generalizable robotic manipulation.
+\newblock In: \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Conference}. pp. 27683--27693.
+
+\bibitem[{Zhao et~al.(2025{\natexlab{b}})Zhao, Zhuang, Zhao, Zeng, Xu, Jiang,
+  Cen, Wang, Guo, Huang et~al.}]{zhao2025towards}
+Zhao H, Zhuang L, Zhao X, Zeng C, Xu H, Jiang Y, Cen J, Wang K, Guo J, Huang S
+  et~al. (2025{\natexlab{b}}) Towards affordance-aware robotic dexterous
+  grasping with human-like priors.
+\newblock \emph{arXiv preprint arXiv:2508.08896} .
+
+\bibitem[{Zhao et~al.(2025{\natexlab{c}})Zhao, Zhu, Chen, Li, Xie, Zhang, Ding
+  and Tomizuka}]{zhao2025dexh2r}
+Zhao S, Zhu X, Chen Y, Li C, Xie Y, Zhang X, Ding M and Tomizuka M
+  (2025{\natexlab{c}}) Dexh2r: Task-oriented dexterous manipulation from human
+  to robots.
+\newblock \emph{IEEE/ASME Transactions on Mechatronics} .
+
+\bibitem[{Zhao et~al.(2023)Zhao, Kumar, Levine and Finn}]{zhao2023learning}
+Zhao TZ, Kumar V, Levine S and Finn C (2023) Learning fine-grained bimanual
+  manipulation with low-cost hardware.
+\newblock \emph{arXiv preprint arXiv:2304.13705} .
+
+\bibitem[{Zheng et~al.(2026{\natexlab{a}})Zheng, Ouyang, Wang, Pan and
+  Zhang}]{zheng2026video}
+Zheng L, Ouyang Z, Wang C, Pan J and Zhang W (2026{\natexlab{a}}) From video to
+  control: A survey of learning manipulation interfaces from temporal visual
+  data.
+\newblock \emph{arXiv preprint arXiv:2604.04974} .
+
+\bibitem[{Zheng et~al.(2026{\natexlab{b}})Zheng, Niu, Xie, Wang, Xu, Jiang,
+  Casta{\~n}eda, Hu, Tan, Fu et~al.}]{zheng2026egoscale}
+Zheng R, Niu D, Xie Y, Wang J, Xu M, Jiang Y, Casta{\~n}eda F, Hu F, Tan YL, Fu
+  L et~al. (2026{\natexlab{b}}) Egoscale: Scaling dexterous manipulation with
+  diverse egocentric human data.
+\newblock \emph{arXiv preprint arXiv:2602.16710} .
+
+\bibitem[{Zhou et~al.(2025{\natexlab{a}})Zhou, Cao, Ma, Fang and
+  Qi}]{zhou2025human}
+Zhou H, Cao J, Ma L, Fang X and Qi Gj (2025{\natexlab{a}}) From human hands to
+  robot arms: Manipulation skills transfer via trajectory alignment.
+\newblock \emph{arXiv preprint arXiv:2510.00491} .
+
+\bibitem[{Zhou et~al.(2025{\natexlab{b}})Zhou, Wang, Tai, Deng, Liu and
+  Jia}]{zhou2025you}
+Zhou H, Wang R, Tai Y, Deng Y, Liu G and Jia K (2025{\natexlab{b}}) You only
+  teach once: Learn one-shot bimanual robotic manipulation from video
+  demonstrations.
+\newblock \emph{arXiv preprint arXiv:2501.14208} .
+
+\bibitem[{Zhou et~al.(2026)Zhou, Gao, Hong, Liu, Zhang, Dai, Zhen, Lyu, Wu,
+  Mao, Wang, Jiang and Yang}]{zhou2026touchanything}
+Zhou J, Gao Z, Hong F, Liu Z, Zhang G, Dai W, Zhen R, Lyu C, Wu H, Mao Y, Wang
+  X, Jiang Y and Yang S (2026) The first dataset and framework for bimanual
+  tactile estimation from egocentric video.
+\newblock \url{https://github.com/Jianyi2004/TouchAnything}.
+\newblock GitHub repository.
+
+\bibitem[{Zhou et~al.(2025{\natexlab{c}})Zhou, Ma, Lin, Wang, Qiu and
+  Liang}]{zhou2025mitigating}
+Zhou J, Ma T, Lin KY, Wang Z, Qiu R and Liang J (2025{\natexlab{c}}) Mitigating
+  the human-robot domain discrepancy in visual pre-training for robotic
+  manipulation.
+\newblock In: \emph{Proceedings of the computer vision and pattern recognition
+  conference}. pp. 22551--22561.
+
+\bibitem[{Zhou et~al.(2017)Zhou, Xu and Corso}]{zhou2017towards}
+Zhou L, Xu C and Corso JJ (2017) Towards automatic learning of procedures from
+  web instructional videos.
+\newblock \emph{arXiv preprint arXiv:1703.09788} .
+
+\bibitem[{Zhou et~al.(2021)Zhou, Aytar and Bousmalis}]{zhou2021manipulator}
+Zhou Y, Aytar Y and Bousmalis K (2021) Manipulator-independent representations
+  for visual imitation.
+\newblock \emph{arXiv preprint arXiv:2103.09016} .
+
+\bibitem[{Zhu et~al.(2026{\natexlab{a}})Zhu, Fu, Dong, Sun, Qian, Wu, Paudel,
+  Xue and Fu}]{zhu2026egosound}
+Zhu B, Fu Y, Dong Q, Sun G, Qian T, Wu Y, Paudel DP, Xue X and Fu Y
+  (2026{\natexlab{a}}) Egosound: Benchmarking sound understanding in egocentric
+  videos.
+\newblock \emph{arXiv preprint arXiv:2602.14122} .
+
+\bibitem[{Zhu et~al.(2017)Zhu, Park, Isola and Efros}]{zhu2017unpaired}
+Zhu JY, Park T, Isola P and Efros AA (2017) Unpaired image-to-image translation
+  using cycle-consistent adversarial networks.
+\newblock In: \emph{Proceedings of the IEEE international conference on
+  computer vision}. pp. 2223--2232.
+
+\bibitem[{Zhu et~al.(2026{\natexlab{b}})Zhu, Kuppili, Punamiya, Aphiwetsa,
+  Patel, Kareer, Ha and Xu}]{zhu2026emma}
+Zhu LY, Kuppili P, Punamiya R, Aphiwetsa P, Patel D, Kareer S, Ha S and Xu D
+  (2026{\natexlab{b}}) Emma: Scaling mobile manipulation via egocentric human
+  data.
+\newblock \emph{IEEE Robotics and Automation Letters} .
+
+\bibitem[{Zhu et~al.(2025)Zhu, Liu, Li and Chen}]{zhu2025learning}
+Zhu X, Liu Y, Li H and Chen J (2025) Learning generalizable robot policy with
+  human demonstration video as a prompt.
+\newblock \emph{arXiv preprint arXiv:2505.20795} .
+
+\bibitem[{Zhu et~al.(2024)Zhu, Lim, Stone and Zhu}]{zhu2024vision}
+Zhu Y, Lim A, Stone P and Zhu Y (2024) Vision-based manipulation from single
+  human video with open-world object graphs.
+\newblock \emph{arXiv preprint arXiv:2405.20321} .
+
+\bibitem[{Zimmermann et~al.(2019)Zimmermann, Ceylan, Yang, Russell, Argus and
+  Brox}]{zimmermann2019freihand}
+Zimmermann C, Ceylan D, Yang J, Russell B, Argus M and Brox T (2019) Freihand:
+  A dataset for markerless capture of hand pose and shape from single rgb
+  images.
+\newblock In: \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}. pp. 813--822.
+
+\bibitem[{Zou et~al.(2026)Zou, Shi, Yu, Xue, Lv, Pan, Wen and
+  Lu}]{zou2026activeglasses}
+Zou Y, Shi C, Yu W, Xue H, Lv J, Pan Y, Wen C and Lu C (2026) Activeglasses:
+  Learning manipulation with active vision from ego-centric human
+  demonstration.
+\newblock \emph{arXiv preprint arXiv:2604.08534} .
+
+\end{thebibliography}

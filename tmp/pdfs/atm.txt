@@ -1,0 +1,1059 @@
+                                          Any-point Trajectory Modeling for Policy Learning
+                                                                                 Chuan Wen ∗1,2,5 Xingyu Lin∗1 John So∗3
+                                                                             Kai Chen6 Qi Dou6 Yang Gao2,4,5 Pieter Abbeel1
+                                                                        1 UC Berkeley   2 IIIS, Tsinghua University    3 Stanford University
+                                                                        4 Shanghai AI Laboratory     5 Shanghai Qi Zhi Institute   6 CUHK
+
+
+
+
+                                                    Instructions                                     Predicted Future Trajectories of Any Points
+                                                                                                                                                                             t
+
+
+
+
+arXiv:2401.00025v3 [cs.RO] 12 Jul 2024
+                                                      open the
+                                                       middle
+                                                    drawer of the
+                                                       cabinet
+
+
+
+
+                                                    fold the cloth
+                                                    and pull it to
+                                                       the right
+
+
+
+
+                                                     pick up the
+                                                      bag and
+                                                     place it on
+                                                      the shelf
+
+
+
+
+                                         Fig. 1: Given a task instruction and the initial positions of any set of points in an image frame, our Any-point Trajectory Model
+                                         (ATM) can predict the future trajectories of these points conditioned on the task. After training the model on an action-free
+                                         video dataset, the predicted trajectories serve as effective guidance for learning visuomotor policies for a set of language-
+                                         conditioned manipulation tasks.
+
+                                            Abstract—Learning from demonstration is a powerful method                   baselines by 80% on average. Furthermore, we show effective
+                                         for teaching robots new skills, and having more demonstration                  transfer learning of manipulation skills from human videos and
+                                         data often improves policy learning. However, the high cost of                 videos from a different robot morphology. Visualizations and
+                                         collecting demonstration data is a significant bottleneck. Videos,             code are available at: https://xingyu-lin.github.io/atm.
+                                         as a rich data source, contain knowledge of behaviors, physics,
+                                         and semantics, but extracting control-specific information from                                      I. I NTRODUCTION
+                                         them is challenging due to the lack of action labels. In this work,
+                                         we introduce a novel framework, Any-point Trajectory Modeling                     Computer vision and natural language understanding have
+                                         (ATM), that utilizes video demonstrations by pre-training a                    made significant advances in recent years [22, 7], where the
+                                         trajectory model to predict future trajectories of arbitrary                   availability of large datasets plays a critical role. Similarly,
+                                         points within a video frame. Once trained, these trajectories
+                                         provide detailed control guidance, enabling the learning of robust
+                                                                                                                        in robotics, scaling up human demonstration data has been
+                                         visuomotor policies with minimal action-labeled data. Across over              key for learning new skills [6, 34, 14], with a clear trend
+                                         130 language-conditioned tasks we evaluated in both simulation                 of performance improvement with larger datasets [29, 6].
+                                         and the real world, ATM outperforms strong video pre-training                  However, human demonstrations, typically action-labeled tra-
+                                                                                                                        jectories collected via teleoperation devices [56, 53], are
+                                           *First three authors contributed equally: Chuan Wen led the implementation   time-consuming and labor-intensive to collect. For instance,
+                                         and experiments. Xingyu Lin came up with the idea, supervised the technical
+                                         development, and contributed to model debugging. John So implemented the       collecting 130K trajectories in [6] took 17 months, making
+                                         Robot-to-robot transfer experiments and UniPi baselines.                       data collection a major bottleneck in robot learning.
+   Videos contain knowledge about behaviors, physics, and              1) We propose an Any-point Trajectory Model, a simple
+semantics, presenting an alternative data source. However,                and novel framework that bridges video pre-training to
+the lack of action labels makes utilization of video data in              policy learning, leveraging the structured representation
+policy learning difficult. Previous works have addressed this             of particle trajectories.
+by using self-supervised objectives for video pre-training to          2) Through extensive experiments on simulated bench-
+learn a feature representation of the observation for policy              marks and in the real world, we demonstrate that our
+learning [44, 33, 42]. However, a feature representation only             method can effectively utilize video data in pre-training
+describes the state at the current time step, largely neglecting          and significantly outperform various video pre-training
+the transition dynamics that predicts future states. To explicitly        baselines in an imitation learning setting.
+model the transition dynamics, prior works have developed              3) We demonstrate effective learning from cross-
+video prediction models that predict future image frames from             embodiment human and robot videos.
+current ones to guide policy learning [12, 55, 13]. However,
+learning a video prediction model for control introduces two                              II. R ELATED W ORK
+challenges. Firstly, the task of video prediction avoids any         State representation for control. In learning end-to-end
+abstraction by modeling changes to every pixel, coupling the         visuomotor policies, the policy is typically parameterized as
+physical motion with visual appearances such as texture, and         a neural network that takes image observation as the input
+lighting. This coupling makes modeling difficult, often result-      representation [38, 6, 49]. Due to the lack of inductive bias,
+ing in hallucinations and unrealistic future predictions [12].       these approaches require training on a large number of demon-
+Secondly, these models are computationally demanding in              stration trajectories, which is expensive to collect. On the
+both training and inferencing. With limited computational            other hand, different structured representations are proposed
+resources, performance significantly declines. Moreover, the         to improve the data efficiency, such as key points [36, 31],
+high inference cost compels these models to adopt open-loop          mesh [25, 19], or neural 3D representation [24, 37]. However,
+execution [12, 5], which tends to result in less robust policies.    prior structures often limit the policy to specific tasks. In
+                                                                     contrast, we propose to utilize future trajectories of arbitrary
+   In this paper, we propose a novel and structured repre-           points in the image as additional input to the policy, mak-
+sentation to bridge video pre-training and policy learning.          ing minimal assumptions about the task and environment.
+We first represent each state as a set of points in a video          We demonstrate its wide application to a set of over 130
+frame. To model the temporal structure in videos, we learn an        language-conditioned manipulation tasks. In navigation and
+Any-point Trajectory Model (ATM) that takes the positions            locomotion, it is common to construct policies that are guided
+of the points in the current frame as input and outputs their        by the future trajectories of the robot [1, 35]. In manipulation,
+future trajectories. We predict these trajectories in the camera     some works have explored flow-based guidance [15, 41, 16].
+coordinate frame to minimize the assumptions on calibrated           However, prior works only track task-specific points, such as
+cameras. These 2D point trajectories correspond to trajectories      the end-effector of the robot, or the human hand. Instead, our
+of particles in the 3D space and are a universal representation      approach works with arbitrary points, including points on the
+of the motions that can transfer to different domains and tasks.     objects, thus providing richer information in the more general
+Contrasting with the video prediction approach of tracking           settings. Finally, Vecerik et al. [48] proposes to utilize any-
+changes in pixel intensity, the particle-based trajectory mod-       point tracking for few-shot policy learning. This approach
+eling offers a faithful abstraction of the physical dynamics,        does not learn trajectory models from data, but instead mainly
+naturally incorporating inductive biases like object perma-          uses the tracker to perform visual servoing during test time.
+nence and continuous motion. We first pre-train the trajectory       This design choice requires more instrumentation, such as
+model on actionless video datasets. After pre-training, the          separating the task into multiple stages, predicting the goal
+predicted trajectories can function as subgoals to guide the         locations of the points for each stage, and running the tracker
+control policy. We then train trajectory-guided policies using       during inference time. In contrast, we present a much simpler
+only a minimal amount of action-labeled demonstration data.          framework, enabling application in more diverse settings.
+For training the ATMs, we generate self-supervised training          Video pre-training for control. Videos contain rich infor-
+data by leveraging recent advancements in vision models              mation about behaviors and dynamics, which can help policy
+for accurate point tracking [20]. Across over 130 language-          learning. However, video pre-training remains challenging due
+conditioned tasks we evaluated in both simulation and the real       to the lack of action labels. One line of works first learns
+world, ATM significantly surpasses various strong baselines          an inverse dynamics model that predicts the action from
+in video pre-training, achieving an average success rate of          two adjacent frames and then labels the videos with pseudo
+63% compared to the highest success rate of 37% by previous          actions [39, 3, 47, 40]. However, the inverse dynamics model
+methods, marking an improvement of over 80%. Additionally,           is often trained on a limited action-labeled dataset and does
+we demonstrate that our method facilitates effective transfer        not generalize well, especially for continuous actions. Prior
+learning from human videos and videos of a robot with a              works have also explored pre-train a feature representation
+different morphology. We summarize our main contributions            using various self-supervised objectives [43, 33, 28], but the
+below:                                                               representation alone does not retain the temporal information
+in videos. More recently, learning video prediction as pre-              assumptions about multi-view cameras, or the availability of
+training has shown promising results [12, 23, 4, 55, 13].                depth, allowing future scaling to more diverse video datasets.
+During policy learning, a video prediction model is used to              The tracker additionally predicts a binary visibility value vt,k
+generate future subgoals and then a goal-conditioned policy              denoting whether the point is occluded at step t.
+can be learned to reach the sub-goal. However, video pre-
+diction models often result in hallucinations and unrealistic                                     IV. M ETHOD
+physical motions. Furthermore, video models require extensive               Videos contain a great deal of prior information about the
+computation, which is an issue, especially during inference              world, capturing physical dynamics, human behaviors, and
+time. In contrast, our method models the trajectories of                 semantics that are invaluable for policy learning. Beyond just
+the points, naturally incorporating inductive bias like object           learning representations from videos [43, 33, 28], we aim to
+permanence while requiring much less computation. This                   learn a model from videos to predict future states for guiding
+enables our trajectory models to be run closed-loop during               a control policy. In this way, we can essentially decompose the
+policy execution. Furthermore, the trajectories provide dense            visuomotor policy learning challenge into two parts. The first
+guidance to the policy as a motion prior.                                part is learning what to do next by generating future states as
+Learning from Human Videos. Of particular interest, nu-                  concrete sub-goals, which is learned purely from videos. The
+merous prior works have proposed learning from the rich                  second part is learning to predict control actions to follow the
+source of human videos [54, 45, 32, 2, 46, 50]. However, these           sub-goals, which require much less data to train compared to
+works often explicitly extract the hand pose or contact regions          learning policies end-to-end. With sufficient video pre-training,
+from the human videos, thereby losing information about the              we will be able to learn generalizable policies even from
+dynamics of the remaining objects. In contrast, our method               limited action-labeled trajectories. Prior works [12, 23, 5] have
+models the trajectories of arbitrary points and can learn from           predominantly relied on pixel-level future frame prediction
+both human videos and videos of a different robot.                       as video pre-training. While video prediction is resource-
+                                                                         intensive during both training and inference stages, its focus on
+                         III. P RELIMINARY                               reconstructing pixel-level details, which are often extraneous
+   In this paper, we aim to learn robust control policies from           to policy learning, can adversely affect the efficiency of
+a small set of action-labeled demonstration trajectories. Our            subsequent policy learning.
+central goal is to leverage the more scalable, unlabeled videos             We propose Any-point Trajectory Modeling (ATM). As
+as a data source for pre-training.                                       illustrated in Figure 2, ATM is a two-stage framework: first
+Imitation from demos and videos. To begin with, we denote                learn to predict future point trajectories in a video frame
+                                            (i)
+the action-free video dataset as To = {(τo , ℓ(i) )}N   i=1 , where
+                                                          o              as the pre-training with large-scale action-free videos, then
+                                                               (i)       use the predicted trajectories to guide policy learning with
+ℓ(i) is the language instruction for the ith episode and τo =
+   (i) T
+{ot }t=1 denotes the observation-only trajectory consisting of           few-shot action-labeled demos. Our proposed method will be
+camera images. Similarly, we denote the demonstration dataset            comprehensively detailed in this section: In Sec. IV-A, we first
+              (i)
+as Ta = {(τa , ℓ(i) )}N
+                                      (i)     (i) (i) T                  describe how to learn a point trajectory prediction model from
+                        i=1 , where τa = {ot , at }t=1 is the
+                          a
+
+
+action-labeled trajectory. During imitation learning, our goal           an action-free video dataset To . Then in Sec. IV-B, we outline
+is to learn a policy πθ , parameterized by θ to mimic the expert         how we utilize the pre-trained track prediction model to learn
+behavior by the following behavioral cloning objective:                  a track-guided policy from a limited action-labeled trajectory
+                                      h                i               datasets Ta .
+         πθ∗ = arg min E(ot ,at ,ℓ)∼Ta L πθ (ot , ℓ), at ,        (1)
+                     θ                                                   A. Trajectory Modeling from Video Datasets
+where L is the loss function, which could be Mean Squared                   Our goal is to pre-train a model from videos that forecasts
+Error (MSE) or cross-entropy loss.                                       the future point trajectories in a frame. More formally, given
+Tracking Any Point (TAP). The recent advancements in                     an image observation ot at timestep t, any set of 2D query
+video tracking [17, 10, 11, 51, 57] enable us to track the               points on the image frame pt = {pt,k }K     k=1 , and a language
+trajectory of each point in video frames without external                instruction ℓ, we learn a model pt:t+H = τθ (ot , pt , ℓ) that
+supervision. In this paper, we utilize the off-the-shelf tracker         predicts the coordinates of the query points in the future
+proposed in [20]. Formally, given a sequence of images from a            H steps in the camera frame, where pt:t+H ∈ RH×K×2 .
+video o1 , ..., oT , any one of the time steps t̄ ∈ [1, T ], and a set   To model the tracks, we propose a track transformer and
+of points in that frame {pt̄,k }K k=1 , where pt̄,k = (x, y) is the      illustrate the architecture in Figure 2 (a).
+point coordinate in the camera frame, the task of tracking is to               a) Self-supervised Track Annotation.: Initially, we gen-
+predict the 2D camera-frame coordinates of the corresponding             erate point trajectories from action-free videos for trajectory
+points in every frame pt,k where t = 1 . . . T . In this paper,          modeling pre-training. As described in Sec. III, we employ
+we use the terms trajectory and track interchangeably to                 a vision tracker to pre-process videos and generate a tracking
+refer to a sequence of 2D coordinates of any point, denoted              dataset. For each video, we randomly sample a time step t̄ and
+as (p1 , . . . , pT ). We only model the 2D trajectories in the          then randomly sample points on this frame and generate their
+camera frame so that we do not have to make additional                   tracks by running the tracker. However, for a static camera,
+                               Action-free Video Dataset                                                            Action-labeled Demos
+
+
+
+                            Off-the-shelf                                                                          Language
+                              Tracker                                                                              Instruction
+
+
+
+
+                                                                                                                          Track Transformer
+                      Language                                                      ...
+                      Instruction           𝑡!       𝑡⋯    𝑡#        𝑡!   𝑡⋯   𝑡#          𝑡!   𝑡⋯   𝑡#
+
+
+                                                                                    ...
+
+                                                 Track Transformer
+
+
+                                                                                    ...                                   Track-guided Policy 𝜋
+     image token         track token
+                                                                                    ...
+     language token      masked point                𝑡⋯    𝑡#        𝑡!        𝑡#          𝑡!   𝑡⋯   𝑡#
+                                            𝑡!                            𝑡⋯                                                     action
+
+                      (a) Stage 1: Any-point Trajectory Modeling                                            (b) Stage 2: Track-guided Policy Learning
+
+Fig. 2: Overview of our framework. (a) In the first stage, given an action-free video dataset, we first sample 2D points on one
+video frame and track their trajectories throughout the video using a pre-trained tracker. We then train a track transformer to
+predict future point trajectories given the current image observation, the language instruction, and the initial positions of the
+points. For the transformer input, we replace the future point positions with masked values. (2) In the second stage, we learn
+a track-guided policy to predict the control actions. Guidance from the predicted track enables us to learn robust policies from
+only a few action-labeled demonstrations.
+
+
+most of the points that are sampled randomly will be in the                          training process, our track transformer learns the motion prior
+background, thus providing little information when training                          of particles within the video frames.
+our track transformer. To address this, we adopt a heuristic
+solution to filter out these static points: we first sample a                        B. Track-guided Policy Learning
+grid of n × n on frame t̄ and track the grid of points                                  After training a track transformer to predict future tracks
+across the whole of the video to obtain an initial set of tracks                     based on observations, we can then learn policies guided by
+         2
+τ ∈ Rn ×T ×2 . Subsequently, we filter points that have not                          these predicted trajectories.
+moved during the video by thresholding the variance of the                                 a) Arbitrary Points Tracking.: During track transformer
+point positions over time. In the final step, we resample points                     pre-training, we can filter tracks without large movements.
+around the filtered locations and finally generate their positions                   However, using this heuristic requires knowing the future
+using the tracker.                                                                   positions of each point, which can be expensive to compute
+     b) Multimodal Track Modeling.: We formalize the future                          during policy inference. Instead, we find it sufficient to simply
+forecasting problem as a multi-modal masked prediction prob-                         use a fixed set of 32 points on a grid for the policy. This
+lem: we aim to predict the future positions of each point, con-                      sampling method avoids the potential complexities of learning
+ditioned on its current position, the current image observation,                     key points or finding points to track [48] and works well
+and a language instruction of the task. We first encode different                    in practice. ATM is permutation invariant to the input set of
+modalities into a shared embedding space, each represented                           points, and we also find ATM to be robust to the distribution
+by a few tokens. For the tracks, we mask out the future                              of the points, allowing us to use a different point sampling
+positions of all points before encoding and then separately                          scheme from training for policy learning.
+encode each point into one token. For the language instruction,                            b) Track-guided Policy Learning.: A track-guided policy
+we use a pre-trained BERT [9] encoder. For the images,                               π(at |ot , pt:t+H ) takes input the current observation ot and the
+we split them into image patches and randomly masked out                             predicted tracks pt:t+H and predict the actions. A simplified
+50% of the patches. We then pass all tokens through a large                          illustration of our policy architecture is shown in Figure 3.
+transformer model. Finally, we decode the track tokens into                          Our transformer policy architecture follows the architecture
+future trajectories of the corresponding points. Additionally,                       in prior works [27, 21]. Although the predicted tracks alone
+we reconstruct the image patches from the corresponding                              already provide rich information to predict the actions, we still
+tokens following He et al. [18] as an auxiliary task, which                          incorporate contextual image observations into our policy so
+we find useful for more complex tasks. Through this pre-                             that no information is lost, as suggested in prior works [26].
+              image patch tokens            CLS token                 five suites, LIBERO-Spatial, LIBERO-Object, LIBERO-Goal,
+                                                                      LIBERO-Long, and LIBERO-90. Each suite has 10 tasks,
+              predicted track tokens
+                                                                      except LIBERO-90 which contains 90 tasks. Each task comes
+                                                                      with expert human demonstrations. LIBERO-Spatial contains
+                                                                      tasks with the same objects but different layouts; LIBERO-
+                                               early fusion
+                                                                      Object has tasks with the same layouts but different objects;
+                    Transformer                                       LIBERO-Goal has tasks with the same object categories
+                                                                      and spatial layouts, but different goals; LIBERO-Long has
+                                                                      tasks with diverse object categories and layouts, and long-
+                                               late fusion            horizon task goals; LIBERO-90 has extremely diverse object
+                                  MLP                                 categories, layouts and task goals.
+                                                                         Data. We compare with baselines on each suite separately.
+                                                                      All methods are trained on 10 action-labeled demonstration
+                                  action                              trajectories and 50 action-free video demonstration trajectories
+                                                                      of the robot for each task, amounting to 500 videos for each
+Fig. 3: A visual illustration of the architecture of the track-       10-task suite. The demonstration dataset contains RGB images
+guided policy. Given the current observation and the predicted        from a third-person camera and a wrist camera, together with
+tracks from the frozen pre-trained track transformer, we train        gripper and joint states as observations. As each task is spec-
+a track-guided policy from a limited demonstration dataset.           ified by a language instruction, we use the pre-trained BERT
+                                                                      network to obtain a task embedding [9]. Image resolution is
+                                                                      128 × 128 and the action space is 7-dimension, representing
+We incorporate the track tokens both before and after fusion          the translation, rotation, and aperture of the end-effector.
+with the image tokens (early fusion and late fusion) to ensure           Baselines. We compare with the following baselines:
+that the guiding information from tracks can be effectively              1) BC denotes the vanilla behavioral cloning which trains
+integrated. Surprisingly, as the tracks already provide the fine-            a policy exclusively using the limited action-labeled
+grained subgoals, we find that the policy no longer needs lan-               expert demonstrations, without using the video dataset.
+guage instruction at this stage as task specification. Essentially,          It uses a policy architecture identical to ATM except
+the provided tracks have reduced the difficult policy learning               that the particle trajectories are masked to be zero and it
+problems into a much easier sub-goal following problems,                     instead takes language embedding as task specification.
+reducing the policy into an inverse dynamics model. Our                      BC baseline can also be considered as an ablation for
+track-guided policy is trained with MSE loss. Note that, the                 policy learning without action-free videos. The specific
+weights of our policy model are randomly initialized rather                  architecture and losses for training the BC policy can
+than copied from the pretrained Track Transformer like other                 vary. We use BC to denote a transformer policy trained
+video-pretraining methods [33, 28], because of the aim to                    using MSE loss by default and compare with diffusion
+separately study the task guidance capability of predicted tra-              policy separately towards the end of this section.
+jectories. A detailed architecture diagram and hyperparameters           2) R3M-finetune [33] uses a contrastive learning objec-
+are available in the appendix.                                               tive for learning representation that aligns video and
+                       V. E XPERIMENTS                                       language with a combination of time contrastive losses,
+                                                                             L1 regularization, and language consistency losses. We
+   We perform experiments to answer the following questions:                 adopt the publicly released Ego4D pre-trained weights
+   • How does ATM compare with state-of-the-art video pre-                   and fine-tune the weights on our in-domain video dataset
+     training and behaviour cloning baselines for learning                   To , to initialize the behavioral cloning policy’s visual
+     from action-free videos?                                                encoder. During policy training, we also further fine-
+   • Can ATM be used for learning from video data that are                   tune the R3M backbone with the behavioral cloning
+     out of the distribution of demonstration data?                          loss. While this method captures priors from action-free
+Our experiments are split into three sections. In Sec. V-A, we               videos through representation learning, the visual repre-
+compare ATM with video pre-training baselines on over 130                    sentation lacks knowledge about the transition dynamics
+language-conditioned manipulation tasks in simulation and                    critical to decision-making.
+in the real world. In Sec. V-B, we show that ATM enables                 3) VPT [3] first trains an inverse dynamics model from the
+effective learning from human videos. Finally, we present                    action-labeled trajectories Ta and then uses it to predict
+ablation results in Sec. V-C.                                                pseudo action labels for the video dataset. With these
+                                                                             pseudo-labels, a policy is then trained with behavioral
+A. Video Pre-training for Imitation Learning                                 cloning. This method requires the inverse dynamics
+    Environments. We compare with baselines on over                          model to be robust to a wide distribution of input
+one hundred language-conditioned manipulation tasks in the                   observation, which can be difficult to learn from the
+LIBERO benchmark [27]. The benchmark is subdivided into                      limited demonstrations.
+  (a) Visualization of the tasks in the LIBERO benchmark
+                                 LIBERO-Spatial                                                      LIBERO-Object
+           pick up the black bowl in the drawer and place it on the plate               pick up the butter and place it in the basket
+
+
+
+
+                                  LIBERO-Goal                                                         LIBERO-Long
+                        put the bowl on top of the cabinet                       put the yellow and white mug in the microwave and close it
+
+
+
+
+  (b) Comparison on the performance
+
+
+
+
+Fig. 4: We compare with state-of-the-art video pre-training methods on language-conditioned manipulation tasks in the
+LIBERO benchmark [27]. (a) Visualization of the LIBERO tasks separated into four suites, focusing on different aspects
+of the manipulation policies in spatial reasoning, object reasoning, task understanding, and performing long-horizon tasks. (b)
+Quantitative comparisons on different suites. We additionally compare baselines with fast computation on a task suite containing
+90 tasks (i.e. LIBERO-90). ATM outperforms the baselines in all tasks and excels in LIBERO-Goal and LIBERO-Long.
+
+
+  4) UniPi [12, 23, 5] trains a text-conditioned video diffu-               significantly surpasses various strong baselines in video pre-
+     sion model to generate a temporally fine-grained video                 training, achieving an average success rate of 63% compared to
+     plan from an initial frame and a language instruction.                 the highest success rate of 37% by previous methods, marking
+     During policy learning, UniPi trains an inverse dynamics               an improvement of over 80%. The comparison of BC with
+     model with action-labeled data. We base our implemen-                  ATM shows that learning from additional videos provides use-
+     tation off of the UniPi implementation in Ko et al. [23].              ful information for policy learning. VPT performs poorly as we
+     While both UniPi and ATM leverage a policy condi-                      empirically observed that the pseudo-action labels predicted
+     tioned on future subgoals, a trajectory representation                 by VPT generally show large errors on the video dataset.
+     decouples motion from other pixel-based information                    UniPi fails on more complex as video prediction models are
+     and makes policy learning much easier. Please see the                  not physically grounded and often generate future frames
+     Appendix where we perform additional comprehensive                     that are not physically feasible, such as cases where robots
+     comparisons of different variations of UniPi.                          disappear from the image. ATM shows surprisingly superior
+                                                                            performance on long-horizon tasks and tasks that require an
+   Results. We present the main results in Figure 4. We see that            understanding of goals. We attribute this performance gain
+by bridging the video data and policy learning with the struc-              to ATM’s formulation, which utilizes explicit future particle
+tured representation of point trajectories, ATM (our method)
+ Task 1: Squeeze the mustard on the carrot
+ Task 2: Put the carrot into the basket                                       Policy rollout:                                            time
+ Task 3: Pour the cup into the bin                                     Put the tomato into the bowl
+ Task 4: Put the spoon into the bowl
+ Task 5: Put the tomato into the bowl
+
+
+
+
+                                              wrist
+     base                                    camera
+    camera
+
+
+
+
+Fig. 5: Real robot experiments on a dining table setup consisting of five tasks. The left figure shows our real-world setup and
+the tasks. The top right figure shows an example of the predicted particle trajectories and the policy execution, which closely
+follows the predicted trajectories. From the quantitative results, we can see that ATM shows significant improvements over
+state-of-the-art video pre-training baselines on average.
+
+
+trajectories as subgoals. At each time step, ATM predicts a          80
+future trajectory goal based on the current observation. In
+comparison to the static natural language instructions used by
+                                                                     70
+other methods, which do not change throughout the episode,           60
+ATM’s closed-loop future trajectory provides clear guidance          50
+as to what the policy needs to do next. Please see our video         40
+for failure cases of a video prediction model.
+                                                                     30
+Universality of ATM on Different Policy Classes. The                 20
+benefit of the predicted trajectories can also be shown for state-
+of-the-art policy class such as diffusion policy [8], as shown       10
+in Figure 6. Here, ATM Diffusion Policy adds the predicted            0 Spatial         Object          Goal       Long        90         Overall
+future tracks as additional condition to the policy class, while
+                                                                                   Diffusion Policy             ATM Diffusion Policy (Ours)
+keeping everything else the same. We see that ATM consis-
+tently improves the performance of diffusion policy across           Fig. 6: We implement ATM Diffusion Policy by adding the
+all the suites, achieving the highest scores on the LIBERO           predicted future trajectories as additional conditioning and
+benchmark. More details can be found in Appendix.                    show consistent improvement over the base diffusion policies
+   Real World Setup. We conduct a language-conditioned               across the benchmark suites.
+manipulation experiment in the real world to further strengthen
+our claim. As illustrated in Figure 5, we learn policies for a       TABLE I: Average success rates of human-to-robot exper-
+6-DOF UR5 robot arm using human expert demonstrations                iments. ATM trained with human videos significantly out-
+collected with the GELLO teleoperation system [53]. The              performs BC and ATM trained with only 10 robot videos,
+action space is joint position control and gripper state. The        demonstrating the cross-embodiment capability of ATM.
+observations include two RGB images from two RealSense
+cameras. To compensate for the partial observation, we stack                    Teleoperation         Human
+                                                                     Method                                    fold cloth   put tomato     sweep toys
+                                                                                   demos              videos
+the most recent two frames as the input of agents. We do not
+feed proprioception states into agents because it is reported         BC              "                %          0%          10%               30%
+that imitation policies tend to overfit them and ignore the          ATM              "                %          0%           0%               13%
+                                                                     ATM              "                "         63%          63%               60%
+visual inputs, leading to worse online rollout performance [30,
+26]. We collect a total of 50 action-labeled trajectories and
+250 action-free demonstration videos (by simply removing
+the actions from the collected action-labeled demonstrations).       B. Human-to-robot and Robot-to-robot Transfer
+From the quantitative results in Figure 5, we see consistent           By modeling the low-level any-point trajectories, ATM
+trends that ATM outperforms BC and other video pre-training          enables learning from cross-embodiment videos of humans
+baselines by a significant margin.                                   or a different robot performing the task. This facilitates the
+                        (a) Task: Fold the cloth and pull it to the right            (b) Task: Put the tomato into the pan and close the door       (c) Task: Put the tomato into the pan and close the door
+
+
+
+
+   human videos
+                                step 0                  step 1              step 2              step 0                step 1               step 2            step 0               step 1                step 2
+
+
+
+ ATM trained w/o
+
+
+  human videos
+                                step 0                  step 1              step 2              step 0                step 1               step 2             step 0               step 1               step 2
+
+
+ATM trained w/
+
+
+human videos
+                                step 0                  step 1              step 2              step 0                step 1               step 2            step 0                step 1               step 2
+
+
+
+Fig. 7: Learning robotic skills from human videos for three tasks. We collect 100 videos of a human performing the tasks
+directly and 10 teleoperation demonstration trajectories. Each row from the top to the bottom shows three snapshots from the
+human videos, ATM trained without the human videos, and ATM trained with the human videos. By comparison, we can see
+that human videos are critical in learning accurate trajectory prediction and enable the policy to successfully perform the task.
+
+                  Franka videos                                                      UR5 policy learning                                                              UR5 Pick-Place Can
+
+
+
+
+                  160 Franka Videos                           ATM – UR only             ATM – Franka only               ATM - Franka ⟹ UR
+
+Fig. 8: Cross-morphology skill transfer for a pick-and-place task. Here, we collect 160 action-free videos of a Franka arm
+and 10 action-labeled demonstrations from a UR arm, with the final goal of learning a UR policy. We compare a vanilla BC
+baseline with ATM trained using types of data: using only the 10 UR videos, using only the 160 Franka videos, and using
+both Franka and UR videos (Franka ⇒ UR). In the right plot, we observe that the additional cross-embodiment data led to
+significantly better results. Surprisingly, even if the trajectory model is only trained using Franka videos, it exhibits much better
+performance than the BC without the Franka videos.
+
+
+use of more scalable data sources. To verify this, we present                                                      significantly improving policy learning. On the other hand, as
+the results of learning from human videos in Fig. 7, with                                                          the number of action-labeled trajectories is small, BC baselines
+the quantitative results presented in Table I, and the results                                                     that only use action-labeled trajectories fail. Please refer to the
+of cross-robot transfer in Fig. 8. We compare the following                                                        videos on our website for better visualization.
+methods: (1) Learning behavior cloning policies only on the                                                        C. Ablation Analysis
+action-labeled data (2) ATM, using a track transformer trained
+only on the limited action-labeled robot data, and (3) ATM,                                                           We conduct a series of ablation experiments in simulation
+using a track transformer trained on both the action-free human                                                    to demonstrate the effect of our design choices. These include
+and action-labeled robot data. Experiments show that training                                                      the number of action-labeled trajectories needed for policy
+the trajectory model on additional cross-embodiment videos                                                         learning, the effect of the trajectory prediction horizon, image
+makes the trajectory prediction more robust and accurate,                                                          masking, and late track fusion. Besides, we also investigate
+                                                                                                                   the universality of ATM for different policy models.
+                             LIBERO-Spatial                        LIBERO-Object                                80
+                   70                                   70
+                                                                                                                70
+
+
+Success Rate (%)
+                   65
+
+
+
+
+                                                                                             Success Rate (%)
+                   60                                   65
+                                                                                                                60
+                   55                                   60
+                   50                                                                                           50
+                   45                                   55
+                   40                                                                                           40
+                                                        50
+                        4       10               20          4       10               20                        30
+                              LIBERO-Goal                          LIBERO-Long
+                                                        40                                                      20            LIBERO-Spatial        LIBERO-Goal
+                   75                                                                                                         LIBERO-Object         LIBERO-Long
+
+
+
+
+Success Rate (%)
+                   70                                   35                                                      10 4 8
+                   65                                                                                                    16              32                       64
+                                                        30
+                   60                                                                                                                track length
+                   55                                   25
+                   50                                                                      Fig. 10: We plot the success rates of the policies learned with
+                   45                                   20
+                   40                                                                      predicted trajectories of different lengths. Generally, longer
+                        4       10               20     15 4         10               20   trajectory length improves the performance, but the benefit
+                            training demos (%)                   training demos (%)        tends to plateau after 16.
+                              BC w/ 20%               BC w/ 100%             ATM
+
+   Fig. 9: Success rate of our policy trained with 4%, 10%
+   and 20% action-labeled demos. Our policy trained with only
+                                                                                           understanding of the task goal, a policy with a length of 16
+   4% demos performs comparably to BC baseline with 20%
+                                                                                           underperforms slightly compared to the model with a length
+   demos on LIBERO-Spatial, Object, and GOAL, and even
+                                                                                           of 8. We hypothesize that the longer tracks might interfere
+   better on LIBERO-Spatial. When trained on 20% demos, our
+                                                                                           with the learning of inverse dynamics due to noise. This also
+   performance approaches BC with all training data.
+                                                                                           supports our approach of employing tracks both as subgoal
+                                                                                           conditions and in leveraging the nature of inverse dynamics.
+
+   Effect of the number of action-labeled trajectories. We                                 Effect of image masking in track transformer. When train-
+   investigate the impact of track length on our policy input by                           ing the track transformer, we randomly mask out patches in the
+   training our policy using predicted tracks of varying lengths:                          images and learn to reconstruct them as an auxiliary task. We
+   4, 8, 16, 32, and 64 steps. As illustrated in Figure 10, a track                        conduct an ablation study by removing the image masking loss
+   length of 16 yields optimal performance on average. Smaller                             and comparing it against our standard configuration, where
+   track lengths significantly decrease performance, while a track                         we randomly mask out 50% of the image masks. In Table II,
+   length of 0 reduces ATM to the behavior cloning baseline with-                          the results reveal a slight decline in policy performance when
+   out any benefit of pre-training. On the other hand, larger track                        image masking is omitted, suggesting image masking can
+   lengths can also negatively impact performance, especially on                           be a useful auxiliary task, except on LIBERO-Spatial. We
+   more challenging tasks such as LIBERO-Long and LIBERO-                                  hypothesize that the auxiliary loss encourages the model to
+   Goal, as longer track predictions are noisier and less relevant                         jointly reason about different regions of an image observation.
+   for achieving short-horizon subgoals. Determining the optimal                           This bias may not be critical for the Libero-spatial tasks
+   time horizon for subgoals could be an interesting avenue for                            because the specific spatial location of interest is already fully
+   future research.                                                                        specified in the language instruction (e.g., all tasks have the
+                                                                                           format of ”pick up the black bowl at [some spatial location]”).
+   Effect of track length. The track length of our pre-trained
+   track transformer is 16 and we utilize all 16 points of each                            Effect of early and late fusion in policy architecture.
+   track by default as input for our policy. In this experiment, we                        As shown in Figure 3, the predicted tracks are fed into
+   investigate the effect of track length of our policy input, by                          the policy both before and after the transformer architecture
+   training our policy with the predicted tracks truncated into                            within the policy, which we call early fusion and late fusion
+   4, 8, and 16 steps. The results in Figure 10 demonstrate                                respectively. We conduct ablation studies by removing these
+   that longer tracks result in higher success rates in general,                           two track inputs. The results are shown in Table III. We can
+   except LIBERO-Object where track length = 8 yields the                                  see that removing the late fusion leads to the most significant
+   best performance. In particular, reducing track length leads                            performance drop; on LIBERO-Goal, w/ only early fusion
+   to larger performance drops on LIBERO-Goal and LIBERO-                                  performs similarly to other baselines, whereas only late fusion
+   Long. These tasks require a comprehensive understanding of                              performs marginally worse than our full method. This suggests
+   the task goal. Longer tracks provide more detailed and specific                         a late fusion of the predicted tracks acts as useful subgoals
+   subgoals for each task, which is crucial for guiding the agent’s                        that help the policy better understand the tasks in a multi-task
+   movements and actions in subsequent stage. Conversely, for                              learning setting. The subgoal prediction is more robust as it is
+   LIBERO-Object, which emphasizes precision operations over                               trained on a larger video dataset.
+TABLE II: Ablation study on image masking of track transformer, where “w/o image masking” represents that we do not mask
+out image patches during track transformer training and “w/ image masking” means we randomly mask 50% patches. We can
+see that mask image modeling in track transformer improves the policy performance.
+                            Image Mask Ratio             Spatial        Object          Goal            Long
+                            w/o image masking         69.17 ± 6.38   65.00 ± 3.89   74.33 ± 3.66    30.83 ± 11.43
+                        w/ image masking (default)    68.50 ± 1.78   68.00 ± 6.18   77.83 ± 0.82    39.33 ± 15.80
+
+
+TABLE III: Ablation study on the policy architecture. We explore the effect of the tracks fed into the policy in two positions:
+transformer input (early fusion) and MLP head (late fusion), as illustrated in Figure 3.
+                         early fusion   late fusion      Spatial        Object         Goal            Long
+                             "              %         44.67 ± 1.84   56.67 ± 3.09    5.33 ± 0.24   22.33 ± 4.94
+                             %              "         65.50 ± 3.89   60.00 ± 1.47   72.83 ± 4.73   42.76 ± 14.62
+                             "              "         68.50 ± 1.78   68.00 ± 6.18   77.83 ± 0.82   39.33 ± 15.80
+
+
+
+                      VI. L IMITATIONS                                                             R EFERENCES
+   One limitation is that our approach still relies on a set             [1] A Pedro Aguiar and Joao P Hespanha. Trajectory-
+of action-labeled demonstration trajectories for mapping to                  tracking and path-following of underactuated au-
+actions, which limits the generalization of the learned policies.            tonomous vehicles with parametric modeling uncertainty.
+Future works can consider learning the trajectory-following                  IEEE transactions on automatic control, 52(8):1362–
+policies using reinforcement learning so that no additional                  1379, 2007.
+demonstration data are needed. Another limitation of our                 [2] S Bahl, R Mendonca, L Chen, U Jain, and D Pathak.
+method is that the video dataset we use in this paper only                   Affordances from human videos 417 as a versatile rep-
+contains small domain gaps. Learning from in-the-wild video                  resentation for robotics. In CVPR, 2023.
+dataset poses additional challenges such as multi-modal distri-          [3] Bowen Baker, Ilge Akkaya, Peter Zhokov, Joost
+bution, diverse camera motions, and sub-optimal motions. We                  Huizinga, Jie Tang, Adrien Ecoffet, Brandon Houghton,
+leave these extensions for future work.                                      Raul Sampedro, and Jeff Clune. Video pretraining (vpt):
+                                                                             Learning to act by watching unlabeled online videos.
+                                                                             Advances in Neural Information Processing Systems, 35:
+                     VII. C ONCLUSIONS
+                                                                             24639–24654, 2022.
+   In this work, we present an any-point trajectory modeling             [4] Homanga Bharadhwaj, Abhinav Gupta, Shubham Tul-
+framework as video pre-training that effectively learns behav-               siani, and Vikash Kumar. Zero-shot robot manipu-
+iors and dynamics from action-free video datasets. After pre-                lation from passive human videos. arXiv preprint
+training, by learning a track-guided policy, we demonstrate                  arXiv:2302.02011, 2023.
+significant improvements over prior state-of-the-art approaches          [5] Kevin Black, Mitsuhiko Nakamoto, Pranav Atreya,
+and show effective learning from out-of-distribution human                   Homer Walke, Chelsea Finn, Aviral Kumar, and Sergey
+videos. We show that a particle-based representation is in-                  Levine.     Zero-shot robotic manipulation with pre-
+terpretable, structured, and naturally incorporates physical                 trained image-editing diffusion models. arXiv preprint
+inductive biases such as object permanence. We hope our                      arXiv:2310.10639, 2023.
+works will open doors to more exciting directions in learning            [6] Anthony Brohan, Noah Brown, Justice Carbajal, Yev-
+from videos with structured representations.                                 gen Chebotar, Joseph Dabis, Chelsea Finn, Keerthana
+                                                                             Gopalakrishnan, Karol Hausman, Alex Herzog, Jasmine
+                 VIII. ACKNOWLEDGEMENT                                       Hsu, et al. Rt-1: Robotics transformer for real-world
+                                                                             control at scale. arXiv preprint arXiv:2212.06817, 2022.
+   This work was supported in part by the BAIR Industrial                [7] Tom Brown, Benjamin Mann, Nick Ryder, Melanie Sub-
+Consortium, and the InnoHK of the Government of the Hong                     biah, Jared D Kaplan, Prafulla Dhariwal, Arvind Nee-
+Kong Special Administrative Region via the Hong Kong                         lakantan, Pranav Shyam, Girish Sastry, Amanda Askell,
+Centre for Logistics Robotics. This work is also supported                   et al. Language models are few-shot learners. Advances
+by the Ministry of Science and Technology of the People’s                    in neural information processing systems, 33:1877–1901,
+Republic of China, the 2030 Innovation Megaprojects “Pro-                    2020.
+gram on New Generation Artificial Intelligence” (Grant No.               [8] Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric
+2021AAA0150000), and the National Key R&D Program of                         Cousineau, Benjamin CM Burchfiel, and Shuran Song.
+China (2022ZD0161700). This work is done when Chuan Wen                      Diffusion Policy: Visuomotor Policy Learning via Action
+is visiting UC Berkeley.                                                     Diffusion. In Proceedings of Robotics: Science and
+     Systems, Daegu, Republic of Korea, July 2023. doi:               pages 16000–16009, 2022.
+     10.15607/RSS.2023.XIX.026.                                  [19] Zixuan Huang, Xingyu Lin, and David Held. Mesh-
+ [9] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and                    based dynamics model with occlusion reasoning for cloth
+     Kristina Toutanova. BERT: Pre-training of deep bidi-             manipulation. In Robotics: Science and Systems (RSS),
+     rectional transformers for language understanding. In            2022.
+     Jill Burstein, Christy Doran, and Thamar Solorio, edi-      [20] Nikita Karaev, Ignacio Rocco, Benjamin Graham, Natalia
+     tors, Proceedings of the 2019 Conference of the North            Neverova, Andrea Vedaldi, and Christian Rupprecht. Co-
+     American Chapter of the Association for Computational            tracker: It is better to track together. arXiv:2307.07635,
+     Linguistics: Human Language Technologies, Volume 1               2023.
+     (Long and Short Papers), pages 4171–4186, Minneapo-         [21] Wonjae Kim, Bokyung Son, and Ildoo Kim. Vilt: Vision-
+     lis, Minnesota, June 2019. Association for Computational         and-language transformer without convolution or region
+     Linguistics.                                                     supervision, 2021.
+[10] Carl Doersch, Ankush Gupta, Larisa Markeeva, Adrià         [22] Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi
+     Recasens, Lucas Smaira, Yusuf Aytar, João Carreira,             Mao, Chloe Rolland, Laura Gustafson, Tete Xiao,
+     Andrew Zisserman, and Yi Yang. Tap-vid: A benchmark              Spencer Whitehead, Alexander C. Berg, Wan-Yen Lo,
+     for tracking any point in a video, 2023.                         Piotr Dollar, and Ross Girshick. Segment anything. In
+[11] Carl Doersch, Yi Yang, Mel Vecerik, Dilara Gokay,                Proceedings of the IEEE/CVF International Conference
+     Ankush Gupta, Yusuf Aytar, Joao Carreira, and Andrew             on Computer Vision (ICCV), pages 4015–4026, October
+     Zisserman. Tapir: Tracking any point with per-frame              2023.
+     initialization and temporal refinement, 2023.               [23] Po-Chen Ko, Jiayuan Mao, Yilun Du, Shao-Hua
+[12] Yilun Du, Sherry Yang, Bo Dai, Hanjun Dai, Ofir                  Sun, and Joshua B Tenenbaum.              Learning to Act
+     Nachum, Joshua B Tenenbaum, Dale Schuurmans, and                 from Actionless Video through Dense Correspondences.
+     Pieter Abbeel. Learning universal policies via text-             arXiv:2310.08576, 2023.
+     guided video generation. In Thirty-seventh Conference       [24] Yunzhu Li, Shuang Li, Vincent Sitzmann, Pulkit
+     on Neural Information Processing Systems, 2023.                  Agrawal, and Antonio Torralba. 3d neural scene rep-
+[13] Alejandro Escontrela, Ademi Adeniji, Wilson Yan, Ajay            resentations for visuomotor control. arXiv preprint
+     Jain, Xue Bin Peng, Ken Goldberg, Youngwoon Lee,                 arXiv:2107.04004, 2021.
+     Danijar Hafner, and Pieter Abbeel. Video prediction         [25] Xingyu Lin, Yufei Wang, Zixuan Huang, and David
+     models as rewards for reinforcement learning. Neural             Held. Learning visible connectivity dynamics for cloth
+     Information Processing Systems, 2023.                            smoothing. In Conference on Robot Learning, 2021.
+[14] Hao-Shu Fang, Hongjie Fang, Zhenyu Tang, Jirong Liu,        [26] Xingyu Lin, John So, Sashwat Mahalingam, Fangchen
+     Chenxi Wang, Junbo Wang, Haoyi Zhu, and Cewu Lu.                 Liu, and Pieter Abbeel. Spawnnet: Learning generaliz-
+     Rh20t: A comprehensive robotic dataset for learning              able visuomotor skills from pre-trained networks. arXiv
+     diverse skills in one-shot. In Towards Generalist Robots:        preprint arXiv:2307.03567, 2023.
+     Learning Paradigms for Scalable Skill Acquisition@          [27] Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Yuke
+     CoRL2023, 2023.                                                  Zhu, Peter Stone, et al. Libero: Benchmarking knowledge
+[15] Ankit Goyal, Arsalan Mousavian, Chris Paxton, Yu-Wei             transfer for lifelong robot learning. In Thirty-seventh
+     Chao, Brian Okorn, Jia Deng, and Dieter Fox. Ifor:               Conference on Neural Information Processing Systems
+     Iterative flow minimization for robotic object rearrange-        Datasets and Benchmarks Track, 2023.
+     ment. In Proceedings of the IEEE/CVF Conference on          [28] Yecheng Jason Ma, Shagun Sodhani, Dinesh Jayaraman,
+     Computer Vision and Pattern Recognition, pages 14787–            Osbert Bastani, Vikash Kumar, and Amy Zhang. VIP:
+     14797, 2022.                                                     Towards universal visual reward and representation via
+[16] Jiayuan Gu, Sean Kirmani, Paul Wohlhart, Yao Lu,                 value-implicit pre-training. In The Eleventh International
+     Montserrat Gonzalez Arenas, Kanishka Rao, Wenhao Yu,             Conference on Learning Representations, 2023.
+     Chuyuan Fu, Keerthana Gopalakrishnan, Zhuo Xu, et al.       [29] Ajay Mandlekar, Danfei Xu, Josiah Wong, Soroush
+     Rt-trajectory: Robotic task generalization via hindsight         Nasiriany, Chen Wang, Rohun Kulkarni, Li Fei-Fei,
+     trajectory sketches. arXiv preprint arXiv:2311.01977,            Silvio Savarese, Yuke Zhu, and Roberto Martı́n-Martı́n.
+     2023.                                                            What matters in learning from offline human demon-
+[17] Adam W Harley, Zhaoyuan Fang, and Katerina Fragki-               strations for robot manipulation.           arXiv preprint
+     adaki. Particle video revisited: Tracking through occlu-         arXiv:2108.03298, 2021.
+     sions using point trajectories. In European Conference      [30] Ajay Mandlekar, Danfei Xu, Josiah Wong, Soroush
+     on Computer Vision, pages 59–75. Springer, 2022.                 Nasiriany, Chen Wang, Rohun Kulkarni, Li Fei-Fei,
+[18] Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr          Silvio Savarese, Yuke Zhu, and Roberto Martı́n-Martı́n.
+     Dollár, and Ross Girshick. Masked autoencoders are              What matters in learning from offline human demon-
+     scalable vision learners. In Proceedings of the IEEE/CVF         strations for robot manipulation. In arXiv preprint
+     conference on computer vision and pattern recognition,           arXiv:2108.03298, 2021.
+[31] Lucas Manuelli, Yunzhu Li, Pete Florence, and Russ                national conference on robotics and automation (ICRA),
+     Tedrake. Keypoints into the future: Self-supervised               pages 1134–1141. IEEE, 2018.
+     correspondence in model-based reinforcement learning,        [44] Pierre Sermanet, Corey Lynch, Yevgen Chebotar, Jas-
+     2020.                                                             mine Hsu, Eric Jang, Stefan Schaal, Sergey Levine,
+[32] Russell Mendonca, Shikhar Bahl, and Deepak Pathak.                and Google Brain. Time-contrastive networks: Self-
+     Structured world models from human videos. In RSS,                supervised learning from video. In 2018 IEEE inter-
+     2023.                                                             national conference on robotics and automation (ICRA),
+[33] Suraj Nair, Aravind Rajeswaran, Vikash Kumar, Chelsea             pages 1134–1141. IEEE, 2018.
+     Finn, and Abhinav Gupta. R3m: A universal visual             [45] Lin Shao, Toki Migimatsu, Qiang Zhang, Karen Yang,
+     representation for robot manipulation. In Conference on           and Jeannette Bohg. Concept2robot: Learning manipu-
+     Robot Learning, pages 892–909. PMLR, 2023.                        lation concepts from instructions and human demonstra-
+[34] Abhishek Padalkar, Acorn Pooley, Ajinkya Jain, Alex               tions. The International Journal of Robotics Research,
+     Bewley, Alex Herzog, Alex Irpan, Alexander Khazatsky,             40(12-14):1419–1434, 2021.
+     Anant Rai, Anikait Singh, Anthony Brohan, et al. Open        [46] Kenneth Shaw, Shikhar Bahl, and Deepak Pathak.
+     x-embodiment: Robotic learning datasets and rt-x mod-             Videodex: Learning dexterity from internet videos. In
+     els. arXiv preprint arXiv:2310.08864, 2023.                       Conference on Robot Learning, pages 654–665. PMLR,
+[35] Xue Bin Peng, Pieter Abbeel, Sergey Levine, and Michiel           2023.
+     Van de Panne. Deepmimic: Example-guided deep re-             [47] Faraz Torabi, Garrett Warnell, and Peter Stone. Behav-
+     inforcement learning of physics-based character skills.           ioral cloning from observation, 2018.
+     ACM Transactions On Graphics (TOG), 37(4):1–14,              [48] Mel Vecerik, Carl Doersch, Yi Yang, Todor Davchev,
+     2018.                                                             Yusuf Aytar, Guangyao Zhou, Raia Hadsell, Lourdes
+[36] Zengyi Qin, Kuan Fang, Yuke Zhu, Li Fei-Fei, and Silvio           Agapito, and Jon Scholz. Robotap: Tracking arbitrary
+     Savarese. Keto: Learning keypoint representations for             points for few-shot visual imitation. arXiv, 2023.
+     tool manipulation. In 2020 IEEE International Confer-        [49] Homer Rich Walke, Kevin Black, Tony Z Zhao, Quan
+     ence on Robotics and Automation (ICRA), pages 7278–               Vuong, Chongyi Zheng, Philippe Hansen-Estruch, An-
+     7285. IEEE, 2020.                                                 dre Wang He, Vivek Myers, Moo Jin Kim, Max Du,
+[37] Adam Rashid, Satvik Sharma, Chung Min Kim, Justin                 et al. Bridgedata v2: A dataset for robot learning at
+     Kerr, Lawrence Yunliang Chen, Angjoo Kanazawa, and                scale. In Conference on Robot Learning, pages 1723–
+     Ken Goldberg. Language embedded radiance fields for               1736. PMLR, 2023.
+     zero-shot task-oriented grasping. In Conference on Robot     [50] Chen Wang, Linxi Fan, Jiankai Sun, Ruohan Zhang,
+     Learning, pages 178–200. PMLR, 2023.                              Li Fei-Fei, Danfei Xu, Yuke Zhu, and Anima Anand-
+[38] Scott Reed, Konrad Zolna, Emilio Parisotto, Ser-                  kumar. Mimicplay: Long-horizon imitation learning by
+     gio Gomez Colmenarejo, Alexander Novikov, Gabriel                 watching human play. In 7th Annual Conference on
+     Barth-Maron, Mai Gimenez, Yury Sulsky, Jackie Kay,                Robot Learning, 2023.
+     Jost Tobias Springenberg, et al. A generalist agent. arXiv   [51] Qianqian Wang, Yen-Yu Chang, Ruojin Cai, Zhengqi
+     preprint arXiv:2205.06175, 2022.                                  Li, Bharath Hariharan, Aleksander Holynski, and Noah
+[39] Karl Schmeckpeper, Annie Xie, Oleh Rybkin, Stephen                Snavely. Tracking everything everywhere all at once,
+     Tian, Kostas Daniilidis, Sergey Levine, and Chelsea               2023.
+     Finn. Learning predictive models from observation and        [52] Chuan Wen, Jianing Qian, Jierui Lin, Jiaye Teng, Dinesh
+     interaction, 2019.                                                Jayaraman, and Yang Gao. Fighting fire with fire:
+[40] Dominik Schmidt and Minqi Jiang. Learning to act                  Avoiding dnn shortcuts through priming. In International
+     without actions. In The Twelfth International Confer-             Conference on Machine Learning, pages 23723–23750.
+     ence on Learning Representations, 2024. URL https:                PMLR, 2022.
+     //openreview.net/forum?id=rvUq3cxpDF.                        [53] Philipp Wu, Yide Shentu, Zhongke Yi, Xingyu Lin, and
+[41] Daniel Seita, Yufei Wang, Sarthak J Shetty, Edward Yao            Pieter Abbeel. Gello: A general, low-cost, and intuitive
+     Li, Zackory Erickson, and David Held. Toolflownet:                teleoperation framework for robot manipulators. arXiv
+     Robotic manipulation with tools via predicting tool flow          preprint arXiv:2309.13037, 2023.
+     from point clouds. In Conference on Robot Learning,          [54] Haoyu Xiong, Quanzhou Li, Yun-Chun Chen, Homanga
+     pages 1038–1049. PMLR, 2023.                                      Bharadhwaj, Samarth Sinha, and Animesh Garg. Learn-
+[42] Younggyo Seo, Kimin Lee, Stephen James, and Pieter                ing by watching: Physical imitation of manipulation
+     Abbeel. Reinforcement learning with action-free pre-              skills from human videos. In 2021 IEEE/RSJ Inter-
+     training from videos, 2022.                                       national Conference on Intelligent Robots and Systems
+[43] Pierre Sermanet, Corey Lynch, Yevgen Chebotar, Jas-               (IROS), pages 7827–7834. IEEE, 2021.
+     mine Hsu, Eric Jang, Stefan Schaal, Sergey Levine,           [55] Mengjiao Yang, Yilun Du, Kamyar Ghasemipour,
+     and Google Brain. Time-contrastive networks: Self-                Jonathan Tompson, Dale Schuurmans, and Pieter Abbeel.
+     supervised learning from video. In 2018 IEEE inter-               Learning interactive real-world simulators. arXiv preprint
+     arXiv:2310.06114, 2023.
+[56] Tianhao Zhang, Zoe McCarthy, Owen Jow, Dennis Lee,
+     Xi Chen, Ken Goldberg, and Pieter Abbeel. Deep
+     imitation learning for complex manipulation tasks from
+     virtual reality teleoperation. In 2018 IEEE International
+     Conference on Robotics and Automation (ICRA), pages
+     5628–5635. IEEE, 2018.
+[57] Yang Zheng, Adam W Harley, Bokui Shen, Gordon
+     Wetzstein, and Leonidas J Guibas. Pointodyssey: A large-
+     scale synthetic dataset for long-term point tracking. In
+     Proceedings of the IEEE/CVF International Conference
+     on Computer Vision, pages 19855–19865, 2023.
+                      A PPENDIX A                                       TABLE IV: Computation cost and inference time for different
+           A DDITIONAL E XPERIMENTAL R ESULTS                           methods on a V100 GPU. ATM performs trajectory generation
+                                                                        instead of predicting high-dimensional frames, making it the
+A. Simulation Experiments                                               most computationally efficient and feasible for closed-loop
+Numerical results. We report the numeric values for the                 control. UniPi employs a video diffusion model for open-loop
+success rates on LIBERO benchmark in Table V. All methods               future goal generation at the beginning, demanding signifi-
+use 20% of the demonstration trajectories except the oracle.            cantly higher computational resources. UniPi-Replan generates
+See Sec. A-B for details about the comparisons on UniPi and             fewer frames than UniPi using a smaller model, resulting in
+UniPi-Replan.                                                           marginally faster generation. However, its use in closed-loop
+Attention map visualization of track-guided policy. To                  control remains computationally prohibitive.
+demonstrate how tracks guide the policy, we visualize the
+                                                                                                              Close-Loop        Open-Loop
+attention maps between the spatial CLS token and RGB                             Computation
+                                                                                                      ATM        UniPi-Replan     UniPi
+tokens in the spatial transformer of BC and our method.
+                                                                            TFLOPS per generation      1.56         13.09         39.29
+Figure 11 demonstrates that our method effectively focuses                  Time per generation (s)   0.015         4.51          8.14
+on the relevant spatial regions, as specified by the textual
+instructions. Specifically, it attends to the cream cheese, bowl,
+and wine bottle in the respective example tasks, while BC is            sub-goal more frequently, we call this method UniPi-Replan,
+usually distracted by the irrelevant regions, highlighting the          similar to the implementation in [5]. The results are shown in
+superior capability of the tracks as better task prompts.               Table V. Surprisingly, we found that this variation performs
+B. Discussions on the UniPi Baselines                                   even worse than UniPi. We thus draw the conclusion
+                                                                        that a structured sub-goal representation can be much
+   UniPi [12] proposes to train a language-conditioned video            more effective than an image sub-goal. The reason is that
+diffusion model fθ during video pre-training. During policy             predicting an image goal at a fixed future time step can be
+learning, given the initial image observation o0 and the lan-           a difficult objective for the video prediction model, leading
+guage l, UniPi first generates all future frames õ1 , . . . õT −1 =   to inconsistent subgoals. Please refer to the failure videos of
+fθ (o0 , l) and then learns an inverse dynamics model that pre-         various baselines on our website. Additionally, this method
+dicts the action at each time step at = π(ot , õt+1 ). UniPi then      requires heavy computation. A comparison of the computation
+executes the actions open-loop. However, training a diffusion           needed is shown in Table IV. Due to the computation cost, we
+model to predict the full video can be computation intensive,           only evaluate UniPi-Replan on LIBERO-Object and LIBERO-
+As such, the UniPi implementation in our paper follows the              Goal and report the average success across 10 trials on one
+one in Ko et al. [23], where we predict N = 7 future frames             policy training random seed.
+as the sub-goals for the policy, denoted as õ1 , . . . õN . During
+training, we evenly sample N frames in an episode for training          C. Applying ATM to Diffusion Policy
+the video prediction model. During policy learning, we train a             In addition to the transformer policy adopted from the
+goal-conditioned policy π(at , done|ot , õi ), where i ∈ 1, . . . N    original LIBERO paper [27], our ATM can also be integrated
+is the image sub-goal and t denotes the current timestep. The           with the state-of-the-art Diffusion Policy [8]. Specifically,
+policy additionally predicts a done flag to determine when it           we implement an ATM Diffusion Policy by using predicted
+should switch from the current sub-goal õi to the next sub-            tracks as input conditions. Both the standard and ATM-based
+goal õi+1 . ATM’s superiority over UniPi can be attributed             Diffusion policies are trained with 20% of the data from
+to two reasons. First, ATM uses a more structured sub-goal              LIBERO, in the same setting as the experiment in Figure 4.
+representation of point trajectories. Second, ATM performs                 As shown in Table VI, the standard Diffusion Policy
+closed-loop inference, proposing a new sub-goal at each time            achieves impressive results on the LIBERO benchmark, even
+step, while UniPi’s video diffusion process is too slow to be           with limited training data, confirming its status as the state-of-
+referenced at every time step.                                          the-art imitation policy. Moreover, the ATM Diffusion Policy
+   To train the UniPi policy, we sample oi from a future frame          consistently outperforms the standard model, highlighting our
+ot where t ∈ [t, t + tmax ]. We choose tmax for each task               framework’s versatility and effectiveness across different pol-
+suite (tmax = 16 for LIBERO-Object and LIBERO-Spatial,                  icy architectures.
+tmax = 50 for LIBERO-Goal and LIBERO-Long). To mitigate
+dataset imbalance when learning the done flag, we sample oi as          D. Human-to-robot Transfer Details
+the next frame 10% of the time. We perform MSE regression                  To demonstrate the potential of ATM to leverage out-of-
+on both the action at and done.                                         domain videos, we design human-to-robot transfer tasks in
+   In order to decouple the two advantages of ATM over                  three different settings: 1) deformable object: fold the cloth
+UniPi additionally compare with a UniPi variation where                 and pull it to the right, 2) long horizon: put the tomato into
+we train the video prediction model to predict a fixed time             the pan and close the cabinet door, and 3) tool using: use the
+step into the future õt+H = fθ (ot ) for every H steps of              broom to sweep the toys into the dustpan and put it in front
+policy execution, where H = 8. As this variation replans the            of the dustpan. We collect 10 robot teleportation trajectories
+                                                      BC                                                           Ours
+    put the cream cheese
+          in the bowl
+
+
+       put the bowl on
+      top of the cabinet
+
+
+     put the wine bottle
+         on the rack
+
+
+
+Fig. 11: The attention maps of BC and Ours in the spatial transformer. We extract the attention weights between spatial CLS
+tokens and RGB tokens, highlighting the policy’s focus on specific spatial regions during decision-making. The heatmaps reveal
+our policy’s targeted attention on task-relevant areas, in contrast to BC’s tendency to focus on irrelevant backgrounds. This
+underscores the effectiveness of input tracks in the spatial transformer as good task prompts, guiding the CLS token to attend
+to appropriate areas.
+
+TABLE V: Average success rate on LIBERO benchmark. Our method performs consistently better than all the baselines across
+all suites. UniPi-Replan is only evaluated for a single seed due to the computation cost.
+                           Method            Libero-Spatial     Libero-Object      Libero-Goal      Libero-Long         Libero-90
+               BC-Full-Trainset (Oracle)     71.83 ± 3.70       71.00 ± 7.97       76.33 ± 1.31     24.17 ± 2.59            -
+                         BC                  39.00 ± 8.20       51.83 ± 13.54     42.50 ± 4.95     16.67 ± 3.66      29.78 ± 1.14
+                   R3M-finetune [33]         49.17 ± 3.79        52.83 ± 2.25      5.33 ± 1.43     9.17 ± 2.66        9.59 ± 0.27
+                       VPT [3]               37.83 ± 4.29        19.50 ± 0.82      3.33 ± 2.36     3.83 ± 1.65             -
+                    UniPi [12, 23]           69.17 ± 3.75        59.83 ± 3.01     11.83 ± 2.02     5.83 ± 2.08             -
+                   UniPi-Replan [5]                -                 31.00             3.00              -                 -
+                     ATM (Ours)              68.50 ± 1.78       68.00 ± 6.18      77.83 ± 0.82    39.33 ± 15.80      48.41 ± 2.09
+
+
+TABLE VI: Detailed results of Diffusion policy on LIBERO. The Diffusion policy can be further improved by our method,
+suggesting that our Any-point Trajectory Modeling framework is an important building block to apply to any policy model.
+                              Method           Libero-Spatial    Libero-Object     Libero-Goal     Libero-Long      Libero-90
+                        Diffusion Policy       67.67 ± 1.25      78.00 ± 2.45      35.00 ± 3.74   37.33 ± 2.05     33.85 ± 1.71
+                      ATM Diffusion Policy     79.00 ± 3.74      81.00 ± 2.45      58.67 ± 4.64   44.00 ± 6.38     62.89 ± 1.10
+
+
+
+(action-labeled) and 100 human manipulation videos (action-                     Transformers trained with or without human videos in Fig-
+free). We compare three methods: 1) behavioral cloning only                     ure 14. Track Transformer trained with human videos (bottom
+with 10 action-labeled robot demos, 2) ATM, training track                      row) displays well-defined attention heatmaps that primarily
+transformer with only 10 robot demos, and 3) ATM, training                      focus on the object and robot arm. Conversely, the atten-
+a track transformer with both action-free human and action-                     tion maps from the model trained without human videos
+labeled robot data. For each task, we train each method with                    (middle row) are notably more dispersed, often incorrectly
+three different random seeds, evaluate them in the real world                   focusing on background areas. This comparison highlights
+10 times, and report the average success rate in Table I.                       the effectiveness of our ATM in leveraging prior knowledge
+Human-to-Robot visualization. The detailed video visualiza-                     from human videos, facilitating successful cross-embodiment
+tions of human-to-robot skill transfer are shown in Figure 15.                  imitation learning.
+Due to limited training samples, the track transformer trained
+                                                                                                         A PPENDIX B
+with only 10 robot videos fails to predict the future point
+                                                                                                  I MPLEMENTATION D ETAILS
+trajectories, leading to low success rates. In contrast, the
+trajectory model trained with human videos generates high-                      A. Policy Architecture
+quality tracks in each frame, guiding the agent to successfully                    We include a more detailed visual of the ViT-T [27, 21]
+complete the task with only 10 action-labeled trajectories. This                policy used in our experiments in Figure 12. The input to our
+indicates our any-point trajectory modeling enables to transfer                 policy is a set of temporally stacked images across multiple
+the motion prior from cross-embodiment videos to robot skills,                  views ot ∈ RV ×T ×C×H×W , and proprioception pt ∈ RDp .
+which significantly improves policy learning.                                   To process these inputs, ViT-T consists of three stages:
+   Furthermore, we visualize the attention maps of Track
+TABLE VII: Hyperparameters of track transformer training.                             TABLE VIII: Hyperparameters of policy training.
+            Hyperparameters              Track Transformer
+                                                                                             Hyperparameters                    Policy
+                    epoch                         100
+                                                                                                    epoch                      100
+                 batch size                      1024
+                                                                                                 batch size                    512
+                  optimizer                    AdamW
+                                                                                                  optimizer                 AdamW
+               learning rate                     1e-4
+                                                                                               learning rate                  5e-4
+               weight decay                      1e-4
+                                                                                               weight decay                   1e-4
+                lr scheduler                    Cosine
+                                                                                                lr scheduler                 Cosine
+                 lr warm up                         5
+                                                                                                lr warm up                      0
+                  clip grad                        10
+                                                                                                  clip grad                    100
+              point sampling              variance filtering
+                                                                                              point sampling                   grid
+            number of points                       32
+                                                                                             number of points                   32
+                track length                       16
+                                                                                                track length                    16
+             track patch size                       4
+                                                                                                frame stack                     10
+            image mask ratio                      0.5
+                                                                                               augmentation         ColorJitter,RandomShift
+               augmentation            ColorJitter,RandomShift
+
+
+
+                     base            wrist    predicted                                               “pick up the milk and place it in the basket”
+                     view            view       tracks
+                                                   early fusion
+
+                            Spatial Transformer
+
+    time   joint, gripper     time                   time
+                                         spatial                  action
+                state                     state                    cls
+
+                                                                                             video                      1. random tracking            2. filter & retrack
+                      Temporal Transformer
+                                                                                    Fig. 13: Given a video (left), we query 1000 randomly sampled
+                                                                                    points using an off-the-shelf TAP model (middle), where
+                                                                                    each colored dot represents the starting position of a track.
+                                                                            late
+                                                       MLP Head            fusion   We then filter the tracks using a heuristic of their position
+                                                                                    displacement across the video and re-sample around these
+                                                            𝑎!                      points (right). We can see that extracted tracks are concentrated
+                                                                                    around informative objects, such as the robot’s gripper and
+Fig. 12: To summarize spatial information, we perform self-                         manipulation targets.
+attention on a sequence consisting of all views’ track and
+image patches and a CLS token. To integrate information
+across time, we perform casual self-attention between spatial                       CLS token across timesteps into a sequence, before performing
+CLS token, proprioception, and an action CLS token per                              causally-masked self attention between the sequence.
+timestep. To regress actions, we concatenate each timestep’s
+action CLS token and proposed tracks.                                               Action Head: We treat each timestep’s output independently
+                                                                                    and parameterize actions using an MLP. For each timestep,
+                                                                                    we take the action CLS token, and fuse the CLS token with
+Spatial Encoding: We encode all modalities at each timestep.                        the reconstructed tracks of the current timestep.
+We first leverage the frozen track transformer to propose
+a set of tracks for all V frames in ot . We then project                            B. Efficient Training with Point Filtering
+each modality with modality-specific encoders into a shared
+                                                                                        We adopt a heuristic to filter out the static points in the
+embedding space RD . Each modality’s tokens are embedded
+                                                                                    background and then utilize an off-the-shelf tracking model to
+using a shared learned modality token, and modality-specific
+                                                                                    generate the corresponding tracks of the large-motion points.
+positional embeddings. We then concatenate tokens across all
+                                                                                    The visualization of the sampled points before and after the
+modalities and views with a learned spatial CLS token, and
+                                                                                    filtering process is shown in Figure 13.
+perform self-attention on the sequence. We extract the spatial
+CLS token as the representation.                                                    C. Training Details
+                                                                                        We list the training hyperparameters for the track trans-
+Temporal Decoding: We process the encoded modalities                                former and track-guided policy in Table VII and VIII, which
+across timesteps into actions. We first project the                                 are fixed for all experiments on LIBERO benchmark. We train
+proprioception at each timestep into the same shared                                all models on 4 A100 GPUs with DeepSpeed strategy.
+embedding space RD . We then interleave the encoded                                    We train the track transformer using the ground truth tracks
+proprioception, the spatial CLS token, and a learned action                         generated by CoTracker [20] and save the checkpoint with
+                                                        fold the cloth and pull it to the right
+
+
+
+     human videos
+
+
+
+
+    ATM trained w/o
+     human videos
+
+
+
+
+     ATM trained w/
+     human videos
+
+
+
+
+                                 use the broom to sweep the toys into the dustpan and put it in front of the dustpan
+
+
+     human videos
+
+
+
+
+    ATM trained w/o
+     human videos
+
+
+
+
+     ATM trained w/
+     human videos
+
+
+
+
+Fig. 14: Attention maps of Track Transformer trained with and without human videos. Including large-scale human video leads
+to much clearer attention maps, focusing on the object and robot arm, while training without human videos will attend to
+incorrect areas such as background walls.
+
+
+the lowest validation loss as our final model to apply for
+policy learning. We do not incorporate frame stacking for track
+transformer to avoid causal confusion [52].
+   We train policies using the expert demonstrations provided
+by LIBERO, which is collected by human experts through
+teleoperation with 3Dconnexion Spacemouse [27]. Since the
+validation loss in behavioral cloning is not always reliable,
+we save the checkpoint of the last epoch for online rollout
+evaluation.
+                                                      fold the cloth and pull it to the right
+
+
+
+  human videos
+
+
+
+
+ ATM trained w/o
+  human videos
+
+
+
+
+ ATM trained w/
+ human videos
+
+
+
+
+                                            put the tomato into the pan and close the cabinet door
+
+
+
+  human videos
+
+
+
+
+ ATM trained w/o
+  human videos
+
+
+
+
+ ATM trained w/
+ human videos
+
+
+
+
+                               use the broom to sweep the toys into the dustpan and put it in front of the dustpan
+
+
+  human videos
+
+
+
+
+ ATM trained w/o
+  human videos
+
+
+
+
+ ATM trained w/
+ human videos
+
+
+
+
+Fig. 15: The visualizations of human demos and rollout videos of ATM policies trained with and without human data. We can
+see that ATM is able to take advantage of out-of-domain videos, i.e., human videos, to generate more precise tracks, resulting
+in better policy performance.
+
