@@ -1,0 +1,151 @@
+% !TEX program = xelatex
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{amsmath,amssymb,booktabs,tabularx}
+\usepackage{CUHKBeamer}
+
+\title[CUHK Beamer Template]{Research Presentation Title}
+\subtitle{A concise subtitle for the project or paper}
+\author[Your Name]{Your Name}
+\institute[CUHK]{Department or Programme\\The Chinese University of Hong Kong}
+\date{September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Motivation}
+
+\begin{frame}{A Clear Research Motivation}
+  Strong presentations establish the problem before introducing the method. State the
+  practical or scientific setting, isolate the unresolved question, and explain why it
+  matters to the audience.
+
+  \vspace{0.45cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{.48\textwidth}
+      \begin{block}{Context}
+        Summarise the established knowledge and the assumptions your work inherits.
+      \end{block}
+    \end{column}
+    \begin{column}{.48\textwidth}
+      \begin{alertblock}{Research gap}
+        Identify one precise limitation that the study is designed to address.
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.25cm}
+  \cuhkkeypoint{Express the research question in one sentence that can be tested.}
+\end{frame}
+
+\begin{frame}{Objectives and Contributions}
+  This template supports short talks, seminars, proposals, and thesis defences. Replace
+  the example statements below with claims supported by your own evidence.
+
+  \vspace{0.35cm}
+  \begin{enumerate}
+    \item Define the problem and evaluation setting precisely.
+    \item Present a method whose components can be inspected independently.
+    \item Report results together with limitations and validation status.
+  \end{enumerate}
+
+  \vspace{0.25cm}
+  \begin{exampleblock}{Recommended slide rhythm}
+    Alternate text, diagrams, equations, and tables instead of repeating one layout.
+  \end{exampleblock}
+\end{frame}
+
+\section{Method}
+
+\begin{frame}{Method Overview}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{.57\textwidth}
+      \centering
+      \begin{tikzpicture}[
+        node distance=.38cm,
+        box/.style={draw=CUHKPurple,very thick,rounded corners=2pt,
+          fill=CUHKSoftGray,minimum width=1.65cm,minimum height=.75cm,align=center},
+        arrow/.style={-{Latex[length=2.2mm]},thick,draw=CUHKGold}]
+        \node[box] (input) {Input};
+        \node[box,right=of input] (model) {Model};
+        \node[box,right=of model] (output) {Output};
+        \draw[arrow] (input) -- (model);
+        \draw[arrow] (model) -- (output);
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{.39\textwidth}
+      \textbf{Input}\,---,Define the data and units.\\[6pt]
+      \textbf{Model}\,---,Name the essential transformation.\\[6pt]
+      \textbf{Output}\,---,Connect predictions to evaluation.
+    \end{column}
+  \end{columns}
+
+  \vspace{0.55cm}
+  \cuhkkeypoint{A diagram should expose the data flow, not decorate the slide.}
+\end{frame}
+
+\begin{frame}{Core Formulation}
+  Let $x \in \mathbb{R}^{d}$ denote an observation and $y$ its target. A generic objective is
+  \begin{equation*}
+    \theta^{\star}=\arg\min_{\theta}\frac{1}{n}\sum_{i=1}^{n}
+    \mathcal{L}\!\left(f_{\theta}(x_i),y_i\right)+\lambda\,\Omega(\theta).
+  \end{equation*}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{.48\textwidth}
+      \begin{block}{Data term}
+        $\mathcal{L}$ measures disagreement between the prediction and observation.
+      \end{block}
+    \end{column}
+    \begin{column}{.48\textwidth}
+      \begin{block}{Regularisation}
+        $\Omega$ encodes an explicit preference; $\lambda$ controls its influence.
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{Results at a Glance}
+  \centering
+  \small
+  \begin{tabularx}{.88\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+    \toprule
+    Method & Accuracy $\uparrow$ & Error $\downarrow$ & Runtime $\downarrow$ \\
+    \midrule
+    Baseline A & 78.4 & 0.214 & 42 min \\
+    Baseline B & 81.7 & 0.186 & 55 min \\
+    \textbf{Proposed} & \textbf{85.2} & \textbf{0.151} & \textbf{38 min} \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{0.55cm}
+  \begin{alertblock}{Interpretation}
+    Replace illustrative values with verified results and state the evaluation protocol.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Conclusion}
+  The final slide should return to the original research question and distinguish evidence
+  from interpretation.
+
+  \vspace{0.4cm}
+  \begin{enumerate}
+    \item State the central empirical finding.
+    \item Explain its significance without overstating generality.
+    \item Name the most important limitation or next experiment.
+  \end{enumerate}
+
+  \vfill
+  \cuhkkeypoint{Thank you. Questions and discussion are welcome.}
+\end{frame}
+
+\end{document}

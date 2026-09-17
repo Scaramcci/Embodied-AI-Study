@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{问题与基础概念}{3}{0}{1}
+\beamer@sectionintoc {2}{EgoMimic：人机数据联合策略学习}{5}{0}{2}
+\beamer@sectionintoc {3}{VidBot：从野外视频提取 3D 交互轨迹}{15}{0}{3}
+\beamer@sectionintoc {4}{总结与方向讨论}{22}{0}{4}

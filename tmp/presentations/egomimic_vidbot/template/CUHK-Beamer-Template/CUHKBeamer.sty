@@ -1,0 +1,134 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{CUHKBeamer}[2026/09/04 CUHK presentation theme]
+
+\RequirePackage{etoolbox}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+
+\mode<presentation>
+
+% CUHK-inspired palette sampled from the supplied crest.
+\definecolor{CUHKPurple}{HTML}{6F2472}
+\definecolor{CUHKDeepPurple}{HTML}{4D174F}
+\definecolor{CUHKGold}{HTML}{E5AE2B}
+\definecolor{CUHKPaleGold}{HTML}{F7E9BB}
+\definecolor{CUHKInk}{HTML}{24212A}
+\definecolor{CUHKSoftGray}{HTML}{F4F2F5}
+\definecolor{CUHKMidGray}{HTML}{706A73}
+
+\usefonttheme[onlymath]{serif}
+
+\useoutertheme[subsection=false]{smoothbars}
+\useinnertheme{circles}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+
+\setbeamercolor{normal text}{fg=CUHKInk,bg=white}
+\setbeamercolor{structure}{fg=CUHKPurple}
+\setbeamercolor{alerted text}{fg=CUHKDeepPurple}
+\setbeamercolor{palette primary}{fg=white,bg=CUHKPurple}
+\setbeamercolor{palette secondary}{fg=white,bg=CUHKDeepPurple}
+\setbeamercolor{palette tertiary}{fg=CUHKDeepPurple,bg=CUHKGold}
+\setbeamercolor{palette quaternary}{fg=white,bg=CUHKDeepPurple}
+\setbeamercolor{section in head/foot}{fg=white,bg=CUHKPurple}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=CUHKDeepPurple}
+\setbeamercolor{frametitle}{fg=white,bg=CUHKPurple}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=CUHKPaleGold}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{institute}{fg=white}
+\setbeamercolor{date}{fg=CUHKPaleGold}
+\setbeamercolor{block title}{fg=white,bg=CUHKPurple}
+\setbeamercolor{block body}{fg=CUHKInk,bg=CUHKSoftGray}
+\setbeamercolor{block title alerted}{fg=CUHKDeepPurple,bg=CUHKGold}
+\setbeamercolor{block body alerted}{fg=CUHKInk,bg=CUHKPaleGold!55!white}
+\setbeamercolor{block title example}{fg=white,bg=CUHKDeepPurple}
+\setbeamercolor{block body example}{fg=CUHKInk,bg=CUHKPurple!7!white}
+\setbeamercolor{item projected}{fg=white,bg=CUHKPurple}
+
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{section in toc}{series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{itemize item}{\color{CUHKGold}\small\raise0.15ex\hbox{$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\color{CUHKPurple}\scriptsize\raise0.1ex\hbox{$\bullet$}}
+\setbeamertemplate{enumerate item}{%
+  \usebeamerfont*{item projected}%
+  \usebeamercolor[bg]{item projected}%
+  \begin{pgfpicture}{-1ex}{-0.65ex}{1ex}{1ex}
+    \pgfpathcircle{\pgfpoint{0pt}{0.18ex}}{1.05ex}
+    \pgfusepath{fill}
+    \pgftext[base]{\color{white}\insertenumlabel}
+  \end{pgfpicture}%
+}
+
+\newcommand{\cuhklogopath}{assets/CUHK_Logo.png}
+\newcommand{\setcuhklogo}[1]{\renewcommand{\cuhklogopath}{#1}}
+\newcommand{\cuhkwordmark}{The Chinese University\\of Hong Kong}
+
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.9ex,dp=1.15ex,leftskip=0.48cm,rightskip=0.35cm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+    \hfill
+    \tikz[baseline=-0.55ex]\fill[CUHKGold] (0,0) rectangle (0.075,1.7ex);
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode
+  \hbox{%
+    \begin{beamercolorbox}[wd=.72\paperwidth,ht=2.55ex,dp=1.05ex,leftskip=.45cm]{author in head/foot}%
+      \usebeamerfont{footline}\insertshortauthor\hspace{0.7em}\textcolor{CUHKGold}{|}\hspace{0.7em}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.28\paperwidth,ht=2.55ex,dp=1.05ex,rightskip=.42cm plus1fil]{date in head/foot}%
+      \hfill\usebeamerfont{footline}\insertshortinstitute\hspace{0.8em}\textcolor{CUHKGold}{\insertframenumber/\inserttotalframenumber}
+    \end{beamercolorbox}%
+  }
+}
+
+\defbeamertemplate*{title page}{CUHK}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[CUHKPurple] (current page.south west) rectangle (current page.north east);
+    \fill[CUHKGold] ([xshift=.715\paperwidth]current page.south west) rectangle (current page.north east);
+    \fill[CUHKDeepPurple] ([xshift=.70\paperwidth]current page.south west) rectangle ([xshift=.715\paperwidth]current page.north west);
+    \node[anchor=north east,inner sep=0pt] at ([xshift=-.65cm,yshift=-.55cm]current page.north east)
+      {\includegraphics[width=2.5cm]{\cuhklogopath}};
+    \node[anchor=south,text=CUHKDeepPurple,font=\scriptsize,align=center]
+      at ([xshift=.8575\paperwidth,yshift=.48cm]current page.south west)
+      {\cuhkwordmark};
+  \end{tikzpicture}
+  \vspace*{1.05cm}
+  \begin{minipage}{.66\textwidth}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+    \ifx\insertsubtitle\@empty\else
+      \vspace{.35cm}{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+    \fi
+    \vspace{.95cm}
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}
+    \vspace{.12cm}
+    {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}
+    \vspace{.28cm}
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}
+  \end{minipage}
+}
+
+\newcommand{\cuhkkeypoint}[1]{%
+  \begin{beamercolorbox}[rounded=true,sep=.7em,wd=\linewidth]{block body alerted}
+    \textcolor{CUHKDeepPurple}{\bfseries Key point}\quad #1
+  \end{beamercolorbox}%
+}
+
+\AtBeginSection[]{%
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection,sectionstyle=show/shaded,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+
+\mode<all>
