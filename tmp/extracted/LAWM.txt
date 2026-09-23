@@ -1,0 +1,900 @@
+                                          Latent Action Pretraining Through World Modeling
+                                                                  Bahey Tharwat1                    Yara Nasser2   Ali Abouzeid1              Ian Reid1
+                                                      1 Mohamed bin Zayed University of Artificial Intelligence, Abu Dhabi, UAE
+                                                                                     2 Alexandria University, Alexandria, Egypt
+
+
+
+
+arXiv:2509.18428v2 [cs.RO] 13 Jun 2026
+                                             (a) Pretraining stage on human demonstrations videos                     (b) Finetuning stage with robotic actions on downstream tasks
+
+
+
+                                         Figure 1: From human demonstrations to robot actions. Our framework uses human demonstration
+                                         videos for pretraining, then finetunes the pretrained model on robot actions for downstream tasks.
+
+
+                                                    Abstract: Vision-Language-Action (VLA) models have gained popularity for
+                                                    learning robotic manipulation tasks that follow language instructions. State-of-
+                                                    the-art VLAs, such as OpenVLA and π0 , were trained on large-scale, manually la-
+                                                    beled action datasets collected through teleoperation. More recent approaches, in-
+                                                    cluding LAPA and villa-X, introduce latent action representations that enable un-
+                                                    supervised pretraining on unlabeled datasets by modeling abstract visual changes
+                                                    between frames. Although these methods have shown strong results, their large
+                                                    model sizes make deployment in real-world settings challenging. In this work,
+                                                    we propose LAWM, a model-agnostic framework to pretrain imitation learning
+                                                    models in a self-supervised way, by learning latent action representations from
+                                                    unlabeled video data through world modeling. These videos can be sourced from
+                                                    robot recordings or videos of humans performing actions with everyday objects.
+                                                    Our framework is able to transfer learned knowledge across tasks, environments,
+                                                    and embodiments. It outperforms models pretrained with ground-truth robot ac-
+                                                    tions and other similar pretraining methods on the LIBERO benchmark and real-
+                                                    world setup, while being efficient and practical for real-world settings.
+
+                                         1   Introduction
+
+                                         Self-supervised learning has been a key enabler of recent breakthroughs in Large Language Models
+                                         (LLMs) such as ChatGPT [1] and Gemini [2], where models learn from large amounts of text on
+                                         the Internet. Inspired by this success, the robotics community is now ready for its own transfor-
+                                         mative moment, where we can build systems that learn action representations directly from raw,
+                                         unstructured video data, rather than relying on curated action labels.
+                                         Most current approaches to robot learning are heavily based on supervised learning frameworks.
+                                         Methods like imitation learning and VLA models, including OpenVLA [3] and π0 [4], require paired
+                                         image action datasets often obtained through teleoperation. These action annotations are expensive
+                                         to collect, difficult to scale, and prone to bias, limiting the generalizability of these systems across
+                                         tasks, environments, and embodiments.
+                                         In this work, we introduce LAWM, a Latent Action pretraining framework through World Modeling
+                                         that aims to overcome these limitations by combining an Imitation Learning Model with a World
+                                                               zₜ
+                                                                            ..
+                                    Imitation Learning                      .
+             Input Image                                            zₜ₊ₙ₋₂
+                                          Model
+                                                                       zₜ₊ₙ₋₁                               Input Image
+
+          Move the blue thing                                               Multi-step                                                                   aₜ
+                                                                                                                                                                      ..
+                                                                     Action Latents Prediction           Pick the blue cup                                            .
+                                                                                                                                   Imitation Learning
+         Language Instruction                                                                          and place it in the bowl                               aₜ₊ₙ₋₂
+                                                                                                                                         Model
+                                                                                                                                                                  aₜ₊ₙ₋₁
+                                                                                                        Language Instruction
+                                                                                                                                                                       Multi-step
+                                                                                                                                                                    Action Prediction
+                                       World Model
+
+
+                                                                                                            Robot state
+    n-frames (t → t+n-1)                                                    n-frames (t+1 → t+n)
+                                a) Latent Action Pretraining                                                                      b) Action Finetuning
+
+
+
+
+Figure 2: Overview of LAWM, which consists of two stages: (a) Latent Action Pretraining, where
+an imitation learning model predicts latent actions zt:t+n−1 from input images and language instruc-
+tions. These latents are paired with video frames and jointly optimized with a world model through
+next-frame prediction. (b) Action Finetuning, where the pretrained imitation learning model is
+adapted to downstream robotic tasks using labeled demonstrations, mapping observations (images,
+language instructions, and robot state) to ground-truth actions at:t+n−1 .
+
+
+Model. Our objective, as shown in Figure 1, is to learn action representations from both robot-
+collected and human demonstration videos in a fully self-supervised way. These learned representa-
+tions serve as action priors that can be effectively leveraged during finetuning on downstream tasks.
+The proposed framework, illustrated in Figure 2, is designed to be model-agnostic, meaning that it
+does not depend on any specific architecture for the imitation learning model or the world model.
+This flexibility allows for the integration of a variety of different models.
+Our pipeline follows a two-stage approach. The first stage performs end-to-end self-supervised
+pretraining, where the learning signal comes from next-frame prediction in video sequences. Given
+an image frame from a human or robot manipulation task and a language instruction, the imitation
+learning model predicts action chunk representations. These n latent actions are used to roll out the
+world model sequentially from the current frame, predicting each future frame step by step. The
+second stage finetunes only the imitation learning model on labeled downstream data, while the
+world model is discarded. As a result, the imitation learning model benefits from a robust prior
+learned from large-scale unlabeled videos and can be adapted efficiently to downstream robot tasks.
+We summarize our main contributions and findings below:
+
+            • We propose LAWM, a model-agnostic framework, to learn action chunk representations
+              for imitation learning models from both robot and human videos without action labels.
+
+            • Our experiments show that our framework can learn superior action priors from human
+              demonstrations and robotic manipulation videos without using ground-truth action labels.
+
+            • We demonstrate that our framework with small models such as Diffusion Policy [5] and
+              DreamerV3 [6] outperforms methods such as villa-X [7] on the LIBERO benchmark [8].
+
+
+
+2     Related Work
+
+Recent advances in Vision-Language Models (VLMs) trained on large-scale internet text, image,
+and video datasets have paved the way in Robotics for Vision-Language-Navigation (VLN) mod-
+els [9, 10, 11, 12] and for Vision-Language-Action (VLA) models [13, 4, 14, 3]. These mod-
+els extend VLMs by grounding multimodal reasoning in robotic action spaces, enabling robots
+to follow natural language instructions and generalize to new tasks. Datasets such as Open X-
+Embodiment [14] advance this direction by unifying multi-robot datasets, which supports large-scale
+models like OpenVLA [3].
+
+
+                                                                                                   2
+2.1   Imitation Learning
+
+Imitation learning methods leverage demonstrations to directly map observations to actions, en-
+abling robots to learn from expert behavior. At the large-scale end of the spectrum, OpenVLA [3] is
+a 7B parameter VLA model with dual visual encoders (DINOv2 [15] and SigLIP [16]). It is trained
+on the Open X-Embodiment [14] dataset with 970k real robot demonstrations. Similarly, π0 [4] is
+a 3.3B parameter VLA model that leverages a pretrained VLM backbone to inherit Internet-scale
+knowledge. Taking a contrasting lightweight approach, BAKU [17] is a compact 7M parameter
+model that fuses multimodal inputs: vision, proprioception, and task instructions through a FiLM-
+conditioned encoder [18] and MLPs. Its observation trunk can be either an MLP or a causal trans-
+former decoder to output actions. Another line of work explores action generation through genera-
+tive modeling. Diffusion Policy [5] frames robot control as a conditional denoising diffusion process
+that refines noisy action sequences into smooth trajectories. Building on temporal reasoning, Action
+Chunking Transformer (ACT) [19] tackles long-horizon planning by predicting ’chunks’ of future
+actions instead of single steps, reducing error accumulation and improving efficiency in long tasks.
+
+
+2.2   World Models
+
+World models learn representations of environment dynamics to support planning and control in em-
+bodied agents. DIAMOND [20] is a diffusion-based world model that shows strong performance
+in gaming environments such as CSGO. In contrast, Dreamer world models family [21, 22, 6]
+implements a more sophisticated approach through its Recurrent State-Space Model (RSSM) ar-
+chitecture, which encodes input states into stochastic representations and uses a recurrent sequence
+model to predict future states given past actions. This RSSM framework enables the agent to learn a
+world model of its environment and leverage it to plan by imagining potential future trajectories, fa-
+cilitating efficient planning and policy learning in high-dimensional control tasks. Dreamerv3 offers
+flexible scalability with model sizes ranging from 1 million to 200 million parameters.
+
+
+2.3   Latent Action Methods
+
+Early works explored the pretraining of vision encoders [23] on egocentric human videos [24], re-
+targeting human motions to robots [25], or predicting actions from inverse dynamics models [26].
+Latent action models in simulation and video games [27, 28] showed that abstract action spaces im-
+prove generalization, but remained limited to non-robotic domains. Building on these foundations,
+LAPA [29] introduced a 7B-parameter Vision-Language-Action model that learns latent actions
+through a three-stage pipeline, enabling training from unlabeled videos. However, it suffers from
+framework complexity, inference latency, and high computational cost. UniVLA [30] proposes
+learning cross-embodiment vision-language-action policies by deriving task-centric latent action
+representations from unlabeled videos. This method addresses task-irrelevant visual noise by decou-
+pling task-relevant dynamics through a two-stage training approach that leverages DINOv2 features
+and language conditioning. While UniVLA achieves state-of-the-art results with improved compu-
+tational efficiency, it still relies on relatively large models (7B-parameter Prismatic VLM backbone).
+More recently, Villa-X [7] improves upon LAPA by integrating a proprioceptive forward-dynamics
+model (FDM) into its Latent Action Model (LAM). This auxiliary component predicts future robot
+joint angles and gripper states from latent tokens. villa-X demonstrated better performance than
+LAPA on the SIMPLER benchmark [31], though it still requires the latent action module during
+finetuning and remains computationally expensive.
+
+
+3     Method
+
+LAWM consists of two stages: Latent Action Pretraining and Action Fine-tuning.
+
+
+                                                  3
+3.1   Latent Action Pretraining
+
+The pretraining stage, illustrated in Figure 2, is model-agnostic and trained end-to-end in a self-
+supervised way. This allows flexible integration of imitation learning and world model architectures.
+Given a current image frame xt and a language instruction c, the imitation learning model ILθ
+predicts a sequence of n latent actions:
+
+                                            zt:t+n−1 = ILθ (xt , c),                                    (1)
+
+where zt+n−1 = zt , zt+1 , . . . , zt+n−1 denotes the predicted latent action sequence. These latent actions
+are not supervised by ground-truth robot actions. Instead, they are used as inputs to the world
+model. Specifically, the world model WMφ is initialized from the current frame xt and rolled out
+sequentially with the n predicted latent actions to predict the next n frames:
+
+                                  x̂t+1:t+n = WMφ (xt:t+n−1 , zt:t+n−1 ) .                              (2)
+
+Thus, the model is trained by predicting the shifted future frames xt+1+n step by step from the current
+frame and the latent actions predicted by ILθ .
+In our implementation, WMφ is instantiated as a recurrent state-space model (RSSM), following
+DreamerV3 [6]. At each rollout step k ∈ {1, . . . , n}, the model updates a deterministic recurrent
+state ht+k using the previous state ŝt+k−1 and latent action zt+k−1 . It then predicts a stochastic latent
+state and reconstructs the next frame:
+
+
+                                      ht+k = fφ (ŝt+k−1 , zt+k−1 ) ,                                   (3)
+                                      ut+k ∼ qφ (ut+k | ht+k , xt+k ) ,                                 (4)
+                                      ût+k ∼ pφ (ût+k | ht+k ) ,                                      (5)
+                                      x̂t+k ∼ pφ (x̂t+k | ŝt+k ) .                                     (6)
+
+Here, ŝt+k = (ht+k , ût+k ), where ut+k denotes the internal stochastic state of the world model. The
+posterior qφ and prior pφ are modeled as categorical distributions.
+The imitation learning model ILθ and world model WMφ are optimized jointly using a next-frame
+reconstruction objective. The training signal is the MSE loss between the predicted frames and the
+ground-truth frames. Following RSSM-based world models, we also include a KL regularization
+term between posterior and prior latent distributions, weighted by β . The final objective is:
+
+                                           1 n
+                            L (θ , φ ) =     ∑ ∥xt+k − x̂t+k ∥22 + β| LKL
+                                           n k=1
+                                                                          (φ ) .
+                                                                       {z }
+                                                                                                        (7)
+                                           |      {z          } KL Regularizer
+                                                  MSE loss
+
+This training objective encourages ILθ to produce latent actions that are useful for predicting next
+frames, thereby grounding the learned action representation in the environment dynamics without
+requiring ground-truth action supervision.
+
+3.2   Action Finetuning
+
+Following the self-supervised pretraining stage, we then proceed to a finetuning stage where the
+training signal is derived from supervised learning with ground-truth actions. In this stage, the world
+model is no longer used. Instead, the pretrained imitation learning model (in our case, BAKU [17]
+or Diffusion Policy [5]) is trained on specific downstream tasks to adapt it to the target environment.
+The pretrained model benefits from a robust prior obtained in the pretraining stage from large-
+scale unlabeled video data, which enables efficient finetuning on labeled datasets. Finetuning can
+
+
+                                                       4
+                             Instruction: Pick the blue cup and place it in the bowl which is on top of the plate
+
+
+
+
+                                         Instruction: Stack the blue cup on top of the white one.
+
+                                                                                                                    Timesteps
+
+
+
+
+Figure 3: Qualitative results of our framework on the real-world manipulation setup using the 6-DoF
+Realman robot arm. Top row: Picking the blue cup and placing it in the bowl on top of the plate.
+Bottom row: Stacking the blue cup on top of the white cup. Images are shown across timesteps.
+
+
+be performed either by (i) adding an additional head that decodes the latent action representation
+into the ground-truth action space, or (ii) reinitializing the final action latent layer to match the
+dimensionality of the ground-truth action space and training it accordingly. In our implementation,
+we adopt the second strategy, reinitializing only the last action latent layer during finetuning as
+LAPA [29] demonstrated that this works better empirically.
+For both BAKU [17] and Diffusion Policy [5], finetuning adapts the pretrained imitation learning
+model ILθ to predict ground-truth actions from a collected demonstration dataset D. Each observa-
+tion ot = (xt,view1 , xt,view2 , c, pt ) may contain one or two image views, a language instruction c, and
+proprioceptive state pt . Given ot , the model predicts an action sequence ât:t+n−1 = ILθ (ot ). The
+finetuning objective can be written as:
+
+                                                       1 n
+                                   LIL (θ ) =            ∑ |ℓact (ât+k−1 , at+k−1 ) .                                  (8)
+                                                       n k=1           {z         }
+                                                                    Action prediction loss
+
+
+Here, ℓact denotes the supervised action loss used by the chosen imitation learning architecture, such
+as a likelihood-based loss for BAKU or a denoising loss for Diffusion Policy. Through this stage, the
+imitation learning model learns to map image-text inputs to explicit actions, aligning its predictions
+with supervised ground-truth demonstrations.
+
+
+4     Experiments
+
+We focus on answering the following research questions:
+
+       • Q1. Can LAWM learn superior priors compared to pretraining with ground-truth actions?
+       • Q2. How does LAWM perform compared to recent similar methods like villa-X?
+       • Q3. Do the learned latent actions correlate with ground-truth actions?
+
+4.1   Benchmarks and Environments
+
+We evaluate LAWM on diverse datasets and environments for both large-scale pretraining and down-
+stream finetuning, including BridgeData v2, a large-scale robot manipulation dataset, Something-
+Something v2, a human video dataset featuring interactions with everyday objects, LIBERO, a sim-
+ulation benchmark for robotic manipulation, and a custom real-world robot manipulation setup.
+These benchmarks cover a broad range of manipulation tasks and evaluation settings. Additional
+details regarding the datasets, task suites, and environments are provided in the Appendix C.
+
+
+                                                                    5
+4.2   Baselines and Experimental Setup
+
+We evaluate LAWM with two imitation learning baselines: BAKU [17] and Diffusion Policy [5]. To
+address our research questions (Q1–Q3), we design the following experiments (E1–E3):
+E1. Latent action priors vs. ground-truth pretraining. We establish two performance bounds
+on the LIBERO-90 benchmark. First, the baseline models are trained from scratch on LIBERO-
+90. Second, baseline models are pretrained on the ground-truth actions from BridgeData v2 [32],
+then finetuned on LIBERO-90. To evaluate our approach relative to these bounds, we pretrain our
+framework on each of Something-Something v2 [33] and BridgeData v2 [32] without action labels,
+followed by finetuning on LIBERO-90.
+E2. Comparison with similar methods. We pretrain a Diffusion Policy on human videos from
+Something-Something v2 dataset, then finetune on the LIBERO task suites (Spatial, Object, Goal,
+and Long), same as villa-X [7] and UniVLA [30], to enable direct comparison. We also compare
+with other state-of-the-art models pretrained with supervised learning on ground-truth actions and
+VLAs that are initialized from VLMs trained on internet scale data.
+E3. Correlation of latent and ground-truth actions. To quantify the correlation between our
+learned latent actions and ground-truth actions, we use Canonical Correlation Analysis (CCA). CCA
+finds linear transformations of two sets of variables such that their representations are maximally
+correlated. Given latent actions Z ∈ Rn×p and ground-truth actions Y ∈ Rn×q , CCA finds weight
+vectors a ∈ R p and b ∈ Rq that maximize the correlation between transformed variables u and v.
+
+                                         u = Za,       v = Y b,                                    (9)
+
+CCA produces pairs of canonical components (ui , vi ) that capture the linear correlations between
+latent and ground-truth actions, ordered from strongest to weakest. The first pair (u1 , v1 ), known
+as the first canonical components has the strongest correlation. The correlation factor is simply the
+Pearson correlation coefficient between transformed variables u and v.
+
+                                                cov(u, v)
+                                       ρ=p          p                                             (10)
+                                              var(u) var(v)
+
+Where cov(u, v) denotes the covariance between u and v, and var(u), var(v) are their variances.
+
+
+5     Results & Discussion
+
+We present quantitative and qualitative results of our framework across the LIBERO benchmark, its
+task suites, and a real-world setup, followed by a discussion of our findings. We use a DreamerV3
+world model with a 50M-parameter configuration and a latent action space of dimension 7, matching
+the dimensionality of the ground-truth actions. The action chunk size is set to 10 future actions
+for BAKU experiments and 16 for Diffusion Policy experiments. Performance is evaluated using
+Success Rate (SR), defined as the percentage of successful trials over the total number of attempts.
+Results are reported across three random seeds, with 30 evaluation trials per task in LIBERO and 10
+evaluation trials in the real-world setup. Additional training details are provided in the Appendix B.
+R1. Latent action priors vs. ground-truth pretraining. We use BAKU and Diffusion Policy on
+LIBERO-90 tasks as baselines. An interesting finding is that pretraining on robotics or human video
+datasets without ground-truth actions, when combined with world models, can outperform super-
+vised pretraining on action labels. We hypothesize that supervised pretraining on actions, forces the
+model to map observations to actions, which can cause it to overfit to the distribution of BridgeData
+v2 actions (specific robots, trajectories, task setups). However, world model pretraining encour-
+age the model to learn state transitions and dynamics. This generalizes better when finetuned on
+downstream tasks, since the dynamics are more universal across tasks than a specific embodiment.
+
+
+                                                   6
+(a) Success rates of BAKU on LIBERO-90 under           (b) Success rates of Diffusion Policy on LIBERO-
+different pretraining strategies.                      90 under different pretraining strategies.
+Figure 4: Comparison of success rates under different pretraining strategies for (a) BAKU and (b)
+Diffusion Policy on LIBERO-90 benchmark. WM = world modeling without action labels.
+
+
+Results on LIBERO-90
+
+As shown in Figure 4, Training from scratch provides baselines of 91.4% (BAKU) and 85.7% Diffu-
+sion Policy, while supervised pretraining on BridgeData improves performance to 92.7% and 91.9%,
+respectively. World modeling pretraining results in improvement: BAKU reaches 93.7% with
+BridgeData (WM) and 92.6% with Something-Something (WM), while Diffusion Policy achieves
+93.0% and 91.9% under the same settings. These results highlight that world modeling not only
+reduces reliance on action labels but can match or surpass supervised pretraining across models.
+
+Results on Real-world setup
+
+Pretraining our framework solely on human videos from the Something-Something v2 dataset sig-
+nificantly improves performance on real-world tasks, achieving near-perfect success rates across five
+custom downstream tasks. Training only on our custom dataset without pretraining gives an average
+success rate of 84%, which increases to 94% with our pretraining framework. As shown in Table 1,
+these results show that world modeling improves performance not just in simulation but also in real-
+world tasks. The qualitative results of our framework on real-world testing are shown in Figure 3,
+demonstrating the ability of our approach to handle complex real-world scenarios.
+
+         Table 1: Success Rates (%) on five tasks from the real-world manipulation setup.
+
+              Model                       Pick-and-place       Move    Stack   Average
+                                         1       2       3
+              BAKU w/o latent [17]      80.0   100.0   90.0    70.0     80.0     84.0
+              BAKU w/ latent (Ours)     90.0   100.0   90.0    90.0    100.0     94.0
+
+
+R2. Comparison with similar methods. We compare our framework using the diffusion policy
+model with other state-of-the-art models on the LIBERO task suites (Spatial, Object, Goal, Long).
+Table 2 compares three categories of models: 1) Models pretrained on ground-truth robotics actions
+(Octo [34], OpenVLA [3], π0 [4]). 2) Models initialized from VLMs trained on internet scale
+data (π0 [4] initialized from PaliGemma [35] and smolVLA [36] from smolVLM [37]). 3) Models
+with a similar objective to ours, relying on human videos, robot videos, or a mix of both, such as
+LAPA [29], UniVLA [30], and villa-X [7]. We first train the diffusion policy on the LIBERO task
+suites without any pretraining. Providing a baseline that underperforms UniVLA and villa-X, with
+
+
+                                                 7
+Table 2: Baseline models’ performance comparison across LIBERO task suites. Reported SR scores
+are taken directly from the original publications. LAPA results are reproduced by UniVLA authors.
+    Model                               Pretraining Method     Spatial   Object     Goal   Long    Average
+    Octo [34]                           Robot Actions            78.90   85.70     84.60   51.10    75.10
+    OpenVLA [3]                         Robot Actions            84.70   88.40     79.20   53.70    76.50
+    π0 [4]                              Robot Actions            90.00   86.00     95.00   73.00    86.00
+    π0 (Paligemma-3B) [4]               VLM Checkpoint           87.00   63.00     89.00   48.00    71.80
+    SmolVLA (SmolVLM-2.25B) [36]        VLM Checkpoint           93.00   94.00     91.00   77.00    88.75
+    LAPA [29]                           Mix Videos               73.80   74.60     58.80   55.40    65.70
+    UniVLA [30]                         Human Videos             91.20   94.20     90.20   79.40    88.70
+    villa-X [7]                         Mix Videos               97.50   97.00     91.50   74.50    90.10
+    Diffusion Policy w/o latent [5]     None                     88.10   81.40     87.50   70.50    81.87
+    Diffusion Policy w/ latent (Ours)   Human Videos             92.70   96.30     94.20   88.00    92.80
+
+
+
+our proposed pretraining framework on Something-Something v2 dataset, we further improve upon
+the diffusion policy, achieving the best average success rate across task suites.
+R3. Correlation of latent and ground-truth actions. We group actions by task type to assess
+correlation across manipulation tasks. As shown in Table 3, the first canonical component achieves
+strong correlations in all task categories: Put (0.9154), Move (0.9599), Remove (0.9098), and Take
+(0.9541). Our method shows better correlation factors than villa-X [7] in most tasks, which we
+attribute to the fact that our latent actions are predicted by an imitation learning model conditioned
+on task instruction, aligning more closely with ground-truth actions. In contrast, villa-X relies on
+inverse dynamics models, whose latents primarily capture scene transitions rather than actions.
+
+                           Table 3: CCA First Coefficient per group of tasks
+
+                         Method              Put        Move       Remove         Take
+                         villa-X [7]       0.7863       0.9174      0.9955    0.9270
+                         LAWM (Ours)       0.9154       0.9599      0.9098    0.9541
+
+
+6   Limitations
+
+Despite the proposed improvements, this work still has limitations. First, jointly training an imi-
+tation learning model and a world model can be computationally expensive, especially with recent
+VLAs and world models with billions of parameters. Second, training the world model with MSE
+image reconstruction is known for rewarding pixel accuracy over task-relevant dynamics (blur, back-
+ground shortcuts). Adding perceptual loss, optical flow loss, or masked modeling could help reduce
+shortcut learning. Third, the world model is trained only on single-view visual observations, ignor-
+ing multi-view inputs, proprioceptive data, and gripper states. This may limit its understanding of
+manipulation dynamics and scene geometry. Including these sources of information could help the
+model learn more physically grounded latent actions. We leave these explorations for future work.
+
+7   Conclusion
+
+In this paper, we introduce LAWM, a Latent Action pretraining framework for imitation learning
+models to learn high-quality action representations through World Modeling from unlabeled videos.
+We demonstrate that our method improves model performance in downstream tasks compared to
+supervised pretraining in the LIBERO benchmark and real-world setup. We also show that our
+method can be applied to human demonstration videos, where explicit action information is absent
+and the embodiment gap is substantial. LAWM provides a scalable way to learn action priors without
+relying on action labels. We expect that our work will open up the potential for building foundation
+models for robotics by pretraining large models on much larger web-scale video data.
+
+
+                                                    8
+References
+ [1] OpenAI. ChatGPT. https://chat.openai.com, 2025.
+ [2] Google. Gemini. https://gemini.google.com, 2025.
+ [3] M. J. Kim, K. Pertsch, S. Karamcheti, T. Xiao, A. Balakrishna, S. Nair, R. Rafailov, E. Foster,
+     G. Lam, P. Sanketi, et al. Openvla: An open-source vision-language-action model. arXiv
+     preprint arXiv:2406.09246, 2024.
+ [4] K. Black, N. Brown, D. Driess, A. Esmail, M. Equi, C. Finn, N. Fusai, L. Groom, K. Hausman,
+     B. Ichter, et al. π0: A vision-language-action flow model for general robot control. arXiv
+     preprint arXiv:2410.24164, 2024.
+ [5] C. Chi, Z. Xu, S. Feng, E. Cousineau, Y. Du, B. Burchfiel, R. Tedrake, and S. Song. Diffusion
+     policy: Visuomotor policy learning via action diffusion. The International Journal of Robotics
+     Research, page 02783649241273668, 2023.
+ [6] D. Hafner, J. Pasukonis, J. Ba, and T. Lillicrap. Mastering diverse domains through world
+     models. arXiv preprint arXiv:2301.04104, 2023.
+ [7] X. Chen, H. Wei, P. Zhang, C. Zhang, K. Wang, Y. Guo, R. Yang, Y. Wang, X. Xiao, L. Zhao,
+     et al. Villa-x: enhancing latent action modeling in vision-language-action models. arXiv
+     preprint arXiv:2507.23682, 2025.
+ [8] B. Liu, Y. Zhu, C. Gao, Y. Feng, Q. Liu, Y. Zhu, and P. Stone. Libero: Benchmarking knowl-
+     edge transfer for lifelong robot learning. Advances in Neural Information Processing Systems,
+     36:44776–44791, 2023.
+ [9] G. Zhou, Y. Hong, and Q. Wu. Navgpt: Explicit reasoning in vision-and-language navigation
+     with large language models. In Proceedings of the AAAI Conference on Artificial Intelligence,
+     volume 38, pages 7641–7649, 2024.
+[10] G. Zhou, Y. Hong, Z. Wang, X. E. Wang, and Q. Wu. Navgpt-2: Unleashing navigational
+     reasoning capability for large vision-language models. In European Conference on Computer
+     Vision, pages 260–278. Springer, 2024.
+[11] M. Mansour, A. Aly, B. Tharwat, S. Hashmi, D. An, and I. Reid. Language and planning
+     in robotic navigation: A multilingual evaluation of state-of-the-art models. arXiv preprint
+     arXiv:2501.05478, 2025.
+[12] L. H. K. Wong, X. Kang, K. Bai, and J. Zhang. A survey of robotic navigation and manipulation
+     with physics simulators in the era of embodied ai. arXiv preprint arXiv:2505.01458, 2025.
+[13] B. Zitkovich, T. Yu, S. Xu, P. Xu, T. Xiao, F. Xia, J. Wu, P. Wohlhart, S. Welker, A. Wahid,
+     et al. Rt-2: Vision-language-action models transfer web knowledge to robotic control. In
+     Conference on Robot Learning, pages 2165–2183. PMLR, 2023.
+[14] A. O’Neill, A. Rehman, A. Maddukuri, A. Gupta, A. Padalkar, A. Lee, A. Pooley, A. Gupta,
+     A. Mandlekar, A. Jain, et al. Open x-embodiment: Robotic learning datasets and rt-x models:
+     Open x-embodiment collaboration 0. In 2024 IEEE International Conference on Robotics and
+     Automation (ICRA), pages 6892–6903. IEEE, 2024.
+[15] M. Oquab, T. Darcet, T. Moutakanni, H. Vo, M. Szafraniec, V. Khalidov, P. Fernandez, D. Haz-
+     iza, F. Massa, A. El-Nouby, et al. Dinov2: Learning robust visual features without supervision.
+     arXiv preprint arXiv:2304.07193, 2023.
+[16] X. Zhai, B. Mustafa, A. Kolesnikov, and L. Beyer. Sigmoid loss for language image pre-
+     training. In Proceedings of the IEEE/CVF international conference on computer vision, pages
+     11975–11986, 2023.
+
+
+                                                 9
+[17] S. Haldar, Z. Peng, and L. Pinto. Baku: An efficient transformer for multi-task policy learning.
+     Advances in Neural Information Processing Systems, 37:141208–141239, 2024.
+[18] E. Perez, F. Strub, H. De Vries, V. Dumoulin, and A. Courville. Film: Visual reasoning with
+     a general conditioning layer. In Proceedings of the AAAI conference on artificial intelligence,
+     volume 32, 2018.
+[19] T. Z. Zhao, V. Kumar, S. Levine, and C. Finn. Learning fine-grained bimanual manipulation
+     with low-cost hardware. arXiv preprint arXiv:2304.13705, 2023.
+[20] E. Alonso, A. Jelley, V. Micheli, A. Kanervisto, A. J. Storkey, T. Pearce, and F. Fleuret. Dif-
+     fusion for world modeling: Visual details matter in atari. Advances in Neural Information
+     Processing Systems, 37:58757–58791, 2024.
+[21] D. Hafner, T. Lillicrap, J. Ba, and M. Norouzi. Dream to control: Learning behaviors by latent
+     imagination. arXiv preprint arXiv:1912.01603, 2019.
+[22] D. Hafner, T. Lillicrap, M. Norouzi, and J. Ba. Mastering atari with discrete world models.
+     arXiv preprint arXiv:2010.02193, 2020.
+[23] S. Nair, A. Rajeswaran, V. Kumar, C. Finn, and A. Gupta. R3m: A universal visual represen-
+     tation for robot manipulation. arXiv preprint arXiv:2203.12601, 2022.
+[24] K. Grauman, A. Westbury, E. Byrne, Z. Chavis, A. Furnari, R. Girdhar, J. Hamburger, H. Jiang,
+     M. Liu, X. Liu, et al. Ego4d: Around the world in 3,000 hours of egocentric video. In
+     Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages
+     18995–19012, 2022.
+[25] C. Wang, L. Fan, J. Sun, R. Zhang, L. Fei-Fei, D. Xu, Y. Zhu, and A. Anandkumar. Mimicplay:
+     Long-horizon imitation learning by watching human play. arXiv preprint arXiv:2302.12422,
+     2023.
+[26] Y. Du, S. Yang, B. Dai, H. Dai, O. Nachum, J. Tenenbaum, D. Schuurmans, and P. Abbeel.
+     Learning universal policies via text-guided video generation. Advances in neural information
+     processing systems, 36:9156–9172, 2023.
+[27] J. Bruce, M. D. Dennis, A. Edwards, J. Parker-Holder, Y. Shi, E. Hughes, M. Lai,
+     A. Mavalankar, R. Steigerwald, C. Apps, et al. Genie: Generative interactive environments. In
+     Forty-first International Conference on Machine Learning, 2024.
+[28] D. Schmidt and M. Jiang. Learning to act without actions. arXiv preprint arXiv:2312.10812,
+     2023.
+[29] S. Ye, J. Jang, B. Jeon, S. Joo, J. Yang, B. Peng, A. Mandlekar, R. Tan, Y.-W. Chao, B. Y. Lin,
+     et al. Latent action pretraining from videos. arXiv preprint arXiv:2410.11758, 2024.
+[30] Q. Bu, Y. Yang, J. Cai, S. Gao, G. Ren, M. Yao, P. Luo, and H. Li. Univla: Learning to act
+     anywhere with task-centric latent actions. arXiv preprint arXiv:2505.06111, 2025.
+[31] X. Li, K. Hsu, J. Gu, K. Pertsch, O. Mees, H. R. Walke, C. Fu, I. Lunawat, I. Sieh, S. Kir-
+     mani, et al. Evaluating real-world robot manipulation policies in simulation. arXiv preprint
+     arXiv:2405.05941, 2024.
+[32] H. R. Walke, K. Black, T. Z. Zhao, Q. Vuong, C. Zheng, P. Hansen-Estruch, A. W. He, V. My-
+     ers, M. J. Kim, M. Du, et al. Bridgedata v2: A dataset for robot learning at scale. In Conference
+     on Robot Learning, pages 1723–1736. PMLR, 2023.
+[33] R. Goyal, S. Ebrahimi Kahou, V. Michalski, J. Materzynska, S. Westphal, H. Kim, V. Haenel,
+     I. Fruend, P. Yianilos, M. Mueller-Freitag, et al. The” something something” video database
+     for learning and evaluating visual common sense. In Proceedings of the IEEE international
+     conference on computer vision, pages 5842–5850, 2017.
+
+
+                                                 10
+[34] O. M. Team, D. Ghosh, H. Walke, K. Pertsch, K. Black, O. Mees, S. Dasari, J. Hejna,
+     T. Kreiman, C. Xu, et al. Octo: An open-source generalist robot policy. arXiv preprint
+     arXiv:2405.12213, 2024.
+[35] L. Beyer, A. Steiner, A. S. Pinto, A. Kolesnikov, X. Wang, D. Salz, M. Neumann, I. Alabdul-
+     mohsin, M. Tschannen, E. Bugliarello, et al. Paligemma: A versatile 3b vlm for transfer. arXiv
+     preprint arXiv:2407.07726, 2024.
+[36] M. Shukor, D. Aubakirova, F. Capuano, P. Kooijmans, S. Palma, A. Zouitine, M. Aractingi,
+     C. Pascal, M. Russi, A. Marafioti, et al. Smolvla: A vision-language-action model for afford-
+     able and efficient robotics. arXiv preprint arXiv:2506.01844, 2025.
+
+[37] A. Marafioti, O. Zohar, M. Farré, M. Noyan, E. Bakouch, P. Cuenca, C. Zakka, L. B. Allal,
+     A. Lozhkov, N. Tazi, et al. Smolvlm: Redefining small and efficient multimodal models. arXiv
+     preprint arXiv:2504.05299, 2025.
+[38] J. Kaplan, S. McCandlish, T. Henighan, T. B. Brown, B. Chess, R. Child, S. Gray, A. Rad-
+     ford, J. Wu, and D. Amodei. Scaling laws for neural language models. arXiv preprint
+     arXiv:2001.08361, 2020.
+
+
+
+
+                                                11
+                                                                                Appendix
+
+
+                   92                                                                                                                   92
+                                                                           24
+
+
+                   90                                                                                                                   90
+
+
+
+Success rate (%)                                                                                                     Success rate (%)
+                                                                           22
+
+
+                   88                                          PSNR (dB)                                                                88
+                                                                           20
+
+
+                                            BAKU w/ latent                                                                                               BAKU w/ latent
+                   86                                                      18                                                           86
+                                            BAKU baseline                                       World model PSNR                                         BAKU baseline
+
+                        1 12   25      50                100                    1 12   25       50             100                           18     20      22        24
+                                    WM size (M)                                              WM size (M)                                          WM PSNR (dB)
+
+
+
+Figure 5: Effect of world model size and reconstruction quality on BAKU performance on the
+LIBERO-Long benchmark. Left: success rate improves as the world model size increases, surpass-
+ing the BAKU baseline of 89%. Middle: larger world models achieve higher PSNR. Right: success
+rate generally increases with world model PSNR, suggesting that improved world model prediction
+quality correlates with better downstream policy performance.
+
+
+A                   Additional Experiments
+
+In addition to the main results, we conduct a series of experiments to better understand the properties
+of action priors learned from large-scale human manipulation videos. Specifically, we investigate
+(1) how scaling the world model affects downstream performance and reconstruction quality, (2)
+whether pretraining reduces the amount of expert robot demonstrations required during finetuning,
+(3) whether pretrained policies solve tasks more efficiently at test-time, and (4) qualitative results of
+image pairs that exhibit similar latent actions and results of world model rollouts.
+
+A.1                     Scaling World Model Size
+
+We investigate how the capacity of the pretrained world model affects downstream robotic manip-
+ulation performance. Specifically, we train world models with different numbers of parameters on
+the Something-Something v2 dataset, and then use the learned representations to finetune BAKU on
+the challenging LIBERO-Long benchmark.
+Figure 5 shows that increasing the world model size consistently improves its visual prediction
+quality. The Peak Signal-to-Noise Ratio (PSNR), which represents the reconstructed image quality,
+increases from 17.65 for the 1M-parameter model to 23.75 for the 100M-parameter model, indicat-
+ing that larger world models learn more accurate predictive representations. This trend suggests that
+world model prediction quality benefits directly from increased model capacity.
+More importantly, this improvement in world model quality translates to better downstream finetun-
+ing performance. The LIBERO-Long success rate increases from 86.7% with the 1M world model
+to 91.0% with the 50M and 100M models. Smaller world models remain below the BAKU baseline
+of 89.0%, whereas larger models surpass it, reaching 90.0% at 25M parameters and 91.0% at 50M
+parameters. This suggests that sufficiently large world models provide more useful representations
+for downstream policy finetuning.
+However, we observe that downstream performance begins to saturate at larger model sizes. Al-
+though PSNR continues to improve when scaling the world model from 50M to 100M parameters,
+
+
+                                                                                        12
+the success rate remains fixed at 91.0%. This indicates that improved visual prediction quality alone
+may not always yield proportional gains in downstream control once the policy reaches a certain
+performance level. Consistent with scaling-law behavior [38], we hypothesize that further gains
+may require scaling both the world model capacity and the amount of pretraining data. Since our
+current experiments use only 10% of Something-Something v2, increasing the data scale together
+with model size may allow larger world models to learn richer predictive representations and further
+improve downstream manipulation performance.
+
+
+A.2   Reducing Expert Demonstration Requirements
+
+A key motivation for pretraining is to reduce the amount of expert robot data required for down-
+stream finetuning. To evaluate this, we finetune a policy pretrained on human video data with vary-
+ing numbers of expert robot demonstrations and compare its performance against a diffusion policy
+baseline trained without latent pretraining on the LIBERO-Long benchmark.
+Starting from the standard setting of 50 expert demonstrations, we evaluate finetuning with 5, 10,
+20, 30, 40, and 45 demonstrations, corresponding to 10%, 20%, 40%, 60%, 80%, and 90% of the
+full demonstration budget. Figure 6 shows that increasing the number of finetuning demonstrations
+generally improves the performance of the pretrained policy, with the success rate rising from 46.0%
+with 5 demonstrations to 88.0% with 50 demonstrations.
+Importantly, latent pretraining enables effective finetuning with substantially fewer expert demon-
+strations. With only 20 demonstrations, the pretrained policy achieves a success rate of 77.0%, out-
+performing the baseline diffusion policy trained from scratch with the full 50 demonstrations, which
+achieves 70.5%. Since 20 demonstrations correspond to only 40% of the full 50-demonstration set-
+ting, this means that the pretrained policy requires less than half of the expert robot demonstrations
+while still surpassing the fully trained baseline.
+These results indicate that the action priors learned during pretraining substantially improve the
+sample efficiency during finetuning. In particular, latent pretraining reduces the dependence on
+costly expert robot demonstrations and enables the policy to achieve strong downstream performance
+even in relatively low-data finetuning regimes.
+
+
+
+
+                                   90
+
+
+
+
+                Success rate (%)
+                                   80
+
+                                   70
+
+                                   60
+
+                                   50                               Diffusion Policy w/ latent
+                                                                    Diffusion Policy Baseline
+                                   40
+                                        5   10       20           30          40   45     50
+                                                 Number of expert demonstrations
+
+Figure 6: Success rate of diffusion policy on the LIBERO-Long benchmark as a function of the num-
+ber of expert demonstrations used for finetuning. The dashed horizontal line denotes the baseline
+trained from scratch on 50 demonstrations (100%) achieving 70.5%, while the red line shows that
+increasing the number of finetuning demonstrations consistently improves performance, achieving
+88.0% with 50 demonstrations.
+
+
+
+                                                           13
+A.3     Task Completion Efficiency
+
+Beyond task success, we investigate whether pretraining improves the efficiency with which policies
+complete tasks. Specifically, we measure the average number of environment steps required to
+successfully solve tasks after finetuning.
+Table 4 compares a pretrained and a non-pretrained diffusion policy on the LIBERO task suites. We
+find that the model initialized from pretrained world models completes tasks in fewer interaction
+steps on average, requiring an average of 81 steps compared to 102 steps for policies trained from
+scratch, which is a 20% reduction in completion steps. This result suggests that pretraining not only
+improves success rates but also leads to more efficient behavior.
+
+               Table 4: Number of completion steps across task suites. Lower is better.
+
+           Method                              Spatial   Object   Goal    Long     Average
+           Diffusion Policy Baseline             94        62       82     170         102
+           Diffusion Policy w/ latent (Ours)     89        49       54     133          81
+
+
+A.4     Qualitative Results
+
+A.4.1    Latent Actions Similarity
+We perform a qualitative analysis of the learned latent actions by computing the cosine similarity
+between latent action representations, and then visualize the corresponding image pairs with high
+similarity scores. As shown in Figure 7, these pairs correspond to similar underlying robot behav-
+iors, highlighting that the learned latent action captures a meaningful action-related structure.
+
+
+
+
+  Put the cube                Move the red         Remove the yellow             Take the red
+
+
+                 Figure 7: Examples of image pairs exhibiting similar latent actions
+
+
+A.4.2    World Model Rollouts
+We further visualize qualitative examples of world model rollouts after the pretraining stage. Given
+an initial frame and a predicted action chunk from the imitation learning model, the world model
+predicts the future frames. We emphasize that high-fidelity video generation is not an objective of
+our approach, since the world model is not used in any further stages. Instead, these rollouts serve
+as a qualitative check that the learned latent actions are grounded in meaningful video dynamics.
+
+
+                                                 14
+As shown in Figure 8, the predicted rollouts capture coherent object motion and scene changes,
+suggesting that the latent actions encode transitions that can support downstream policy finetuning.
+
+
+                                                                                      Timestep
+
+
+    Prediction
+
+
+
+
+Ground-truth
+
+
+                                                 Close The Drawer
+
+
+
+    Prediction
+
+
+
+
+Ground-truth
+
+
+                                                 Open The Drawer
+
+
+
+    Figure 8: Qualitative examples of world model rollouts using latent actions after pretraining.
+
+
+B     Implementation and Training Details
+
+Our framework consists of an imitation learning model and a world model used only during pre-
+training. The imitation learning model receives image observations, a language instruction, and a
+proprioceptive state. Image observations are encoded with a ResNet-18 image encoder. The model
+supports two camera views, a static third-person view, and a gripper-mounted view, and both views
+share the same image encoder weights. Language instructions are encoded with a CLIP text en-
+coder to produce a task embedding, while proprioceptive inputs are encoded with a lightweight
+MLP. The resulting image, language, and proprioceptive embeddings are fused by a fusion network.
+For BAKU, the fusion module is a GPT-style transformer that receives a sequence of tokens con-
+taining the language embedding, visual tokens from each camera view, the proprioceptive token,
+and a learned action token. The output at the action token is passed to an MLP action head that
+predicts a chunk of future actions. For Diffusion Policy, the image and proprioceptive embeddings
+are concatenated and projected into an observation embedding, which is then concatenated with the
+language embedding and used as global conditioning for a conditional one-dimensional U-Net. The
+U-Net serves as the action prediction head and denoises a sequence of noisy actions using a DDIM
+diffusion process.
+During pretraining, the framework uses a single image view and the text instruction, while the sec-
+ond camera view and proprioceptive inputs are set to zero. Importantly, the full imitation learning
+model architecture is still instantiated during pretraining, which keeps the network structure iden-
+tical between pretraining and finetuning. Since the image encoder is shared across camera views,
+the encoder trained on the single available pretraining view can be reused for both views during
+finetuning. The proprioceptive encoder is also present during pretraining but receives zero inputs, so
+it begins learning meaningful proprioceptive representations during finetuning. The world model,
+Dreamerv3, which is only used in pretraining, consists of an image encoder that maps images to
+latent states, a recurrent dynamics model that predicts future latent states conditioned on actions,
+
+
+                                                 15
+Table 5: Hyperparameters used for pretraining and finetuning. All values are shared across different
+datasets, simulation, and real-world experiments.
+                 Pretraining                                              Finetuning
+
+     Name                          Value                     Name                          Value
+     Epochs                           50                     Epochs                          105
+     Batch size                      256                     Batch size                      256
+     Optimizer                    AdamW                      Optimizer                    AdamW
+     Learning rate                1 × 10−4                   Learning rate                1 × 10−4
+     Weight decay                 1 × 10−6                   Weight decay                 1 × 10−6
+     Gradient clipping               100                     Gradient clipping               100
+     Image resolution                128                     Image resolution                128
+     Task embedding dimension        512                     Task embedding dimension        512
+     Latent Action dimension           7                     Action dimension                 7
+     Proprioception dimension          -                     Proprioception dimension         5
+     World model enabled            True                     World model enabled            False
+     Gripper camera enabled         False                    Gripper camera enabled         True
+     Proprioception enabled         False                    Proprioception enabled         True
+
+
+
+and a decoder that reconstructs images from latent states. The policy and world model use separate
+image encoders; sharing these encoders is an interesting direction for future work.
+During finetuning, the world model is discarded and only the imitation learning policy is optimized.
+All imitation learning model components are finetuned, including the image encoder, language pro-
+jection, proprioceptive encoder, fusion network, and action head. If the latent action dimension used
+during pretraining differs from the ground-truth robot action dimension, the final action prediction
+layer must be reinitialized to match the downstream action space. In our robot setup, the ground-
+truth action is 7-dimensional, corresponding to a 6-DoF end-effector pose and a gripper state. Since
+we use a 7-dimensional latent action space during pretraining, no action layer reinitialization is
+required, and the complete pretrained policy is reused as is during finetuning.
+Table 5 summarizes the hyperparameters used in both the pretraining and finetuning stages. Unless
+otherwise stated, these settings are shared across all datasets, simulation experiments, and real-world
+experiments.
+
+C    Benchmarks and Environments Details
+
+We evaluate LAWM across diverse datasets and environments that enable both large-scale pretrain-
+ing and downstream finetuning. An overview of the benchmarks used in our work is shown in
+Figure 9.
+
+       • BridgeData v2 (BDv2) [32]: A large-scale dataset comprising 60,096 trajectories col-
+         lected across 24 environments using a low-cost robot. It supports multi-task and multi-
+         environment learning, featuring diverse manipulation tasks such as pick-and-place, push-
+         ing, and folding, with over 100 objects involved.
+       • Something-Something v2 (SSv2) [33]: A video dataset containing 220,847 labeled video
+         clips of humans performing actions with everyday objects. Although not a robotic dataset,
+         it is widely used for training models in multi-modal and temporal understanding tasks.
+       • LIBERO Benchmark [8]: The LIBERO benchmark contains LIBERO-90, which are 90
+         tasks spanning diverse objects, layouts, and goals, and is often used as the default evaluation
+         benchmark in many works. LIBERO also has four task suites: LIBERO-Spatial evaluates
+         the model performance in novel layouts with the same tasks and object types, LIBERO-
+         Object evaluates the model performance with novel object types with the same tasks and
+         layouts, LIBERO-Goal evaluates the model performance under novel tasks with the same
+         types and layouts of objects, and LIBERO-Long evaluates the model’s performance under
+
+
+                                                  16
+        a diverse set of objects, layouts, and backgrounds, focusing on long-horizon tasks. Each
+        task suite contains 10 tasks with 50 demonstrations per task for finetuning.
+      • Real-world Setup: We further validate our approach on a real-world tabletop manipulation
+        setup using a 6-DoF Realman robot arm equipped with a 1-DoF gripper. We collect a
+        custom dataset comprising five tasks: three pick-and-place tasks, one stacking task, and one
+        object-moving task. Each scene was captured from two fixed, distinct camera viewpoints
+        to provide multi-view observations. For each task, we recorded 50 demonstrations using
+        human teleoperation with a Meta Quest VR controller. The task instructions are:
+        Pick-and-Place: (i) Put both cups on the plate, (ii) Pick the blue cup and place it in the
+        bowl which is on top of the plate, (iii) Pick the pineapple out of the pot and place it in
+        between the cups; Move: Move the pineapple to the pot and the roll to the plate; Stack:
+        Stack the blue cup on top of the white one.
+
+
+
+
+                    Figure 9: Benchmarks used for pretraining and finetuning.
+
+
+D    Compute Resources
+
+All experiments were conducted on a single A100 GPU with default settings, unless otherwise spec-
+ified: a DreamerV3 world model with 50M parameters configuration and a latent action space of
+dimension 7, the same dimension as the ground-truth actions. The action chunk size is set to 10
+future actions for BAKU experiments and 16 for Diffusion Policy experiments. We only use 10%
+of the Something-Something v2 dataset for pretraining. With these settings, pretraining on each of
+the datasets BridgeData v2 and Something-Something v2 requires approximately 48 hours, while
+finetuning on LIBERO-90 takes around 24 hours, and finetuning on the LIBERO suites (Spatial,
+Object, Goal, Long) takes approximately 3 hours each. Finetuning on our custom real-world dataset
+takes only about 20 minutes.
+
+
+
+
+                                                17
+
