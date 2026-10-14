@@ -1,25 +1,27 @@
 # 论文与中文译稿
 
-| 文件 | 出处 | 页数 | SHA-256 |
-|---|---|---:|---|
-| `ObjRetarget_2026.pdf` | arXiv:2607.03828v1, 2026-07-04 | 8 | `a10c92bbbc1c3f349290e5bc58a1989b15a13f2196be394f4b7f60deff76ca30` |
-| `DexTele_2026.pdf` | arXiv:2607.05883v1, 2026-07-07 | 8 | `0716a7978eb87f8665b664719d7735404e231cae27aa565732a512f42b55175c` |
-| `EgoMimic.pdf` | arXiv:2410.24221v1, 2024-10-31 | 12 | `227fe304bd198d2c54242ec3aaf5c7eaa78579059820228f46005734a3784c85` |
+目录与 [论文分类.xmind](../Xmind/论文分类.xmind) 保持一致：24 篇核心论文、6 篇条件保留论文。每篇的原文、译稿、笔记及已有代码保留在同一目录。
 
-官方页面：
+## 核心保留
 
-- <https://arxiv.org/abs/2607.03828>
-- <https://arxiv.org/abs/2607.05883>
-- <https://arxiv.org/abs/2410.24221>
+| 分类 | 论文 |
+|---|---|
+| 机器人化图像与训练对 | [Masquerade](<核心保留/机器人化图像与训练对/Masquerade>)、[Ego2Robot](<核心保留/机器人化图像与训练对/Ego2Robot>)、[Qwen-RobotManip](<核心保留/机器人化图像与训练对/Qwen-RobotManip>)、[H2R](<核心保留/机器人化图像与训练对/H2R>) |
+| 重定向轨迹与机器人动作 | [Do as I Do](<核心保留/重定向轨迹与机器人动作/Do as I Do>)、[MimicDroid](<核心保留/重定向轨迹与机器人动作/MimicDroid>) |
+| 手动作与动作 token | [VITRA](<核心保留/手动作与动作 token/VITRA>)、[Being-H0](<核心保留/手动作与动作 token/Being-H0>)、[Being-H0.5](<核心保留/手动作与动作 token/Being-H0.5>) |
+| 轨迹与可供性监督 | [VidBot](<核心保留/轨迹与可供性监督/VidBot>)、[ATM](<核心保留/轨迹与可供性监督/ATM>)、[HRP](<核心保留/轨迹与可供性监督/HRP>)、[VLAff](<核心保留/轨迹与可供性监督/VLAff>)、[Track2Act](<核心保留/轨迹与可供性监督/Track2Act>) |
+| 潜动作伪标签 | [LAPA](<核心保留/潜动作伪标签/LAPA>)、[LAWM](<核心保留/潜动作伪标签/LAWM>)、[JALA](<核心保留/潜动作伪标签/JALA>)、[UniVLA](<核心保留/潜动作伪标签/UniVLA>)、[CoMo](<核心保留/潜动作伪标签/CoMo>)、[villa-X](<核心保留/潜动作伪标签/villa-X>) |
+| 视觉与世界预测预训练样本 | [LDA-1B](<核心保留/视觉与世界预测预训练样本/LDA-1B>)、[RynnWorld-4D](<核心保留/视觉与世界预测预训练样本/RynnWorld-4D>) |
+| 生成视频与伪动作训练对 | [DreamGen](<核心保留/生成视频与伪动作训练对/DreamGen>) |
+| 视频奖励监督 | [LRM](<核心保留/视频奖励监督/LRM>) |
 
-中文学习稿：
+## 条件保留
 
-- `ObjRetarget_2026_中文翻译.md` / `ObjRetarget_2026_中文翻译.pdf`
-- `DexTele_2026_中文翻译.md` / `DexTele_2026_中文翻译.pdf`
-- `EgoMimic_中文翻译.md` / `EgoMimic_中文翻译.pdf`
+- [MimicPlay](<条件保留/MimicPlay>)
+- [HumanScale](<条件保留/HumanScale>)
+- [Being-H0.7](<条件保留/Being-H0.7>)
+- [MPI](<条件保留/MPI>)
+- [Zero-WAM](<条件保留/Zero-WAM>)
+- [HuDOR（ObjectRewards）](<条件保留/HuDOR（ObjectRewards）>)
 
-译稿保留原文章节、公式和图表编号；图片对照原始 PDF，参考文献保留英文书目信息以便检索。Markdown 版本便于边读边记，PDF 版本便于连续阅读。
-
-本目录不保存作者代码或外部数据集。
-
-2026-09-01 已核对：三篇原始论文及对应中文译稿均可解析文本，所有页面均可正常渲染，无缺页或明显损坏。
+EgoMimic 按原约定保留在 [Egomimic](Egomimic/)，不纳入本轮分类。已排除的 12 篇及其配套译稿已删除，筛选理由见 [筛选记录](补充论文来源_20261014.md)。
